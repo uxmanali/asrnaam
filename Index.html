@@ -1242,27 +1242,24 @@ function generateReading(){
 
 function buildReading(yn,fn,mn){
   const letters = parseName(yn);
-  if(!letters.length) return '<p style="color:#8A8A8A;font-style:italic;padding:20px;">Could not read this name. Try typing it differently or in Arabic script.</p>';
+  if(!letters.length) return '<p style="color:#8A8A8A;font-style:italic;padding:20px;">Could not read this name. Try typing it differently.</p>';
 
   const nameKey = yn.trim().split(/\s+/)[0].toLowerCase();
   const nm = NAME_MEANINGS[nameKey] || null;
+  const firstName = yn.split(' ')[0];
   const first = letters[0];
-  const last = letters[letters.length-1];
-  const mid = letters.slice(1, -1);
+  const last = letters[letters.length - 1];
   const fl = L[first];
   const ll = L[last];
-  const hasAr = isAr(yn.split(' ')[0]);
-  const inDict = !!D[nameKey];
-  const firstName = yn.split(' ')[0];
   let html = '';
 
-  // ── Header ──────────────────────────────────────────
+  // ── Header ───────────────────────────────────────────
   html += `<div class="r-header">
     <div class="r-name">${yn}</div>
     <div class="r-sub">A Reading Through the Science of Letters</div>
   </div>`;
 
-  // ── Letter cards (simple, clean) ─────────────────────
+  // ── Letter cards ─────────────────────────────────────
   html += `<div class="letters-row">`;
   letters.forEach((k, i) => {
     const l = L[k]; if(!l) return;
@@ -1277,124 +1274,132 @@ function buildReading(yn,fn,mn){
   html += `</div>`;
 
   // ═══════════════════════════════════════════════════════
-  // LAYER 1 — THREE FOUNDATIONS
+  // SECTION 1 — Dictionary and root meaning of the name
   // ═══════════════════════════════════════════════════════
-
-  // ── 1. What the name means ───────────────────────────
   if(nm) {
     html += `<div class="r-section highlight">
       <div class="r-label">What This Name Means</div>
       <div class="r-text">
-        <p><strong style="color:#8B6914">${nm.arabic} — ${nm.root}</strong></p>
-        <p style="margin-top:10px"><strong>Dictionary:</strong> ${nm.dict_meaning}</p>
-        <p style="margin-top:10px"><strong>The Arabic root</strong> ${nm.root}: ${nm.root_meaning}</p>
-        ${nm.quran_usage ? `<p style="margin-top:10px"><strong>In the Quran:</strong> ${nm.quran_usage}</p>` : ''}
+        <p><strong style="color:#8B6914">${nm.arabic} &nbsp;·&nbsp; Root: ${nm.root}</strong></p>
+        <p style="margin-top:12px"><strong>Dictionary:</strong> ${nm.dict_meaning}</p>
+        <p style="margin-top:10px"><strong>The root</strong> ${nm.root_meaning}</p>
         ${nm.historical ? `<p style="margin-top:10px"><strong>The one who bore it:</strong> ${nm.historical}</p>` : ''}
-      </div>
-    </div>`;
-  } else {
-    // For names not in dictionary — give what we can from the parser
-    html += `<div class="r-section highlight">
-      <div class="r-label">What This Name Means</div>
-      <div class="r-text">
-        <p>This name is not yet in our detailed dictionary. The letter reading below is based on the Arabic letters parsed from the name. If you can type the name in Arabic script, the reading will be more precise.</p>
-      </div>
-    </div>`;
-  }
-
-  // ── 2. What the name asks of the bearer ─────────────
-  if(nm && nm.character_note) {
-    html += `<div class="r-section">
-      <div class="r-label">What This Name Asks of the Bearer</div>
-      <div class="r-text">
-        <p>${nm.character_note}</p>
-      </div>
-    </div>`;
-  }
-
-  // ── 3. The Science of Letters — Ilm ul Huroof ────────
-  if(fl) {
-    html += `<div class="r-section">
-      <div class="r-label">The First Letter · Ilm ul Huroof</div>
-      <span class="r-ar">${fl.arabic} — ${fl.name}</span>
-      <div class="r-text">
-        <p>${fl.core}</p>
-        <p style="margin-top:10px">${fl.in_name ? fl.in_name.split('.')[0] + '.' : fl.character.split('.')[0] + '.'}</p>
-      </div>
-    </div>`;
-  }
-
-  // Interior letters — only if they add meaningful insight
-  const uMid = [...new Set(mid)];
-  if(uMid.length && fl) {
-    // Build elemental interaction narrative — only the most meaningful one
-    const interestingPairs = [];
-    for(let i = 0; i < letters.length - 1; i++) {
-      const l1 = L[letters[i]], l2 = L[letters[i+1]];
-      if(!l1 || !l2) continue;
-      const key = l1.element + '+' + l2.element;
-      const interact = EL_INTERACT[key];
-      if(interact && l1.element !== l2.element) {
-        interestingPairs.push({l1, l2, interact, key});
-      }
-    }
-
-    html += `<div class="r-section">
-      <div class="r-label">The Letters Within · What They Produce Together</div>
-      <div class="r-text">`;
-
-    // Most significant interaction
-    if(interestingPairs.length > 0) {
-      const most = interestingPairs[0];
-      html += `<p>The name does not end at the first letter. Within <span class="kw">${yn}</span>, the letter <span class="kw">${most.l1.arabic} (${most.l1.name})</span> meets <span class="kw">${most.l2.arabic} (${most.l2.name})</span>. In classical Ilm ul Huroof, ${most.interact.reading}</p>`;
-    }
-
-    // Dark letter note if present — just one clean paragraph
-    const darkInName = uMid.filter(k => L[k] && L[k].nature === 'DARK');
-    if(darkInName.length > 0) {
-      const dk = L[darkInName[0]];
-      html += `<p style="margin-top:12px">The letter <span class="kw">${dk.arabic} (${dk.name})</span> inside this name is one of the seven letters absent from Surah Al-Fatiha. Ibn Arabi and al-Buni both note that these letters carry an intensified version of their elemental nature — a greater gift and a greater shadow at the same position. ${dk.dark_note || ''}</p>`;
-    }
-
-    html += `</div></div>`;
-  }
-
-  // Final letter if different and meaningful
-  if(ll && last !== first) {
-    html += `<div class="r-section">
-      <div class="r-label">The Final Letter · How the Name Closes</div>
-      <span class="r-ar">${ll.arabic} — ${ll.name}</span>
-      <div class="r-text">
-        <p>${ll.in_name ? ll.in_name.split('.')[0] + '.' : ll.character.split('.')[0] + '.'}</p>
-      </div>
-    </div>`;
-  }
-
-  // Muqattaat — only if letters from the name appear — one clean section
-  const muqPresent = [...new Set(letters.filter(k => MUQ_SET.has(k)))];
-  if(muqPresent.length > 0) {
-    const topMuq = muqPresent.slice(0, 2); // Show max 2 to keep it clean
-    html += `<div class="r-section" style="border-left-color:#8B6914">
-      <div class="r-label">Quranic Resonance</div>
-      <div class="r-text">
-        <p>${topMuq.map(k => {
-          const l = L[k];
-          if(!l) return '';
-          return `<span class="kw">${l.arabic} (${l.name})</span> — ${l.muq_note ? l.muq_note.split('.')[0] + '.' : ''}`;
-        }).join(' ')} </p>
-        <p style="margin-top:10px;font-style:italic;color:#8A8A8A;font-size:0.92rem">These letters appear among the Haroof e Muqatta'at — the disconnected letters that open certain surahs of the Quran. Ibn Arabi considers their presence in a name a form of inheritance — the name carries something of the surah they open.</p>
       </div>
     </div>`;
   }
 
   // ═══════════════════════════════════════════════════════
-  // LAYER 2 PROMPT — simple, honest
+  // SECTION 2 — Every single letter, read individually
+  // This must not skip any letter. Each one gets its own reading.
+  // ═══════════════════════════════════════════════════════
+  html += `<div class="r-section">
+    <div class="r-label">The Letters of ${firstName} — Each One Read</div>
+    <div class="r-text">
+      <p style="margin-bottom:20px">In Ilm ul Huroof, every letter of a name carries its own meaning and contributes to the person who bears it. The reading begins with each letter individually — what it means, what it carries — before the whole is synthesised.</p>`;
+
+  // Build a deduplicated ordered list preserving first occurrence position
+  const seenKeys = new Set();
+  const orderedUnique = [];
+  letters.forEach((k, i) => {
+    if(!seenKeys.has(k) && L[k]) {
+      seenKeys.add(k);
+      // Record position role
+      const isFirst = i === 0;
+      const isLast = i === letters.length - 1 && letters.length > 1;
+      const role = isFirst ? 'first' : isLast ? 'last' : 'interior';
+      orderedUnique.push({k, l: L[k], role});
+    }
+  });
+
+  orderedUnique.forEach(({k, l, role}) => {
+    const roleLabel = role === 'first'
+      ? 'First letter — the outward nature, how the world sees this person'
+      : role === 'last'
+      ? 'Final letter — how the name resolves, what this person leaves behind'
+      : 'Interior letter — the hidden character, what runs beneath the surface';
+
+    // Choose the right reading for the position
+    const posReading = role === 'first'
+      ? l.character
+      : role === 'last'
+      ? (l.in_name || l.character)
+      : l.character;
+
+    const isDark = l.nature === 'DARK';
+
+    html += `<div style="margin-top:22px; padding:18px 22px; background:${isDark ? 'rgba(100,30,20,0.04)' : 'rgba(139,105,20,0.04)'}; border-left:3px solid ${isDark ? 'rgba(150,50,30,0.5)' : 'rgba(139,105,20,0.35)'}">
+      <div style="display:flex; align-items:baseline; gap:14px; margin-bottom:12px; flex-wrap:wrap">
+        <span style="font-family:'Amiri',serif; font-size:2.2rem; color:#8B6914; line-height:1">${l.arabic}</span>
+        <div>
+          <strong style="color:#8B6914; font-size:1rem">${l.name}${isDark ? ' &nbsp;<span style="font-size:0.72rem;color:#8B2020;font-style:italic">dark letter</span>' : ''}</strong><br>
+          <span style="font-size:0.78rem; color:#8A8A8A; font-style:italic">${roleLabel}</span>
+        </div>
+      </div>
+      <p><em style="color:#6B4F10">${l.core}</em></p>
+      <p style="margin-top:10px">${posReading}</p>
+      ${isDark && l.dark_note ? `<p style="margin-top:10px; font-size:0.92rem; color:#8B2020; font-style:italic">${l.dark_note}</p>` : ''}
+    </div>`;
+  });
+
+  html += `</div></div>`;
+
+  // ═══════════════════════════════════════════════════════
+  // SECTION 3 — The complete portrait
+  // What kind of person typically carries this name
+  // Synthesise the letters + name meaning into a real human portrait
+  // ═══════════════════════════════════════════════════════
+  const ps = PS[first];
+
+  html += `<div class="r-section highlight" style="border-left-color:rgba(139,105,20,0.85)">
+    <div class="r-label">The Complete Portrait — What This Name Produces</div>
+    <div class="r-text">`;
+
+  // Open with name meaning impact if available
+  if(nm && nm.character_note) {
+    html += `<p style="font-size:1.05rem; line-height:1.95; margin-bottom:18px">${nm.character_note}</p>`;
+    html += `<div style="height:1px; background:rgba(139,105,20,0.15); margin:18px 0"></div>`;
+  }
+
+  // Letter-by-letter synthesis into a human portrait
+  if(fl) {
+    html += `<p>The name opens with <span class="kw">${fl.arabic} (${fl.name})</span>. ${fl.gift}. This is the first thing others encounter in a person named ${firstName} — before they hear their opinions, before they see their work, the ${fl.name} quality is already operating.</p>`;
+  }
+
+  // Interior letters — each one named and connected to lived reality
+  const interiorKeys = [...new Set(letters.slice(1, -1))].filter(k => L[k]);
+  if(interiorKeys.length > 0) {
+    html += `<p style="margin-top:14px">Beneath this, the name carries interior letters that shape what ${firstName} holds privately:</p>`;
+    interiorKeys.forEach(k => {
+      const l = L[k];
+      html += `<p style="margin-top:10px; padding-left:16px; border-left:2px solid rgba(139,105,20,0.2)"><span class="kw">${l.arabic} (${l.name})</span> — ${l.core.split('.')[0]}. In a person, this means: ${l.shadow.split('.')[0].toLowerCase()}.</p>`;
+    });
+  }
+
+  // Final letter
+  if(ll && last !== first) {
+    html += `<p style="margin-top:14px">The name closes with <span class="kw">${ll.arabic} (${ll.name})</span>. ${ll.in_name ? ll.in_name.split('.')[0] : ll.core.split('.')[0]}.</p>`;
+  }
+
+  // The person story — this is the most important part
+  if(ps) {
+    html += `<div style="margin-top:20px; padding:18px 22px; background:rgba(139,105,20,0.05); border-left:3px solid rgba(139,105,20,0.5)">
+      <p style="font-size:1.05rem; line-height:1.95">A ${firstName} is ${ps.person}</p>
+      <p style="margin-top:14px"><strong style="color:#8B6914">What they give:</strong> ${ps.gift}.</p>
+      <p style="margin-top:8px"><strong style="color:#8B6914">What costs them:</strong> ${ps.shadow}.</p>
+      <p style="margin-top:8px"><strong style="color:#8B6914">In relationship:</strong> ${ps.in_relationship}.</p>
+    </div>`;
+  }
+
+  html += `</div></div>`;
+
+  // ═══════════════════════════════════════════════════════
+  // SECTION 4 — Parents (simple prompt only)
   // ═══════════════════════════════════════════════════════
   if(fn || mn) {
     html += buildLayer2(yn, letters, fn, mn);
   } else {
     html += `<div class="layer2-teaser">
-      <p>In Ilm ul Huroof, the names of the parents form part of the reading. The first letter of a father's name shapes the outer field a child grows into. The first letter of a mother's name shapes the interior world they are formed by. Add your parents' names above to see how they influenced yours.</p>
+      <p>In Ilm ul Huroof, the names of the parents are part of the reading. The first letter of a father's name shapes the outer world the child grows into. The first letter of a mother's name shapes the interior world they are formed within. Add your parents' names above to deepen the reading.</p>
     </div>`;
   }
 
