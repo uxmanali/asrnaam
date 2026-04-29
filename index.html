@@ -15,6 +15,25 @@
 <meta name="description" content="AsrNaam — Discover the impact of your name through Ilm ul Huroof, the classical Islamic Science of Letters. Grounded in the tradition of Ibn Arabi.">
 <meta name="keywords" content="Islamic name meaning, Arabic name meaning, Ilm ul Huroof, name personality Islam, Muslim name reading, Ibn Arabi, science of letters, naam ka matlab, haroof e muqattaat">
 <title>AsrNaam — The Impact of Your Name | Islamic Name Reading</title>
+<link rel="canonical" href="https://asrnaam.com/">
+
+<!-- Open Graph — WhatsApp, Facebook, LinkedIn -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://asrnaam.com/">
+<meta property="og:title" content="AsrNaam — Discover the Impact of Your Name | Islamic Science of Letters">
+<meta property="og:description" content="Enter your name and receive a reading through Ilm ul Huroof — the classical Islamic Science of Letters in the tradition of Ibn Arabi. Free, instant, profound.">
+<meta property="og:site_name" content="AsrNaam">
+<meta property="og:image" content="https://asrnaam.com/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AsrNaam — The Impact of Your Name | Islamic Science of Letters">
+<meta name="twitter:description" content="Enter your name and receive a reading through Ilm ul Huroof — the classical Islamic Science of Letters. Free, instant, based on Ibn Arabi.">
+<meta name="twitter:image" content="https://asrnaam.com/og-image.jpg">
+
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;500;600&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -59,6 +78,10 @@
   .nav-links { display:flex; gap:36px; list-style:none; align-items:center; }
   .nav-links a { font-family:'Cinzel',serif; font-size:0.64rem; letter-spacing:0.14em; text-transform:uppercase; color:#1A1A1A; text-decoration:none; transition:color 0.3s; }
   .nav-links a:hover { color:#8B6914; }
+  .nav-browse { color:#8B6914 !important; position:relative; }
+  .nav-browse::after { content:''; position:absolute; bottom:-3px; left:0; right:0; height:1px; background:rgba(139,105,20,0.35); }
+  .nav-browse:hover::after { background:#C9930A; }
+  .nav-sep { width:1px; height:14px; background:rgba(139,105,20,0.2); }
   .nav-cta { color:#8B6914 !important; border:1px solid rgba(139,105,20,0.4); padding:8px 20px; transition:all 0.3s !important; }
   .nav-cta:hover { background:rgba(139,105,20,0.07) !important; border-color:rgba(139,105,20,0.7) !important; }
 
@@ -144,6 +167,42 @@
   .step-arabic { font-family:'Amiri',serif; font-size:2.6rem; color:#8B6914; display:block; margin-bottom:14px; line-height:1; }
   .step-title { font-family:'Cinzel',serif; font-size:0.68rem; letter-spacing:0.16em; text-transform:uppercase; color:#6B4F10; margin-bottom:14px; display:block; font-weight:600; }
   .step-text { font-size:1.02rem; color:#1A1A1A; line-height:1.85; font-weight:400; }
+
+  /* EXPLORE LIBRARY */
+  .explore { padding:100px 56px; background:#FAFAF8; border-bottom:1px solid var(--rule); }
+  .explore-inner { max-width:1100px; margin:0 auto; }
+  .explore-grid { display:grid; grid-template-columns:1fr 1fr; gap:2px; background:rgba(139,105,20,0.12); margin-top:48px; }
+  .explore-card {
+    background:#fff; padding:52px 48px; text-decoration:none; display:block;
+    transition:background 0.3s; position:relative; overflow:hidden;
+    border:none;
+  }
+  .explore-card:hover { background:#F3F1EC; }
+  .explore-card-bg-ar {
+    position:absolute; top:12px; right:20px;
+    font-family:'Amiri',serif; font-size:5rem;
+    color:rgba(139,105,20,0.06); line-height:1;
+    user-select:none; pointer-events:none;
+  }
+  .explore-card-badge {
+    display:inline-block; font-family:'Cinzel',serif; font-size:0.5rem;
+    letter-spacing:0.22em; text-transform:uppercase; color:#8B6914;
+    background:rgba(139,105,20,0.08); border:1px solid rgba(139,105,20,0.2);
+    padding:5px 14px; margin-bottom:22px;
+  }
+  .explore-card-title {
+    font-family:'Cinzel',serif; font-size:1.15rem; color:#111010;
+    margin-bottom:14px; letter-spacing:0.02em; font-weight:500;
+  }
+  .explore-card-sub {
+    font-size:1rem; color:#5A5A5A; line-height:1.85;
+    margin-bottom:28px; max-width:360px; font-weight:400;
+  }
+  .explore-card-link {
+    font-family:'Cinzel',serif; font-size:0.58rem; letter-spacing:0.2em;
+    text-transform:uppercase; color:#8B6914; display:inline-flex; align-items:center; gap:8px;
+  }
+  .explore-card:hover .explore-card-link { color:#C9930A; }
 
   /* MUQ */
   .muq { padding:80px 56px; max-width:1100px; margin:0 auto; }
@@ -254,8 +313,27 @@
 
   @keyframes fadeUp { from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:translateY(0)} }
 
+  /* HAMBURGER */
+  .nav-hamburger { display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:6px; }
+  .nav-hamburger span { display:block; width:22px; height:2px; background:#8B6914; border-radius:2px; transition:all 0.3s; }
+
   @media(max-width:900px) {
-    nav{padding:16px 24px;} .nav-links{display:none;}
+    nav{padding:16px 24px;}
+    .nav-hamburger{display:flex;}
+    .nav-links{
+      display:none; position:fixed; top:57px; left:0; right:0; z-index:99;
+      flex-direction:column; gap:0; list-style:none;
+      background:rgba(250,250,248,0.98); backdrop-filter:blur(16px);
+      border-bottom:1px solid rgba(139,105,20,0.15);
+      padding:8px 0 16px;
+    }
+    .nav-links.open{display:flex;}
+    .nav-links li{width:100%;}
+    .nav-links a{display:block; padding:13px 28px; font-size:0.68rem; letter-spacing:0.14em; border-bottom:none;}
+    .nav-sep{display:none;}
+    .nav-browse{border-bottom:none !important;}
+    .nav-browse::after{display:none;}
+    .nav-cta{border:none !important; padding:13px 28px !important; text-align:left;}
     .hero{padding:110px 24px 60px;}
     .hero-input-row{flex-direction:column;}
     .hero-input{border-right:1px solid rgba(139,105,20,0.3);border-bottom:none;}
@@ -266,6 +344,9 @@
     .field-row{grid-template-columns:1fr;}
     .muq-grid{grid-template-columns:repeat(3,1fr);}
     footer{padding:48px 24px 32px;}
+    .explore{padding:72px 24px;}
+    .explore-grid{grid-template-columns:1fr;}
+    .explore-card{padding:36px 28px;}
   }
 </style>
 </head>
@@ -273,12 +354,19 @@
 
 <nav>
   <a href="/" class="nav-brand">اثر نام<span>AsrNaam · The Impact of Your Name</span></a>
+  <button class="nav-hamburger" id="navToggle" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </button>
   <ul class="nav-links">
-    <li><a href="/ilm-ul-huroof.html">Science of Letters</a></li>
-    <li><a href="/letters/">Browse Letters</a></li>
-    <li><a href="/names/">Browse Names</a></li>
-    <li><a href="#tool">Read Your Name</a></li>
-    <li><a href="#tool" class="nav-cta">Begin Reading →</a></li>
+    <li><a href="/ilm-ul-huroof.html">What is Ilm ul Huroof?</a></li>
+    <li><a href="/ilm-ul-huroof.html">Ibn Arabi</a></li>
+    <li class="nav-sep"></li>
+    <li><a href="/letters/" class="nav-browse">Browse Letters</a></li>
+    <li><a href="/names/" class="nav-browse">Browse Names</a></li>
+    <li class="nav-sep"></li>
+    <li><a href="#tool" onclick="document.querySelector('.nav-links').classList.remove('open')">Read Your Name</a></li>
+    <li><a href="#tool" class="nav-cta" onclick="document.querySelector('.nav-links').classList.remove('open')">Begin Reading →</a></li>
+  </ul>
   </ul>
 </nav>
 
@@ -330,6 +418,33 @@
         <span class="step-title">The Resolution</span>
         <p class="step-text">The closing letter governs how things resolve — what the life moves toward, how chapters end, what completion the person is oriented toward. It is the note the name lands on.</p>
       </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- EXPLORE THE LIBRARY                            -->
+<!-- ═══════════════════════════════════════════════ -->
+<div class="explore">
+  <div class="explore-inner">
+    <div class="section-tag">The Library</div>
+    <h2 class="section-heading">Explore the <em>complete tradition</em></h2>
+    <p class="section-sub">Browse every Arabic letter and its encoded meaning, or find a dedicated reading for a specific Muslim name.</p>
+    <div class="explore-grid">
+      <a href="/letters/" class="explore-card">
+        <span class="explore-card-bg-ar">حروف</span>
+        <span class="explore-card-badge">All 28 Letters</span>
+        <div class="explore-card-title">The Arabic Letters</div>
+        <p class="explore-card-sub">Every letter of the Arabic alphabet — its element, temperament, planet, divine name, and what it encodes in the people who carry it. The full knowledge base of Ilm ul Huroof.</p>
+        <span class="explore-card-link">Browse All Letters →</span>
+      </a>
+      <a href="/names/" class="explore-card">
+        <span class="explore-card-bg-ar">أسماء</span>
+        <span class="explore-card-badge">407+ Name Readings</span>
+        <div class="explore-card-title">Name Readings</div>
+        <p class="explore-card-sub">Dedicated readings for hundreds of Muslim names — what the letters reveal, what the name means at its root, the companion or prophet who bore it, and what it produces in the person who carries it.</p>
+        <span class="explore-card-link">Browse All Names →</span>
+      </a>
     </div>
   </div>
 </div>
@@ -1095,14 +1210,14 @@ const D = {
   'amr':['e','m','r'],'amer':['e','m','r'],
   'aamir':['e','m','y','r'],
   'akif':['e','k','y','f'],
-  // ALIF starters — CORRECTED from previous wrong Ain mappings
-  'amir':['a','m','y','r'],       // أمير Alif NOT Ain
-  'amina':['a','m','y','n','a'],  // آمنة Alif NOT Ain
-  'aamina':['a','m','y','n','a'], // Alif NOT Ain
+  // ALIF starters
+  'amir':['a','m','y','r'],
+  'amina':['a','m','y','n','a'],
+  'aamina':['a','m','y','n','a'],
   'aminah':['a','m','y','n','a'],'amna':['a','m','n','a'],
-  'iqbal':['a','q','b','a','l'],  // إقبال Alif NOT Ain
-  'awais':['a','w','a','y','s'],  // أويس Alif NOT Ain
-  'owais':['a','w','a','y','s'],  // Alif NOT Ain
+  'iqbal':['a','q','b','a','l'],
+  'awais':['a','w','a','y','s'],
+  'owais':['a','w','a','y','s'],
   'ahmad':['a','h','m','d'],'ahmed':['a','h','m','d'],
   'ahsan':['a','h','s','n'],'ahlam':['a','h','l','a','m'],
   'ibrahim':['a','b','r','a','h','m'],'ibraheem':['a','b','r','a','h','m'],
@@ -1136,9 +1251,9 @@ const D = {
   'saima':['s','a','y','m','a'],'saira':['s','a','y','r','a'],
   'samina':['s','m','y','n','a'],
   'sulaiman':['s','l','y','m','a','n'],'suleman':['s','l','y','m','a','n'],
-  // SAD — CORRECTED
+  // SAD
   'safiya':['sw','f','y','y','a'],'safia':['sw','f','y','a'],
-  'sobia':['sw','w','b','y','a'], // CORRECTED from Seen to Sad
+  'sobia':['sw','w','b','y','a'],
   // SHEEN
   'shahid':['sh','a','h','y','d'],'shaheen':['sh','a','h','y','n'],
   'shazia':['sh','a','z','y','a'],'shahzad':['sh','a','h','z','a','d'],
@@ -1150,8 +1265,8 @@ const D = {
   'taha':['tw','hh'],'taimur':['tw','y','m','w','r'],
   'tayyab':['tw','y','b'],'talib':['tw','a','l','b'],
   'talal':['tw','l','a','l'],'talhah':['tw','l','h','a'],
-  // LIGHT TA — CORRECTED
-  'taufiq':['t','w','f','y','q'], // CORRECTED توفيق = light Ta
+  // LIGHT TA
+  'taufiq':['t','w','f','y','q'],
   'tawfiq':['t','w','f','y','q'],
   // RA
   'rafique':['r','f','y','q'],'rafiq':['r','f','y','q'],
@@ -1159,14 +1274,14 @@ const D = {
   'rizwan':['r','z','w','a','n'],'rehan':['r','y','h','a','n'],
   'raza':['r','z','a'],'rabia':['r','a','b','y','a'],
   'rimsha':['r','m','sh','a'],'rukhsana':['r','kh','s','a','n','a'],
-  // HA SOFT (ح)
+  // HA SOFT
   'hamza':['h','m','z','a'],'hassan':['h','s','n'],'hasan':['h','s','n'],
   'husain':['h','s','y','n'],'hussain':['h','s','y','n'],
   'hamid':['h','a','m','d'],'hafiz':['h','a','f','z'],
   'haris':['h','a','r','s'],'hafsa':['h','f','sw','a'],'hira':['h','y','r','a'],
-  // HA BREATH (ه) — CORRECTED
-  'haroon':['hh','r','w','n'], // CORRECTED هارون = Ha breath
-  'harun':['hh','r','w','n'],  // CORRECTED
+  // HA BREATH
+  'haroon':['hh','r','w','n'],
+  'harun':['hh','r','w','n'],
   'huma':['hh','m','a'],
   // FA
   'fatima':['f','a','tw','m','a'],'fatiha':['f','a','tw','h','a'],
@@ -1207,40 +1322,33 @@ const D = {
   'khan':['kh','a','n'],'malik':['m','a','l','k'],
   'qureshi':['q','r','sh','y'],'ansari':['a','n','s','a','r','y'],
   'siddiqui':['s','d','y','q','y'],'bukhari':['b','kh','a','r','y'],
-  // ── MISSING NAMES — VERIFIED FROM URDUPOINT / HAMARIWEB ──────────
-  // FEROZ group — فيروز Fa+Ya+Ra+Waw+Zayn
+  // ADDITIONAL VERIFIED NAMES
   'feroz':['f','y','r','w','z'],'feroze':['f','y','r','w','z'],
   'firoz':['f','y','r','w','z'],'firoze':['f','y','r','w','z'],
   'fairuz':['f','y','r','w','z'],'fayruz':['f','y','r','w','z'],
-  // SAJJAD — سجاد Seen+Jim(shadda=one)+Alif+Dal
   'sajjad':['s','j','a','d'],'sajad':['s','j','a','d'],
-  // UZMA — عظمى Ain+Zha+Meem
   'uzma':['e','dth','m'],'uzmah':['e','dth','m'],
-  // SHAMS — شمس Sheen+Meem+Seen (NO Alif)
-  'shams':['sh','m','s'],'shams':['sh','m','s'],
-  // QURATULAIN — قرةالعين Qaf+Ra+Ta+Lam+Ain+Ya+Nun
+  'shams':['sh','m','s'],
   'quratulain':['q','r','t','l','e','y','n'],
   'qurratulain':['q','r','t','l','e','y','n'],
   'qurat':['q','r','t'],'qurrat':['q','r','t'],
-  // MORE COMMON MISSING NAMES
   'abrar':['a','b','r','a','r'],
   'afshan':['a','f','sh','a','n'],
   'ahmer':['a','h','m','r'],
-  'aimen':['a','y','m','n'],'ayman':['a','y','m','a','n'],
+  'aimen':['a','y','m','n'],
   'aleena':['e','l','y','n','a'],'alina':['e','l','y','n','a'],
   'ammara':['e','m','m','a','r','a'],'ammarah':['e','m','m','a','r','a'],
   'arman':['a','r','m','a','n'],
   'aroha':['e','r','w','hh','a'],'arwa':['e','r','w','a'],
   'aryan':['a','r','y','a','n'],
   'asher':['a','sh','r'],
-  'asim':['e','s','m'],
   'ayaan':['a','y','a','n'],'ayan':['a','y','a','n'],
   'ayat':['a','y','a','t'],
   'azaan':['a','dh','a','n'],'azan':['a','dh','a','n'],
-  'babar':['b','a','b','r'],'baber':['b','a','b','r'],
+  'baber':['b','a','b','r'],
   'danish':['d','a','n','y','sh'],
   'danyal':['d','a','n','y','a','l'],'daniel':['d','a','n','y','a','l'],
-  'daud':['d','a','w','d'],'dawood':['d','a','w','d'],
+  'daud':['d','a','w','d'],
   'dua':['d','e','a'],
   'dunya':['d','n','y','a'],
   'ehsan':['a','h','s','a','n'],'ihsan':['a','h','s','a','n'],
@@ -1252,9 +1360,9 @@ const D = {
   'furqan':['f','r','q','a','n'],
   'gulshan':['gh','l','sh','a','n'],
   'gulnaz':['gh','l','n','a','z'],
-  'hamid':['h','a','m','y','d'],'hameed':['h','a','m','y','d'],
+  'hameed':['h','a','m','y','d'],
   'hareem':['h','r','y','m'],
-  'haris':['h','a','r','y','s'],'harith':['h','a','r','y','th'],
+  'harith':['h','a','r','y','th'],
   'haya':['h','y','a'],
   'hoorain':['hh','w','r','a','n'],'hourain':['hh','w','r','a','n'],
   'ibtisam':['e','b','t','y','s','a','m'],
@@ -1268,9 +1376,8 @@ const D = {
   'kainat':['k','a','y','n','a','t'],
   'kamran':['k','m','r','a','n'],
   'kashif':['k','sh','a','f'],
-  'khurram':['kh','r','r','a','m'],'khurrum':['kh','r','r','a','m'],
+  'khurrum':['kh','r','r','a','m'],
   'luqman':['l','q','m','a','n'],
-  'mahnoor':['m','a','hh','n','w','r'],
   'majid':['m','a','j','y','d'],'majeed':['m','a','j','y','d'],
   'malaika':['m','l','a','y','k','a'],'malaak':['m','l','a','y','k'],
   'maaz':['m','e','a','z'],'muaaz':['m','e','a','z'],
@@ -1284,17 +1391,12 @@ const D = {
   'naimat':['n','e','m','a','t'],
   'nasir':['n','a','s','r'],'nasser':['n','a','s','r'],
   'nauman':['n','e','m','a','n'],'nouman':['n','e','m','a','n'],
-  'nimra':['n','m','r','a'],
   'obaid':['e','b','y','d'],
-  'owais':['a','w','a','y','s'],
-  'parveen':['b','r','w','y','n'],'parveen':['b','r','w','y','n'],
   'rafay':['r','f','y'],
   'ramzan':['r','m','dw','a','n'],'ramadan':['r','m','dw','a','n'],
   'rania':['r','a','n','y','a'],
   'rashida':['r','sh','y','d','a'],
   'rehana':['r','y','h','a','n','a'],
-  'rimsha':['r','m','sh','a'],
-  'rukhsana':['r','kh','s','a','n','a'],
   'rukhsar':['r','kh','s','a','r'],
   'ruksana':['r','kh','s','a','n','a'],
   'sabeeh':['s','b','y','hh'],'sabih':['s','b','y','hh'],
@@ -1302,11 +1404,10 @@ const D = {
   'sajida':['s','a','j','d','a'],
   'saman':['s','m','a','n'],
   'sameer':['s','m','y','r'],'samir':['s','m','y','r'],
-  'samina':['s','m','y','n','a'],
   'saqib':['s','a','q','b'],
   'shabnam':['sh','b','n','a','m'],
   'shafiq':['sh','a','f','y','q'],'shafique':['sh','a','f','y','q'],
-  'shakeel':['sh','a','k','y','l'],'shakil':['sh','a','k','y','l'],
+  'shakil':['sh','a','k','y','l'],
   'shamim':['sh','m','y','m'],
   'shanza':['sh','a','n','z','a'],
   'shareef':['sh','r','y','f'],'sharif':['sh','r','y','f'],
@@ -1316,25 +1417,17 @@ const D = {
   'suhaib':['s','hh','y','b'],'suhayb':['s','hh','y','b'],
   'sultan':['s','l','tw','a','n'],
   'sundas':['s','n','d','s'],
-  'taimur':['tw','y','m','w','r'],
-  'talib':['tw','a','l','b'],
-  'talal':['tw','l','a','l'],
   'tasneem':['t','s','n','y','m'],'tasnim':['t','s','n','y','m'],
-  'taufiq':['t','w','f','y','q'],'tawfiq':['t','w','f','y','q'],
   'umer':['e','m','r'],'umair':['e','m','y','r'],
   'uzair':['e','z','y','r'],
   'wahab':['w','hh','a','b'],'wahhab':['w','hh','a','b'],
   'waleed':['w','l','y','d'],'walid':['w','l','y','d'],
-  'waseem':['w','s','y','m'],'wasim':['w','a','s','y','m'],
+  'waseem':['w','s','y','m'],
   'yasmeen':['y','a','s','m','y','n'],'yasmine':['y','a','s','m','y','n'],
   'yousaf':['y','w','s','f'],'younus':['y','w','n','s'],
   'yunus':['y','w','n','s'],
-  'zafar':['z','f','r'],
-  'zahid':['z','a','h','y','d'],
   'zahir':['z','a','h','y','r'],
-  'zahra':['z','hh','r','a'],
   'zaki':['z','k','y'],'zakir':['z','a','k','r'],
-  'zaynab':['z','y','n','b'],
   'zia':['dh','y','a'],
   'zobia':['z','w','b','y','a'],
   'zoha':['dh','hh','a'],'zuha':['dh','hh','a'],
@@ -1398,13 +1491,11 @@ function buildReading(yn,fn,mn){
   const ll = L[last];
   let html = '';
 
-  // ── Header ───────────────────────────────────────────
   html += `<div class="r-header">
     <div class="r-name">${yn}</div>
     <div class="r-sub">A Reading Through the Science of Letters</div>
   </div>`;
 
-  // ── Letter cards ─────────────────────────────────────
   html += `<div class="letters-row">`;
   letters.forEach((k, i) => {
     const l = L[k]; if(!l) return;
@@ -1418,9 +1509,6 @@ function buildReading(yn,fn,mn){
   });
   html += `</div>`;
 
-  // ═══════════════════════════════════════════════════════
-  // SECTION 1 — Dictionary and root meaning of the name
-  // ═══════════════════════════════════════════════════════
   if(nm) {
     html += `<div class="r-section highlight">
       <div class="r-label">What This Name Means</div>
@@ -1433,22 +1521,16 @@ function buildReading(yn,fn,mn){
     </div>`;
   }
 
-  // ═══════════════════════════════════════════════════════
-  // SECTION 2 — Every single letter, read individually
-  // This must not skip any letter. Each one gets its own reading.
-  // ═══════════════════════════════════════════════════════
   html += `<div class="r-section">
     <div class="r-label">The Letters of ${firstName} — Each One Read</div>
     <div class="r-text">
       <p style="margin-bottom:20px">In Ilm ul Huroof, every letter of a name carries its own meaning and contributes to the person who bears it. The reading begins with each letter individually — what it means, what it carries — before the whole is synthesised.</p>`;
 
-  // Build a deduplicated ordered list preserving first occurrence position
   const seenKeys = new Set();
   const orderedUnique = [];
   letters.forEach((k, i) => {
     if(!seenKeys.has(k) && L[k]) {
       seenKeys.add(k);
-      // Record position role
       const isFirst = i === 0;
       const isLast = i === letters.length - 1 && letters.length > 1;
       const role = isFirst ? 'first' : isLast ? 'last' : 'interior';
@@ -1463,7 +1545,6 @@ function buildReading(yn,fn,mn){
       ? 'Final letter — how the name resolves, what this person leaves behind'
       : 'Interior letter — the hidden character, what runs beneath the surface';
 
-    // Choose the right reading for the position
     const posReading = role === 'first'
       ? l.character
       : role === 'last'
@@ -1488,29 +1569,21 @@ function buildReading(yn,fn,mn){
 
   html += `</div></div>`;
 
-  // ═══════════════════════════════════════════════════════
-  // SECTION 3 — The complete portrait
-  // What kind of person typically carries this name
-  // Synthesise the letters + name meaning into a real human portrait
-  // ═══════════════════════════════════════════════════════
   const ps = PS[first];
 
   html += `<div class="r-section highlight" style="border-left-color:rgba(139,105,20,0.85)">
     <div class="r-label">The Complete Portrait — What This Name Produces</div>
     <div class="r-text">`;
 
-  // Open with name meaning impact if available
   if(nm && nm.character_note) {
     html += `<p style="font-size:1.05rem; line-height:1.95; margin-bottom:18px">${nm.character_note}</p>`;
     html += `<div style="height:1px; background:rgba(139,105,20,0.15); margin:18px 0"></div>`;
   }
 
-  // Letter-by-letter synthesis into a human portrait
   if(fl) {
     html += `<p>The name opens with <span class="kw">${fl.arabic} (${fl.name})</span>. ${fl.gift}. This is the first thing others encounter in a person named ${firstName} — before they hear their opinions, before they see their work, the ${fl.name} quality is already operating.</p>`;
   }
 
-  // Interior letters — each one named and connected to lived reality
   const interiorKeys = [...new Set(letters.slice(1, -1))].filter(k => L[k]);
   if(interiorKeys.length > 0) {
     html += `<p style="margin-top:14px">Beneath this, the name carries interior letters that shape what ${firstName} holds privately:</p>`;
@@ -1520,12 +1593,10 @@ function buildReading(yn,fn,mn){
     });
   }
 
-  // Final letter
   if(ll && last !== first) {
     html += `<p style="margin-top:14px">The name closes with <span class="kw">${ll.arabic} (${ll.name})</span>. ${ll.in_name ? ll.in_name.split('.')[0] : ll.core.split('.')[0]}.</p>`;
   }
 
-  // The person story — this is the most important part
   if(ps) {
     html += `<div style="margin-top:20px; padding:18px 22px; background:rgba(139,105,20,0.05); border-left:3px solid rgba(139,105,20,0.5)">
       <p style="font-size:1.05rem; line-height:1.95">A ${firstName} is ${ps.person}</p>
@@ -1537,9 +1608,6 @@ function buildReading(yn,fn,mn){
 
   html += `</div></div>`;
 
-  // ═══════════════════════════════════════════════════════
-  // SECTION 4 — Parents (simple prompt only)
-  // ═══════════════════════════════════════════════════════
   if(fn || mn) {
     html += buildLayer2(yn, letters, fn, mn);
   } else {
@@ -1561,7 +1629,6 @@ function buildLayer2(yn, yLetters, fn, mn) {
   const firstName = yn.split(' ')[0];
   let html='';
 
-  // ── Constellation header ──────────────────────────────
   html+=`<div class="r-section" style="border-left-color:rgba(122,59,30,0.8);background:rgba(122,59,30,0.05);margin-top:8px">
     <div class="r-label" style="color:#c9a96e">The Parental Constellation</div>
     <div class="r-text">
@@ -1569,14 +1636,12 @@ function buildLayer2(yn, yLetters, fn, mn) {
     </div>
   </div>`;
 
-  // ── Three-name grid ───────────────────────────────────
   html+=`<div style="display:grid;grid-template-columns:repeat(${fL&&mL?3:fL||mL?2:1},1fr);gap:2px;background:rgba(201,169,110,0.1);margin-bottom:28px">`;
   if(yL) html+=`<div style="background:#0a0806;padding:24px 16px;text-align:center"><span style="font-family:'Cinzel',serif;font-size:0.44rem;letter-spacing:0.2em;color:rgba(201,169,110,0.5);text-transform:uppercase;display:block;margin-bottom:8px">${yn}</span><span style="font-family:'Amiri',serif;font-size:2.2rem;color:#c9a96e;display:block;margin-bottom:4px">${yL.arabic}</span><span style="font-size:0.75rem;color:rgba(245,239,227,0.6);font-style:italic">${yL.name}</span></div>`;
   if(fL) html+=`<div style="background:#0a0806;padding:24px 16px;text-align:center"><span style="font-family:'Cinzel',serif;font-size:0.44rem;letter-spacing:0.2em;color:rgba(201,169,110,0.5);text-transform:uppercase;display:block;margin-bottom:8px">${fn}</span><span style="font-family:'Amiri',serif;font-size:2.2rem;color:#c9a96e;display:block;margin-bottom:4px">${fL.arabic}</span><span style="font-size:0.75rem;color:rgba(245,239,227,0.6);font-style:italic">${fL.name}</span></div>`;
   if(mL) html+=`<div style="background:#0a0806;padding:24px 16px;text-align:center"><span style="font-family:'Cinzel',serif;font-size:0.44rem;letter-spacing:0.2em;color:rgba(201,169,110,0.5);text-transform:uppercase;display:block;margin-bottom:8px">${mn}</span><span style="font-family:'Amiri',serif;font-size:2.2rem;color:#c9a96e;display:block;margin-bottom:4px">${mL.arabic}</span><span style="font-size:0.75rem;color:rgba(245,239,227,0.6);font-style:italic">${mL.name}</span></div>`;
   html+=`</div>`;
 
-  // ── Who this person is ────────────────────────────────
   const ps = PS[yFirst];
   if(ps) {
     html+=`<div class="r-section highlight">
@@ -1590,7 +1655,6 @@ function buildLayer2(yn, yLetters, fn, mn) {
     </div>`;
   }
 
-  // ── Father's influence ────────────────────────────────
   if(fL && fFirst) {
     const fi = getInteraction(yFirst, fFirst, 'father');
     const fps = PS[fFirst];
@@ -1621,7 +1685,6 @@ function buildLayer2(yn, yLetters, fn, mn) {
     html+=`</div></div>`;
   }
 
-  // ── Mother's influence ────────────────────────────────
   if(mL && mFirst) {
     const mi = getInteraction(yFirst, mFirst, 'mother');
     const mps = PS[mFirst];
@@ -1651,7 +1714,6 @@ function buildLayer2(yn, yLetters, fn, mn) {
     html+=`</div></div>`;
   }
 
-  // ── Reinforced qualities ──────────────────────────────
   const amplified = findAmplified(yLetters, fLetters, mLetters);
   if(amplified.length) {
     html+=`<div class="r-section" style="border-left-color:rgba(201,169,110,0.45)">
@@ -1670,7 +1732,6 @@ function buildLayer2(yn, yLetters, fn, mn) {
     html+=`</div></div>`;
   }
 
-  // ── Final impact ──────────────────────────────────────
   const fi_type = fFirst ? getInteraction(yFirst, fFirst, 'father')?.type : null;
   const mi_type = mFirst ? getInteraction(yFirst, mFirst, 'mother')?.type : null;
   const fps_final = fFirst ? PS[fFirst] : null;
@@ -1686,10 +1747,6 @@ function buildLayer2(yn, yLetters, fn, mn) {
   return html;
 }
 
-// ════════════════════════════════════════════════════════
-// PERSON STORIES — the heart of Sprint 2
-// Person-first, not framework-first
-// ════════════════════════════════════════════════════════
 const PS = {
   'a': {
     person: 'someone whose whole life moves toward the original, the essential, the first thing beneath all the accumulated layers. They have a constitutional drive to strip away what is not necessary and arrive at what is. They ask the question before the question — the one most people never think to ask.',
@@ -1864,26 +1921,15 @@ const PS = {
 function buildInteractionStory(childKey, parentKey, firstName, parentFirstName, direction) {
   const child = L[childKey];
   const parent = L[parentKey];
-  const cf = FIELD[childKey];
-  const pf = FIELD[parentKey];
   const cps = PS[childKey];
   const pps = PS[parentKey];
-  if (!child || !parent || !cf || !pf) return '';
+  if (!child || !parent) return '';
 
   const same = childKey === parentKey;
-  const cDrawsP = cf.draws_to && cf.draws_to.includes(parentKey);
-  const pDrawsC = pf.draws_to && pf.draws_to.includes(childKey);
-  const tension = cf.tension_with && cf.tension_with.includes(parentKey);
 
   if(same) return `${parentFirstName} carried the same ${child.name} principle that ${firstName} was born with. In the ${direction} world, ${firstName} encountered a mirror of their own deepest nature. The ${child.name} quality — ${cps ? cps.gift : child.core} — was not something ${firstName} had to discover or develop outwardly. It was already present in the ${direction} field, confirming and amplifying what was constitutionally there. This is the deepest form of formation: the same river flowing from two directions into the same ground.`;
 
-  if(cDrawsP && pDrawsC) return `The ${child.name} and ${parent.name} principles draw toward each other naturally — they speak the same ontological language even though they are not the same letter. ${firstName + "'s"} ${child.name} nature ${direction === 'outer' ? 'met the outer world' : 'met the interior field'} of ${parentFirstName}'s ${parent.name} — and found it familiar. ${pps ? `${parentFirstName} ${pps.person.split('.')[0]}, and this quality gave ${firstName + "'s"} own nature room to breathe and grow.` : ''} This is a constellation where the child's nature and the ${direction} field moved in the same direction without being identical — one of the more fortunate combinations in Ilm ul Huroof.`;
-
-  if(cDrawsP || pDrawsC) return `There is a partial natural movement between ${firstName + "'s"} ${child.name} nature and ${parentFirstName}'s ${parent.name} field. They are not in opposition, and there are moments of genuine recognition — but the movement is one-directional rather than mutual. ${firstName + "'s"} ${child.name} quality would have found some support in the ${direction} world, though also some moments where the two principles simply did not speak the same language and ${firstName} had to find their own way.`;
-
-  if(tension) return `${parentFirstName}'s ${parent.name} principle — ${pps ? pps.person.split('.')[0] : parent.core} — met ${firstName + "'s"} ${child.name} nature not as confirmation, but as resistance. These letter principles are differently oriented at a fundamental level. This does not mean the ${direction} world was hostile — it means it did not simply reflect ${firstName} back to themselves. They had to press their ${child.name} nature ${direction === 'outer' ? 'outward into a world' : 'inward into an interior field'} shaped by ${parent.name} values. What this produces is a person who knows their own nature with unusual clarity — not because it was always confirmed, but because they had to keep returning to it under pressure. The ${child.name} quality in ${firstName} was forged, not just given.`;
-
-  return `${parentFirstName}'s ${parent.name} field and ${firstName + "'s"} ${child.name} nature are genuinely different without being in direct tension. The ${direction} world offered ${firstName} the experience of contrast — a field oriented differently from their own primary nature. Through this contrast, ${firstName} would have learned to recognise what was distinctly theirs: not by having it reflected back, but by understanding what it was not. This kind of formation builds self-knowledge through difference rather than confirmation.`;
+  return `${parentFirstName}'s ${parent.name} field and ${firstName + "'s"} ${child.name} nature met in the ${direction} world. ${pps ? `${parentFirstName} ${pps.person.split('.')[0]}.` : ''} This meeting shaped a specific version of the ${child.name} quality in ${firstName} — neither simply confirmed nor simply resisted, but shaped by the particular combination of fields this person was formed within.`;
 }
 
 function buildFinalImpact(firstName, fullName, yFirst, fFirst, mFirst, fi_type, mi_type, fps, mps, amplified, yL, fL, mL) {
@@ -1903,20 +1949,6 @@ function buildFinalImpact(firstName, fullName, yFirst, fFirst, mFirst, fi_type, 
     impact += `This nature was ${innerWord} by the interior field shaped by the ${mL.name} principle of the mother's name. `;
   }
 
-  if(fi_type==='amplification' && mi_type==='amplification') {
-    impact += `This is a constellation of deep confirmation. The ${yL.name} quality was reinforced from every direction — outwardly and interiorly. What ${firstName} carries was never in question.`;
-  } else if(fi_type==='tension' && mi_type==='tension') {
-    impact += `This is a constellation of double formation through resistance. The ${yL.name} quality in ${firstName} was not simply given — it was pressed, tested, and held under pressure from both the outer and interior fields. What emerged is not a soft nature but a tempered one. ${firstName} knows themselves with unusual clarity because they have had to keep returning to their own nature without easy confirmation.`;
-  } else if(fi_type==='tension') {
-    impact += `The outer world pressed against the ${yL.name} nature while the interior field offered ${innerWord}. This produced a person who is simultaneously tested and sustained — whose primary quality was forged outwardly while being held interiorly.`;
-  } else if(mi_type==='tension') {
-    impact += `The outer world offered ${outerWord} while the interior formation pressed against the ${yL.name} nature. This is a particular kind of formation: ease without and pressure within. ${firstName} would have learned to navigate the gap between how they present and what they carry inside.`;
-  } else if(fi_type==='resonance' && mi_type==='resonance') {
-    impact += `This is a constellation of deep resonance — the ${yL.name} quality found compatible principles in both the outer and interior fields, flowing naturally in the same direction as the parental constellation. What ${firstName} carries was given every condition to develop with depth and ease.`;
-  } else {
-    impact += `The constellation produced a specific version of ${yL.name} — neither simply confirmed nor simply resisted, but shaped by the particular combination of fields this person was formed within.`;
-  }
-
   if(amplified.length) {
     const ampNames = amplified.map(a => { const l = letter(a.key); return l ? l.name : ''; }).filter(Boolean).join(', ');
     impact += ` The qualities of ${ampNames} run deeper than character in ${firstName} — they were present before they were chosen and integrated before they were understood. They will express themselves across every context of life.`;
@@ -1924,6 +1956,35 @@ function buildFinalImpact(firstName, fullName, yFirst, fFirst, mFirst, fi_type, 
 
   return impact;
 }
+
+// Stub functions for getInteraction and findAmplified if not defined
+function getInteraction(a, b, role) {
+  if(a === b) return {type:'amplification'};
+  const aEl = L[a]?.element, bEl = L[b]?.element;
+  if(!aEl || !bEl) return null;
+  if(aEl === bEl) return {type:'resonance'};
+  const pairs = {
+    'Fire+Water':'tension','Water+Fire':'tension',
+    'Fire+Earth':'support','Earth+Fire':'support',
+    'Air+Water':'resonance','Water+Air':'resonance',
+    'Air+Earth':'support','Earth+Air':'support',
+  };
+  return {type: pairs[aEl+'+'+bEl] || 'contrast'};
+}
+
+function findAmplified(yL, fL, mL) {
+  const result = [];
+  const ySet = new Set(yL);
+  const fSet = new Set(fL);
+  const mSet = new Set(mL);
+  ySet.forEach(k => {
+    if(fSet.has(k) || mSet.has(k)) result.push({key:k});
+  });
+  return result;
+}
+
+// Field data stub — used in some buildInteractionStory calls
+const FIELD = {};
 
 function resetForm(){
   document.getElementById('formSection').style.display='block';
