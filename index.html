@@ -349,6 +349,37 @@
     .explore-card{padding:36px 28px;}
   }
 </style>
+
+  Add this before </head> in your index.html:
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "AsrNaam",
+  "url": "https://asrnaam.com",
+  "description": "Islamic name meanings through Ilm ul Huroof — the classical Science of Letters. Letter-by-letter spiritual readings for 450+ Muslim names.",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://asrnaam.com/names/?q={search_term_string}"
+    },
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "AsrNaam",
+  "url": "https://asrnaam.com",
+  "description": "The Science of Islamic Name Meanings through Ilm ul Huroof",
+  "foundingDate": "2026",
+  "areaServed": "Worldwide"
+}
+</script>
 </head>
 <body>
 
