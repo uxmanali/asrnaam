@@ -83,6 +83,8 @@
       '#asr-search-dd .asr-sd-item:hover,#asr-search-dd .asr-sd-item.asr-sd-active{background:var(--warm-mid,#F2EFE8);color:var(--gold,#8B6914);}',
       '#asr-search-dd .asr-sd-name{font-weight:500;text-transform:capitalize;}',
       '#asr-search-dd .asr-sd-via{font-size:.78rem;color:var(--text-secondary,#6B6B6B);margin-left:.45rem;font-style:italic;}',
+      '#asr-search-dd .asr-sd-variants{display:block;margin-top:.25rem;font-size:.75rem;color:var(--text-secondary,#6B6B6B);font-style:italic;}',
+      '#asr-search-dd .asr-sd-variant{display:inline-block;margin-right:.5rem;padding:.05rem .45rem;border:1px solid var(--border,#E8E2D4);border-radius:8px;background:var(--warm-mid,#F2EFE8);font-size:.72rem;font-style:normal;text-transform:capitalize;}',
       '#asr-search-dd .asr-sd-empty{padding:.7rem .9rem;color:var(--text-secondary,#6B6B6B);font-size:.9rem;font-style:italic;}',
       '@media(prefers-color-scheme:dark){#asr-search-dd{background:#1f1f1f;color:#e8e2d4;border-color:#3a3a3a}#asr-search-dd .asr-sd-item{border-color:#3a3a3a}#asr-search-dd .asr-sd-item:hover,#asr-search-dd .asr-sd-item.asr-sd-active{background:#2a2a2a;color:#d4b86a}}'
     ].join('\n');
@@ -104,8 +106,16 @@
       for(var i=0;i<results.length;i++){
         var r = results[i];
         var label = r.c.replace(/-/g,' ');
-        var via = (r.a && r.t!==r.c) ? '<span class="asr-sd-via">via spelling: '+escapeHtml(r.t)+'</span>' : '';
-        html += '<a href="/names/'+encodeURIComponent(r.c)+'/" class="asr-sd-item" data-idx="'+i+'"><span class="asr-sd-name">'+escapeHtml(label)+'</span>'+via+'</a>';
+        var variantsHtml = '';
+        if(r.variants && r.variants.length){
+          var chips = r.variants.slice(0, 5).map(function(v){
+            return '<span class="asr-sd-variant">'+escapeHtml(v)+'</span>';
+          }).join('');
+          variantsHtml = '<div class="asr-sd-variants">also: '+chips+'</div>';
+        } else if(r.a && r.t!==r.c){
+          variantsHtml = '<span class="asr-sd-via">via spelling: '+escapeHtml(r.t)+'</span>';
+        }
+        html += '<a href="/names/'+encodeURIComponent(r.c)+'/" class="asr-sd-item" data-idx="'+i+'"><span class="asr-sd-name">'+escapeHtml(label)+'</span>'+variantsHtml+'</a>';
       }
       dd.innerHTML = html;
       dd.style.display = 'block';
@@ -114,23 +124,44 @@
     function search(q){
       q = (q||'').toLowerCase().trim();
       if(!q || q.length<2){ dd.style.display='none'; return; }
-      var seen = Object.create(null);
+      // Per-canonical: collect best score, the matching token, and any other matching variants
+      var grouped = Object.create(null);
       for(var i=0;i<index.length;i++){
         var ent = index[i];
         var sc = score(ent.t, q);
         if(sc<999){
-          if(seen[ent.c]===undefined || sc < seen[ent.c].score){
-            seen[ent.c] = {entry: ent, score: sc};
+          var g = grouped[ent.c];
+          if(!g){
+            g = grouped[ent.c] = {entry: ent, score: sc, variants: []};
+          } else if(sc < g.score){
+            // Move previous best to variants
+            if(g.entry.t !== ent.t) g.variants.push(g.entry.t);
+            g.entry = ent;
+            g.score = sc;
+          } else if(ent.t !== g.entry.t){
+            g.variants.push(ent.t);
           }
         }
       }
       var hits = [];
-      Object.keys(seen).forEach(function(k){ hits.push(seen[k]); });
+      Object.keys(grouped).forEach(function(k){ hits.push(grouped[k]); });
       hits.sort(function(a,b){
         if(a.score!==b.score) return a.score-b.score;
+        // Within same score, prefer canonical-name-match first
+        var ac = a.entry.t === a.entry.c ? 0 : 1;
+        var bc = b.entry.t === b.entry.c ? 0 : 1;
+        if(ac!==bc) return ac-bc;
         return a.entry.c.localeCompare(b.entry.c);
       });
-      var top = hits.slice(0, 12).map(function(h){return {c:h.entry.c,t:h.entry.t,a:h.entry.a};});
+      var top = hits.slice(0, 12).map(function(h){
+        // Dedupe variants and exclude the canonical name
+        var seen = {};
+        var unique = [];
+        h.variants.forEach(function(v){
+          if(v !== h.entry.c && !seen[v]){ seen[v] = 1; unique.push(v); }
+        });
+        return {c:h.entry.c, t:h.entry.t, a:h.entry.a, variants: unique};
+      });
       render(top);
     }
 
