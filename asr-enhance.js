@@ -77,58 +77,5 @@
       }
     }
 
-    // ---- Index page: search + filter ----
-    var indexSearch = document.querySelector('#asr-search-input');
-    if(indexSearch){
-      var allLinks = Array.from(document.querySelectorAll('a[href*="/names/"][href$="/"]')).filter(function(a){
-        return /\/names\/[a-z0-9-]+\/$/.test(a.getAttribute('href')||'');
-      });
-      var counter = document.querySelector('#asr-results-count');
-      var activeGender = 'all';
-      var activeLetter = 'all';
-
-      function refresh(){
-        var q = (indexSearch.value||'').toLowerCase().trim();
-        var visible = 0;
-        allLinks.forEach(function(a){
-          var slug = (a.getAttribute('href').match(/\/names\/([a-z0-9-]+)\//)||[])[1] || '';
-          var label = (a.textContent||'').toLowerCase();
-          var first = slug.charAt(0);
-          var matchesQ = !q || slug.indexOf(q)>=0 || label.indexOf(q)>=0;
-          var matchesL = activeLetter==='all' || first===activeLetter;
-          var matchesG = true; // gender data isn't on /names/ for now
-          if(matchesQ && matchesL && matchesG){ a.classList.remove('asr-hidden'); visible++; }
-          else { a.classList.add('asr-hidden'); }
-        });
-        if(counter){
-          counter.textContent = visible + ' name' + (visible===1?'':'s') + (q?' matching “'+q+'”':'');
-        }
-        // Hide letter sections that have zero visible items
-        document.querySelectorAll('.asr-letter-section').forEach(function(s){
-          var has = !!s.querySelector('a[href*="/names/"]:not(.asr-hidden)');
-          s.classList.toggle('asr-hidden', !has);
-        });
-      }
-      indexSearch.addEventListener('input', refresh);
-      indexSearch.addEventListener('keydown', function(e){ if(e.key==='Escape'){ indexSearch.value=''; refresh(); } });
-
-      document.querySelectorAll('.asr-chip').forEach(function(chip){
-        chip.addEventListener('click', function(){
-          var letter = chip.dataset.letter;
-          var gender = chip.dataset.gender;
-          if(letter){
-            document.querySelectorAll('.asr-chip[data-letter]').forEach(function(c){ c.classList.remove('active'); });
-            chip.classList.add('active');
-            activeLetter = letter;
-          } else if(gender){
-            document.querySelectorAll('.asr-chip[data-gender]').forEach(function(c){ c.classList.remove('active'); });
-            chip.classList.add('active');
-            activeGender = gender;
-          }
-          refresh();
-        });
-      });
-      refresh();
-    }
   });
 })();
