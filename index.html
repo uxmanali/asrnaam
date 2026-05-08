@@ -418,7 +418,7 @@
     <p class="hero-sub">In classical Islamic scholarship, Arabic letters are not merely symbols. Each one encodes a principle of existence that shapes everything it touches — including the name you carry through your life.</p>
 
     <div class="hero-input-row">
-      <input class="hero-input" type="text" id="heroName" placeholder="Enter your name — e.g. Bilal Ahmad" autocomplete="off" onkeydown="if(event.key==='Enter')heroRead()" />
+      <input class="hero-input" type="text" id="heroName" placeholder="Enter your name — e.g. Bilal Ahmad" autocomplete="off" onkeydown="if(event.key==='Enter')heroRead()"  aria-label="Enter your name — e.g. Bilal Ahmad"/>
       <button class="hero-btn" onclick="heroRead()">Read My Name</button>
     </div>
     <p class="hero-input-note">Free reading — no sign up required</p>
@@ -514,18 +514,18 @@
       <div class="field-row single">
         <div class="field">
           <label>Your Name <span class="label-note">— the name you are known by, not your legal name</span></label>
-          <input type="text" id="yourName" placeholder="e.g. Bilal Ahmed" autocomplete="off" />
+          <input type="text" id="yourName" placeholder="e.g. Bilal Ahmed" autocomplete="off"  aria-label="e.g. Bilal Ahmed"/>
         </div>
       </div>
       <div class="divider-label">Parental Field — optional, deepens the reading</div>
       <div class="field-row">
         <div class="field">
           <label>Father's Name</label>
-          <input type="text" id="fatherName" placeholder="e.g. Abdullah Khan" autocomplete="off" />
+          <input type="text" id="fatherName" placeholder="e.g. Abdullah Khan" autocomplete="off"  aria-label="e.g. Abdullah Khan"/>
         </div>
         <div class="field">
           <label>Mother's Name</label>
-          <input type="text" id="motherName" placeholder="e.g. Fatima Malik" autocomplete="off" />
+          <input type="text" id="motherName" placeholder="e.g. Fatima Malik" autocomplete="off"  aria-label="e.g. Fatima Malik"/>
         </div>
       </div>
       <div id="errorMsg" class="error-msg">Please enter your name to receive a reading.</div>

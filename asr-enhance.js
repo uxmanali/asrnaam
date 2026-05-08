@@ -15,6 +15,18 @@
   }catch(e){}
 
   document.addEventListener('DOMContentLoaded', function(){
+    // ---- Cycle 23: Skip-to-content link for keyboard a11y ----
+    if(!document.querySelector('.asr-skip-link')){
+      var skip = document.createElement('a');
+      skip.className = 'asr-skip-link';
+      skip.href = '#main-content';
+      skip.textContent = 'Skip to main content';
+      document.body.insertBefore(skip, document.body.firstChild);
+      // Find a likely main element to anchor to
+      var main = document.querySelector('main, .content, .hero, #content');
+      if(main && !main.id) main.id = 'main-content';
+    }
+
     // Inject theme toggle into nav (after existing nav-links / nav-cta)
     var nav = document.querySelector('nav');
     if(nav && !nav.querySelector('.asr-theme-toggle')){

@@ -197,3 +197,47 @@ html{ scroll-behavior: smooth; }
 .hero{ padding: 4rem 2rem 2.4rem !important; }
 
 /* ---- Hide the in-CSS old Amiri import warning if any ---- */
+
+/* Cycle 23: Mobile + accessibility improvements */
+/* Ensure interactive elements meet 44px minimum tap target on mobile */
+@media (max-width: 768px) {
+  .nav-cta, .cta-btn, .cta-button, button.filter-btn, .asr-share, .asr-theme-toggle,
+  .asr-notd-link, .related-card, .spelling-chip, .cat-chip, .nav-letter, .asr-region-chip {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  /* Body copy never below 16px on mobile to avoid iOS auto-zoom on focus */
+  input[type="text"], input[type="search"], input[type="email"] {
+    font-size: 16px;
+  }
+  /* Avoid horizontal scroll on RTL Arabic text on narrow viewports */
+  body { overflow-x: hidden; }
+  .arabic-name, .urdu-main { overflow-wrap: break-word; word-break: break-word; }
+}
+
+/* Strong focus ring for keyboard users */
+:focus-visible {
+  outline: 2px solid var(--gold, #8B6914);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+/* Skip link for keyboard navigation */
+.asr-skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--gold, #8B6914);
+  color: var(--warm-white, #FAFAF8);
+  padding: .5rem 1rem;
+  text-decoration: none;
+  z-index: 9999;
+  font-family: 'Cinzel', serif;
+  font-size: .82rem;
+  letter-spacing: .08em;
+}
+.asr-skip-link:focus {
+  top: 0;
+}
