@@ -1,4 +1,30 @@
+# AsrNaam — Islamic Name Meanings
+# https://asrnaam.com/
+
 User-agent: *
 Allow: /
 
+# AI crawlers — explicitly allowed for discoverability
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+# Sitemap (canonicals only — redirect stubs are noindex)
 Sitemap: https://asrnaam.com/sitemap.xml
