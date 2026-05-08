@@ -1,0 +1,28 @@
+{
+  "name": "AsrNaam — Islamic Name Meanings",
+  "short_name": "AsrNaam",
+  "description": "Letter-by-letter spiritual readings of Muslim names through Ilm ul Huroof, the classical Islamic Science of Letters in the tradition of Ibn Arabi.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#FAFAF8",
+  "theme_color": "#8B6914",
+  "lang": "en",
+  "dir": "ltr",
+  "categories": ["education", "lifestyle", "reference"],
+  "icons": [
+    {
+      "src": "/og-default.png",
+      "sizes": "1200x630",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/og-default.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
