@@ -17,14 +17,16 @@
   document.addEventListener('DOMContentLoaded', function(){
     // ---- Cycle 23: Skip-to-content link for keyboard a11y ----
     if(!document.querySelector('.asr-skip-link')){
-      var skip = document.createElement('a');
-      skip.className = 'asr-skip-link';
-      skip.href = '#main-content';
-      skip.textContent = 'Skip to main content';
-      document.body.insertBefore(skip, document.body.firstChild);
-      // Find a likely main element to anchor to
       var main = document.querySelector('main, .content, .hero, #content');
-      if(main && !main.id) main.id = 'main-content';
+      var targetId = (main && main.id) ? main.id : 'main-content';
+      if(main && !main.id) main.id = targetId;
+      if(main){
+        var skip = document.createElement('a');
+        skip.className = 'asr-skip-link';
+        skip.href = '#' + targetId;
+        skip.textContent = 'Skip to main content';
+        document.body.insertBefore(skip, document.body.firstChild);
+      }
     }
 
     // Inject theme toggle into nav (after existing nav-links / nav-cta)

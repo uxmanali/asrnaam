@@ -145,16 +145,16 @@ html[data-theme='dark'] .recently-grid .name-card {
     <span class="search-icon">🔍</span>
     <input type="text" id="nameSearch" placeholder="Search names…" autocomplete="off" aria-label="Search names">
   </div>
-  <div class="filter-bar">
-    <button class="filter-btn active" data-filter="all" onclick="setFilter('all',this)">All Names</button>
-    <button class="filter-btn boy-filter" data-filter="boy" onclick="setFilter('boy',this)">Boys</button>
-    <button class="filter-btn girl-filter" data-filter="girl" onclick="setFilter('girl',this)">Girls</button>
+  <div class="filter-bar" role="radiogroup" aria-label="Filter names by gender">
+    <button class="filter-btn active" data-filter="all" onclick="setFilter('all',this)" role="radio" aria-checked="true">All Names</button>
+    <button class="filter-btn boy-filter" data-filter="boy" onclick="setFilter('boy',this)" role="radio" aria-checked="false">Boys</button>
+    <button class="filter-btn girl-filter" data-filter="girl" onclick="setFilter('girl',this)" role="radio" aria-checked="false">Girls</button>
   </div>
 </div>
 
 <div class="cat-bar-wrap">
   <p class="cat-bar-label">Browse by meaning</p>
-  <div class="cat-bar" id="catBar">
+  <div class="cat-bar" id="catBar" role="group" aria-label="Filter names by meaning category">
     <span class="cat-chip clear active" data-cat="">All meanings</span>
     <span class="cat-chip" data-cat="love">Love</span>
     <span class="cat-chip" data-cat="light">Light</span>
@@ -8747,8 +8747,9 @@ var searchVal='';
 
 function setFilter(f,btn){
   currentFilter=f;
-  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.filter-btn').forEach(b=>{ b.classList.remove('active'); b.setAttribute('aria-checked','false'); });
   btn.classList.add('active');
+  btn.setAttribute('aria-checked','true');
   applyFilters();
 }
 

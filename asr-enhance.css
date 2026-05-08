@@ -101,7 +101,20 @@ html:not([data-theme='dark']) .asr-theme-toggle .asr-icon-moon{ display:inline-b
 
 /* ---- Smooth scrolling, accessible focus ---- */
 html{ scroll-behavior: smooth; }
-:focus-visible{ outline: 2px solid var(--asr-sage); outline-offset: 2px; border-radius: 3px; }
+
+/* Cycle F (round 7): unified accessible focus ring — visible on both light and dark */
+:focus-visible {
+  outline: 3px solid var(--gold, #8B6914);
+  outline-offset: 2px;
+  border-radius: 3px;
+  box-shadow: 0 0 0 5px rgba(255,255,255,0.6);
+}
+html[data-theme='dark'] :focus-visible {
+  outline-color: #d4a84a;
+  box-shadow: 0 0 0 5px rgba(0,0,0,0.65);
+}
+/* Touch / mouse — don't show ring (use :focus-visible only) */
+:focus:not(:focus-visible) { outline: none; }
 
 /* ---- Larger arabic name on hero (more breathing room) ---- */
 .hero .arabic-name{
@@ -133,12 +146,6 @@ html{ scroll-behavior: smooth; }
 }
 
 /* Strong focus ring for keyboard users */
-:focus-visible {
-  outline: 2px solid var(--gold, #8B6914);
-  outline-offset: 2px;
-  border-radius: 3px;
-}
-
 /* Skip link for keyboard navigation */
 .asr-skip-link {
   position: absolute;
