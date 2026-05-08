@@ -69,6 +69,50 @@ main{max-width:1200px;margin:0 auto;padding:2rem 1rem 4rem}
 footer{text-align:center;padding:2rem;border-top:1px solid var(--border);color:var(--text-secondary);font-size:.9rem}
 footer a{color:var(--gold);text-decoration:none}
 @media(max-width:600px){.hero h1{font-size:1.5rem}.names-grid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr))}.letter-nav{gap:.2rem}.nav-letter{font-size:.75rem;padding:.2rem .35rem}}
+
+/* Cycle B (round 7): featured + recently-updated + count badges */
+.featured-section, .recently-section { margin-bottom: 2.5rem; }
+.featured-heading, .recently-heading {
+  font-family: 'Cinzel', serif;
+  font-size: 1.5rem; color: var(--gold);
+  margin-bottom: .35rem; padding-bottom: .4rem;
+  border-bottom: 1px solid var(--border);
+  display:flex; align-items:baseline; gap:.6rem;
+}
+.featured-sub, .recently-sub {
+  color: var(--text-secondary); font-style: italic;
+  margin: -.2rem 0 .9rem; font-size: .95rem;
+}
+.featured-grid .name-card, .recently-grid .name-card {
+  background: linear-gradient(180deg, #fff 0%, #fafaf2 100%);
+}
+html[data-theme='dark'] .featured-grid .name-card,
+html[data-theme='dark'] .recently-grid .name-card {
+  background: linear-gradient(180deg, #2a2a28 0%, #242322 100%);
+}
+.nav-count {
+  display:inline-block;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: .65rem; font-weight: 400;
+  margin-left: .15rem; padding: 0 .3rem;
+  border-radius: 8px;
+  color: var(--text-secondary);
+  background: var(--warm-mid);
+  vertical-align: super;
+  letter-spacing: 0;
+}
+.nav-letter:hover .nav-count { background: rgba(255,255,255,.25); color:#fff; }
+.letter-count {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: .8rem; font-weight: 400;
+  color: var(--text-secondary); font-style: italic;
+  margin-left: .6rem;
+}
+.letter-section.hidden .letter-heading { display:none; }
+@media (max-width:600px){
+  .nav-count { font-size: .55rem; }
+  .featured-heading, .recently-heading { font-size: 1.25rem; }
+}
 </style>
 <link rel="stylesheet" href="/asr-enhance.css"/>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
@@ -140,37 +184,76 @@ footer a{color:var(--gold);text-decoration:none}
 </div>
 
 <nav class="letter-nav" aria-label="Browse by letter">
-<a href="#letter-A" class="nav-letter">A</a>
-<a href="#letter-B" class="nav-letter">B</a>
-<a href="#letter-C" class="nav-letter">C</a>
-<a href="#letter-D" class="nav-letter">D</a>
-<a href="#letter-E" class="nav-letter">E</a>
-<a href="#letter-F" class="nav-letter">F</a>
-<a href="#letter-G" class="nav-letter">G</a>
-<a href="#letter-H" class="nav-letter">H</a>
-<a href="#letter-I" class="nav-letter">I</a>
-<a href="#letter-J" class="nav-letter">J</a>
-<a href="#letter-K" class="nav-letter">K</a>
-<a href="#letter-L" class="nav-letter">L</a>
-<a href="#letter-M" class="nav-letter">M</a>
-<a href="#letter-N" class="nav-letter">N</a>
-<a href="#letter-O" class="nav-letter">O</a>
-<a href="#letter-P" class="nav-letter">P</a>
-<a href="#letter-Q" class="nav-letter">Q</a>
-<a href="#letter-R" class="nav-letter">R</a>
-<a href="#letter-S" class="nav-letter">S</a>
-<a href="#letter-T" class="nav-letter">T</a>
-<a href="#letter-U" class="nav-letter">U</a>
-<a href="#letter-V" class="nav-letter">V</a>
-<a href="#letter-W" class="nav-letter">W</a>
-<a href="#letter-X" class="nav-letter">X</a>
-<a href="#letter-Y" class="nav-letter">Y</a>
-<a href="#letter-Z" class="nav-letter">Z</a>
+<a href="#letter-A" class="nav-letter" title="A — 318 names" aria-label="A — 318 names">A<span class="nav-count">318</span></a>
+<a href="#letter-B" class="nav-letter" title="B — 90 names" aria-label="B — 90 names">B<span class="nav-count">90</span></a>
+<a href="#letter-C" class="nav-letter" title="C — 45 names" aria-label="C — 45 names">C<span class="nav-count">45</span></a>
+<a href="#letter-D" class="nav-letter" title="D — 62 names" aria-label="D — 62 names">D<span class="nav-count">62</span></a>
+<a href="#letter-E" class="nav-letter" title="E — 52 names" aria-label="E — 52 names">E<span class="nav-count">52</span></a>
+<a href="#letter-F" class="nav-letter" title="F — 92 names" aria-label="F — 92 names">F<span class="nav-count">92</span></a>
+<a href="#letter-G" class="nav-letter" title="G — 42 names" aria-label="G — 42 names">G<span class="nav-count">42</span></a>
+<a href="#letter-H" class="nav-letter" title="H — 115 names" aria-label="H — 115 names">H<span class="nav-count">115</span></a>
+<a href="#letter-I" class="nav-letter" title="I — 63 names" aria-label="I — 63 names">I<span class="nav-count">63</span></a>
+<a href="#letter-J" class="nav-letter" title="J — 47 names" aria-label="J — 47 names">J<span class="nav-count">47</span></a>
+<a href="#letter-K" class="nav-letter" title="K — 69 names" aria-label="K — 69 names">K<span class="nav-count">69</span></a>
+<a href="#letter-L" class="nav-letter" title="L — 59 names" aria-label="L — 59 names">L<span class="nav-count">59</span></a>
+<a href="#letter-M" class="nav-letter" title="M — 153 names" aria-label="M — 153 names">M<span class="nav-count">153</span></a>
+<a href="#letter-N" class="nav-letter" title="N — 113 names" aria-label="N — 113 names">N<span class="nav-count">113</span></a>
+<a href="#letter-O" class="nav-letter" title="O — 44 names" aria-label="O — 44 names">O<span class="nav-count">44</span></a>
+<a href="#letter-P" class="nav-letter" title="P — 24 names" aria-label="P — 24 names">P<span class="nav-count">24</span></a>
+<a href="#letter-Q" class="nav-letter" title="Q — 20 names" aria-label="Q — 20 names">Q<span class="nav-count">20</span></a>
+<a href="#letter-R" class="nav-letter" title="R — 120 names" aria-label="R — 120 names">R<span class="nav-count">120</span></a>
+<a href="#letter-S" class="nav-letter" title="S — 189 names" aria-label="S — 189 names">S<span class="nav-count">189</span></a>
+<a href="#letter-T" class="nav-letter" title="T — 66 names" aria-label="T — 66 names">T<span class="nav-count">66</span></a>
+<a href="#letter-U" class="nav-letter" title="U — 29 names" aria-label="U — 29 names">U<span class="nav-count">29</span></a>
+<a href="#letter-V" class="nav-letter" title="V — 23 names" aria-label="V — 23 names">V<span class="nav-count">23</span></a>
+<a href="#letter-W" class="nav-letter" title="W — 45 names" aria-label="W — 45 names">W<span class="nav-count">45</span></a>
+<a href="#letter-X" class="nav-letter" title="X — 5 names" aria-label="X — 5 names">X<span class="nav-count">5</span></a>
+<a href="#letter-Y" class="nav-letter" title="Y — 41 names" aria-label="Y — 41 names">Y<span class="nav-count">41</span></a>
+<a href="#letter-Z" class="nav-letter" title="Z — 78 names" aria-label="Z — 78 names">Z<span class="nav-count">78</span></a>
 </nav>
 
 <main id="namesMain">
+
+<section class="featured-section" id="featured-names" aria-label="Featured names">
+  <h2 class="featured-heading">Featured Names</h2>
+  <p class="featured-sub">Beloved Muslim names with deep Quranic and historical resonance.</p>
+  <div class="names-grid featured-grid">
+<a href="/names/muhammad/" class="name-card boy"><span class="name-english">Muhammad</span><span class="name-meaning">The Most Praised — the Prophet ﷺ</span></a>
+<a href="/names/ali/" class="name-card boy"><span class="name-english">Ali</span><span class="name-meaning">The High, Exalted — fourth Caliph</span></a>
+<a href="/names/ibrahim/" class="name-card boy"><span class="name-english">Ibrahim</span><span class="name-meaning">Abraham — Khalilullah, Friend of Allah</span></a>
+<a href="/names/yusuf/" class="name-card boy"><span class="name-english">Yusuf</span><span class="name-meaning">The Prophet of the most beautiful story</span></a>
+<a href="/names/omar/" class="name-card boy"><span class="name-english">Omar</span><span class="name-meaning">The Distinguisher — second Caliph</span></a>
+<a href="/names/bilal/" class="name-card boy"><span class="name-english">Bilal</span><span class="name-meaning">First Mu'adhdhin of Islam</span></a>
+<a href="/names/aisha/" class="name-card girl"><span class="name-english">Aisha</span><span class="name-meaning">Living, full of life — Mother of the Believers</span></a>
+<a href="/names/fatima/" class="name-card girl"><span class="name-english">Fatima</span><span class="name-meaning">The shining — daughter of the Prophet ﷺ</span></a>
+<a href="/names/maryam/" class="name-card girl"><span class="name-english">Maryam</span><span class="name-meaning">Mary — only woman named in the Quran</span></a>
+<a href="/names/khadija/" class="name-card girl"><span class="name-english">Khadija</span><span class="name-meaning">First believer — first wife of the Prophet ﷺ</span></a>
+<a href="/names/sumayya/" class="name-card girl"><span class="name-english">Sumayya</span><span class="name-meaning">High, elevated — the first martyr in Islam</span></a>
+<a href="/names/zainab/" class="name-card girl"><span class="name-english">Zainab</span><span class="name-meaning">Fragrant flower tree — daughter of the Prophet ﷺ</span></a>
+  </div>
+</section>
+
+<section class="recently-section" id="recently-updated" aria-label="Recently updated names">
+  <h2 class="recently-heading">Recently Enriched</h2>
+  <p class="recently-sub">Names with the most recent letter-by-letter readings.</p>
+  <div class="names-grid recently-grid">
+<a href="/names/abdelali/" class="name-card boy"><span class="name-english">Abdelali</span><span class="name-meaning">Servant of the Most High — North African form</span></a>
+<a href="/names/abdelfattah/" class="name-card boy"><span class="name-english">Abdelfattah</span><span class="name-meaning">Servant of the Opener — North African form</span></a>
+<a href="/names/abdelghani/" class="name-card boy"><span class="name-english">Abdelghani</span><span class="name-meaning">Servant of the Self-Sufficient</span></a>
+<a href="/names/abdeljabbar/" class="name-card boy"><span class="name-english">Abdeljabbar</span><span class="name-meaning">Servant of the Compeller</span></a>
+<a href="/names/abdelnour/" class="name-card boy"><span class="name-english">Abdelnour</span><span class="name-meaning">Servant of Light — North African form</span></a>
+<a href="/names/abdelwafi/" class="name-card boy"><span class="name-english">Abdelwafi</span><span class="name-meaning">Servant of the Faithful</span></a>
+<a href="/names/abderrazzak/" class="name-card boy"><span class="name-english">Abderrazzak</span><span class="name-meaning">Servant of the Sustainer</span></a>
+<a href="/names/abdessabour/" class="name-card boy"><span class="name-english">Abdessabour</span><span class="name-meaning">Servant of the Patient</span></a>
+<a href="/names/abdessamad/" class="name-card boy"><span class="name-english">Abdessamad</span><span class="name-meaning">Servant of the Eternal</span></a>
+<a href="/names/safa/" class="name-card girl"><span class="name-english">Safa</span><span class="name-meaning">Purity, clarity — the hill of pilgrimage</span></a>
+<a href="/names/sara/" class="name-card girl"><span class="name-english">Sara</span><span class="name-meaning">Pure, princess — wife of Ibrahim (AS)</span></a>
+<a href="/names/sarah/" class="name-card girl"><span class="name-english">Sarah</span><span class="name-meaning">Pure, princess — biblical-Quranic wife of Ibrahim (AS)</span></a>
+  </div>
+</section>
+
 <section class="letter-section" id="letter-A">
-  <h2 class="letter-heading">A</h2>
+  <h2 class="letter-heading">A<span class="letter-count">318 names</span></h2>
   <div class="names-grid">
 <a href="/names/aabid/" class="name-card boy" data-cats="love faith truth prophet">
   <span class="name-english">Aabid</span>
@@ -1485,7 +1568,7 @@ footer a{color:var(--gold);text-decoration:none}
   </div>
 </section>
 <section class="letter-section" id="letter-B">
-  <h2 class="letter-heading">B</h2>
+  <h2 class="letter-heading">B<span class="letter-count">90 names</span></h2>
   <div class="names-grid">
 <a href="/names/bachir/" class="name-card boy" data-cats="">
   <span class="name-english">Bachir</span>
@@ -1858,7 +1941,7 @@ footer a{color:var(--gold);text-decoration:none}
   </div>
 </section>
 <section class="letter-section" id="letter-C">
-  <h2 class="letter-heading">C</h2>
+  <h2 class="letter-heading">C<span class="letter-count">45 names</span></h2>
   <div class="names-grid">
 <a href="/names/cahit/" class="name-card boy" data-cats="faith truth prophet">
   <span class="name-english">Cahit</span>
@@ -2043,7 +2126,7 @@ footer a{color:var(--gold);text-decoration:none}
   </div>
 </section>
 <section class="letter-section" id="letter-D">
-  <h2 class="letter-heading">D</h2>
+  <h2 class="letter-heading">D<span class="letter-count">62 names</span></h2>
   <div class="names-grid">
 <a href="/names/daima/" class="name-card boy" data-cats="love eternal">
   <span class="name-english">Daima</span>
@@ -2290,7 +2373,7 @@ footer a{color:var(--gold);text-decoration:none}
   </div>
 </section>
 <section class="letter-section" id="letter-E">
-  <h2 class="letter-heading">E</h2>
+  <h2 class="letter-heading">E<span class="letter-count">52 names</span></h2>
   <div class="names-grid">
 <a href="/names/ebrahim/" class="name-card boy" data-cats="prophet companion">
   <span class="name-english">Ebrahim</span>
@@ -2520,7 +2603,7 @@ footer a{color:var(--gold);text-decoration:none}
   </div>
 </section>
 <section class="letter-section" id="letter-F">
-  <h2 class="letter-heading">F</h2>
+  <h2 class="letter-heading">F<span class="letter-count">92 names</span></h2>
   <div class="names-grid">
 <a href="/names/faaizah/" class="name-card girl" data-cats="faith patience truth paradise prophet victory">
   <span class="name-english">Faaizah</span>
@@ -2898,7 +2981,7 @@ footer a{color:var(--gold);text-decoration:none}
   </div>
 </section>
 <section class="letter-section" id="letter-G">
-  <h2 class="letter-heading">G</h2>
+  <h2 class="letter-heading">G<span class="letter-count">42 names</span></h2>
   <div class="names-grid">
 <a href="/names/furqan/" class="name-card boy" data-cats="blessed truth">
   <span class="name-english">Furqan</span>
@@ -3080,7 +3163,7 @@ footer a{color:var(--gold);text-decoration:none}
   </div>
 </section>
 <section class="letter-section" id="letter-H">
-  <h2 class="letter-heading">H</h2>
+  <h2 class="letter-heading">H<span class="letter-count">115 names</span></h2>
   <div class="names-grid">
 <a href="/names/gulzar/" class="name-card boy" data-cats="beauty paradise flower">
   <span class="name-english">Gulzar</span>
@@ -3570,7 +3653,7 @@ footer a{color:var(--gold);text-decoration:none}
   </div>
 </section>
 <section class="letter-section" id="letter-I">
-  <h2 class="letter-heading">I</h2>
+  <h2 class="letter-heading">I<span class="letter-count">63 names</span></h2>
   <div class="names-grid">
 <a href="/names/ibou/" class="name-card boy" data-cats="love prophet">
   <span class="name-english">Ibou</span>
@@ -3839,7 +3922,7 @@ footer a{color:var(--gold);text-decoration:none}
   </div>
 </section>
 <section class="letter-section" id="letter-J">
-  <h2 class="letter-heading">J</h2>
+  <h2 class="letter-heading">J<span class="letter-count">47 names</span></h2>
   <div class="names-grid">
 <a href="/names/jaabir/" class="name-card boy" data-cats="prophet companion">
   <span class="name-english">Jaabir</span>
@@ -4042,7 +4125,7 @@ footer a{color:var(--gold);text-decoration:none}
   </div>
 </section>
 <section class="letter-section" id="letter-K">
-  <h2 class="letter-heading">K</h2>
+  <h2 class="letter-heading">K<span class="letter-count">69 names</span></h2>
   <div class="names-grid">
 <a href="/names/kabir/" class="name-card boy" data-cats="blessed">
   <span class="name-english">Kabir</span>
@@ -4340,7 +4423,7 @@ footer a{color:var(--gold);text-decoration:none}
   </div>
 </section>
 <section class="letter-section" id="letter-L">
-  <h2 class="letter-heading">L</h2>
+  <h2 class="letter-heading">L<span class="letter-count">59 names</span></h2>
   <div class="names-grid">
 <a href="/names/labib/" class="name-card boy" data-cats="wisdom truth">
   <span class="name-english">Labib</span>
@@ -4594,7 +4677,7 @@ footer a{color:var(--gold);text-decoration:none}
   </div>
 </section>
 <section class="letter-section" id="letter-M">
-  <h2 class="letter-heading">M</h2>
+  <h2 class="letter-heading">M<span class="letter-count">153 names</span></h2>
   <div class="names-grid">
 <a href="/names/maarij/" class="name-card boy" data-cats="">
   <span class="name-english">Maarij</span>
@@ -5247,7 +5330,7 @@ footer a{color:var(--gold);text-decoration:none}
   </div>
 </section>
 <section class="letter-section" id="letter-N">
-  <h2 class="letter-heading">N</h2>
+  <h2 class="letter-heading">N<span class="letter-count">113 names</span></h2>
   <div class="names-grid">
 <a href="/names/naama/" class="name-card girl" data-cats="blessed">
   <span class="name-english">Naama</span>
@@ -5725,7 +5808,7 @@ footer a{color:var(--gold);text-decoration:none}
   </div>
 </section>
 <section class="letter-section" id="letter-O">
-  <h2 class="letter-heading">O</h2>
+  <h2 class="letter-heading">O<span class="letter-count">44 names</span></h2>
   <div class="names-grid">
 <a href="/names/obada/" class="name-card boy" data-cats="faith companion">
   <span class="name-english">Obada</span>
@@ -5916,7 +5999,7 @@ footer a{color:var(--gold);text-decoration:none}
   </div>
 </section>
 <section class="letter-section" id="letter-P">
-  <h2 class="letter-heading">P</h2>
+  <h2 class="letter-heading">P<span class="letter-count">24 names</span></h2>
   <div class="names-grid">
 <a href="/names/pakeeza/" class="name-card boy" data-cats="beauty blessed">
   <span class="name-english">Pakeeza</span>
@@ -6020,7 +6103,7 @@ footer a{color:var(--gold);text-decoration:none}
   </div>
 </section>
 <section class="letter-section" id="letter-Q">
-  <h2 class="letter-heading">Q</h2>
+  <h2 class="letter-heading">Q<span class="letter-count">20 names</span></h2>
   <div class="names-grid">
 <a href="/names/qaboos/" class="name-card boy" data-cats="beauty queen">
   <span class="name-english">Qaboos</span>
@@ -6109,7 +6192,7 @@ footer a{color:var(--gold);text-decoration:none}
   </div>
 </section>
 <section class="letter-section" id="letter-R">
-  <h2 class="letter-heading">R</h2>
+  <h2 class="letter-heading">R<span class="letter-count">120 names</span></h2>
   <div class="names-grid">
 <a href="/names/raayen/" class="name-card boy" data-cats="blessed paradise">
   <span class="name-english">Raayen</span>
@@ -6618,7 +6701,7 @@ footer a{color:var(--gold);text-decoration:none}
   </div>
 </section>
 <section class="letter-section" id="letter-S">
-  <h2 class="letter-heading">S</h2>
+  <h2 class="letter-heading">S<span class="letter-count">189 names</span></h2>
   <div class="names-grid">
 
 <a href="/names/saad/" class="name-card boy" data-cats="blessed paradise prophet companion victory happy">
@@ -7414,7 +7497,7 @@ footer a{color:var(--gold);text-decoration:none}
   </div>
 </section>
 <section class="letter-section" id="letter-T">
-  <h2 class="letter-heading">T</h2>
+  <h2 class="letter-heading">T<span class="letter-count">66 names</span></h2>
   <div class="names-grid">
 <a href="/names/tabassum/" class="name-card girl" data-cats="prophet">
   <span class="name-english">Tabassum</span>
@@ -7692,7 +7775,7 @@ footer a{color:var(--gold);text-decoration:none}
   </div>
 </section>
 <section class="letter-section" id="letter-U">
-  <h2 class="letter-heading">U</h2>
+  <h2 class="letter-heading">U<span class="letter-count">29 names</span></h2>
   <div class="names-grid">
 <a href="/names/ubaid/" class="name-card boy" data-cats="companion">
   <span class="name-english">Ubaid</span>
@@ -7816,7 +7899,7 @@ footer a{color:var(--gold);text-decoration:none}
   </div>
 </section>
 <section class="letter-section" id="letter-V">
-  <h2 class="letter-heading">V</h2>
+  <h2 class="letter-heading">V<span class="letter-count">23 names</span></h2>
   <div class="names-grid">
 <a href="/names/vafa/" class="name-card girl" data-cats="">
   <span class="name-english">Vafa</span>
@@ -7913,7 +7996,7 @@ footer a{color:var(--gold);text-decoration:none}
   </div>
 </section>
 <section class="letter-section" id="letter-W">
-  <h2 class="letter-heading">W</h2>
+  <h2 class="letter-heading">W<span class="letter-count">45 names</span></h2>
   <div class="names-grid">
 <a href="/names/wadha/" class="name-card girl" data-cats="light">
   <span class="name-english">Wadha</span>
@@ -8104,7 +8187,7 @@ footer a{color:var(--gold);text-decoration:none}
   </div>
 </section>
 <section class="letter-section" id="letter-X">
-  <h2 class="letter-heading">X</h2>
+  <h2 class="letter-heading">X<span class="letter-count">5 names</span></h2>
   <div class="names-grid">
 <a href="/names/xara/" class="name-card girl" data-cats="beauty flower queen">
   <span class="name-english">Xara</span>
@@ -8130,7 +8213,7 @@ footer a{color:var(--gold);text-decoration:none}
   </div>
 </section>
 <section class="letter-section" id="letter-Y">
-  <h2 class="letter-heading">Y</h2>
+  <h2 class="letter-heading">Y<span class="letter-count">41 names</span></h2>
   <div class="names-grid">
 <a href="/names/yacoub/" class="name-card boy" data-cats="patience prophet">
   <span class="name-english">Yacoub</span>
@@ -8312,7 +8395,7 @@ footer a{color:var(--gold);text-decoration:none}
   </div>
 </section>
 <section class="letter-section" id="letter-Z">
-  <h2 class="letter-heading">Z</h2>
+  <h2 class="letter-heading">Z<span class="letter-count">78 names</span></h2>
   <div class="names-grid">
 <a href="/names/zaara/" class="name-card girl" data-cats="light beauty wisdom flower">
   <span class="name-english">Zaara</span>
