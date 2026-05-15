@@ -590,3 +590,27 @@
   window.AsrNaam.openRecent = function(){ openListModal('recent'); };
   window.AsrNaam.openCmdk = openCmdk;
 })();
+
+(function(){
+  if(document.readyState!=='loading')run(); else document.addEventListener('DOMContentLoaded', run);
+  function run(){
+
+  // ---- Share Hero copy button (per-name pages) ----
+  function bindShareHeroCopy(){
+    var btns = document.querySelectorAll('.asr-share-btn.copy[data-url]');
+    btns.forEach(function(btn){
+      if(btn.__bound) return; btn.__bound = true;
+      btn.addEventListener('click', async function(){
+        var u = btn.getAttribute('data-url') || location.href;
+        try{
+          if(navigator.clipboard){ await navigator.clipboard.writeText(u); }
+          else { var ta=document.createElement('textarea'); ta.value=u; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta); }
+          var old = btn.innerHTML; btn.classList.add('copied'); btn.innerHTML = 'Copied!';
+          setTimeout(function(){ btn.classList.remove('copied'); btn.innerHTML = old; }, 1100);
+        }catch(e){}
+      });
+    });
+  }
+    bindShareHeroCopy();
+  }
+})();

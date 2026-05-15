@@ -912,3 +912,23 @@ html[data-theme='dark'] .breadcrumb a { color: #a8a39a !important; }
 
 /* ---------- Skip-link target ---------- */
 main:focus { outline: none; }
+
+/* Share CTA (above meaning content) */
+.asr-share-hero{margin:1.5rem 0 1.8rem;padding:1rem 1.1rem;border:1px solid var(--border,#E8E2D4);border-radius:6px;background:linear-gradient(90deg,rgba(139,105,20,0.06),rgba(139,105,20,0.02));}
+.asr-share-hero-title{display:block;font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:#8B6914;font-weight:600;margin-bottom:.55rem;}
+.asr-share-hero-sub{display:block;font-size:.93rem;color:#5A5A5A;font-style:italic;margin-bottom:.85rem;line-height:1.45;}
+.asr-share-hero-row{display:flex;gap:.55rem;flex-wrap:wrap;}
+.asr-share-btn{display:inline-flex;align-items:center;gap:.45rem;padding:.55rem .95rem;border-radius:6px;font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;font-weight:600;border:1px solid transparent;transition:transform .15s,box-shadow .15s,filter .15s;}
+.asr-share-btn:hover{transform:translateY(-1px);}
+.asr-share-btn svg{width:14px;height:14px;flex-shrink:0;}
+.asr-share-btn.wa{background:#25D366;color:#fff!important;border-color:#1faa54;}
+.asr-share-btn.wa:hover{filter:brightness(.95);box-shadow:0 2px 8px rgba(37,211,102,.25);}
+.asr-share-btn.tw{background:#111;color:#fff!important;border-color:#000;}
+.asr-share-btn.tw:hover{box-shadow:0 2px 8px rgba(0,0,0,.25);}
+.asr-share-btn.fb{background:#1877F2;color:#fff!important;border-color:#0c5cc9;}
+.asr-share-btn.fb:hover{filter:brightness(.95);box-shadow:0 2px 8px rgba(24,119,242,.25);}
+.asr-share-btn.copy{background:#fff;color:#2A2A2A!important;border-color:rgba(139,105,20,.4);cursor:pointer;font-family:'Cinzel',serif;}
+.asr-share-btn.copy:hover{background:#F2EFE8;border-color:rgba(139,105,20,.7);}
+.asr-share-btn.copy.copied{background:#8B6914;color:#fff!important;border-color:#8B6914;}
+@media(max-width:600px){.asr-share-hero-row{gap:.4rem;}.asr-share-btn{padding:.5rem .7rem;font-size:.62rem;}}
+@media(prefers-color-scheme:dark){.asr-share-hero{background:linear-gradient(90deg,rgba(212,160,23,.08),rgba(212,160,23,.03));border-color:#3a3a3a;}.asr-share-hero-sub{color:#9a9a9a;}}
