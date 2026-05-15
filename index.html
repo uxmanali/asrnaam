@@ -394,23 +394,24 @@
 </head>
 <body>
 
-<nav>
-  <a href="/" class="nav-brand"><span lang="ar" dir="rtl">اثر نام</span><span>AsrNaam · The Impact of Your Name</span></a>
-  <button class="nav-hamburger" id="navToggle" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+<!-- ASR:HEADER:START -->
+<nav class="asr-site-header" role="navigation" aria-label="Primary">
+  <a href="/" class="nav-brand">
+    <span lang="ar" dir="rtl">اثر نام</span>
+    <span class="nav-brand-sub">AsrNaam · The Impact of Your Name</span>
+  </a>
+  <button type="button" class="nav-hamburger" aria-label="Open menu" aria-controls="asrNavLinks" aria-expanded="false" onclick="var l=document.getElementById('asrNavLinks');var o=l.classList.toggle('open');this.setAttribute('aria-expanded',o);">
     <span></span><span></span><span></span>
   </button>
-  <ul class="nav-links">
-    <li><a href="/ilm-ul-huroof">What is Ilm ul Huroof?</a></li>
-    <li><a href="/ilm-ul-huroof">Ibn Arabi</a></li>
-    <li class="nav-sep"></li>
-    <li><a href="/letters/" class="nav-browse">Browse Letters</a></li>
-    <li><a href="/names/" class="nav-browse">Browse Names</a></li>
-    <li class="nav-sep"></li>
-    <li><a href="#tool" onclick="document.querySelector('.nav-links').classList.remove('open')">Read Your Name</a></li>
-    <li><a href="#tool" class="nav-cta" onclick="document.querySelector('.nav-links').classList.remove('open')">Begin Reading →</a></li>
-  </ul>
+  <ul class="nav-links" id="asrNavLinks">
+    <li><a href="/ilm-ul-huroof/">Ilm ul Huroof</a></li>
+    <li><a href="/letters/">Letters</a></li>
+    <li><a href="/names/">Names</a></li>
+    <li class="nav-sep" aria-hidden="true"></li>
+    <li><a href="/#tool" class="nav-cta">Read Your Name →</a></li>
   </ul>
 </nav>
+<!-- ASR:HEADER:END -->
 
 <div class="hero">
   <div class="hero-bg"></div>
@@ -558,9 +559,10 @@
   </div>
 </div>
 
-<footer>
+<!-- ASR:FOOTER:START -->
+<footer class="asr-site-footer" role="contentinfo">
   <div class="footer-grid">
-    <div>
+    <div class="footer-brand-col">
       <span class="footer-brand" lang="ar" dir="rtl">اثر نام</span>
       <span class="footer-tagline">AsrNaam · The Impact of Your Name</span>
       <p class="footer-blurb">A reading tradition grounded in Ilm ul Huroof — the classical Islamic Science of Letters.</p>
@@ -568,11 +570,10 @@
     <div class="footer-col">
       <span class="footer-col-title">Knowledge</span>
       <ul>
-        <li><a href="/ilm-ul-huroof">What is Ilm ul Huroof?</a></li>
-        <li><a href="/ilm-ul-huroof">Ibn Arabi</a></li>
+        <li><a href="/ilm-ul-huroof/">What is Ilm ul Huroof?</a></li>
         <li><a href="/letters/">Browse All Letters</a></li>
         <li><a href="/names/">Browse All Names</a></li>
-        <li><a href="#tool">Read Your Name</a></li>
+        <li><a href="/#tool">Read Your Name</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -587,9 +588,10 @@
   </div>
   <div class="footer-bottom">
     <span class="footer-copy">© 2026 AsrNaam · Puppis PTY LTD · ABN 40 658 970 640</span>
-    <span class="footer-copy">Inspired by the tradition of Ibn Arabi and the scholars of Ilm ul Huroof</span>
+    <span class="footer-copy">Inspired by Ibn Arabi &amp; the scholars of Ilm ul Huroof</span>
   </div>
 </footer>
+<!-- ASR:FOOTER:END -->
 
 <script>
 // ═══════════════════════════════════════════════════════

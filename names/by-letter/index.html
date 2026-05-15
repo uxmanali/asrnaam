@@ -65,18 +65,27 @@ footer{background:#111010;color:rgba(255,255,255,0.6);padding:2.4rem 1.6rem;text
 footer a{color:rgba(139,105,20,0.85);}
 @media(max-width:600px){nav{padding:1rem 1.2rem;}.grid{grid-template-columns:repeat(auto-fill,minmax(170px,1fr));padding:0 1.1rem;}}
 </style>
+<link rel="stylesheet" href="/asr-enhance.css"/>
 </head>
 <body>
-<nav>
-<a href="/" class="nav-logo"><span lang="ar" dir="rtl">اثر نام</span>Asrnaam</a>
-<div class="nav-links">
-<a href="/names/">All Names</a>
-<a href="/names/boys/">Boys</a>
-<a href="/names/girls/">Girls</a>
-<a href="/letters/">Letters</a>
-<a href="/ilm-ul-huroof">Science</a>
-</div>
+<!-- ASR:HEADER:START -->
+<nav class="asr-site-header" role="navigation" aria-label="Primary">
+  <a href="/" class="nav-brand">
+    <span lang="ar" dir="rtl">اثر نام</span>
+    <span class="nav-brand-sub">AsrNaam · The Impact of Your Name</span>
+  </a>
+  <button type="button" class="nav-hamburger" aria-label="Open menu" aria-controls="asrNavLinks" aria-expanded="false" onclick="var l=document.getElementById('asrNavLinks');var o=l.classList.toggle('open');this.setAttribute('aria-expanded',o);">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="asrNavLinks">
+    <li><a href="/ilm-ul-huroof/">Ilm ul Huroof</a></li>
+    <li><a href="/letters/">Letters</a></li>
+    <li><a href="/names/">Names</a></li>
+    <li class="nav-sep" aria-hidden="true"></li>
+    <li><a href="/#tool" class="nav-cta">Read Your Name →</a></li>
+  </ul>
 </nav>
+<!-- ASR:HEADER:END -->
 <div class="breadcrumb"><a href="/">Home</a> &nbsp;›&nbsp; <a href="/names/">All Names</a> &nbsp;›&nbsp; By Letter</div>
 <header class="hero">
 <p class="crumbtag">Browse &nbsp;·&nbsp; By First Letter</p>
@@ -84,9 +93,38 @@ footer a{color:rgba(139,105,20,0.85);}
 <p class="lede">Browse 2,000+ Muslim baby names by their first letter. Each page lists every researched name with Arabic spelling, meaning, origin, and an Ilm ul Huroof reading.</p>
 </header>
 <div class="grid"><a class="card" href="/names/by-letter/A/"><span class="card-name">A</span><span class="card-meaning">318 names</span></a><a class="card" href="/names/by-letter/B/"><span class="card-name">B</span><span class="card-meaning">90 names</span></a><a class="card" href="/names/by-letter/C/"><span class="card-name">C</span><span class="card-meaning">45 names</span></a><a class="card" href="/names/by-letter/D/"><span class="card-name">D</span><span class="card-meaning">62 names</span></a><a class="card" href="/names/by-letter/E/"><span class="card-name">E</span><span class="card-meaning">51 names</span></a><a class="card" href="/names/by-letter/F/"><span class="card-name">F</span><span class="card-meaning">92 names</span></a><a class="card" href="/names/by-letter/G/"><span class="card-name">G</span><span class="card-meaning">42 names</span></a><a class="card" href="/names/by-letter/H/"><span class="card-name">H</span><span class="card-meaning">115 names</span></a><a class="card" href="/names/by-letter/I/"><span class="card-name">I</span><span class="card-meaning">63 names</span></a><a class="card" href="/names/by-letter/J/"><span class="card-name">J</span><span class="card-meaning">47 names</span></a><a class="card" href="/names/by-letter/K/"><span class="card-name">K</span><span class="card-meaning">69 names</span></a><a class="card" href="/names/by-letter/L/"><span class="card-name">L</span><span class="card-meaning">59 names</span></a><a class="card" href="/names/by-letter/M/"><span class="card-name">M</span><span class="card-meaning">153 names</span></a><a class="card" href="/names/by-letter/N/"><span class="card-name">N</span><span class="card-meaning">113 names</span></a><a class="card" href="/names/by-letter/O/"><span class="card-name">O</span><span class="card-meaning">44 names</span></a><a class="card" href="/names/by-letter/P/"><span class="card-name">P</span><span class="card-meaning">24 names</span></a><a class="card" href="/names/by-letter/Q/"><span class="card-name">Q</span><span class="card-meaning">20 names</span></a><a class="card" href="/names/by-letter/R/"><span class="card-name">R</span><span class="card-meaning">120 names</span></a><a class="card" href="/names/by-letter/S/"><span class="card-name">S</span><span class="card-meaning">189 names</span></a><a class="card" href="/names/by-letter/T/"><span class="card-name">T</span><span class="card-meaning">66 names</span></a><a class="card" href="/names/by-letter/U/"><span class="card-name">U</span><span class="card-meaning">28 names</span></a><a class="card" href="/names/by-letter/V/"><span class="card-name">V</span><span class="card-meaning">23 names</span></a><a class="card" href="/names/by-letter/W/"><span class="card-name">W</span><span class="card-meaning">45 names</span></a><a class="card" href="/names/by-letter/X/"><span class="card-name">X</span><span class="card-meaning">5 names</span></a><a class="card" href="/names/by-letter/Y/"><span class="card-name">Y</span><span class="card-meaning">41 names</span></a><a class="card" href="/names/by-letter/Z/"><span class="card-name">Z</span><span class="card-meaning">78 names</span></a></div>
-<footer>
-<p>© 2026 Asrnaam — Muslim baby names with Ilm ul Huroof readings.</p>
-<p style="margin-top:.5rem;font-size:.82rem;"><a href="/about/">About</a> &nbsp;·&nbsp; <a href="/contact/">Contact</a> &nbsp;·&nbsp; <a href="/privacy/">Privacy</a> &nbsp;·&nbsp; <a href="/terms/">Terms</a></p>
+<!-- ASR:FOOTER:START -->
+<footer class="asr-site-footer" role="contentinfo">
+  <div class="footer-grid">
+    <div class="footer-brand-col">
+      <span class="footer-brand" lang="ar" dir="rtl">اثر نام</span>
+      <span class="footer-tagline">AsrNaam · The Impact of Your Name</span>
+      <p class="footer-blurb">A reading tradition grounded in Ilm ul Huroof — the classical Islamic Science of Letters.</p>
+    </div>
+    <div class="footer-col">
+      <span class="footer-col-title">Knowledge</span>
+      <ul>
+        <li><a href="/ilm-ul-huroof/">What is Ilm ul Huroof?</a></li>
+        <li><a href="/letters/">Browse All Letters</a></li>
+        <li><a href="/names/">Browse All Names</a></li>
+        <li><a href="/#tool">Read Your Name</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <span class="footer-col-title">AsrNaam</span>
+      <ul>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/contact/">Contact</a></li>
+        <li><a href="/privacy/">Privacy</a></li>
+        <li><a href="/terms/">Terms</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2026 AsrNaam · Puppis PTY LTD · ABN 40 658 970 640</span>
+    <span class="footer-copy">Inspired by Ibn Arabi &amp; the scholars of Ilm ul Huroof</span>
+  </div>
 </footer>
+<!-- ASR:FOOTER:END -->
 </body>
 </html>
