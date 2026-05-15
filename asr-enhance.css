@@ -932,3 +932,116 @@ main:focus { outline: none; }
 .asr-share-btn.copy.copied{background:#8B6914;color:#fff!important;border-color:#8B6914;}
 @media(max-width:600px){.asr-share-hero-row{gap:.4rem;}.asr-share-btn{padding:.5rem .7rem;font-size:.62rem;}}
 @media(prefers-color-scheme:dark){.asr-share-hero{background:linear-gradient(90deg,rgba(212,160,23,.08),rgba(212,160,23,.03));border-color:#3a3a3a;}.asr-share-hero-sub{color:#9a9a9a;}}
+
+/* ============================================================
+   C7 — Mobile readability tuning
+   - Max paragraph width 65ch
+   - Visible section breaks between major blocks
+   - Arabic / Urdu spans line-height 1.8
+   - Dark-mode safe
+   ============================================================ */
+
+/* 1. Cap paragraph measure across reading sections.
+      'em' versions use 65ch which clamps to about 65 characters
+      of body text — comfortable scanline on mobile and desktop. */
+.asr-portrait p,
+.asr-meaning p,
+.asr-portrait .prose p,
+.prose p,
+.letters-intro,
+.spellings-intro,
+.related-intro,
+.bearers-list li,
+.urdu-meaning,
+.faq-a p,
+.faq-door,
+.notable p {
+  max-width: 65ch;
+}
+
+/* Center the constrained text so it sits in the existing 760px content column */
+.prose p,
+.letters-intro,
+.spellings-intro,
+.related-intro,
+.faq-a p,
+.notable p {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 2. Visible section breaks between major blocks.
+      Use a hairline divider above section-labels that mark a new block.
+      Quick Facts -> Portrait -> Life -> Bearers -> Pronunciation -> Meanings -> Related -> Shared */
+.content .section-label,
+.content > .section-label,
+.qfacts-section + *,
+.life-section,
+.bearers-section,
+.related-section,
+.shared-section,
+.pron-section,
+.spellings-section,
+.urdu-section {
+  position: relative;
+}
+
+/* hairline above each "section-label" that introduces a block — but not the very first one */
+.content .section-label:not(:first-of-type) {
+  border-top: 1px solid var(--border, #E8E2D4);
+  padding-top: 2.4rem;
+}
+
+/* Generous breathing space between the major named sections */
+.related-section,
+.shared-section,
+.bearers-section,
+.life-section,
+.pron-section {
+  margin-top: 3.2rem;
+}
+
+/* Subtle hr fallback for any explicit <hr> we drop in */
+.content hr.section-break {
+  border: 0;
+  border-top: 1px solid var(--border, #E8E2D4);
+  margin: 3rem 0 2.2rem;
+  height: 0;
+}
+
+/* 3. Arabic / Urdu line-height for inline spans (Quranic citations, root glosses, etc.) */
+[lang="ar"],
+[lang="ur"],
+.urdu-main,
+.arabic-name,
+.letter-arabic,
+blockquote p[lang="ar"] {
+  line-height: 1.8;
+}
+
+/* 4. Dark-mode hairlines stay subtle but visible */
+html[data-theme='dark'] .content .section-label:not(:first-of-type),
+html[data-theme='dark'] .content hr.section-break {
+  border-top-color: #3a3935;
+}
+@media (prefers-color-scheme: dark) {
+  .content .section-label:not(:first-of-type),
+  .content hr.section-break {
+    border-top-color: #3a3935;
+  }
+}
+
+/* 5. Tighten the readability rules on small screens — keep section-break visible
+      but reduce the extra padding so we don't dead-air the top of each block */
+@media (max-width: 640px) {
+  .content .section-label:not(:first-of-type) {
+    padding-top: 1.8rem;
+  }
+  .related-section,
+  .shared-section,
+  .bearers-section,
+  .life-section,
+  .pron-section {
+    margin-top: 2.2rem;
+  }
+}
