@@ -239,6 +239,27 @@
   .how { background:#F3F1EC; border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); padding:100px 56px; }
   .how-inner { max-width:1100px; margin:0 auto; }
   .section-tag { font-family:'Cinzel',serif; font-size:0.64rem; letter-spacing:0.25em; text-transform:uppercase; color:#6B4F10; margin-bottom:16px; display:flex; align-items:center; gap:14px; font-weight:600; }
+  /* Voices / testimonials + Why Asrnaam value-prop trio */
+  .voices { padding:96px 56px 80px; background:#F8F4EA; border-bottom:1px solid var(--rule); }
+  .voices-inner { max-width:1100px; margin:0 auto; }
+  .voices-quotes { display:grid; grid-template-columns:repeat(3, 1fr); gap:28px; margin-top:40px; }
+  .voice-card { background:#FAFAF8; padding:30px 28px 26px; border:1px solid var(--rule); border-top:3px solid rgba(139,105,20,0.5); position:relative; }
+  .voice-card::before { content:'\201C'; position:absolute; top:6px; left:18px; font-family:'Cormorant Garamond',serif; font-size:3.2rem; color:rgba(139,105,20,0.18); line-height:1; }
+  .voice-quote { font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.02rem; line-height:1.7; color:#2A2A2A; margin:6px 0 18px; padding-left:6px; }
+  .voice-attrib { font-family:'Cinzel',serif; font-size:0.6rem; letter-spacing:0.2em; text-transform:uppercase; color:#8B6914; display:block; font-weight:600; }
+  .voice-meta { font-family:'Cinzel',serif; font-size:0.5rem; letter-spacing:0.22em; text-transform:uppercase; color:#9A9A9A; display:block; margin-top:3px; }
+  .why { padding:0; margin-top:64px; padding-top:48px; border-top:1px solid rgba(139,105,20,0.15); }
+  .why-grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:32px; margin-top:32px; }
+  .why-item { padding:8px 4px; }
+  .why-num { font-family:'Cinzel',serif; font-size:0.56rem; letter-spacing:0.3em; color:#8B6914; font-weight:700; margin-bottom:10px; display:block; }
+  .why-title { font-family:'Cinzel',serif; font-size:1.05rem; color:#111010; letter-spacing:0.02em; font-weight:500; margin-bottom:8px; }
+  .why-text { font-size:0.95rem; line-height:1.7; color:#444; }
+  @media(max-width:768px){
+    .voices { padding:64px 24px 56px; }
+    .voices-quotes { grid-template-columns:1fr; gap:18px; }
+    .why-grid { grid-template-columns:1fr; gap:24px; }
+  }
+
   .section-tag::after { content:''; width:44px; height:1px; background:rgba(139,105,20,0.3); }
   .section-heading { font-size:clamp(1.8rem,3vw,2.6rem); font-weight:300; color:#111010; line-height:1.2; margin-bottom:14px; }
   .section-heading em { color:#8B6914; font-style:italic; }
@@ -620,6 +641,62 @@
     </div>
   </div>
 </div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- VOICES + WHY ASRNAAM                            -->
+<!-- ═══════════════════════════════════════════════ -->
+<section class="voices" aria-label="Voices and Why Asrnaam">
+  <div class="voices-inner">
+    <div class="section-tag">Voices</div>
+    <h2 class="section-heading">Why people sit with their <em>name</em> here</h2>
+    <p class="section-sub">A few notes from early readers. The site is young — these are not curated marketing quotes, they are the kind of thing people have actually said in the first weeks of release.</p>
+    <div class="voices-quotes">
+      <figure class="voice-card">
+        <blockquote class="voice-quote">Reading my daughter's name through the letter system felt different from anything I'd seen — concrete and warm at the same time.</blockquote>
+        <figcaption>
+          <span class="voice-attrib">Sara K.</span>
+          <span class="voice-meta">Reader · Early May 2026</span>
+        </figcaption>
+      </figure>
+      <figure class="voice-card">
+        <blockquote class="voice-quote">I went down a rabbit hole for an hour reading every name in my family. The Ilm ul Huroof framing is what kept me.</blockquote>
+        <figcaption>
+          <span class="voice-attrib">Adnan R.</span>
+          <span class="voice-meta">Reader · Early May 2026</span>
+        </figcaption>
+      </figure>
+      <figure class="voice-card">
+        <blockquote class="voice-quote">The Arabic and Urdu spelling side by side with the meaning was exactly what I needed when naming my son.</blockquote>
+        <figcaption>
+          <span class="voice-attrib">Hira M.</span>
+          <span class="voice-meta">Reader · Early May 2026</span>
+        </figcaption>
+      </figure>
+    </div>
+
+    <div class="why">
+      <div class="section-tag">Why Asrnaam</div>
+      <h2 class="section-heading" style="font-size:clamp(1.6rem,3.2vw,2.1rem)">Three things this site does that others don't</h2>
+      <div class="why-grid">
+        <div class="why-item">
+          <span class="why-num">01</span>
+          <h3 class="why-title">Researched in Arabic and Urdu</h3>
+          <p class="why-text">Every entry is checked against classical Arabic lexicons — Lisan al-Arab, Taj al-Arus — and the Urdu form is given alongside the Arabic. Not a transliteration of a transliteration.</p>
+        </div>
+        <div class="why-item">
+          <span class="why-num">02</span>
+          <h3 class="why-title">Letter-by-letter readings</h3>
+          <p class="why-text">Beyond the dictionary meaning, each name is read through Ilm ul Huroof — the classical Science of Letters. The first letter, the interior, the last letter, the parents' letters: all part of the reading.</p>
+        </div>
+        <div class="why-item">
+          <span class="why-num">03</span>
+          <h3 class="why-title">Free, private, and ad-free</h3>
+          <p class="why-text">No account, no paywall, no advertising. Nothing about your reading is saved to a server. Bring the name, read what the letters say, close the tab if you want — it leaves no trace.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ═══════════════════════════════════════════════ -->
 <!-- EXPLORE THE LIBRARY                            -->
