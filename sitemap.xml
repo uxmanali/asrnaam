@@ -10,13 +10,541 @@
     <loc>https://asrnaam.com/names/</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/letters/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://asrnaam.com/ilm-ul-huroof.html</loc>
+    <loc>https://asrnaam.com/ilm-ul-huroof</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/boys/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/girls/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/by-letter/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/by-letter/A/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/by-letter/B/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/by-letter/C/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/by-letter/D/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/by-letter/E/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/by-letter/F/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/by-letter/G/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/by-letter/H/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/by-letter/I/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/by-letter/J/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/by-letter/K/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/by-letter/L/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/by-letter/M/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/by-letter/N/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/by-letter/O/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/by-letter/P/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/by-letter/Q/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/by-letter/R/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/by-letter/S/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/by-letter/T/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/by-letter/U/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/by-letter/V/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/by-letter/W/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/by-letter/X/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/by-letter/Y/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/by-letter/Z/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/by-region/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/by-region/turkish/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/by-region/berber/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/by-region/south-asian/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/by-region/levantine/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/by-region/gulf/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/by-region/west-african/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/by-region/urdu/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/by-region/balkan/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/by-region/east-african/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/by-region/persian/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/by-region/arabic-classical/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/by-region/arabic/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/by-region/indonesian/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/by-region/turkic/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/by-region/north-african/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/by-meaning/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/by-meaning/brave/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/by-meaning/beautiful/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/by-meaning/blessed/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/by-meaning/love/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/by-meaning/strength/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/by-meaning/wisdom/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/by-meaning/light/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/by-meaning/faithful/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/quranic/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/letters/ain/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/letters/alif/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/letters/ba/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/letters/dad/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/letters/dal/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/letters/dha/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/letters/fa/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/letters/ghayn/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/letters/ha-breath/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/letters/ha-light/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/letters/hamza/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/letters/jeem/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/letters/kaf/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/letters/kha/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/letters/lam/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/letters/meem/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/letters/nun/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/letters/qaf/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/letters/ra/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/letters/sad/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/letters/seen/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/letters/sheen/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/letters/ta-heavy/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/letters/ta-light/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/letters/tha/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/letters/waw/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/letters/ya/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/letters/zayn/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/about/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>yearly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/contact/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/privacy/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/terms/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/aabid/</loc>
@@ -25,8 +553,20 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://asrnaam.com/names/aabida/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://asrnaam.com/names/aadam/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/aadil/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -38,13 +578,13 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/aahil/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/aairah/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -74,7 +614,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/aamira/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -105,6 +645,12 @@
   <url>
     <loc>https://asrnaam.com/names/aatika/</loc>
     <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/abbas/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -145,8 +691,14 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://asrnaam.com/names/abdelhak/</loc>
+    <loc>https://asrnaam.com/names/abdelhafid/</loc>
     <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/abdelhak/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -302,79 +854,79 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/abdul-aziz/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/abdul-malik/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/abdulalim/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/abdulaziz/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/abdulbari/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/abdulbasit/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/abdulghafoor/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/abdulghani/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/abdulhadi/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/abdulhamid/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/abduljalil/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/abdulkarim/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/abdullah/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -386,43 +938,43 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/abdullatif/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/abdulmajid/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/abdulmatin/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/abdulmuttalib/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/abdulqadir/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/abdulqayyum/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/abdulrahim/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -434,31 +986,37 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/abdulwahab/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/abdulwahid/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/abdur-rahman/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/abdurrahman/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/abdurrazzaq/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/abdussalam/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -470,7 +1028,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/abiha/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -482,7 +1040,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/abla/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -512,31 +1070,31 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/abu-bakr/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/abu-darda/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/abu-hurairah/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/abu-turab/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/abu-ubayda/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -554,18 +1112,12 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/abul-qasim/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/adam/</loc>
-    <lastmod>2026-05-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://asrnaam.com/names/adam-ng/</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -577,8 +1129,20 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://asrnaam.com/names/adeeb/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/adeel/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://asrnaam.com/names/adeena/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -601,6 +1165,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://asrnaam.com/names/adila/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://asrnaam.com/names/adis/</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
@@ -614,7 +1184,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/adlan/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -637,14 +1207,32 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://asrnaam.com/names/afaq/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/affan/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/afia/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://asrnaam.com/names/afifa/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/afiya/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -673,14 +1261,32 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://asrnaam.com/names/afrah/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://asrnaam.com/names/afreen/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/afzal/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/aghsan/</loc>
     <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/ahad/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -692,7 +1298,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/ahlam/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -704,12 +1310,6 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/ahmad/</loc>
-    <lastmod>2026-05-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://asrnaam.com/names/ahmad-id/</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -734,7 +1334,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/ahyan/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -775,25 +1375,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://asrnaam.com/names/aisha-max/</loc>
-    <lastmod>2026-05-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://asrnaam.com/names/aisha-ng/</loc>
-    <lastmod>2026-05-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://asrnaam.com/names/aishah-2/</loc>
-    <lastmod>2026-05-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://asrnaam.com/names/aishah-sg/</loc>
+    <loc>https://asrnaam.com/names/aishah/</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -817,8 +1399,20 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://asrnaam.com/names/aiza/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://asrnaam.com/names/aizat/</loc>
     <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/ajmal/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -831,6 +1425,12 @@
   <url>
     <loc>https://asrnaam.com/names/akbar/</loc>
     <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/akhtar/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -866,13 +1466,25 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/alaia/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/alaya/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/aleem/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/aleena/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -896,7 +1508,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/alisha/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -907,8 +1519,14 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://asrnaam.com/names/aliya/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://asrnaam.com/names/aliza/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -938,19 +1556,25 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/alper/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/altair/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/alyasa/</loc>
     <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/amaan/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -979,6 +1603,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://asrnaam.com/names/ambreen/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://asrnaam.com/names/ameen/</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
@@ -986,7 +1616,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/ameer/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -998,7 +1628,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/amela/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -1015,13 +1645,13 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://asrnaam.com/names/amina/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <loc>https://asrnaam.com/names/amin/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://asrnaam.com/names/amina-swahili/</loc>
+    <loc>https://asrnaam.com/names/amina/</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -1034,6 +1664,12 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/aminata/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/amine/</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -1057,20 +1693,26 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://asrnaam.com/names/amira-max/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <loc>https://asrnaam.com/names/amjad/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/ammaar/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/ammar/</loc>
     <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/amna/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -1112,7 +1754,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/anaya/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -1171,14 +1813,32 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://asrnaam.com/names/anum/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://asrnaam.com/names/anwar/</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://asrnaam.com/names/aqdas/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://asrnaam.com/names/aqeel/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/aqil/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -1190,7 +1850,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/arafat/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -1202,7 +1862,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/arash/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -1220,7 +1880,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/areeha/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -1244,7 +1904,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/arfa/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -1280,7 +1940,25 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/arish/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/arisha/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/arjumand/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/armaan/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -1298,7 +1976,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/aroob/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -1309,8 +1987,14 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://asrnaam.com/names/arqam/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://asrnaam.com/names/arsal/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -1321,8 +2005,20 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://asrnaam.com/names/arsh/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/arshad/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://asrnaam.com/names/arshan/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -1340,13 +2036,19 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/arwaa/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/aryan/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/asaad/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -1358,7 +2060,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/asalah/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -1375,8 +2077,14 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://asrnaam.com/names/ashfaq/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://asrnaam.com/names/ashhad/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -1389,6 +2097,12 @@
   <url>
     <loc>https://asrnaam.com/names/asia/</loc>
     <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/asif/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -1411,6 +2125,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://asrnaam.com/names/aslam/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://asrnaam.com/names/asli/</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
@@ -1424,13 +2144,13 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/asma-bint-yazid/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/asmaa/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -1454,13 +2174,37 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/asra/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/asya/</loc>
     <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/athar/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/atif/</loc>
     <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/atiq/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/atiya/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -1490,12 +2234,12 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/aws/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://asrnaam.com/names/aya-2/</loc>
+    <loc>https://asrnaam.com/names/aya/</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -1520,13 +2264,13 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/ayan/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/ayana/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -1538,19 +2282,19 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/aydin/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/ayesha/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/ayla/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -1562,7 +2306,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/aynur/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -1580,19 +2324,25 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/ayse/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/aysha/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/ayshah/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/aysun/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -1610,7 +2360,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/ayzal/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -1622,19 +2372,31 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/azadeh/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/azan/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/azeem/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/azeeza/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/azhar/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -1652,19 +2414,25 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/azizah/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/azlan/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/azra/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/azyan/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -1700,7 +2468,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/badia/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -1717,6 +2485,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://asrnaam.com/names/badra/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://asrnaam.com/names/bagas/</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
@@ -1729,8 +2503,32 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://asrnaam.com/names/bahaar/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://asrnaam.com/names/bahar/</loc>
     <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/bahija/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/bahir/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/bahira/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -1759,6 +2557,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://asrnaam.com/names/baligh/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://asrnaam.com/names/balsam/</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
@@ -1771,8 +2575,20 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://asrnaam.com/names/banan/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://asrnaam.com/names/baneen/</loc>
     <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/baqir/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -1789,13 +2605,37 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://asrnaam.com/names/barakah-b21/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <loc>https://asrnaam.com/names/barakah/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/barakat/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/baran/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/bariq/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/barira/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/barirah/</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -1825,14 +2665,32 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://asrnaam.com/names/baseer/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/bashar/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://asrnaam.com/names/basheer/</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://asrnaam.com/names/bashir/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://asrnaam.com/names/basim/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -1891,7 +2749,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://asrnaam.com/names/batoul-2/</loc>
+    <loc>https://asrnaam.com/names/batoul/</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -1904,7 +2762,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/bayyinah/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -1940,19 +2798,19 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/bello/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/belma/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/benali/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -1970,7 +2828,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/berk/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -1987,38 +2845,8 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://asrnaam.com/names/bilal-2/</loc>
-    <lastmod>2026-05-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://asrnaam.com/names/bilal-3/</loc>
-    <lastmod>2026-05-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://asrnaam.com/names/bilal-4/</loc>
-    <lastmod>2026-05-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://asrnaam.com/names/bilal-comp/</loc>
-    <lastmod>2026-05-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://asrnaam.com/names/bilal-final/</loc>
-    <lastmod>2026-05-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://asrnaam.com/names/bilal-max/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <loc>https://asrnaam.com/names/bilal/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -2035,14 +2863,20 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://asrnaam.com/names/bilqis-b21/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <loc>https://asrnaam.com/names/bilqis/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/bineta/</loc>
     <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/binish/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -2059,8 +2893,14 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://asrnaam.com/names/bishr/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://asrnaam.com/names/bisma/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -2083,8 +2923,26 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://asrnaam.com/names/budayl/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/budur/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://asrnaam.com/names/burak/</loc>
     <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/buraq/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -2108,7 +2966,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/bushraa/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -2119,14 +2977,32 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://asrnaam.com/names/buthaina/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://asrnaam.com/names/buthainah/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/buthayna/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/cafer/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/cahit/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -2144,25 +3020,85 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/can/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/canan/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/cansu/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/cebrail/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/celal/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/celile/</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://asrnaam.com/names/cengiz/</loc>
+    <loc>https://asrnaam.com/names/cemal/</loc>
     <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/cemil/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/cemile/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/cemre/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/cengiz/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/ceren/</loc>
     <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/cevher/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/ceylan/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -2227,6 +3163,24 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://asrnaam.com/names/chand/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/chanda/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/chandni/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://asrnaam.com/names/chanez/</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
@@ -2252,7 +3206,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/cheikh/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -2269,14 +3223,26 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://asrnaam.com/names/chiragh/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://asrnaam.com/names/choaib/</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://asrnaam.com/names/cigdem/</loc>
+    <loc>https://asrnaam.com/names/choukri/</loc>
     <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/cigdem/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -2287,8 +3253,26 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://asrnaam.com/names/cyra/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://asrnaam.com/names/cyrus/</loc>
     <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/daim/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/daima/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -2305,8 +3289,20 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://asrnaam.com/names/dalil/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://asrnaam.com/names/dalila/</loc>
     <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/dameer/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -2318,7 +3314,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/dania/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -2330,7 +3326,13 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/danish/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/daniya/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -2365,8 +3367,26 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://asrnaam.com/names/darwish/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/darya/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://asrnaam.com/names/daud/</loc>
     <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/dawood/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -2377,14 +3397,14 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://asrnaam.com/names/dawud-comp/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <loc>https://asrnaam.com/names/dayyan/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/deema/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -2408,13 +3428,19 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/derya/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/dewi/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/dhafir/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -2425,14 +3451,26 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://asrnaam.com/names/dhiyaa/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://asrnaam.com/names/dhul-faqar/</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://asrnaam.com/names/dhul-fiqar/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://asrnaam.com/names/dhulkifl/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -2450,13 +3488,31 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/dilara/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/dilawar/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/dilnoza/</loc>
     <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/dilruba/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/dilshad/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -2473,6 +3529,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://asrnaam.com/names/dinar/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://asrnaam.com/names/djamel/</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
@@ -2480,6 +3542,12 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/djamela/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/djamila/</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -2534,7 +3602,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/dua/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -2551,8 +3619,26 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://asrnaam.com/names/duha-surah/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <loc>https://asrnaam.com/names/duraid/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/durr/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/durriya/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/ebrahim/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -2593,20 +3679,38 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://asrnaam.com/names/ehan/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/ehsan/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://asrnaam.com/names/eisa/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/ela/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/elan/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/elanur/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -2636,13 +3740,19 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/elma/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/elmas/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/elnaz/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -2678,25 +3788,25 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/emina/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/emine/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/emir/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/emirhan/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -2725,6 +3835,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://asrnaam.com/names/enise/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://asrnaam.com/names/ensar/</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
@@ -2743,6 +3859,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://asrnaam.com/names/erkam/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://asrnaam.com/names/erman/</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
@@ -2755,7 +3877,25 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://asrnaam.com/names/eshaal/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://asrnaam.com/names/eshal/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/esin/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/esma/</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -2780,13 +3920,25 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/eva/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/evren/</loc>
     <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/eymen/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/eyup/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -2798,7 +3950,13 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/faaizah/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/faatimah/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -2828,7 +3986,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/faeq/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -2839,7 +3997,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://asrnaam.com/names/fahd-2/</loc>
+    <loc>https://asrnaam.com/names/fahd/</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -2858,19 +4016,19 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/faiqa/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://asrnaam.com/names/fairuz-b20/</loc>
+    <loc>https://asrnaam.com/names/fairuz/</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/faisal/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -2899,20 +4057,26 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://asrnaam.com/names/fajr-name/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <loc>https://asrnaam.com/names/fakhra/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/fakhruddin/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/falah/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/falak/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -2930,19 +4094,19 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/farah/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/fardeen/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/fareeha/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -2959,8 +4123,20 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://asrnaam.com/names/farhana/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://asrnaam.com/names/faria/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/farid/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -2984,7 +4160,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/fariz/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -3009,6 +4185,12 @@
   <url>
     <loc>https://asrnaam.com/names/farzan/</loc>
     <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/fateh/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -3062,24 +4244,12 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/fatima-bint-asad/</loc>
-    <lastmod>2026-05-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://asrnaam.com/names/fatima-ng/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/fatimah/</loc>
-    <lastmod>2026-05-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://asrnaam.com/names/fatimah-max/</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -3134,7 +4304,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/fawad/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -3181,14 +4351,26 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://asrnaam.com/names/fayyaz/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://asrnaam.com/names/fayza/</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://asrnaam.com/names/fazal/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://asrnaam.com/names/feeha/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -3200,7 +4382,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/feras/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -3217,6 +4399,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://asrnaam.com/names/feroz/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://asrnaam.com/names/feruza/</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
@@ -3229,8 +4417,20 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://asrnaam.com/names/firas/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://asrnaam.com/names/firdaous/</loc>
     <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/firdaus/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -3248,13 +4448,13 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/fitria/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/fiza/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -3277,13 +4477,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://asrnaam.com/names/fouad-2/</loc>
-    <lastmod>2026-05-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://asrnaam.com/names/fouad-3/</loc>
+    <loc>https://asrnaam.com/names/fouad/</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -3297,6 +4491,12 @@
   <url>
     <loc>https://asrnaam.com/names/furkan/</loc>
     <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/furqan/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -3337,20 +4537,32 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://asrnaam.com/names/ghaffar/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://asrnaam.com/names/ghafur/</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://asrnaam.com/names/ghaidaa/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://asrnaam.com/names/ghaith/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/ghala/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -3367,6 +4579,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://asrnaam.com/names/ghalib/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://asrnaam.com/names/ghanem/</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
@@ -3379,6 +4597,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://asrnaam.com/names/ghanim/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://asrnaam.com/names/ghassan/</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
@@ -3387,6 +4611,12 @@
   <url>
     <loc>https://asrnaam.com/names/ghassane/</loc>
     <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/ghaylan/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -3445,7 +4675,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://asrnaam.com/names/ghofran-2/</loc>
+    <loc>https://asrnaam.com/names/ghofran/</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -3469,6 +4699,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://asrnaam.com/names/ghulam/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://asrnaam.com/names/gokce/</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
@@ -3481,8 +4717,14 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://asrnaam.com/names/gulanar/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://asrnaam.com/names/gulnaar/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -3493,14 +4735,26 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://asrnaam.com/names/gulshan/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://asrnaam.com/names/gulsum/</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://asrnaam.com/names/gulzar/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://asrnaam.com/names/haajar/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -3518,7 +4772,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/habibah/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -3536,7 +4790,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/hadid/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -3554,7 +4808,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/hadiya/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -3583,14 +4837,14 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://asrnaam.com/names/hafsa-b19-spelling/</loc>
+    <loc>https://asrnaam.com/names/hafsah/</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/haider/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -3649,7 +4903,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://asrnaam.com/names/halimah-sg/</loc>
+    <loc>https://asrnaam.com/names/halimah/</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -3686,7 +4940,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/hamna/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -3697,14 +4951,8 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://asrnaam.com/names/hamza-3/</loc>
-    <lastmod>2026-05-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://asrnaam.com/names/hamza-4/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <loc>https://asrnaam.com/names/hamza/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -3746,13 +4994,19 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/hanim/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/hanin/</loc>
     <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/haniya/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -3764,25 +5018,25 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/hannah/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/hanouf/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/hareem/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/haris/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -3800,12 +5054,6 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/haroun/</loc>
-    <lastmod>2026-05-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://asrnaam.com/names/haroun-wa/</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -3830,13 +5078,13 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/hashim/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/hashir/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -3854,13 +5102,13 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/hasnah/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/hasnain/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -3889,6 +5137,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://asrnaam.com/names/hatim/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://asrnaam.com/names/hauwa/</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
@@ -3908,13 +5162,13 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/haya/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/hayat/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -3927,6 +5181,12 @@
   <url>
     <loc>https://asrnaam.com/names/haytham/</loc>
     <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/hayyan/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -3944,7 +5204,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/haziq/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -3956,7 +5216,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/hendra/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -3968,7 +5228,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/hiba/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -4010,7 +5270,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/hilal/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -4027,6 +5287,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://asrnaam.com/names/hisham/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://asrnaam.com/names/hoor/</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
@@ -4034,12 +5300,6 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/hoorain/</loc>
-    <lastmod>2026-05-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://asrnaam.com/names/hoorain-variant/</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -4106,7 +5366,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/hudhayfah/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -4118,7 +5378,13 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/huma/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/humayun/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -4165,8 +5431,14 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://asrnaam.com/names/huzaifa/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://asrnaam.com/names/huzaifah/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -4195,24 +5467,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://asrnaam.com/names/ibrahim-maghrib/</loc>
-    <lastmod>2026-05-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://asrnaam.com/names/ibrahim-max/</loc>
-    <lastmod>2026-05-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://asrnaam.com/names/ibrahim-ng/</loc>
-    <lastmod>2026-05-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://asrnaam.com/names/ibrahima/</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
@@ -4221,6 +5475,12 @@
   <url>
     <loc>https://asrnaam.com/names/ibtihaj/</loc>
     <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/ibtisam/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -4262,7 +5522,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/ihsanullah/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -4298,7 +5558,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/ilhan/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -4316,13 +5576,13 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/illiyeen/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/ilyana/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -4345,12 +5605,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://asrnaam.com/names/imaan-uk/</loc>
-    <lastmod>2026-05-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://asrnaam.com/names/imad/</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
@@ -4358,7 +5612,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/iman/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -4399,8 +5653,8 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://asrnaam.com/names/inaya-3/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <loc>https://asrnaam.com/names/inaya/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -4448,7 +5702,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/ipek/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -4484,7 +5738,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/irhaa/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -4526,13 +5780,13 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/isra/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/issam/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -4550,7 +5804,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/izaan/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -4569,6 +5823,12 @@
   <url>
     <loc>https://asrnaam.com/names/jaabir/</loc>
     <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/jabbar/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -4599,6 +5859,24 @@
   <url>
     <loc>https://asrnaam.com/names/jafar/</loc>
     <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/jahangir/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/jalal/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/jalil/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -4634,13 +5912,19 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/jannah/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/jarir/</loc>
     <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/jarrar/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -4669,8 +5953,20 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://asrnaam.com/names/javed/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://asrnaam.com/names/jawad/</loc>
     <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/jawahir/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -4694,7 +5990,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/jibran/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -4711,6 +6007,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://asrnaam.com/names/jihad/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://asrnaam.com/names/jihan/</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
@@ -4718,7 +6020,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/jinan/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -4736,7 +6038,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/joudy/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -4771,6 +6073,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://asrnaam.com/names/jumanah/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://asrnaam.com/names/jumla/</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
@@ -4790,7 +6098,13 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/juwayriyah/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/kabir/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -4808,13 +6122,19 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/kahf/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/kaif/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/kainaat/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -4856,7 +6176,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/kamil/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -4868,7 +6188,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/kamola/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -4881,6 +6201,12 @@
   <url>
     <loc>https://asrnaam.com/names/kanwal/</loc>
     <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/kanz/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -4909,12 +6235,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://asrnaam.com/names/karim-max/</loc>
-    <lastmod>2026-05-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://asrnaam.com/names/karima/</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
@@ -4922,19 +6242,19 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/karrar/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/kashif/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://asrnaam.com/names/kausar-b15/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <loc>https://asrnaam.com/names/kausar/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -4958,7 +6278,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/kawthar/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -4982,7 +6302,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/kenan/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -5000,7 +6320,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/khabbab/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -5012,12 +6332,6 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/khadijah/</loc>
-    <lastmod>2026-05-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://asrnaam.com/names/khadijah-max/</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -5060,7 +6374,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/khalilullah/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -5071,8 +6385,20 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://asrnaam.com/names/khatija/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://asrnaam.com/names/khattab/</loc>
     <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/khawaja/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -5083,14 +6409,20 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://asrnaam.com/names/khawlah-b16/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <loc>https://asrnaam.com/names/khawlah/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/khawlah-bint-azwar/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/khayyam/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -5102,7 +6434,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/kheireddine/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -5137,8 +6469,14 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://asrnaam.com/names/khurram/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://asrnaam.com/names/kiara/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -5150,19 +6488,25 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/kiran/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/kiyan/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/kulsoom/</loc>
     <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/kulsum/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -5174,19 +6518,31 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/labib/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/laiba/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/laila/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/lailat/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/laith/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -5198,7 +6554,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/lama/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -5211,6 +6567,12 @@
   <url>
     <loc>https://asrnaam.com/names/lameen/</loc>
     <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/lamees/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -5246,7 +6608,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/laraib/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -5276,7 +6638,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/layali/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -5317,12 +6679,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://asrnaam.com/names/leila-ir/</loc>
-    <lastmod>2026-05-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://asrnaam.com/names/lejla/</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
@@ -5335,6 +6691,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://asrnaam.com/names/leyla/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://asrnaam.com/names/lhaj/</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
@@ -5342,7 +6704,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/lian/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -5354,7 +6716,13 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/liyana/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/liyaqat/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -5414,19 +6782,19 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/luay/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/lubaba/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://asrnaam.com/names/lubabah-b16/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <loc>https://asrnaam.com/names/lubabah/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -5437,8 +6805,8 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://asrnaam.com/names/lubna-b23/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <loc>https://asrnaam.com/names/lubna/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -5485,6 +6853,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://asrnaam.com/names/lutfi/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://asrnaam.com/names/lyes/</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
@@ -5498,7 +6872,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/maarij/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -5516,7 +6890,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/maha/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -5534,7 +6908,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/maheen/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -5545,38 +6919,44 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://asrnaam.com/names/mahira/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <loc>https://asrnaam.com/names/mahir/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://asrnaam.com/names/mahmoud-4/</loc>
+    <loc>https://asrnaam.com/names/mahira/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/mahmoud/</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/mahnoor/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/mahsa/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://asrnaam.com/names/maimouna-sen/</loc>
+    <loc>https://asrnaam.com/names/maimouna/</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/maimunah/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -5593,8 +6973,14 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://asrnaam.com/names/maisara/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://asrnaam.com/names/maisarah/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -5635,6 +7021,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://asrnaam.com/names/malik/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://asrnaam.com/names/malika/</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
@@ -5648,13 +7040,19 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/mamdouh/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/manahil/</loc>
     <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/manal/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -5667,6 +7065,12 @@
   <url>
     <loc>https://asrnaam.com/names/mansour/</loc>
     <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/mansur/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -5684,12 +7088,6 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/mariam/</loc>
-    <lastmod>2026-05-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://asrnaam.com/names/mariam-uk/</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -5725,19 +7123,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://asrnaam.com/names/marwa-2/</loc>
-    <lastmod>2026-05-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://asrnaam.com/names/marwa-3/</loc>
-    <lastmod>2026-05-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://asrnaam.com/names/marwa-final/</loc>
+    <loc>https://asrnaam.com/names/marwa/</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -5749,50 +7135,8 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://asrnaam.com/names/maryam-2/</loc>
-    <lastmod>2026-05-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://asrnaam.com/names/maryam-6/</loc>
-    <lastmod>2026-05-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://asrnaam.com/names/maryam-b18/</loc>
-    <lastmod>2026-05-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://asrnaam.com/names/maryam-b21/</loc>
-    <lastmod>2026-05-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://asrnaam.com/names/maryam-comprehensive/</loc>
-    <lastmod>2026-05-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://asrnaam.com/names/maryam-final/</loc>
-    <lastmod>2026-05-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://asrnaam.com/names/maryam-max/</loc>
-    <lastmod>2026-05-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://asrnaam.com/names/maryam-ng/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <loc>https://asrnaam.com/names/maryam/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -5827,8 +7171,14 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://asrnaam.com/names/maymunah-b16/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <loc>https://asrnaam.com/names/maymuna/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/maymunah/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -5846,13 +7196,13 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/meerab/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/mehak/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -5864,19 +7214,19 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/meher/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/mehernaz/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/meherunissa/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -5894,7 +7244,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/mehnaz/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -5906,13 +7256,13 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/mehwish/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/melek/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -5965,6 +7315,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://asrnaam.com/names/mikaeel/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://asrnaam.com/names/mikail/</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
@@ -5972,19 +7328,19 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/milad/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/mina/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/minahil/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -6002,19 +7358,25 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/minhaj/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/miral/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/mirela/</loc>
     <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/miriam/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -6032,37 +7394,43 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/misbah/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/mishal/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/misk/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/mizan/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/modou/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/mohamad/</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://asrnaam.com/names/mohamad-b17/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <loc>https://asrnaam.com/names/mohamed/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -6086,30 +7454,24 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/mohsen/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/mohsin/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/moiz/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://asrnaam.com/names/mokhtar-2/</loc>
-    <lastmod>2026-05-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://asrnaam.com/names/mokhtar-3/</loc>
+    <loc>https://asrnaam.com/names/mokhtar/</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -6121,8 +7483,14 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://asrnaam.com/names/moosa/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://asrnaam.com/names/morteza/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -6230,7 +7598,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/muammar/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -6242,7 +7610,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/muazzam/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -6260,13 +7628,13 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/mudassar/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/mueen/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -6277,38 +7645,14 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://asrnaam.com/names/muhammad-2/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <loc>https://asrnaam.com/names/muhammad/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://asrnaam.com/names/muhammad-3/</loc>
-    <lastmod>2026-05-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://asrnaam.com/names/muhammad-4/</loc>
-    <lastmod>2026-05-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://asrnaam.com/names/muhammad-final/</loc>
-    <lastmod>2026-05-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://asrnaam.com/names/muhammad-id/</loc>
-    <lastmod>2026-05-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://asrnaam.com/names/muhammed-b18/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <loc>https://asrnaam.com/names/muhammed/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -6325,6 +7669,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://asrnaam.com/names/mujahid/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://asrnaam.com/names/mujeeb/</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
@@ -6332,37 +7682,43 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/mujtaba/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/mukhtar/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/mulk/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/muna/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/muneeba/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/munib/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/munir/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -6380,13 +7736,13 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/murat/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/murtaza/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -6397,14 +7753,20 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://asrnaam.com/names/musab/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://asrnaam.com/names/musaddiq/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/muslimah/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -6451,7 +7813,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://asrnaam.com/names/nabila-2/</loc>
+    <loc>https://asrnaam.com/names/nabila/</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -6463,26 +7825,14 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://asrnaam.com/names/nabilah-se/</loc>
-    <lastmod>2026-05-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://asrnaam.com/names/nada/</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://asrnaam.com/names/nada-noura/</loc>
-    <lastmod>2026-05-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://asrnaam.com/names/nadeem/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -6499,14 +7849,8 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://asrnaam.com/names/nadia-max/</loc>
-    <lastmod>2026-05-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://asrnaam.com/names/nadin/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -6524,19 +7868,19 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/naeem/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/naeema/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/nafeesa/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -6554,19 +7898,19 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/nahed/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/nahl/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/nahyan/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -6578,7 +7922,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/naila/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -6589,20 +7933,20 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://asrnaam.com/names/naim-2/</loc>
+    <loc>https://asrnaam.com/names/naim/</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://asrnaam.com/names/naim-3/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <loc>https://asrnaam.com/names/naima/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/naira/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -6615,6 +7959,12 @@
   <url>
     <loc>https://asrnaam.com/names/najm/</loc>
     <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/najma/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -6649,8 +7999,14 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://asrnaam.com/names/nasim-b30/</loc>
+    <loc>https://asrnaam.com/names/nasim/</loc>
     <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/nasir/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -6698,7 +8054,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/naveed/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -6711,6 +8067,12 @@
   <url>
     <loc>https://asrnaam.com/names/nawal/</loc>
     <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/nawaz/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -6728,13 +8090,13 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/nayef/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/nayel/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -6745,13 +8107,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://asrnaam.com/names/nayla-2/</loc>
-    <lastmod>2026-05-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://asrnaam.com/names/nayla-4/</loc>
+    <loc>https://asrnaam.com/names/nayla/</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -6776,24 +8132,18 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/nazia/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/nazli/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/ndeye/</loc>
-    <lastmod>2026-05-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://asrnaam.com/names/ndéye/</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -6806,7 +8156,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/negar/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -6818,7 +8168,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/neslihan/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -6872,13 +8222,13 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/nilufar/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/nimra/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -6890,7 +8240,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/nisan/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -6931,44 +8281,14 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://asrnaam.com/names/noor-2/</loc>
-    <lastmod>2026-05-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://asrnaam.com/names/noor-3/</loc>
-    <lastmod>2026-05-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://asrnaam.com/names/noor-4/</loc>
-    <lastmod>2026-05-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://asrnaam.com/names/noor-5/</loc>
-    <lastmod>2026-05-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://asrnaam.com/names/noor-final-2/</loc>
-    <lastmod>2026-05-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://asrnaam.com/names/noor-surah/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <loc>https://asrnaam.com/names/noor/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/noor-ul-ain/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -6980,7 +8300,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/noorin/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -6998,19 +8318,19 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/nour-el-ain/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/nour-el-houda/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/nour-houda/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -7028,7 +8348,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/noureddine/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -7052,7 +8372,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/nuha/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -7082,13 +8402,13 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/nur-al-huda/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://asrnaam.com/names/nur-ul-ain-2/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <loc>https://asrnaam.com/names/nur-ul-ain/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -7100,7 +8420,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/nuraini/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -7112,7 +8432,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/nurhidayah/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -7136,13 +8456,13 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/nusaybah-bint-harith/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/nuzhat/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -7155,6 +8475,12 @@
   <url>
     <loc>https://asrnaam.com/names/obaid/</loc>
     <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/obaydullah/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -7195,12 +8521,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://asrnaam.com/names/omar-max/</loc>
-    <lastmod>2026-05-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://asrnaam.com/names/omer/</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
@@ -7220,13 +8540,13 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/oraib/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://asrnaam.com/names/osama-2/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <loc>https://asrnaam.com/names/osama/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -7399,14 +8719,26 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://asrnaam.com/names/owais/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://asrnaam.com/names/ozlem/</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://asrnaam.com/names/pakeeza/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://asrnaam.com/names/palwasha/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -7447,6 +8779,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://asrnaam.com/names/parizad/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://asrnaam.com/names/parnian/</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
@@ -7465,8 +8803,8 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://asrnaam.com/names/parveen-comp/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <loc>https://asrnaam.com/names/parviz/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -7532,7 +8870,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/putri/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -7561,8 +8899,8 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://asrnaam.com/names/qais-2/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <loc>https://asrnaam.com/names/qais/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -7603,7 +8941,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://asrnaam.com/names/qays-3/</loc>
+    <loc>https://asrnaam.com/names/qays/</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -7621,6 +8959,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://asrnaam.com/names/qura/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://asrnaam.com/names/qurat/</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
@@ -7628,7 +8972,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/qurratu-ain/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -7700,19 +9044,25 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/rafay/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/rafif/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/rafik/</loc>
     <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/rafiq/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -7730,13 +9080,19 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/raha/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/rahaf/</loc>
     <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/raheem/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -7753,8 +9109,8 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://asrnaam.com/names/rahma-surah/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <loc>https://asrnaam.com/names/rahma/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -7766,7 +9122,13 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/raif/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/raihan/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -7784,7 +9146,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/ramatu/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -7802,7 +9164,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/ramlah/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -7843,14 +9205,14 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://asrnaam.com/names/rania-2/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <loc>https://asrnaam.com/names/rania/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/ranya/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -7874,7 +9236,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/rashida/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -7898,7 +9260,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/rawda/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -7910,25 +9272,13 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/rayaan/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://asrnaam.com/names/rayan-2/</loc>
-    <lastmod>2026-05-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://asrnaam.com/names/rayan-3/</loc>
-    <lastmod>2026-05-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://asrnaam.com/names/rayan-f/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <loc>https://asrnaam.com/names/rayan/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -7952,7 +9302,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/rayyaan/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -7982,7 +9332,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/reem/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -7994,13 +9344,13 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/rehan/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/rehana/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -8012,13 +9362,13 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/renad/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/reshma/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -8066,7 +9416,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/riham/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -8079,6 +9429,12 @@
   <url>
     <loc>https://asrnaam.com/names/rim/</loc>
     <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/rima/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -8096,13 +9452,13 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/rimas/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/rimsha/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -8126,13 +9482,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/rizal/</loc>
-    <lastmod>2026-05-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://asrnaam.com/names/rizal-comprehensive/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -8150,7 +9500,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/rizwan/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -8167,14 +9517,20 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://asrnaam.com/names/rohaan/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://asrnaam.com/names/rohana/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/rohani/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -8222,13 +9578,13 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/roohi/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/roshan/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -8282,7 +9638,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/roya/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -8294,25 +9650,31 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/rubina/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/ruhan/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/ruhi/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/rukhsana/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/rukhsar/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -8330,7 +9692,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/rumaisah/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -8354,13 +9716,13 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/saad/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/saba/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -8378,7 +9740,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/sabir/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -8408,13 +9770,19 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/sad/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/sadaf/</loc>
     <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/sadia/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -8449,6 +9817,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://asrnaam.com/names/safiya/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://asrnaam.com/names/safiyyah/</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
@@ -8468,13 +9842,13 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/safwan/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/sahar/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -8497,26 +9871,32 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://asrnaam.com/names/saif/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://asrnaam.com/names/saifuddin/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/saifullah/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/saima/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/saira/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -8533,8 +9913,8 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://asrnaam.com/names/sajdah-name/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <loc>https://asrnaam.com/names/sajid/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -8546,7 +9926,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/sajjad/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -8558,13 +9938,13 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/sakina/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/saladin/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -8576,13 +9956,13 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/salaheddin/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/salaheddine/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -8594,12 +9974,12 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/saleem/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://asrnaam.com/names/saleh-2/</loc>
+    <loc>https://asrnaam.com/names/saleh/</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -8654,7 +10034,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/salsabil/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -8678,7 +10058,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/samar/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -8702,19 +10082,13 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/samir/</loc>
-    <lastmod>2026-05-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://asrnaam.com/names/samir-maghrib/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/samira/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -8726,13 +10100,13 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/sana/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/saniya/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -8756,24 +10130,12 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/saqlain/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/sara/</loc>
-    <lastmod>2026-05-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://asrnaam.com/names/sara-ir/</loc>
-    <lastmod>2026-05-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://asrnaam.com/names/sara-name/</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -8798,7 +10160,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/sarim/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -8816,7 +10178,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/sayhan/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -8834,19 +10196,19 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/sehrish/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/seifeddine/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/selim/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -8870,7 +10232,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/sema/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -8882,7 +10244,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/sepideh/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -8894,7 +10256,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/serhan/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -8924,19 +10286,19 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/shabana/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/shabina/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/shabnam/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -8978,19 +10340,19 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/shahira/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/shahram/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/shahroz/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -9008,7 +10370,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/shahzaib/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -9020,7 +10382,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/shaista/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -9037,7 +10399,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://asrnaam.com/names/sham-2/</loc>
+    <loc>https://asrnaam.com/names/sham/</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -9050,13 +10412,13 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/shamsa/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/shanzay/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -9080,7 +10442,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/shayan/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -9092,7 +10454,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/shazia/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -9128,7 +10490,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/shiza/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -9164,13 +10526,13 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/sidra/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/sifeddine/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -9194,7 +10556,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/simra/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -9236,7 +10598,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/sobia/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -9266,7 +10628,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/sokhna/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -9433,7 +10795,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://asrnaam.com/names/sumayya-b18/</loc>
+    <loc>https://asrnaam.com/names/sumayya/</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -9464,7 +10826,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/sura/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -9488,7 +10850,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/tabassum/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -9524,7 +10886,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/tahir/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -9554,13 +10916,13 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/taima/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/taimoor/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -9596,7 +10958,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/talhah/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -9614,7 +10976,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/tameem/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -9638,7 +11000,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/tanveer/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -9662,7 +11024,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/tarannum/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -9692,7 +11054,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/taskeen/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -9704,7 +11066,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/tasnim/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -9728,7 +11090,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/tawbah/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -9771,6 +11133,18 @@
   <url>
     <loc>https://asrnaam.com/names/tayyaba/</loc>
     <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/tayyib/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/tayyiba/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -9830,19 +11204,19 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/timur/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/tolga/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/tooba/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -9920,7 +11294,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/umayma/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -9931,14 +11305,14 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://asrnaam.com/names/umm-ayman-b38/</loc>
+    <loc>https://asrnaam.com/names/umm-ayman/</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/umm-haram/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -9956,7 +11330,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/umm-sulaym/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -10051,6 +11425,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://asrnaam.com/names/vahid/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://asrnaam.com/names/valentina/</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
@@ -10094,6 +11474,12 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/vedat/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/veli/</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -10189,8 +11575,8 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://asrnaam.com/names/wafa-2/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <loc>https://asrnaam.com/names/wafa/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -10226,7 +11612,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/waheed/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -10286,19 +11672,19 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/waniya/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/waqar/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/waqas/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -10411,7 +11797,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://asrnaam.com/names/wisal-2/</loc>
+    <loc>https://asrnaam.com/names/wisal/</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -10442,7 +11828,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/xara/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -10478,7 +11864,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/yahya/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -10490,13 +11876,13 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/yalina/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/yaman/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -10663,6 +12049,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://asrnaam.com/names/yousuf/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://asrnaam.com/names/yumn/</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
@@ -10670,7 +12062,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/yumna/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -10711,18 +12103,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://asrnaam.com/names/yusuf-max/</loc>
-    <lastmod>2026-05-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://asrnaam.com/names/yusuf-ng/</loc>
-    <lastmod>2026-05-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://asrnaam.com/names/zaara/</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
@@ -10730,13 +12110,13 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/zaeem/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/zafar/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -10754,7 +12134,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/zafran/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -10765,32 +12145,14 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://asrnaam.com/names/zahra-2/</loc>
-    <lastmod>2026-05-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://asrnaam.com/names/zahra-3/</loc>
-    <lastmod>2026-05-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://asrnaam.com/names/zahra-4/</loc>
-    <lastmod>2026-05-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://asrnaam.com/names/zahra-ir/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <loc>https://asrnaam.com/names/zahra/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/zahran/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -10808,55 +12170,25 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/zain/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://asrnaam.com/names/zainab-2/</loc>
-    <lastmod>2026-05-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://asrnaam.com/names/zainab-3/</loc>
-    <lastmod>2026-05-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://asrnaam.com/names/zainab-6/</loc>
-    <lastmod>2026-05-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://asrnaam.com/names/zainab-b19/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <loc>https://asrnaam.com/names/zainab/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/zainab-bint-ali/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/zainab-bint-jahsh/</loc>
-    <lastmod>2026-05-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://asrnaam.com/names/zainab-final/</loc>
-    <lastmod>2026-05-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://asrnaam.com/names/zainab-ng/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -10868,19 +12200,19 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/zainul/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/zainul-abideen/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/zaira/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -10928,7 +12260,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/zalfa/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -10940,7 +12272,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/zarah/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -10952,7 +12284,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/zariya/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -10964,19 +12296,19 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/zaryan/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/zavian/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/zaviyar/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -10988,7 +12320,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/zayan/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -11018,19 +12350,25 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/zayyan/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/zeba/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/zeeshan/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/names/zehra/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -11072,19 +12410,19 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/zidan/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/zilzal/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://asrnaam.com/names/zimal/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -11126,7 +12464,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/zoraiz/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -11228,7 +12566,7 @@
   </url>
   <url>
     <loc>https://asrnaam.com/names/zunaira/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
