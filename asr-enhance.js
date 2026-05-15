@@ -108,6 +108,15 @@
     var name = pageNameFromHero();
     if(!name) return;
 
+    // Lazy-load the save-as-image card builder on name pages.
+    if(!document.querySelector('script[data-asr-sharecard]')){
+      var sc = document.createElement('script');
+      sc.src = '/asr-share-card.js';
+      sc.defer = true;
+      sc.dataset.asrSharecard = '1';
+      document.head.appendChild(sc);
+    }
+
     // Container for the action group
     var bar = hero.querySelector('.asr-action-bar');
     if(!bar){
@@ -165,6 +174,8 @@
         '<a role="menuitem" href="https://twitter.com/intent/tweet?text='+encodeURIComponent(msg)+'&url='+encodeURIComponent(url)+'" target="_blank" rel="noopener">X / Twitter</a>'+
         '<a role="menuitem" href="https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(url)+'" target="_blank" rel="noopener">Facebook</a>'+
         '<a role="menuitem" href="https://t.me/share/url?url='+encodeURIComponent(url)+'&text='+encodeURIComponent(msg)+'" target="_blank" rel="noopener">Telegram</a>'+
+        '<a role="menuitem" href="https://www.threads.net/intent/post?text='+encodeURIComponent(msg+'\n'+url)+'" target="_blank" rel="noopener">Threads</a>'+
+        '<button role="menuitem" type="button" class="asr-share-ig">Instagram (save card)</button>'+
         '<button role="menuitem" type="button" class="asr-share-copy">Copy link</button>'+
         '<button role="menuitem" type="button" class="asr-share-native">More…</button>';
       function close(){ wrap.classList.remove('open'); sb.setAttribute('aria-expanded','false'); }
@@ -179,6 +190,14 @@
           this.textContent='Copied!';
           setTimeout(function(b){ b.textContent='Copy link'; close(); }.bind(null,this), 900);
         }catch(e){}
+      });
+      menu.querySelector('.asr-share-ig').addEventListener('click', async function(){
+        var saveBtn = document.querySelector('.asr-save-card-cta');
+        if(saveBtn){ saveBtn.click(); }
+        try{ if(navigator.clipboard) await navigator.clipboard.writeText(msg + '\n' + url); }catch(e){}
+        this.textContent = '✓ Card saved · caption copied';
+        var btn = this;
+        setTimeout(function(){ btn.textContent = 'Instagram (save card)'; close(); }, 2400);
       });
       menu.querySelector('.asr-share-native').addEventListener('click', async function(){
         if(navigator.share){ try{ await navigator.share({title:title, url:url, text:msg}); close(); }catch(e){} }
