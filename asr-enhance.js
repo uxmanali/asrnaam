@@ -425,12 +425,50 @@
     }).catch(function(){ CMDK_LOADING=false; return []; });
   }
 
+  // Levenshtein with early termination at maxDist (used by C6 fuzzyMatch)
+  function _levCmdk(a, b, maxDist){
+    if(a===b) return 0;
+    var la=a.length, lb=b.length;
+    if(Math.abs(la-lb)>maxDist) return maxDist+1;
+    var prev = new Array(lb+1), cur = new Array(lb+1);
+    for(var j=0;j<=lb;j++) prev[j]=j;
+    for(var i=1;i<=la;i++){
+      cur[0]=i;
+      var rowMin=cur[0];
+      var ca=a.charCodeAt(i-1);
+      for(var j2=1;j2<=lb;j2++){
+        var cost = (ca===b.charCodeAt(j2-1)) ? 0 : 1;
+        var v = Math.min(prev[j2]+1, cur[j2-1]+1, prev[j2-1]+cost);
+        cur[j2]=v;
+        if(v<rowMin) rowMin=v;
+      }
+      if(rowMin>maxDist) return maxDist+1;
+      var tmp=prev; prev=cur; cur=tmp;
+    }
+    return prev[lb];
+  }
   function fuzzyMatch(q, s){
     s = s.toLowerCase(); q = q.toLowerCase();
     if(s===q) return 100;
     if(s.indexOf(q)===0) return 90;
     if(s.indexOf(q)>=0) return 70;
-    // simple subseq
+    // C6 — case-insensitive partial-word: a 3+ char head of q appears in s
+    if(q.length>=3 && s.length>=3){
+      for(var pl = Math.min(q.length, 6); pl>=3; pl--){
+        if(s.indexOf(q.slice(0, pl))>=0) return 60 - (q.length - pl);
+      }
+    }
+    // C6 — prefix Levenshtein <=3 (loosened): compare head-slice of s against q
+    if(q.length>=3){
+      var headLen = Math.min(s.length, q.length + 2);
+      var head = s.slice(0, headLen);
+      var dp = _levCmdk(head, q, 3);
+      if(dp<=3) return 55 - dp*4;
+    }
+    // C6 — whole-token Levenshtein <=2 (substring fuzz)
+    var dw = _levCmdk(s, q, 2);
+    if(dw<=2) return 48 - dw*4;
+    // simple subseq (kept as last-chance match)
     var i=0,j=0,gaps=0;
     while(i<s.length && j<q.length){
       if(s[i]===q[j]){ j++; }

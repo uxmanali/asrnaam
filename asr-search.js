@@ -47,17 +47,39 @@
       return prev[lb];
     }
 
+    // C6 — loosened tolerance:
+    //   * exact match           -> -1
+    //   * exact-prefix          -> 0
+    //   * substring             -> 1
+    //   * partial-word (token contains a >=3 char head of q, or vice-versa) -> 2
+    //   * Levenshtein <=3 against a prefix of the token            -> 3 + d
+    //   * Levenshtein <=2 against the whole token (substring fuzz) -> 7 + d
+    // Ranking falls out of the score buckets:
+    //   exact-prefix > shorter-distance > shorter-token (token-length tiebreak ≈ popularity proxy)
     function score(token, q){
       if(token===q) return -1;
       if(token.indexOf(q)===0) return 0;
       if(token.indexOf(q)>=0) return 1;
-      var d = lev(token, q, 2);
-      if(d<=2) return 2 + d;
-      if(q.length>=4){
-        var head = token.slice(0, q.length+1);
-        var d2 = lev(head, q, 2);
-        if(d2<=2) return 4 + d2;
+      if(q.length>=3 && token.length>=3){
+        // token contains a 3+ char head of q
+        for(var pl = Math.min(q.length, 6); pl>=3; pl--){
+          if(token.indexOf(q.slice(0, pl))>=0){ return 2; }
+        }
+        // q contains a 3+ char head of token (handles partial-word from the other side)
+        for(var pl2 = Math.min(token.length, 6); pl2>=3; pl2--){
+          if(q.indexOf(token.slice(0, pl2))>=0){ return 2; }
+        }
       }
+      // Prefix Levenshtein <=3 — compare a head-slice of token against q
+      if(q.length>=3){
+        var headLen = Math.min(token.length, q.length + 2);
+        var head = token.slice(0, headLen);
+        var dp = lev(head, q, 3);
+        if(dp<=3) return 3 + dp;
+      }
+      // Whole-token Levenshtein <=2 — substring-tolerance fallback
+      var d = lev(token, q, 2);
+      if(d<=2) return 7 + d;
       return 999;
     }
 
@@ -151,6 +173,9 @@
         var ac = a.entry.t === a.entry.c ? 0 : 1;
         var bc = b.entry.t === b.entry.c ? 0 : 1;
         if(ac!==bc) return ac-bc;
+        // C6 — shorter canonical wins (popularity proxy: short canonical names tend to be the common forms)
+        var lenDiff = a.entry.c.length - b.entry.c.length;
+        if(lenDiff!==0) return lenDiff;
         return a.entry.c.localeCompare(b.entry.c);
       });
       var top = hits.slice(0, 12).map(function(h){
