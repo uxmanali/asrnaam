@@ -774,11 +774,16 @@
     if(document.querySelector('.asr-read-another')) return;
     // Insert after the main reading content. Prefer LIFE:END marker, else end of main.
     var anchor = null;
+    var anchorAfter = null;
     var walker = document.createNodeIterator(document.body, NodeFilter.SHOW_COMMENT, null, false);
     var c;
     while((c = walker.nextNode())){
-      if(c.nodeValue && c.nodeValue.indexOf('LIFE:END')>=0){ anchor = c; break; }
+      if(c.nodeValue){
+        if(c.nodeValue.indexOf('LETTERCLUSTER:END')>=0){ anchorAfter = c; }
+        else if(c.nodeValue.indexOf('LIFE:END')>=0 && !anchor){ anchor = c; }
+      }
     }
+    if(anchorAfter) anchor = anchorAfter;
     var wrap = document.createElement('section');
     wrap.className = 'asr-read-another';
     wrap.setAttribute('aria-label','Discover another name');
@@ -854,12 +859,53 @@
   }
 
   // ---- Boot ----
+  // ---- Static "Read another" CTAs: upgrade href + label with a random pick ----
+  function enhanceStaticReadAnother(){
+    var anchors = document.querySelectorAll('a[data-asr-ra]');
+    if(!anchors.length) return;
+    var ctx = pageContext();
+    var picked = null;
+    function apply(pick){
+      picked = pick;
+      anchors.forEach(function(a){
+        a.setAttribute('href', '/names/' + pick.s + '/');
+        var label = a.querySelector('.asr-ra-hero-label, .asr-ra-inline-label');
+        if(label){
+          if(a.getAttribute('data-asr-ra') === 'hero'){
+            label.textContent = 'Or read ' + pick.n;
+          } else {
+            label.textContent = 'Read ' + pick.n + ' →';
+          }
+        }
+      });
+    }
+    fetchCorpus().then(function(arr){
+      if(!arr || !arr.length) return;
+      var pool = arr.filter(function(e){ return e.s !== ctx.slug; });
+      if(!pool.length) return;
+      apply(pool[Math.floor(Math.random()*pool.length)]);
+    });
+    anchors.forEach(function(a){
+      a.addEventListener('click', function(e){
+        if(picked) return;
+        e.preventDefault();
+        fetchCorpus().then(function(arr){
+          if(!arr || !arr.length){ location.href = '/names/'; return; }
+          var pool = arr.filter(function(en){ return en.s !== ctx.slug; });
+          var pick = pool[Math.floor(Math.random()*pool.length)];
+          location.href = '/names/' + pick.s + '/';
+        });
+      });
+    });
+  }
+
   document.addEventListener('DOMContentLoaded', function(){
     injectSkipLink();
     injectThemeToggle();
     injectCmdkTrigger();
     injectHeroActions();
     injectReadAnother();
+    enhanceStaticReadAnother();
     recordRecent();
     injectNamesIndexFeatures();
     bindCmdkShortcut();
