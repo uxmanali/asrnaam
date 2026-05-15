@@ -217,6 +217,17 @@
     margin-top:12px;
   }
   .example-tryline strong { color:#8B6914; font-weight:600; font-style:normal; }
+    /* Auto-rotating carousel */
+  .example-cards-wrap { display:grid; }
+  .example-card-rotate { grid-area:1/1; opacity:0; visibility:hidden; transition:opacity 600ms ease, visibility 0s linear 600ms; pointer-events:none; }
+  .example-card-rotate.is-active { opacity:1; visibility:visible; pointer-events:auto; transition:opacity 600ms ease, visibility 0s linear 0s; }
+  .example-dots { display:flex; justify-content:center; align-items:center; gap:8px; margin-top:12px; }
+  .example-dot-btn { width:6px; height:6px; border-radius:50%; background:rgba(139,105,20,0.22); border:0; padding:0; cursor:pointer; transition:background .25s, width .25s; -webkit-appearance:none; appearance:none; }
+  .example-dot-btn.is-active { background:#8B6914; width:18px; border-radius:3px; }
+  .example-dot-btn:focus-visible { outline:2px solid #8B6914; outline-offset:3px; }
+  @media (prefers-reduced-motion: reduce) {
+    .example-card-rotate { transition:none; }
+  }
   @media (max-width:560px) {
     .example-card-head { flex-direction:column; align-items:flex-start; gap:8px; }
     .example-card-arabic { font-size:2rem; }
@@ -491,24 +502,77 @@
     </div>
     <p class="hero-input-note">Free reading — no sign up required · 2,000+ names</p>
 
-    <!-- EXAMPLE READING PREVIEW (compact) -->
-    <div class="example-frame example-frame-compact">
+    <!-- EXAMPLE READING PREVIEW (auto-rotating carousel) -->
+    <div class="example-frame example-frame-compact example-carousel" id="exampleCarousel" data-rotate="5000">
       <div class="example-label">A reading looks like this</div>
-      <a href="/names/muhammad/" class="example-card" aria-label="Example reading: Muhammad">
-        <div class="example-card-head">
-          <div class="example-card-arabic" lang="ar" dir="rtl">مُحَمَّد</div>
-          <div class="example-card-titles">
-            <div class="example-card-english">Muhammad</div>
-            <div class="example-card-urdu" lang="ur" dir="rtl">مُحَمَّد</div>
-            <div class="example-card-meta"><span>Male</span><span class="example-dot">·</span><span>Arabic</span><span class="example-dot">·</span><span>4 letters</span></div>
+      <div class="example-cards-wrap">
+        <a href="/names/muhammad/" class="example-card example-card-rotate is-active" data-idx="0" aria-label="Example reading: Muhammad">
+          <div class="example-card-head">
+            <div class="example-card-arabic" lang="ar" dir="rtl">مُحَمَّد</div>
+            <div class="example-card-titles">
+              <div class="example-card-english">Muhammad</div>
+              <div class="example-card-urdu" lang="ur" dir="rtl">مُحَمَّد</div>
+              <div class="example-card-meta"><span>Male</span><span class="example-dot">·</span><span>Arabic</span><span class="example-dot">·</span><span>4 letters</span></div>
+            </div>
           </div>
-        </div>
-        <div class="example-card-rows">
-          <div class="example-row"><span class="example-row-key">Meaning</span><span class="example-row-val">The most praised — the praiseworthy one.</span></div>
-          <div class="example-row"><span class="example-row-key">Letters</span><span class="example-row-val">Two Meems frame the name in love; between them Ḥa breathes life.</span></div>
-        </div>
-        <span class="example-card-link">See the full reading →</span>
-      </a>
+          <div class="example-card-rows">
+            <div class="example-row"><span class="example-row-key">Meaning</span><span class="example-row-val">The most praised — the praiseworthy one.</span></div>
+            <div class="example-row"><span class="example-row-key">Letters</span><span class="example-row-val">Two Meems frame the name in love; between them Ḥa breathes life.</span></div>
+          </div>
+          <span class="example-card-link">See the full reading →</span>
+        </a>
+        <a href="/names/aisha/" class="example-card example-card-rotate" data-idx="1" aria-label="Example reading: Aisha" aria-hidden="true">
+          <div class="example-card-head">
+            <div class="example-card-arabic" lang="ar" dir="rtl">عَائِشَة</div>
+            <div class="example-card-titles">
+              <div class="example-card-english">Aisha</div>
+              <div class="example-card-urdu" lang="ur" dir="rtl">عائشہ</div>
+              <div class="example-card-meta"><span>Female</span><span class="example-dot">·</span><span>Arabic</span><span class="example-dot">·</span><span>5 letters</span></div>
+            </div>
+          </div>
+          <div class="example-card-rows">
+            <div class="example-row"><span class="example-row-key">Meaning</span><span class="example-row-val">Living, full of life — the Mother of Believers.</span></div>
+            <div class="example-row"><span class="example-row-key">Letters</span><span class="example-row-val">Perception, origin, reaching, radiance — life made visible.</span></div>
+          </div>
+          <span class="example-card-link">See the full reading →</span>
+        </a>
+        <a href="/names/yusuf/" class="example-card example-card-rotate" data-idx="2" aria-label="Example reading: Yusuf" aria-hidden="true">
+          <div class="example-card-head">
+            <div class="example-card-arabic" lang="ar" dir="rtl">يُوسُف</div>
+            <div class="example-card-titles">
+              <div class="example-card-english">Yusuf</div>
+              <div class="example-card-urdu" lang="ur" dir="rtl">یوسف</div>
+              <div class="example-card-meta"><span>Male</span><span class="example-dot">·</span><span>Arabic</span><span class="example-dot">·</span><span>4 letters</span></div>
+            </div>
+          </div>
+          <div class="example-card-rows">
+            <div class="example-row"><span class="example-row-key">Meaning</span><span class="example-row-val">The Prophet of the most beautiful story.</span></div>
+            <div class="example-row"><span class="example-row-key">Letters</span><span class="example-row-val">Ya reaches, Waw connects, Sin keeps the secret, Fa opens.</span></div>
+          </div>
+          <span class="example-card-link">See the full reading →</span>
+        </a>
+        <a href="/names/maryam/" class="example-card example-card-rotate" data-idx="3" aria-label="Example reading: Maryam" aria-hidden="true">
+          <div class="example-card-head">
+            <div class="example-card-arabic" lang="ar" dir="rtl">مَرْيَم</div>
+            <div class="example-card-titles">
+              <div class="example-card-english">Maryam</div>
+              <div class="example-card-urdu" lang="ur" dir="rtl">مریم</div>
+              <div class="example-card-meta"><span>Female</span><span class="example-dot">·</span><span>Arabic</span><span class="example-dot">·</span><span>4 letters</span></div>
+            </div>
+          </div>
+          <div class="example-card-rows">
+            <div class="example-row"><span class="example-row-key">Meaning</span><span class="example-row-val">Mary — the only woman named in the Quran.</span></div>
+            <div class="example-row"><span class="example-row-key">Letters</span><span class="example-row-val">Two Meems hold the name in love; mercy reaches to origin between.</span></div>
+          </div>
+          <span class="example-card-link">See the full reading →</span>
+        </a>
+      </div>
+      <div class="example-dots" role="tablist" aria-label="Choose example reading">
+        <button type="button" class="example-dot-btn is-active" data-idx="0" aria-label="Show Muhammad" aria-selected="true"></button>
+        <button type="button" class="example-dot-btn" data-idx="1" aria-label="Show Aisha" aria-selected="false"></button>
+        <button type="button" class="example-dot-btn" data-idx="2" aria-label="Show Yusuf" aria-selected="false"></button>
+        <button type="button" class="example-dot-btn" data-idx="3" aria-label="Show Maryam" aria-selected="false"></button>
+      </div>
     </div>
 
     <div class="hero-divider">
@@ -2149,6 +2213,67 @@ function resetForm(){
         btn.disabled = false;
       });
   });
+})();
+</script>
+
+<script>
+/* Auto-rotating example reading carousel — fade between 4 cards every N ms.
+   Respects prefers-reduced-motion. Pauses on hover/focus. */
+(function(){
+  var carousel = document.getElementById('exampleCarousel');
+  if(!carousel) return;
+  var cards = carousel.querySelectorAll('.example-card-rotate');
+  var dots = carousel.querySelectorAll('.example-dot-btn');
+  if(cards.length < 2) return;
+
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var interval = parseInt(carousel.getAttribute('data-rotate'), 10) || 5000;
+  var idx = 0;
+  var timer = null;
+
+  function show(n){
+    n = ((n % cards.length) + cards.length) % cards.length;
+    if(n === idx) return;
+    cards[idx].classList.remove('is-active');
+    cards[idx].setAttribute('aria-hidden', 'true');
+    dots[idx].classList.remove('is-active');
+    dots[idx].setAttribute('aria-selected', 'false');
+    idx = n;
+    cards[idx].classList.add('is-active');
+    cards[idx].removeAttribute('aria-hidden');
+    dots[idx].classList.add('is-active');
+    dots[idx].setAttribute('aria-selected', 'true');
+  }
+
+  function start(){
+    if(reduced || timer) return;
+    timer = setInterval(function(){ show(idx + 1); }, interval);
+  }
+  function stop(){
+    if(timer){ clearInterval(timer); timer = null; }
+  }
+
+  // Dot navigation — manual click stops auto-rotation (user took control)
+  dots.forEach(function(d){
+    d.addEventListener('click', function(){
+      var n = parseInt(d.getAttribute('data-idx'), 10) || 0;
+      stop();
+      show(n);
+    });
+  });
+
+  // Pause on hover / focus within carousel
+  carousel.addEventListener('mouseenter', stop);
+  carousel.addEventListener('mouseleave', start);
+  carousel.addEventListener('focusin', stop);
+  carousel.addEventListener('focusout', start);
+
+  // Pause when tab not visible
+  document.addEventListener('visibilitychange', function(){
+    if(document.hidden) stop(); else start();
+  });
+
+  start();
 })();
 </script>
 </body>
