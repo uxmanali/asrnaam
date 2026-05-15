@@ -167,6 +167,17 @@
     border-radius:6px;
     opacity:0; animation:fadeUp 0.9s ease forwards 0.85s;
   }
+  .example-frame.example-frame-compact {
+    max-width:520px; margin:24px auto 14px; padding:14px 14px 12px;
+    background:rgba(255,255,255,0.55);
+  }
+  .example-frame-compact .example-card { padding:14px 14px 12px; }
+  .example-frame-compact .example-card-arabic { font-size:2rem; }
+  .example-frame-compact .example-card-english { font-size:0.98rem; }
+  .example-frame-compact .example-card-urdu { font-size:0.96rem; }
+  .example-frame-compact .example-row { font-size:0.86rem; }
+  .example-frame-compact .example-row-key { flex:0 0 4.6rem; }
+  .example-frame-compact .example-label { margin-bottom:10px; }
   .example-label {
     font-family:'Cinzel',serif; font-size:0.56rem; letter-spacing:0.24em;
     text-transform:uppercase; color:#8B6914; font-weight:600;
@@ -464,19 +475,20 @@
   <div class="hero-bg"></div>
   <div class="hero-arabic-bg" lang="ar" dir="rtl">اثر</div>
   <div class="hero-content">
-    <div class="hero-eyebrow">Muslim Baby Names &nbsp;·&nbsp; Meaning · Arabic · Ilm ul Huroof</div>
+    <div class="hero-eyebrow">Muslim Baby Names &nbsp;·&nbsp; Ilm ul Huroof Reading</div>
     <div class="hero-arabic" lang="ar" dir="rtl">اثر نام</div>
-    <h1 class="hero-title">Enter a name to reveal its letter-by-letter <em>spiritual pattern</em> and meaning.</h1>
+    <h1 class="hero-title">Every name is a <em>sentence</em> written in letters.<br>Asrnaam reads the sentence in yours.</h1>
+    <p class="hero-sub">Type any name. You'll see it in Arabic and Urdu, its dictionary meaning, and a letter-by-letter reading drawn from <em>Ilm ul Huroof</em> — the classical Islamic Science of Letters.</p>
 
     <div class="hero-input-row">
-      <input class="hero-input" type="text" id="heroName" placeholder="Enter your name — e.g. Bilal Ahmad" autocomplete="off" onkeydown="if(event.key==='Enter')heroRead()"  aria-label="Enter your name — e.g. Bilal Ahmad"/>
-      <button class="hero-btn" onclick="heroRead()">Read My Name</button>
+      <input class="hero-input" type="text" id="heroName" placeholder="Enter a name — yours, or someone you love" autofocus autocomplete="off" onkeydown="if(event.key==='Enter')heroRead()" aria-label="Enter a name — yours, or someone you love"/>
+      <button class="hero-btn" onclick="heroRead()">Read the Name</button>
     </div>
-    <p class="hero-input-note">Free reading — no sign up required</p>
+    <p class="hero-input-note">Free reading — no sign up required · 2,000+ names</p>
 
-    <!-- EXAMPLE READING PREVIEW -->
-    <div class="example-frame">
-      <div class="example-label">See an example reading</div>
+    <!-- EXAMPLE READING PREVIEW (compact) -->
+    <div class="example-frame example-frame-compact">
+      <div class="example-label">A reading looks like this</div>
       <a href="/names/muhammad/" class="example-card" aria-label="Example reading: Muhammad">
         <div class="example-card-head">
           <div class="example-card-arabic" lang="ar" dir="rtl">مُحَمَّد</div>
@@ -487,16 +499,12 @@
           </div>
         </div>
         <div class="example-card-rows">
-          <div class="example-row"><span class="example-row-key">Dictionary</span><span class="example-row-val">The most praised — the praiseworthy one.</span></div>
-          <div class="example-row"><span class="example-row-key">Root</span><span class="example-row-val">ح-م-د — to praise; shared with Ahmad &amp; Hamid.</span></div>
-          <div class="example-row"><span class="example-row-key">Ilm ul Huroof</span><span class="example-row-val">Two Meems frame the name in love; between them Ḥa breathes life.</span></div>
+          <div class="example-row"><span class="example-row-key">Meaning</span><span class="example-row-val">The most praised — the praiseworthy one.</span></div>
+          <div class="example-row"><span class="example-row-key">Letters</span><span class="example-row-val">Two Meems frame the name in love; between them Ḥa breathes life.</span></div>
         </div>
         <span class="example-card-link">See the full reading →</span>
       </a>
-      <p class="example-tryline">↑ This is what every reading looks like. <strong>Try your own name above.</strong></p>
     </div>
-
-    <p class="hero-sub">A free, research-backed reading: Arabic root, meaning, pronunciation, and a letter-by-letter view through <em>Ilm ul Huroof</em> — the classical Islamic Science of Letters, and a wider Arabic letter tradition that any reader curious about the meaning of a name can explore. 2,000+ names covered.</p>
 
     <div class="hero-divider">
       <div class="hero-divider-line"></div>
