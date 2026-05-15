@@ -14,7 +14,6 @@
 <meta name="theme-color" content="#FAFAF8" media="(prefers-color-scheme: light)"/><meta name="theme-color" content="#1a1a1a" media="(prefers-color-scheme: dark)"/>
 <meta name="color-scheme" content="dark">
 <meta name="description" content="Muslim baby names for boys and girls with meaning, Arabic spelling, and Ilm ul Huroof reading — the classical Islamic Science of Letters. 2,000+ researched.">
-<meta name="keywords" content="muslim baby names, muslim baby boy names, muslim baby girl names, islamic baby names, arabic baby names, name meaning, Ilm ul Huroof, Ibn Arabi, science of letters">
 <title>Muslim Baby Names — Meaning, Arabic Spelling, Ilm-ul-Huroof Reading | Asrnaam</title>
 <link rel="canonical" href="https://asrnaam.com/">
 <link rel="manifest" href="/manifest.json">
@@ -40,9 +39,104 @@
 <meta name="twitter:description" content="2,000+ Muslim baby names with meaning, Arabic spelling, pronunciation, and Ilm ul Huroof reading rooted in classical Islamic scholarship.">
 <meta name="twitter:image" content="https://asrnaam.com/og-default.png">
 
+<link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
 <link rel="dns-prefetch" href="https://www.googletagmanager.com">
 <!-- FONTS:START -->
-<link rel="stylesheet" href="/fonts/fonts.css">
+<style id="asr-fonts-inline">
+/* ============================================================
+   AsrNaam — self-hosted font face declarations.
+   Subsetted 2026-05 to reduce woff2 sizes (C5 perf pass):
+     - Amiri 400/700: subsetted to the 64 Arabic codepoints
+       actually used on the site (~50KB each, down from 100KB+).
+     - Noto Naskh Arabic 400: subsetted similarly (~22KB).
+     - Dropped unused weights: Inter 300/500/600,
+       Cormorant Garamond 300/300i/500/500i/600, Amiri 400i,
+       Noto Naskh Arabic 500/700.
+   ============================================================ */
+
+/* Cinzel — Latin display, weights 400 / 500 / 600 */
+@font-face {
+  font-family: 'Cinzel';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/cinzel-400.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Cinzel';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/cinzel-500.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Cinzel';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/cinzel-600.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* Cormorant Garamond — Latin body, weight 400 + italic 400 */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/cormorant-garamond-400.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/cormorant-garamond-400i.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* Inter — Latin UI, weight 400 only */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/inter-400.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* Amiri — Arabic, weights 400 / 700 (subsetted to used codepoints) */
+@font-face {
+  font-family: 'Amiri';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/amiri-400.woff2') format('woff2');
+  unicode-range: U+0600-06FF, U+0750-077F, U+FB50-FDFF, U+FE70-FEFC;
+}
+@font-face {
+  font-family: 'Amiri';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/amiri-700.woff2') format('woff2');
+  unicode-range: U+0600-06FF, U+0750-077F, U+FB50-FDFF, U+FE70-FEFC;
+}
+
+/* Noto Naskh Arabic — Arabic fallback, weight 400 (subsetted) */
+@font-face {
+  font-family: 'Noto Naskh Arabic';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/noto-naskh-arabic-400.woff2') format('woff2');
+  unicode-range: U+0600-06FF, U+0750-077F, U+FB50-FDFF, U+FE70-FEFC;
+}
+
+</style>
 <!-- FONTS:END -->
 <style>
   :root {
