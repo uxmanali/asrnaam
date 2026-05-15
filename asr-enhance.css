@@ -441,10 +441,13 @@ html[data-theme='dark'] .asr-cmp-name, html[data-theme='dark'] .asr-cmp-label, h
 .asr-favs-btn svg{ display:inline-block; }
 
 /* ---- Cycle U: Animations (respect prefers-reduced-motion) ---- */
+/* Animation fade-in DISABLED 2026-05: fragile IntersectionObserver path was
+   leaving content stuck at opacity:0 on mobile. Hard floor: any .asr-fade
+   element is fully visible. Theme transitions kept. */
+.asr-fade,
+.asr-fade.asr-in { opacity: 1 !important; transform: none !important; }
+
 @media (prefers-reduced-motion: no-preference){
-  .asr-fade{ opacity: 0; transform: translateY(8px); transition: opacity .35s ease, transform .35s ease; }
-  .asr-fade.asr-in{ opacity: 1; transform: translateY(0); }
-  /* Smooth color interpolation across theme changes */
   body, nav, .name-card, .featured-section, .recently-section, .letter-section,
   .asr-modal, .asr-cmdk, .asr-cmp-tray{
     transition: background-color .25s ease, color .25s ease, border-color .25s ease;

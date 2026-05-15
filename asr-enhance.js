@@ -749,23 +749,10 @@
     });
   }
 
-  // ---- Animation: subtle fade-in via IntersectionObserver ----
-  function bindFadeIn(){
-    if(REDUCED) return;
-    if(!('IntersectionObserver' in window)) return;
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(en){
-        if(en.isIntersecting){
-          en.target.classList.add('asr-in');
-          io.unobserve(en.target);
-        }
-      });
-    }, {rootMargin:'80px', threshold:0.01});
-    document.querySelectorAll('.name-card, .featured-section, .recently-section, .letter-section').forEach(function(el){
-      el.classList.add('asr-fade');
-      io.observe(el);
-    });
-  }
+  // ---- Animation: fade-in DISABLED (was causing invisible text on mobile
+  //      when IntersectionObserver didn't fire reliably). Kept as no-op so
+  //      the rest of the init chain doesn't need to change. ----
+  function bindFadeIn(){ /* intentionally disabled — see asr-enhance.css */ }
 
   // ---- Random discovery: pick from rich canonicals on name pages ----
   function injectReadAnother(){
