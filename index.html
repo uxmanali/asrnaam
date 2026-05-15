@@ -160,6 +160,54 @@
   .hero-scroll-link { font-family:'Cinzel',serif; font-size:0.52rem; letter-spacing:0.2em; text-transform:uppercase; color:#8B6914; text-decoration:none; margin-top:8px; display:inline-block; opacity:0; animation:fadeUp 0.9s ease forwards 0.85s; }
   .hero-scroll-link:hover { color:#C9930A; }
 
+  /* EXAMPLE READING PREVIEW (homepage hero) */
+  .example-frame {
+    max-width:600px; margin:30px auto 18px; padding:18px 16px 14px;
+    border:1px solid rgba(139,105,20,0.18);
+    background:rgba(255,255,255,0.65);
+    border-radius:6px;
+    opacity:0; animation:fadeUp 0.9s ease forwards 0.85s;
+  }
+  .example-label {
+    font-family:'Cinzel',serif; font-size:0.56rem; letter-spacing:0.24em;
+    text-transform:uppercase; color:#8B6914; font-weight:600;
+    text-align:center; margin-bottom:14px;
+  }
+  .example-card {
+    display:block; text-decoration:none; color:inherit;
+    background:#fff; border:1px solid rgba(139,105,20,0.22);
+    padding:18px 18px 14px; border-radius:4px;
+    transition:border-color 0.3s, box-shadow 0.3s;
+    text-align:left;
+  }
+  .example-card:hover {
+    border-color:rgba(139,105,20,0.5);
+    box-shadow:0 4px 18px rgba(139,105,20,0.09);
+  }
+  .example-card-head { display:flex; gap:16px; align-items:center; margin-bottom:12px; padding-bottom:12px; border-bottom:1px solid rgba(139,105,20,0.12); }
+  .example-card-arabic { font-family:'Amiri',serif; font-size:2.4rem; color:#8B6914; line-height:1; flex-shrink:0; }
+  .example-card-titles { flex:1; min-width:0; }
+  .example-card-english { font-family:'Cinzel',serif; font-size:1.05rem; color:#111010; letter-spacing:0.02em; font-weight:500; margin-bottom:2px; }
+  .example-card-urdu { font-family:'Amiri',serif; font-size:1.05rem; color:#5A5A5A; margin-bottom:4px; }
+  .example-card-meta { font-family:'Cinzel',serif; font-size:0.56rem; letter-spacing:0.16em; text-transform:uppercase; color:#8B6914; font-weight:600; }
+  .example-dot { margin:0 6px; opacity:0.5; }
+  .example-card-rows { display:flex; flex-direction:column; gap:8px; margin-bottom:12px; }
+  .example-row { display:flex; gap:10px; align-items:baseline; font-size:0.92rem; line-height:1.5; }
+  .example-row-key { flex:0 0 5.5rem; font-family:'Cinzel',serif; font-size:0.54rem; letter-spacing:0.16em; text-transform:uppercase; color:#8B6914; font-weight:600; padding-top:2px; }
+  .example-row-val { flex:1; color:#2C2C2C; text-align:left; }
+  .example-card-link { font-family:'Cinzel',serif; font-size:0.56rem; letter-spacing:0.2em; text-transform:uppercase; color:#8B6914; display:inline-block; margin-top:4px; }
+  .example-tryline {
+    text-align:center; font-size:0.92rem; color:#5A5A5A; font-style:italic;
+    margin-top:12px;
+  }
+  .example-tryline strong { color:#8B6914; font-weight:600; font-style:normal; }
+  @media (max-width:560px) {
+    .example-card-head { flex-direction:column; align-items:flex-start; gap:8px; }
+    .example-card-arabic { font-size:2rem; }
+    .example-row { flex-direction:column; gap:2px; }
+    .example-row-key { flex:none; padding-top:0; }
+  }
+
   /* HOW */
   .how { background:#F3F1EC; border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); padding:100px 56px; }
   .how-inner { max-width:1100px; margin:0 auto; }
@@ -419,14 +467,37 @@
   <div class="hero-content">
     <div class="hero-eyebrow">Muslim Baby Names &nbsp;·&nbsp; Meaning · Arabic · Ilm ul Huroof</div>
     <div class="hero-arabic" lang="ar" dir="rtl">اثر نام</div>
-    <h1 class="hero-title">Muslim baby names — read the <em>impact</em> of every letter.</h1>
-    <p class="hero-sub">2,000+ researched Muslim baby names for boys and girls — Arabic root, meaning, pronunciation, and a reading through <em>Ilm ul Huroof</em>, the classical Islamic Science of Letters. Each Arabic letter carries an ontological principle that shapes the name it lives inside.</p>
+    <h1 class="hero-title">Enter a name to reveal its letter-by-letter <em>spiritual pattern</em> and meaning.</h1>
 
     <div class="hero-input-row">
       <input class="hero-input" type="text" id="heroName" placeholder="Enter your name — e.g. Bilal Ahmad" autocomplete="off" onkeydown="if(event.key==='Enter')heroRead()"  aria-label="Enter your name — e.g. Bilal Ahmad"/>
       <button class="hero-btn" onclick="heroRead()">Read My Name</button>
     </div>
     <p class="hero-input-note">Free reading — no sign up required</p>
+
+    <!-- EXAMPLE READING PREVIEW -->
+    <div class="example-frame">
+      <div class="example-label">See an example reading</div>
+      <a href="/names/muhammad/" class="example-card" aria-label="Example reading: Muhammad">
+        <div class="example-card-head">
+          <div class="example-card-arabic" lang="ar" dir="rtl">مُحَمَّد</div>
+          <div class="example-card-titles">
+            <div class="example-card-english">Muhammad</div>
+            <div class="example-card-urdu" lang="ur" dir="rtl">مُحَمَّد</div>
+            <div class="example-card-meta"><span>Male</span><span class="example-dot">·</span><span>Arabic</span><span class="example-dot">·</span><span>4 letters</span></div>
+          </div>
+        </div>
+        <div class="example-card-rows">
+          <div class="example-row"><span class="example-row-key">Dictionary</span><span class="example-row-val">The most praised — the praiseworthy one.</span></div>
+          <div class="example-row"><span class="example-row-key">Root</span><span class="example-row-val">ح-م-د — to praise; shared with Ahmad &amp; Hamid.</span></div>
+          <div class="example-row"><span class="example-row-key">Ilm ul Huroof</span><span class="example-row-val">Two Meems frame the name in love; between them Ḥa breathes life.</span></div>
+        </div>
+        <span class="example-card-link">See the full reading →</span>
+      </a>
+      <p class="example-tryline">↑ This is what every reading looks like. <strong>Try your own name above.</strong></p>
+    </div>
+
+    <p class="hero-sub">A free, research-backed reading: Arabic root, meaning, pronunciation, and a letter-by-letter view through <em>Ilm ul Huroof</em>, the classical Islamic Science of Letters. 2,000+ names covered.</p>
 
     <div class="hero-divider">
       <div class="hero-divider-line"></div>
