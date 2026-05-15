@@ -1276,3 +1276,24 @@ html[data-theme='dark'] .step-num {
   }
   /* Eyebrows/labels stay smaller/bolder, not bumped. */
 }
+
+/* ────────────────────────────────────────────────────────────────
+   C5 perf — defer rendering of heavy below-fold sections until
+   they're scrolled near the viewport. content-visibility:auto is
+   a CSS-only zero-cost defer; contain-intrinsic-size keeps the
+   layout from jumping when the section is revealed.
+   Browsers without support (older Safari) fall back to normal
+   rendering — safe.
+   ──────────────────────────────────────────────────────────────── */
+.bearers-list,
+.asr-pronunciation,
+.letter-cluster,
+.related-section.shared-section,
+.faq-section {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 400px;
+}
+.asr-pronunciation { contain-intrinsic-size: auto 120px; }
+.letter-cluster { contain-intrinsic-size: auto 220px; }
+.related-section.shared-section { contain-intrinsic-size: auto 260px; }
+.faq-section { contain-intrinsic-size: auto 380px; }

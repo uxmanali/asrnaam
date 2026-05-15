@@ -108,13 +108,35 @@
     var name = pageNameFromHero();
     if(!name) return;
 
-    // Lazy-load the save-as-image card builder on name pages.
-    if(!document.querySelector('script[data-asr-sharecard]')){
-      var sc = document.createElement('script');
-      sc.src = '/asr-share-card.js';
-      sc.defer = true;
-      sc.dataset.asrSharecard = '1';
-      document.head.appendChild(sc);
+    // ---- Defer asr-share-card.js until user interacts with share area
+    // ---- (or until browser is idle after settle — C5 perf). The script is
+    // ---- NOT loaded on initial pageload — we wait for click on a share
+    // ---- button, or fall back to requestIdleCallback with a 4s timeout.
+    if(!window.__asrShareCardLoader){
+      window.__asrShareCardLoader = function(){
+        if(window.__asrShareCardLoader.done) return;
+        window.__asrShareCardLoader.done = true;
+        var sc = document.createElement('script');
+        sc.src = '/asr-share-card.js';
+        sc.async = true;
+        sc.dataset.asrSharecard = '1';
+        document.head.appendChild(sc);
+      };
+      // Eager trigger: any click in the share area or on the (post-load)
+      // Save-as-image button loads the script immediately.
+      document.addEventListener('click', function(e){
+        if(e.target && e.target.closest &&
+           e.target.closest('.asr-share-hero, .asr-save-card-cta, .asr-save-card-wrap')){
+          window.__asrShareCardLoader();
+        }
+      }, true);
+      // Backstop: load when browser is idle, so the IG/Threads/Save buttons
+      // appear within ~4s without the user having to click first.
+      if('requestIdleCallback' in window){
+        requestIdleCallback(window.__asrShareCardLoader, { timeout: 4000 });
+      } else {
+        setTimeout(window.__asrShareCardLoader, 3500);
+      }
     }
 
     // Container for the action group

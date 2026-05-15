@@ -3,8 +3,8 @@
 # Run from the repository root on a network-enabled machine:
 #   bash fonts/fetch-fonts.sh
 #
-# Pulls the subsetted Latin + Arabic woff2 directly from Google's CDN
-# (fonts.gstatic.com — the SIL OFL / Apache 2.0 licensed binaries).
+# After fetching, run scripts/subset-arabic-fonts.py to re-subset
+# the Arabic faces to the codepoints actually used on the site.
 set -euo pipefail
 cd "$(dirname "$0")"
 
@@ -19,12 +19,13 @@ FAMILY_MAP = {
 }
 LATIN_FAMS = {'Cinzel','Cormorant Garamond','Inter'}
 ARABIC_FAMS = {'Amiri','Noto Naskh Arabic'}
+# Only the weights actually used by the site (C5 pass).
 url = ('https://fonts.googleapis.com/css2'
-       '?family=Amiri:ital,wght@0,400;0,700;1,400'
+       '?family=Amiri:wght@400;700'
        '&family=Cinzel:wght@400;500;600'
-       '&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500'
-       '&family=Noto+Naskh+Arabic:wght@400;500;700'
-       '&family=Inter:wght@300;400;500;600'
+       '&family=Cormorant+Garamond:ital,wght@0,400;1,400'
+       '&family=Noto+Naskh+Arabic:wght@400'
+       '&family=Inter:wght@400'
        '&display=swap')
 req = urllib.request.Request(url, headers={'User-Agent':'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/120'})
 raw = urllib.request.urlopen(req).read().decode()
