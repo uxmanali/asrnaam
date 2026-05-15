@@ -1165,3 +1165,111 @@ html[data-theme='dark'] .asr-read-another .ra-sub{ color:#9a958a; }
 .asr-cmdk-random:hover{ background:rgba(139,105,20,0.06); border-color:rgba(139,105,20,0.7); border-style:solid; color:#C9930A; }
 html[data-theme='dark'] .asr-cmdk-random{ color:#d4b86a; border-color:rgba(212,160,23,.35); }
 html[data-theme='dark'] .asr-cmdk-random:hover{ background:rgba(212,160,23,.08); color:#e9c777; }
+
+/* ─────────────────────────────────────────────────────────────
+   MOBILE CONTRAST FIX (2026-05)
+   ─────────────────────────────────────────────────────────────
+   Issue: prose text was rendering too dim on mobile, in some
+   cases (How-it-works section in dark mode) effectively invisible
+   because the section background stayed on its inline light beige
+   (#F3F1EC) while text color was overridden to a near-white
+   (#e7e5e4) by the dark-mode rule for `.step-text`.
+
+   Fixes below:
+   1. Dark-mode overrides for `.how` / `.step` backgrounds so the
+      section is actually dark when the rest of the page is dark.
+   2. A hard floor on any `<p>` inside `<main>` — body color in
+      light, near-white in dark — so no inherited "muted" class
+      can dim a substantive prose paragraph.
+   3. Strengthened muted/secondary text caps (max #4B5563 light,
+      min #D6D3D1 dark) so anything still labelled "muted" still
+      clears WCAG AA.
+   4. Eyebrows / labels — same color as muted, never lighter.
+   5. Mobile-only: bump prose font-weight 400→500 and size
+      16px→17px to compensate for sub-pixel rendering.
+   ───────────────────────────────────────────────────────────── */
+
+/* 1. Dark-mode section backgrounds (How + Step cards). */
+html[data-theme='dark'] .how {
+  background: #1f1e1d !important;
+  border-top-color: #3a3935 !important;
+  border-bottom-color: #3a3935 !important;
+}
+html[data-theme='dark'] .step {
+  background: #1f1e1d !important;
+}
+html[data-theme='dark'] .step:hover {
+  background: #26241f !important;
+}
+html[data-theme='dark'] .section-heading,
+html[data-theme='dark'] .section-heading em { color: #fafaf9 !important; }
+
+/* 2. Hard floor: any prose <p> on a content page must use body
+      color, regardless of inherited "muted" classes.
+      Subscribes <p class="step-text">, <p class="section-sub">,
+      <p class="hero-sub">, etc.
+      Excludes footer / nav / utility paragraphs. */
+main p,
+.hero p, .how p, .about p, .explore p, .tool-wrap p, .muq p,
+.prose p, .body-text p,
+p.step-text, p.section-sub, p.hero-sub, p.lede,
+p.letters-intro, p.related-intro, p.spellings-intro {
+  color: #1f2937 !important;
+  font-weight: 400 !important;
+}
+html[data-theme='dark'] main p,
+html[data-theme='dark'] .hero p, html[data-theme='dark'] .how p,
+html[data-theme='dark'] .about p, html[data-theme='dark'] .explore p,
+html[data-theme='dark'] .tool-wrap p, html[data-theme='dark'] .muq p,
+html[data-theme='dark'] .prose p, html[data-theme='dark'] .body-text p,
+html[data-theme='dark'] p.step-text, html[data-theme='dark'] p.section-sub,
+html[data-theme='dark'] p.hero-sub, html[data-theme='dark'] p.lede,
+html[data-theme='dark'] p.letters-intro, html[data-theme='dark'] p.related-intro,
+html[data-theme='dark'] p.spellings-intro {
+  color: #f5f5f4 !important;
+}
+
+/* 3. Cap muted/secondary text colors to WCAG-AA-clearing values. */
+.section-sub, .hero-sub, .footer-blurb, .stat-label,
+.lede, .letters-intro, .related-intro, .spellings-intro,
+.example-card-urdu, .example-tryline, .r-method,
+.hero-input-note {
+  color: #4B5563 !important;
+}
+html[data-theme='dark'] .section-sub, html[data-theme='dark'] .hero-sub,
+html[data-theme='dark'] .footer-blurb, html[data-theme='dark'] .stat-label,
+html[data-theme='dark'] .lede, html[data-theme='dark'] .letters-intro,
+html[data-theme='dark'] .related-intro, html[data-theme='dark'] .spellings-intro,
+html[data-theme='dark'] .example-card-urdu, html[data-theme='dark'] .example-tryline,
+html[data-theme='dark'] .r-method, html[data-theme='dark'] .hero-input-note {
+  color: #D6D3D1 !important;
+}
+
+/* 4. Eyebrows / labels — keep distinct gold accent, but in dark
+      mode never lighter than #d6d3d1 family. (Existing rule
+      already does this, this is the explicit re-affirm.) */
+.hero-eyebrow, .section-tag, .step-title, .section-label, .step-num {
+  color: #6B4F10 !important;
+}
+html[data-theme='dark'] .hero-eyebrow, html[data-theme='dark'] .section-tag,
+html[data-theme='dark'] .step-title, html[data-theme='dark'] .section-label,
+html[data-theme='dark'] .step-num {
+  color: #d4a84a !important;
+}
+
+/* 5. Mobile-only prose bump: 17px body, weight 500. */
+@media (max-width: 640px) {
+  main p,
+  .hero p, .how p, .about p, .explore p, .tool-wrap p, .muq p,
+  .prose p,
+  .step-text,
+  .section-sub,
+  .hero-sub,
+  .body-text,
+  .lede {
+    font-size: 17px !important;
+    font-weight: 500 !important;
+    line-height: 1.75 !important;
+  }
+  /* Eyebrows/labels stay smaller/bolder, not bumped. */
+}
