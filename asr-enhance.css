@@ -872,3 +872,43 @@ html[data-theme='dark'] .asr-breadcrumb .current { color: #f5f5f4 !important; }
 /* ---------- HIDE OLD PAGE-LOCAL NAV STYLES WHEN .asr-site-header IS PRESENT ---------- */
 /* Some pages used a fixed-position homepage nav; the canonical .asr-site-header is sticky
    so hero padding-top hacks on those pages are unnecessary, but harmless. */
+
+/* ---------- Legacy .breadcrumb alias to asr-breadcrumb ---------- */
+.breadcrumb {
+  max-width: 1200px;
+  margin: 0 auto !important;
+  padding: 14px 24px 0 !important;
+  font-family: 'Inter',sans-serif !important;
+  font-size: 0.85rem !important;
+  color: #6b7280 !important;
+}
+.breadcrumb a { color: #6b7280 !important; text-decoration: none; }
+.breadcrumb a:hover { color: #8B6914 !important; }
+html[data-theme='dark'] .breadcrumb { color: #a8a39a !important; }
+html[data-theme='dark'] .breadcrumb a { color: #a8a39a !important; }
+@media (max-width: 767px) {
+  .breadcrumb { padding: 12px 16px 0 !important; font-size: 0.8rem !important; }
+}
+
+/* ---------- Hide adjacent duplicate sticky letter-nav on /names/ so it doesn't
+   stack awkwardly under the new sticky asr-site-header on mobile. Reposition. ---------- */
+.letter-nav { top: 0 !important; }
+.asr-site-header ~ .letter-nav { position: static !important; }
+@media (max-width: 767px) {
+  .asr-site-header ~ .letter-nav {
+    position: sticky !important;
+    top: 56px !important; /* below the unified header height on mobile */
+    z-index: 90;
+  }
+}
+
+/* ---------- Push fixed-position legacy nav offsets back to 0 (since unified
+   header is sticky, hero no longer needs 130px top padding to clear it).
+   Override only the worst offenders so we don't break visual design. ---------- */
+/* Keep hero padding for visual breathing room — the sticky header is small */
+
+/* ---------- Make sure footer takes full width even if previously inline padded ---------- */
+.asr-site-footer { width: 100%; box-sizing: border-box; }
+
+/* ---------- Skip-link target ---------- */
+main:focus { outline: none; }
