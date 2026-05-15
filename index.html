@@ -157,6 +157,12 @@
   .hero-divider-line { flex:1; height:1px; background:rgba(139,105,20,0.15); }
   .hero-divider-text { font-family:'Cinzel',serif; font-size:0.5rem; letter-spacing:0.25em; text-transform:uppercase; color:rgba(139,105,20,0.5); }
   .hero-scroll-link { font-family:'Cinzel',serif; font-size:0.52rem; letter-spacing:0.2em; text-transform:uppercase; color:#8B6914; text-decoration:none; margin-top:8px; display:inline-block; opacity:0; animation:fadeUp 0.9s ease forwards 0.85s; }
+  .hero-side-links { display:flex; flex-direction:column; align-items:center; gap:14px; margin-top:14px; opacity:0; animation:fadeUp 0.9s ease forwards 0.85s; }
+  .hero-random-btn { font-family:'Cinzel',serif; font-size:0.58rem; letter-spacing:0.22em; text-transform:uppercase; color:#8B6914; background:transparent; border:1px solid rgba(139,105,20,0.35); padding:11px 22px; cursor:pointer; display:inline-flex; align-items:center; gap:10px; transition:all .25s ease; font-weight:600; }
+  .hero-random-btn:hover { background:rgba(139,105,20,0.06); border-color:rgba(139,105,20,0.7); color:#C9930A; }
+  .hero-random-btn:disabled { opacity:.55; cursor:wait; }
+  .hero-random-btn .random-icon { font-size:0.95rem; line-height:1; display:inline-block; transition:transform .4s ease; }
+  .hero-random-btn:hover .random-icon { transform:rotate(180deg); }
   .hero-scroll-link:hover { color:#C9930A; }
 
   /* EXAMPLE READING PREVIEW (homepage hero) */
@@ -508,10 +514,16 @@
 
     <div class="hero-divider">
       <div class="hero-divider-line"></div>
-      <span class="hero-divider-text">or scroll to explore</span>
+      <span class="hero-divider-text">or</span>
       <div class="hero-divider-line"></div>
     </div>
-    <a href="#tool" class="hero-scroll-link">Add parents' names for a deeper reading ↓</a>
+    <div class="hero-side-links">
+      <button type="button" class="hero-random-btn" id="heroRandomBtn" aria-label="Try a random name">
+        <span class="random-icon" aria-hidden="true">↻</span>
+        <span class="random-label">Try a random name</span>
+      </button>
+      <a href="#tool" class="hero-scroll-link">Add parents' names for a deeper reading ↓</a>
+    </div>
   </div>
 </div>
 
@@ -2116,6 +2128,29 @@ function resetForm(){
   document.getElementById('results').innerHTML='';
   ['yourName','fatherName','motherName'].forEach(id=>document.getElementById(id).value='');
 }
+</script>
+
+<script>
+(function(){
+  var btn = document.getElementById('heroRandomBtn');
+  if(!btn) return;
+  btn.addEventListener('click', function(){
+    var orig = btn.querySelector('.random-label').textContent;
+    btn.querySelector('.random-label').textContent = 'Picking…';
+    btn.disabled = true;
+    fetch('/names/names-index.json', {cache:'force-cache'})
+      .then(function(r){ return r.json(); })
+      .then(function(arr){
+        if(!arr || !arr.length) throw new Error('empty');
+        var pick = arr[Math.floor(Math.random()*arr.length)];
+        location.href = '/names/' + pick.s + '/';
+      })
+      .catch(function(){
+        btn.querySelector('.random-label').textContent = orig;
+        btn.disabled = false;
+      });
+  });
+})();
 </script>
 </body>
 </html>

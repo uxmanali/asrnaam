@@ -684,7 +684,19 @@
 
     function doSearch(q){
       q = (q||'').toLowerCase().trim();
-      if(!q){ listEl.innerHTML='<div class="asr-cmdk-hint">Type to search names, meanings, or letters.</div>'; lastResults=[]; return; }
+      if(!q){
+        listEl.innerHTML = '<div class="asr-cmdk-hint">Type to search names, meanings, or letters.</div>' +
+          '<button type="button" class="asr-cmdk-random" id="asrCmdkRandom">↻ &nbsp;Try a random name</button>';
+        var rb = listEl.querySelector('#asrCmdkRandom');
+        if(rb) rb.addEventListener('click', function(){
+          fetchCorpus().then(function(arr){
+            if(!arr || !arr.length) return;
+            var pick = arr[Math.floor(Math.random()*arr.length)];
+            location.href = (pick.h || ('/names/'+pick.s+'/'));
+          });
+        });
+        lastResults=[]; return;
+      }
       if(!CMDK_CORPUS){ return; }
       // Tiered: prefix(binary) → substring → Levenshtein. 10 results.
       var ranked = tieredSearch(q, 10);
@@ -755,7 +767,78 @@
     });
   }
 
-  // ---- Skip link (existing) ----
+  // ---- Random discovery: pick from rich canonicals on name pages ----
+  function injectReadAnother(){
+    var ctx = pageContext();
+    if(!ctx.slug) return;
+    if(document.querySelector('.asr-read-another')) return;
+    // Insert after the main reading content. Prefer LIFE:END marker, else end of main.
+    var anchor = null;
+    var walker = document.createNodeIterator(document.body, NodeFilter.SHOW_COMMENT, null, false);
+    var c;
+    while((c = walker.nextNode())){
+      if(c.nodeValue && c.nodeValue.indexOf('LIFE:END')>=0){ anchor = c; break; }
+    }
+    var wrap = document.createElement('section');
+    wrap.className = 'asr-read-another';
+    wrap.setAttribute('aria-label','Discover another name');
+    wrap.innerHTML =
+      '<div class="ra-inner">' +
+        '<span class="ra-eyebrow">More from the library</span>' +
+        '<h3 class="ra-title">Read another <em>name</em></h3>' +
+        '<p class="ra-sub">A different name from the same tradition — chosen at random.</p>' +
+        '<a href="#" class="ra-cta" id="asrReadAnother" data-loading="Loading…">' +
+          '<span class="ra-cta-label">Read another →</span>' +
+          '<span class="ra-cta-name" hidden></span>' +
+        '</a>' +
+      '</div>';
+    if(anchor && anchor.parentNode){
+      // Insert just after the comment node
+      anchor.parentNode.insertBefore(wrap, anchor.nextSibling);
+    } else {
+      var main = document.querySelector('main, .content, body');
+      (main || document.body).appendChild(wrap);
+    }
+
+    // Pick once at pageload, deterministic for this view but varies per load.
+    var cta = wrap.querySelector('#asrReadAnother');
+    var label = wrap.querySelector('.ra-cta-label');
+    var pickedHref = null;
+    function setPicked(pick){
+      pickedHref = '/names/' + pick.s + '/';
+      cta.setAttribute('href', pickedHref);
+      label.textContent = 'Read ' + pick.n + ' →';
+    }
+    fetchCorpus().then(function(arr){
+      if(!arr || !arr.length) return;
+      // Filter out the current slug.
+      var pool = arr;
+      if(arr[0] && arr[0].s !== undefined){
+        pool = arr.filter(function(e){ return e.s !== ctx.slug; });
+      } else {
+        pool = arr.filter(function(e){ return (e.h||'').indexOf('/names/'+ctx.slug+'/')<0; });
+      }
+      if(!pool.length) return;
+      var pick = pool[Math.floor(Math.random()*pool.length)];
+      // Normalise — fetchCorpus output has .s and .n
+      if(pick.s && pick.n){ setPicked(pick); }
+    });
+    // If clicked before the index resolves, fall back to the random homepage flow.
+    cta.addEventListener('click', function(e){
+      if(!pickedHref){
+        e.preventDefault();
+        label.textContent = 'Picking…';
+        fetchCorpus().then(function(arr){
+          if(!arr || !arr.length) return;
+          var pool = arr.filter(function(en){ return en.s !== ctx.slug; });
+          var pick = pool[Math.floor(Math.random()*pool.length)];
+          location.href = '/names/' + pick.s + '/';
+        });
+      }
+    });
+  }
+
+    // ---- Skip link (existing) ----
   function injectSkipLink(){
     if(document.querySelector('.asr-skip-link')) return;
     var main = document.querySelector('main, .content, .hero, #content');
@@ -776,6 +859,7 @@
     injectThemeToggle();
     injectCmdkTrigger();
     injectHeroActions();
+    injectReadAnother();
     recordRecent();
     injectNamesIndexFeatures();
     bindCmdkShortcut();
