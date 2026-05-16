@@ -681,7 +681,7 @@
     ov.innerHTML = '<div class="asr-cmdk" role="dialog" aria-label="Quick search">'+
       '<div class="asr-cmdk-head">'+
       '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>'+
-      '<input type="search" class="asr-cmdk-input" placeholder="Search 2,004 names…" aria-label="Quick search" autocomplete="off" autofocus>'+
+      '<input type="search" class="asr-cmdk-input" placeholder="Search 1,996 names…" aria-label="Quick search" autocomplete="off" autofocus>'+
       '<kbd>Esc</kbd>'+
       '</div>'+
       '<div class="asr-cmdk-list" role="listbox"><div class="asr-cmdk-loading"><div class="asr-skel"></div><div class="asr-skel"></div><div class="asr-skel"></div></div></div>'+
