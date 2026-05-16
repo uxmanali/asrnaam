@@ -36,7 +36,7 @@
    max-width values (content widths) are unaffected.
 
    ── !important ────────────────────────────────────────────
-   ~135 !important declarations remain across this file. They
+   ~130 !important declarations remain across this file. They
    exist to override the inline <style> baseline that every
    canonical page ships (the inline style was added before this
    layer existed). New rules: AVOID !important. Add specificity
@@ -582,7 +582,7 @@ body {
 @media (min-width: 900px) {
   body { font-size: 18px !important; line-height: 1.65 !important; }
 }
-html[data-theme='dark'] body { color: #f5f5f4 !important; background: #1a1a1a !important; }
+html[data-theme='dark'] body { color: #f5f5f4; background: #1a1a1a; }
 
 /* Headings keep decorative families but get a consistent scale and
    solid weight + dark color for legibility. */
@@ -595,7 +595,7 @@ h1, .hero-title {
 }
 @media (max-width: 640px) { h1, .hero-title { font-size: 2rem !important; line-height: 1.18 !important; } }
 @media (min-width: 640px) { h1, .hero-title { font-size: 3rem !important; } }
-html[data-theme='dark'] h1, html[data-theme='dark'] .hero-title { color: #fafaf9 !important; }
+html[data-theme='dark'] h1, html[data-theme='dark'] .hero-title { color: #fafaf9; }
 
 h2, .section-heading {
   font-family: 'Cinzel','Cormorant Garamond',Georgia,serif !important;
@@ -605,7 +605,7 @@ h2, .section-heading {
 }
 @media (max-width: 640px) { h2, .section-heading { font-size: 1.5rem !important; } }
 @media (min-width: 640px) { h2, .section-heading { font-size: 2rem !important; } }
-html[data-theme='dark'] h2, html[data-theme='dark'] .section-heading { color: #fafaf9 !important; }
+html[data-theme='dark'] h2, html[data-theme='dark'] .section-heading { color: #fafaf9; }
 
 h3 {
   font-family: 'Cinzel','Cormorant Garamond',Georgia,serif !important;
@@ -615,7 +615,7 @@ h3 {
   font-size: 1.25rem !important;
 }
 @media (min-width: 640px) { h3 { font-size: 1.5rem !important; } }
-html[data-theme='dark'] h3 { color: #fafaf9 !important; }
+html[data-theme='dark'] h3 { color: #fafaf9; }
 
 /* Body prose — switch from thin display serif to Inter for readable copy.
    Keep decorative serif for italic <em> for character. */
@@ -638,11 +638,11 @@ html[data-theme='dark'] .prose p, html[data-theme='dark'] main p,
 html[data-theme='dark'] .body-text, html[data-theme='dark'] .hero-sub,
 html[data-theme='dark'] .section-sub, html[data-theme='dark'] .step-text,
 html[data-theme='dark'] .footer-blurb, html[data-theme='dark'] .lede {
-  color: #e7e5e4 !important;
+  color: #e7e5e4;
 }
 html[data-theme='dark'] .prose em, html[data-theme='dark'] p em,
 html[data-theme='dark'] h1 em, html[data-theme='dark'] h2 em {
-  color: #d4a84a !important;
+  color: #d4a84a;
 }
 
 /* Eyebrows / small labels — never below 11px, always readable color */
@@ -659,12 +659,12 @@ html[data-theme='dark'] .hero-eyebrow, html[data-theme='dark'] .section-tag,
 html[data-theme='dark'] .step-title, html[data-theme='dark'] .section-label,
 html[data-theme='dark'] .qf-label, html[data-theme='dark'] .qfacts-key,
 html[data-theme='dark'] .footer-col-title, html[data-theme='dark'] .footer-tagline,
-html[data-theme='dark'] .nav-brand-sub { color: #d4a84a !important; }
+html[data-theme='dark'] .nav-brand-sub { color: #d4a84a; }
 
 /* Ensure muted text used for substantive copy meets WCAG AA */
 .hero-sub, .section-sub, .stat-label, .footer-blurb { color: #374151 !important; }
 html[data-theme='dark'] .hero-sub, html[data-theme='dark'] .section-sub,
-html[data-theme='dark'] .footer-blurb { color: #d6d3d1 !important; }
+html[data-theme='dark'] .footer-blurb { color: #d6d3d1; }
 
 /* Kill any 0.5rem / 0.55rem inline label sizes that were unreadable */
 
@@ -698,8 +698,8 @@ html[data-theme='dark'] .asr-site-header {
   text-transform: uppercase;
   font-weight: 600;
 }
-html[data-theme='dark'] .asr-site-header .nav-brand { color: #d4a84a !important; }
-html[data-theme='dark'] .asr-site-header .nav-brand-sub { color: #d4a84a !important; opacity: 0.85; }
+html[data-theme='dark'] .asr-site-header .nav-brand { color: #d4a84a; }
+html[data-theme='dark'] .asr-site-header .nav-brand-sub { color: #d4a84a; opacity: 0.85; }
 .asr-site-header .nav-links {
   display: flex; gap: 22px; list-style: none; align-items: center;
   margin: 0; padding: 0;
@@ -716,9 +716,9 @@ html[data-theme='dark'] .asr-site-header .nav-brand-sub { color: #d4a84a !import
   transition: color 0.2s;
   padding: 4px 0;
 }
-html[data-theme='dark'] .asr-site-header .nav-links a { color: #f5f5f4 !important; }
+html[data-theme='dark'] .asr-site-header .nav-links a { color: #f5f5f4; }
 .asr-site-header .nav-links a:hover { color: #8B6914 !important; }
-html[data-theme='dark'] .asr-site-header .nav-links a:hover { color: #d4a84a !important; }
+html[data-theme='dark'] .asr-site-header .nav-links a:hover { color: #d4a84a; }
 .asr-site-header .nav-cta {
   border: 1px solid rgba(139,105,20,0.5);
   padding: 8px 18px !important;
@@ -728,7 +728,7 @@ html[data-theme='dark'] .asr-site-header .nav-links a:hover { color: #d4a84a !im
 .asr-site-header .nav-cta:hover { background: rgba(139,105,20,0.08); border-color: #8B6914; }
 html[data-theme='dark'] .asr-site-header .nav-cta {
   border-color: rgba(212,168,74,0.5);
-  color: #d4a84a !important;
+  color: #d4a84a;
 }
 .asr-site-header .nav-sep {
   width: 1px; height: 14px;
@@ -893,10 +893,10 @@ html[data-theme='dark'] .asr-site-header .nav-hamburger span { background: #d4a8
 .asr-breadcrumb a:hover { color: #8B6914 !important; }
 .asr-breadcrumb .sep { margin: 0 6px; color: #9ca3af; }
 .asr-breadcrumb .current { color: #1f2937; }
-html[data-theme='dark'] .asr-breadcrumb { color: #a8a39a !important; }
-html[data-theme='dark'] .asr-breadcrumb a { color: #a8a39a !important; }
-html[data-theme='dark'] .asr-breadcrumb a:hover { color: #d4a84a !important; }
-html[data-theme='dark'] .asr-breadcrumb .current { color: #f5f5f4 !important; }
+html[data-theme='dark'] .asr-breadcrumb { color: #a8a39a; }
+html[data-theme='dark'] .asr-breadcrumb a { color: #a8a39a; }
+html[data-theme='dark'] .asr-breadcrumb a:hover { color: #d4a84a; }
+html[data-theme='dark'] .asr-breadcrumb .current { color: #f5f5f4; }
 @media (max-width: 640px) {
   .asr-breadcrumb { padding: 12px 16px 0; font-size: 0.8rem; }
 }
@@ -926,8 +926,8 @@ html[data-theme='dark'] .asr-breadcrumb .current { color: #f5f5f4 !important; }
 }
 .breadcrumb a { color: #6b7280 !important; text-decoration: none; }
 .breadcrumb a:hover { color: #8B6914 !important; }
-html[data-theme='dark'] .breadcrumb { color: #a8a39a !important; }
-html[data-theme='dark'] .breadcrumb a { color: #a8a39a !important; }
+html[data-theme='dark'] .breadcrumb { color: #a8a39a; }
+html[data-theme='dark'] .breadcrumb a { color: #a8a39a; }
 @media (max-width: 640px) {
   .breadcrumb { padding: 12px 16px 0 !important; font-size: 0.8rem !important; }
 }
@@ -1233,18 +1233,18 @@ html[data-theme='dark'] .asr-cmdk-random:hover{ background:rgba(212,160,23,.08);
 
 /* 1. Dark-mode section backgrounds (How + Step cards). */
 html[data-theme='dark'] .how {
-  background: #1f1e1d !important;
-  border-top-color: #3a3935 !important;
-  border-bottom-color: #3a3935 !important;
+  background: #1f1e1d;
+  border-top-color: #3a3935;
+  border-bottom-color: #3a3935;
 }
 html[data-theme='dark'] .step {
-  background: #1f1e1d !important;
+  background: #1f1e1d;
 }
 html[data-theme='dark'] .step:hover {
-  background: #26241f !important;
+  background: #26241f;
 }
 html[data-theme='dark'] .section-heading,
-html[data-theme='dark'] .section-heading em { color: #fafaf9 !important; }
+html[data-theme='dark'] .section-heading em { color: #fafaf9; }
 
 /* 2. Hard floor: any prose <p> on a content page must use body
       color, regardless of inherited "muted" classes.
@@ -1268,7 +1268,7 @@ html[data-theme='dark'] p.step-text, html[data-theme='dark'] p.section-sub,
 html[data-theme='dark'] p.hero-sub, html[data-theme='dark'] p.lede,
 html[data-theme='dark'] p.letters-intro, html[data-theme='dark'] p.related-intro,
 html[data-theme='dark'] p.spellings-intro {
-  color: #f5f5f4 !important;
+  color: #f5f5f4;
 }
 
 /* 3. Cap muted/secondary text colors to WCAG-AA-clearing values. */
@@ -1284,7 +1284,7 @@ html[data-theme='dark'] .lede, html[data-theme='dark'] .letters-intro,
 html[data-theme='dark'] .related-intro, html[data-theme='dark'] .spellings-intro,
 html[data-theme='dark'] .example-card-urdu, html[data-theme='dark'] .example-tryline,
 html[data-theme='dark'] .r-method, html[data-theme='dark'] .hero-input-note {
-  color: #D6D3D1 !important;
+  color: #D6D3D1;
 }
 
 /* 4. Eyebrows / labels — keep distinct gold accent, but in dark
@@ -1296,7 +1296,7 @@ html[data-theme='dark'] .r-method, html[data-theme='dark'] .hero-input-note {
 html[data-theme='dark'] .hero-eyebrow, html[data-theme='dark'] .section-tag,
 html[data-theme='dark'] .step-title, html[data-theme='dark'] .section-label,
 html[data-theme='dark'] .step-num {
-  color: #d4a84a !important;
+  color: #d4a84a;
 }
 
 /* 5. Mobile-only prose bump: 17px body, weight 500. */
