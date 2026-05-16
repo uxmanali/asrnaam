@@ -1,2 +1,6 @@
 .gh_token
 __pycache__/
+c1_gen.py
+c1_runner.py
+batch_*.py
+__pycache__/
