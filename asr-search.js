@@ -108,7 +108,12 @@
       '#asr-search-dd .asr-sd-variants{display:block;margin-top:.25rem;font-size:.75rem;color:var(--text-secondary,#6B6B6B);font-style:italic;}',
       '#asr-search-dd .asr-sd-variant{display:inline-block;margin-right:.5rem;padding:.05rem .45rem;border:1px solid var(--border,#E8E2D4);border-radius:8px;background:var(--warm-mid,#F2EFE8);font-size:.72rem;font-style:normal;text-transform:capitalize;}',
       '#asr-search-dd .asr-sd-empty{padding:.7rem .9rem;color:var(--text-secondary,#6B6B6B);font-size:.9rem;font-style:italic;}',
-      '@media(prefers-color-scheme:dark){#asr-search-dd{background:#1f1f1f;color:#e8e2d4;border-color:#3a3a3a}#asr-search-dd .asr-sd-item{border-color:#3a3a3a}#asr-search-dd .asr-sd-item:hover,#asr-search-dd .asr-sd-item.asr-sd-active{background:#2a2a2a;color:#d4b86a}}'
+      '#asr-search-dd .asr-sd-cta{display:block;padding:.7rem .9rem;background:rgba(139,105,20,.06);border-top:1px dashed rgba(139,105,20,.3);color:var(--gold,#8B6914);font-family:inherit;font-size:.9rem;cursor:pointer;text-decoration:none;transition:background .2s;}',
+      '#asr-search-dd .asr-sd-cta:hover{background:rgba(139,105,20,.14);}',
+      '#asr-search-dd .asr-sd-cta strong{font-family:"Cinzel",serif;font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;display:block;margin-bottom:.2rem;}',
+      '#asr-search-dd .asr-sd-cta-name{font-style:italic;text-transform:capitalize;}',
+      '#asr-search-dd .asr-sd-cta-sub{display:block;font-size:.78rem;color:var(--text-secondary,#6B6B6B);margin-top:.2rem;font-style:italic;}',
+      '@media(prefers-color-scheme:dark){#asr-search-dd{background:#1f1f1f;color:#e8e2d4;border-color:#3a3a3a}#asr-search-dd .asr-sd-item{border-color:#3a3a3a}#asr-search-dd .asr-sd-item:hover,#asr-search-dd .asr-sd-item.asr-sd-active{background:#2a2a2a;color:#d4b86a}#asr-search-dd .asr-sd-cta{background:rgba(212,184,106,.08);color:#d4b86a;border-color:rgba(212,184,106,.3)}}'
     ].join('\n');
     document.head.appendChild(st);
 
@@ -116,11 +121,21 @@
 
     function escapeHtml(s){return String(s).replace(/[&<>\"']/g, function(c){return ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"})[c];});}
 
-    function render(results){
+    function ctaHtml(q){
+      var safeQ = escapeHtml(q || '');
+      var encoded = encodeURIComponent(q || '');
+      return '<a class="asr-sd-cta" href="/reader/?name='+encoded+'">' +
+        '<strong>Generate a reading →</strong>' +
+        '<span>Read "<span class="asr-sd-cta-name">' + safeQ + '</span>" letter by letter — even if we don\'t have a page yet.</span>' +
+        '<span class="asr-sd-cta-sub">Our letter-based tool composes a fresh reading on the fly.</span>' +
+      '</a>';
+    }
+
+    function render(results, q){
       lastResults = results;
       activeIdx = -1;
       if(!results.length){
-        dd.innerHTML = '<div class="asr-sd-empty">No matches. Try fewer letters or check spelling.</div>';
+        dd.innerHTML = '<div class="asr-sd-empty">No exact matches in our verified library.</div>' + ctaHtml(q);
         dd.style.display = 'block';
         return;
       }
@@ -139,6 +154,10 @@
         }
         html += '<a href="/names/'+encodeURIComponent(r.c)+'/" class="asr-sd-item" data-idx="'+i+'"><span class="asr-sd-name">'+escapeHtml(label)+'</span>'+variantsHtml+'</a>';
       }
+      // If the best match is only a fuzzy/Levenshtein hit (score >= 3),
+      // also surface the dynamic-reader CTA so the user can read THEIR exact spelling.
+      var bestScore = (results[0] && typeof results[0].score === 'number') ? results[0].score : 0;
+      if(bestScore >= 3 && q){ html += ctaHtml(q); }
       dd.innerHTML = html;
       dd.style.display = 'block';
     }
@@ -185,9 +204,9 @@
         h.variants.forEach(function(v){
           if(v !== h.entry.c && !seen[v]){ seen[v] = 1; unique.push(v); }
         });
-        return {c:h.entry.c, t:h.entry.t, a:h.entry.a, variants: unique};
+        return {c:h.entry.c, t:h.entry.t, a:h.entry.a, variants: unique, score: h.score};
       });
-      render(top);
+      render(top, q);
     }
 
     function setActive(idx){

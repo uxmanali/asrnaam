@@ -661,9 +661,19 @@
     return 0;
   }
 
+  function cmdkReaderCta(q){
+    if(!q) return '';
+    var qsafe = esc(q);
+    var qenc = encodeURIComponent(q);
+    return '<a class="asr-cmdk-item asr-cmdk-reader-cta" href="/reader/?name=' + qenc + '" style="background:rgba(139,105,20,.06);border-top:1px dashed rgba(139,105,20,.3);">' +
+      '<span class="asr-cmdk-name" style="font-style:italic">↻ Generate a reading for "' + qsafe + '"</span>' +
+      '<span class="asr-cmdk-meaning">Read it letter by letter — even if not in the library yet.</span>' +
+    '</a>';
+  }
+
   function cmdkRender(items, listEl, q){
     if(!items.length){
-      listEl.innerHTML = '<div class="asr-cmdk-empty">No matches for "'+esc(q)+'"</div>';
+      listEl.innerHTML = '<div class="asr-cmdk-empty">No exact matches for "'+esc(q)+'" in our verified library.</div>' + cmdkReaderCta(q);
       return;
     }
     listEl.innerHTML = items.slice(0,30).map(function(e,i){
@@ -671,7 +681,7 @@
         '<span class="asr-cmdk-name">'+esc(e.n)+'</span>'+
         (e.m?'<span class="asr-cmdk-meaning">'+esc(e.m)+'</span>':'')+
       '</a>';
-    }).join('');
+    }).join('') + cmdkReaderCta(q);
   }
 
   function openCmdk(){
@@ -805,6 +815,9 @@
           '<span class="ra-cta-label">Read another →</span>' +
           '<span class="ra-cta-name" hidden></span>' +
         '</a>' +
+        '<p class="ra-reader-link" style="margin-top:1.2rem;font-size:.88rem;color:rgba(245,239,227,.65);font-style:italic;line-height:1.55;">' +
+          'Or — <a href="/reader/" style="color:#d4b86a;border-bottom:1px dotted rgba(212,184,106,.5);text-decoration:none;font-style:normal;">generate a fresh reading for any name →</a> using our letter-based tool, even one not yet in the library.' +
+        '</p>' +
       '</div>';
     if(anchor && anchor.parentNode){
       // Insert just after the comment node
