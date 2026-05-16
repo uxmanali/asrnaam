@@ -526,6 +526,7 @@
     MAX = MAX || 10;
     if(!CMDK_TOKENS || !q || !window.ASR_MATCHER) return [];
     var scoreFn = window.ASR_MATCHER.score;
+    var tierFn  = window.ASR_MATCHER.tier;
     var best = Object.create(null); // canonIdx -> {s, tok}
     for(var p=0; p<CMDK_TOKENS.length; p++){
       var tt = CMDK_TOKENS[p];
@@ -540,9 +541,19 @@
       var i = keys[k];
       var e = CMDK_CORPUS[i]; if(!e) continue;
       var b = best[i];
-      var tier = b.s <= 0 ? 1 : (b.s <= 2 ? 2 : 3);
+      // Map raw score to tier (0=exact, 1=prefix, 2=substring, 3=fuzzy).
+      var tier = tierFn(b.s);
       var dist = b.s <= 2 ? 0 : (b.s < 7 ? b.s - 3 : b.s - 7);
       results.push({e:e, tier:tier, dist:dist, tok:b.tok, _score:b.s});
+    }
+    // STRICT TIER PRECEDENCE: if ANY tier-N result exists, drop every
+    // tier-(N+1+) result so an exact slug match always beats a fuzzy one.
+    // Example: q="orhan" → "orhan" matches at tier 0 → "burhan"/"noorhan"
+    // (tier 2/3) are excluded from the response entirely.
+    var minTier = 4;
+    for(var r0=0; r0<results.length; r0++){ if(results[r0].tier < minTier) minTier = results[r0].tier; }
+    if(minTier < 4){
+      results = results.filter(function(r){ return r.tier === minTier; });
     }
     results.sort(function(a, b){
       if(a._score !== b._score) return a._score - b._score;

@@ -1,16 +1,17 @@
 /* AsrNaam — Shared search-matcher module.
-   Exposes window.ASR_MATCHER = { lev, score }.
+   Exposes window.ASR_MATCHER = { lev, score, tier }.
    Single source of truth for Levenshtein + tier-scoring used by both:
    - asr-search.js  (per-page /names/ search dropdown)
    - asr-enhance.js (global Cmd-K overlay + homepage live suggestions)
 
-   Score buckets (lower is better, 999 = no match):
-     -1  exact match
-      0  exact-prefix
-      1  substring
-      2  partial-word (>=3-char head shared either direction)
-    3+d  prefix-Levenshtein <=3
-    7+d  whole-token Levenshtein <=2
+   STRICT TIER PRECEDENCE (lower tier number wins; ties broken by raw score):
+     Tier 0 — exact match            (score: -1)
+     Tier 1 — prefix match           (score:  0)   q is a prefix of token
+     Tier 2 — substring/partial-word (score:  1, 2)
+     Tier 3 — fuzzy Levenshtein ≤ 3  (score:  3..9)
+   Consumers MUST drop lower-tier hits if any higher-tier hit exists for the
+   current query (see asr-enhance.js → tieredSearch + asr-search.js → search).
+   This guarantees an exact slug match always beats any fuzzy alternative.
 */
 (function(){
   function lev(a, b, maxDist){
@@ -58,5 +59,14 @@
     return 999;
   }
 
-  window.ASR_MATCHER = { lev: lev, score: score };
+  // Map a raw score to a tier (0..3); 4 = no match.
+  function tier(s){
+    if(s === -1) return 0;
+    if(s === 0)  return 1;
+    if(s === 1 || s === 2) return 2;
+    if(s >= 3 && s < 999) return 3;
+    return 4;
+  }
+
+  window.ASR_MATCHER = { lev: lev, score: score, tier: tier };
 })();

@@ -133,6 +133,13 @@
       }
       var hits = [];
       Object.keys(grouped).forEach(function(k){ hits.push(grouped[k]); });
+      // STRICT TIER PRECEDENCE: drop fuzzy/substring hits when an exact /
+      // prefix hit exists. Tiers 0=exact, 1=prefix, 2=substring, 3=fuzzy.
+      // This makes typing "Orhan" surface /names/orhan/ — never /names/burhan/.
+      var tierFn = (window.ASR_MATCHER && window.ASR_MATCHER.tier) ? window.ASR_MATCHER.tier : function(s){ return s<=-1?0 : (s===0?1 : (s<=2?2 : 3)); };
+      var minTier = 4;
+      hits.forEach(function(h){ h._tier = tierFn(h.score); if(h._tier < minTier) minTier = h._tier; });
+      if(minTier < 4) hits = hits.filter(function(h){ return h._tier === minTier; });
       hits.sort(function(a,b){
         if(a.score!==b.score) return a.score-b.score;
         // Within same score, prefer canonical-name-match first
