@@ -921,6 +921,247 @@
     });
   }
 
+
+  // Prefix-overlap and canonical-aware rerank — refines tieredSearch ranking
+  // so the canonical that's *closest to the canonical name itself* (not just
+  // to a registered variant) wins ties. Critical to keep e.g. "muhamad" →
+  // /names/muhammad/ instead of a phonetically-similar-but-rarer canonical.
+  function _prefixOverlap(a, b){
+    var n = Math.min(a.length, b.length);
+    for(var i=0; i<n; i++){ if(a.charCodeAt(i) !== b.charCodeAt(i)) return i; }
+    return n;
+  }
+  function rerankByCanonical(results, q){
+    for(var i=0; i<results.length; i++){
+      var r = results[i];
+      r.canonDist = _lev(q, r.e.nl, 3);
+      r.po = _prefixOverlap(q, r.e.nl);
+    }
+    results.sort(function(a, b){
+      if(a.tier !== b.tier) return a.tier - b.tier;
+      if(a.canonDist !== b.canonDist) return a.canonDist - b.canonDist;
+      if(a.dist !== b.dist) return a.dist - b.dist;
+      if(a.po !== b.po) return b.po - a.po;
+      if(a.e.nl.length !== b.e.nl.length) return a.e.nl.length - b.e.nl.length;
+      return a.e.nl < b.e.nl ? -1 : (a.e.nl > b.e.nl ? 1 : 0);
+    });
+    return results;
+  }
+
+  // ---- Homepage hero search: live corpus suggestions ----
+  // Reuses fetchCorpus(), tieredSearch(), esc() above. Renders a dropdown below
+  // the homepage hero input (#heroName) with name (Cinzel) + Arabic script
+  // (small) + one-line meaning. Click → /names/<slug>/. Enter / button-click:
+  //   1. exact slug or canonical-name match  → /names/<slug>/
+  //   2. top fuzzy hit with dist ≤ 2          → that canonical
+  //   3. otherwise                            → /reader/?name=<encoded>
+  // No matches in dropdown (best dist > 3) → only the fallback "Generate a
+  // reading for X →" CTA is shown.
+  function shortMeaning(m, name){
+    if(!m) return '';
+    var s = String(m).trim();
+    var nameLower = String(name||'').trim().toLowerCase();
+    // Strip leading "Name —" prefix if present
+    var firstDash = s.indexOf('—');
+    if(firstDash > -1){
+      var prefix = s.slice(0, firstDash).trim().toLowerCase();
+      if(prefix && prefix === nameLower){ s = s.slice(firstDash+1).trim(); }
+    }
+    // Cut to second em-dash if short enough — gives the "short meaning"
+    var nextDash = s.indexOf('—');
+    if(nextDash > 0 && nextDash <= 110){
+      return s.slice(0, nextDash).trim();
+    }
+    // Else first sentence
+    var dot = s.search(/[.!?]/);
+    if(dot > 0 && dot <= 140) return s.slice(0, dot).trim();
+    return s.length > 140 ? s.slice(0, 137).trim() + '…' : s;
+  }
+
+  function initHeroSearch(){
+    var input = document.getElementById('heroName');
+    if(!input) return;
+    var btn = document.querySelector('.hero-btn');
+    var row = input.parentNode;
+    if(!row) return;
+    row.style.position = 'relative';
+
+    // Inject styles (scoped to #asr-hero-dd) — mirrors /names/ dropdown look.
+    if(!document.getElementById('asr-hero-dd-style')){
+      var st = document.createElement('style');
+      st.id = 'asr-hero-dd-style';
+      st.textContent = [
+        '#asr-hero-dd{position:absolute;top:100%;left:0;right:0;background:#fff;border:1px solid rgba(139,105,20,0.25);border-top:none;border-radius:0 0 6px 6px;box-shadow:0 12px 28px rgba(0,0,0,0.14);max-height:380px;overflow-y:auto;z-index:50;display:none;margin-top:0;text-align:left;}',
+        '#asr-hero-dd .ahero-item{display:block;padding:.75rem 1rem;color:#2C2C2C;text-decoration:none;border-bottom:1px solid rgba(139,105,20,0.10);cursor:pointer;}',
+        '#asr-hero-dd .ahero-item:last-child{border-bottom:none;}',
+        '#asr-hero-dd .ahero-item:hover,#asr-hero-dd .ahero-item.ahero-active{background:rgba(139,105,20,0.07);}',
+        '#asr-hero-dd .ahero-name{font-family:"Cinzel",serif;font-size:1rem;font-weight:500;color:#111010;text-transform:capitalize;letter-spacing:.01em;}',
+        '#asr-hero-dd .ahero-ar{display:inline-block;margin-left:.55rem;font-family:"Amiri",serif;font-size:.95rem;color:#8B6914;vertical-align:baseline;}',
+        '#asr-hero-dd .ahero-meaning{display:block;margin-top:.2rem;font-size:.82rem;color:#5A5A5A;font-style:italic;line-height:1.45;}',
+        '#asr-hero-dd .ahero-cta{display:block;padding:.85rem 1rem;background:rgba(139,105,20,0.07);border-top:1px dashed rgba(139,105,20,0.35);color:#8B6914;text-decoration:none;cursor:pointer;}',
+        '#asr-hero-dd .ahero-cta:hover,#asr-hero-dd .ahero-cta.ahero-active{background:rgba(139,105,20,0.14);}',
+        '#asr-hero-dd .ahero-cta strong{display:block;font-family:"Cinzel",serif;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:#8B6914;margin-bottom:.25rem;font-weight:600;}',
+        '#asr-hero-dd .ahero-cta strong span{font-style:italic;text-transform:capitalize;letter-spacing:.02em;}',
+        '#asr-hero-dd .ahero-cta-sub{display:block;font-size:.8rem;color:#6B6B6B;font-style:italic;line-height:1.45;}',
+        '@media(max-width:560px){#asr-hero-dd{position:fixed;top:auto;left:12px;right:12px;max-height:60vh;border-radius:6px;border:1px solid rgba(139,105,20,0.25);} }',
+        '@media(prefers-color-scheme:dark){#asr-hero-dd{background:#1f1f1f;border-color:#3a3a3a;}#asr-hero-dd .ahero-item{border-color:#3a3a3a;color:#e8e2d4;}#asr-hero-dd .ahero-item:hover,#asr-hero-dd .ahero-item.ahero-active{background:#2a2a2a;}#asr-hero-dd .ahero-name{color:#f5efe3;}#asr-hero-dd .ahero-ar{color:#d4b86a;}#asr-hero-dd .ahero-meaning{color:#b6b0a2;}#asr-hero-dd .ahero-cta{background:rgba(212,184,106,.08);color:#d4b86a;border-color:rgba(212,184,106,.35);}#asr-hero-dd .ahero-cta strong{color:#d4b86a;}#asr-hero-dd .ahero-cta-sub{color:#b6b0a2;}}'
+      ].join('\n');
+      document.head.appendChild(st);
+    }
+
+    var dd = document.createElement('div');
+    dd.id = 'asr-hero-dd';
+    dd.setAttribute('role','listbox');
+    row.appendChild(dd);
+
+    var active = -1;
+    var lastItems = [];
+
+    function ctaRow(q){
+      var safeQ = esc(q || '');
+      var enc = encodeURIComponent(q || '');
+      return '<a class="ahero-cta" href="/reader/?name=' + enc + '" data-cta="1">' +
+        '<strong>Generate a reading for "<span>' + safeQ + '</span>" →</strong>' +
+        '<span class="ahero-cta-sub">Not in our verified library yet — read it letter by letter with our Ilm ul Huroof tool.</span>' +
+      '</a>';
+    }
+
+    function render(items, q){
+      lastItems = items;
+      active = -1;
+      if(!items.length){
+        // No corpus hit within Levenshtein 3 — show only the dynamic-reader CTA.
+        dd.innerHTML = ctaRow(q);
+        dd.style.display = 'block';
+        return;
+      }
+      var html = items.slice(0, 8).map(function(e, i){
+        var label = (e.n || e.s || '').replace(/-/g,' ');
+        var arabic = e.a ? '<span class="ahero-ar" lang="ar" dir="rtl">' + esc(e.a) + '</span>' : '';
+        var meaning = shortMeaning(e.m, e.n);
+        var meanHtml = meaning ? '<span class="ahero-meaning">' + esc(meaning) + '</span>' : '';
+        return '<a class="ahero-item" href="/names/' + encodeURIComponent(e.s) + '/" data-i="' + i + '">' +
+          '<span class="ahero-name">' + esc(label) + '</span>' + arabic + meanHtml +
+        '</a>';
+      }).join('');
+      dd.innerHTML = html;
+      dd.style.display = 'block';
+    }
+
+    function setActive(i){
+      var els = dd.querySelectorAll('.ahero-item, .ahero-cta');
+      els.forEach(function(el, idx){
+        if(idx === i) el.classList.add('ahero-active');
+        else el.classList.remove('ahero-active');
+      });
+      active = i;
+      if(i >= 0 && els[i] && els[i].scrollIntoView) els[i].scrollIntoView({block:'nearest'});
+    }
+
+    function searchAndRender(v){
+      var q = (v || '').toLowerCase().trim();
+      if(!q || q.length < 2){ dd.style.display = 'none'; return; }
+      fetchCorpus().then(function(){
+        // tieredSearch only returns matches with dist <= 3 (or tier 1/2 with
+        // dist=0). An empty array therefore means "no strong match" → CTA-only.
+        var ranked = rerankByCanonical(tieredSearch(q, 8), q);
+        var items = ranked.map(function(r){ return r.e; });
+        render(items, v);
+      });
+    }
+
+    var dt;
+    input.addEventListener('input', function(){
+      clearTimeout(dt);
+      var v = input.value;
+      dt = setTimeout(function(){ searchAndRender(v); }, 60);
+    });
+
+    input.addEventListener('keydown', function(e){
+      var els = dd.querySelectorAll('.ahero-item, .ahero-cta');
+      var open = (dd.style.display !== 'none') && els.length > 0;
+      if(e.key === 'ArrowDown' && open){ e.preventDefault(); setActive(Math.min(active + 1, els.length - 1)); }
+      else if(e.key === 'ArrowUp' && open){ e.preventDefault(); setActive(Math.max(active - 1, 0)); }
+      else if(e.key === 'Enter'){
+        e.preventDefault();
+        if(open && active >= 0 && els[active]){
+          window.location.href = els[active].getAttribute('href');
+        } else {
+          heroSubmit();
+        }
+      } else if(e.key === 'Escape'){
+        dd.style.display = 'none';
+      }
+    });
+
+    input.addEventListener('focus', function(){
+      fetchCorpus(); // warm cache
+      if(input.value && input.value.length >= 2) searchAndRender(input.value);
+    });
+    input.addEventListener('blur', function(){
+      setTimeout(function(){ dd.style.display = 'none'; }, 200);
+    });
+    document.addEventListener('click', function(e){
+      if(e.target === input || dd.contains(e.target)) return;
+      dd.style.display = 'none';
+    });
+
+    function heroSubmit(){
+      var v = (input.value || '').trim();
+      if(!v) return;
+      var q = v.toLowerCase().trim();
+      // Slugify: spaces/underscores → hyphens; drop other non-alnum.
+      var slug = q.replace(/[\s_]+/g, '-').replace(/[^a-z0-9-]/g, '').replace(/^-+|-+$/g, '');
+
+      function route(){
+        if(CMDK_CORPUS && CMDK_CORPUS.length){
+          // 1. exact canonical slug or canonical lowercase name
+          for(var i = 0; i < CMDK_CORPUS.length; i++){
+            var e = CMDK_CORPUS[i];
+            if(e.s === slug || e.nl === q){
+              window.location.href = '/names/' + e.s + '/';
+              return;
+            }
+          }
+          // 2. top fuzzy hit. Re-rank by canonical proximity first so
+          //    variant-token matches don't beat the obviously closer canonical
+          //    (e.g. "muhamad" must reach /names/muhammad/, not /names/mouhamad/).
+          var ranked = rerankByCanonical(tieredSearch(q, 8), q);
+          if(ranked.length){
+            var best = ranked[0];
+            // Tier 1 (prefix) / Tier 2 (substring) on canonical OR variant
+            // token are accepted unconditionally — variants are registered
+            // alt-spellings the corpus owner trusts as redirects.
+            // Tier 3 (Levenshtein) requires the CANONICAL itself to be ≤2
+            // away — this is what filters "Brennan" away from /names/banan/.
+            if(best.tier <= 2 || best.canonDist <= 2){
+              window.location.href = '/names/' + best.e.s + '/';
+              return;
+            }
+          }
+        }
+        // 3. fallback — dynamic /reader/ tool
+        window.location.href = '/reader/?name=' + encodeURIComponent(v);
+      }
+
+      if(CMDK_CORPUS){ route(); }
+      else { fetchCorpus().then(route); }
+    }
+
+    // Override legacy heroRead() (defined inline in index.html) so the
+    // existing onclick/onkeydown handlers route through the new logic too.
+    window.heroRead = heroSubmit;
+
+    // Defensive: also bind the button click directly in case the inline
+    // onclick has been removed by a future markup change.
+    if(btn){
+      btn.addEventListener('click', function(e){
+        e.preventDefault();
+        heroSubmit();
+      });
+    }
+  }
+
   document.addEventListener('DOMContentLoaded', function(){
     injectSkipLink();
     injectThemeToggle();
@@ -932,6 +1173,7 @@
     injectNamesIndexFeatures();
     bindCmdkShortcut();
     bindFadeIn();
+    initHeroSearch();
   });
 
   // Expose openers for any inline buttons (e.g. footer)
