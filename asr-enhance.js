@@ -516,149 +516,54 @@
     }
     return lo;
   }
-  // Levenshtein with early termination at maxDist
-  function _lev(a, b, maxDist){
-    if(a===b) return 0;
-    var la=a.length, lb=b.length;
-    if(Math.abs(la-lb)>maxDist) return maxDist+1;
-    var prev=new Array(lb+1), cur=new Array(lb+1);
-    for(var j=0;j<=lb;j++) prev[j]=j;
-    for(var i=1;i<=la;i++){
-      cur[0]=i;
-      var rowMin=cur[0];
-      var ca=a.charCodeAt(i-1);
-      for(var j2=1;j2<=lb;j2++){
-        var cost=(ca===b.charCodeAt(j2-1))?0:1;
-        var v=Math.min(prev[j2]+1, cur[j2-1]+1, prev[j2-1]+cost);
-        cur[j2]=v;
-        if(v<rowMin) rowMin=v;
-      }
-      if(rowMin>maxDist) return maxDist+1;
-      var tmp=prev; prev=cur; cur=tmp;
-    }
-    return prev[lb];
-  }
-  // Tiered search: prefix → substring → Levenshtein.
-  // Returns up to MAX results, ranked:
-  //   exact-prefix > shorter Levenshtein > shorter canonical name
+  // Tiered search delegates per-token scoring to window.ASR_MATCHER (see /asr-matcher.js).
+  // Returns up to MAX results in the legacy shape {e, tier, dist, tok} consumed by
+  // the cmd-k renderers and rerankByCanonical below.
+  //   tier 1 = exact / exact-prefix     (score buckets -1, 0)
+  //   tier 2 = substring / partial-word (score buckets 1, 2)
+  //   tier 3 = Levenshtein fuzz         (score buckets 3-9)
   function tieredSearch(q, MAX){
     MAX = MAX || 10;
-    if(!CMDK_TOKENS || !q) return [];
-    var seen = Object.create(null);
+    if(!CMDK_TOKENS || !q || !window.ASR_MATCHER) return [];
+    var scoreFn = window.ASR_MATCHER.score;
+    var best = Object.create(null); // canonIdx -> {s, tok}
+    for(var p=0; p<CMDK_TOKENS.length; p++){
+      var tt = CMDK_TOKENS[p];
+      var s = scoreFn(tt.t, q);
+      if(s>=999) continue;
+      var cur = best[tt.i];
+      if(!cur || s < cur.s){ best[tt.i] = {s: s, tok: tt.t}; }
+    }
     var results = [];
-
-    function push(i, tier, dist, tok){
-      if(seen[i]!==undefined) return;
-      var e = CMDK_CORPUS[i];
-      if(!e) return;
-      seen[i] = results.length;
-      results.push({e:e, tier:tier, dist:dist||0, tok:tok||e.nl});
+    var keys = Object.keys(best);
+    for(var k=0; k<keys.length; k++){
+      var i = keys[k];
+      var e = CMDK_CORPUS[i]; if(!e) continue;
+      var b = best[i];
+      var tier = b.s <= 0 ? 1 : (b.s <= 2 ? 2 : 3);
+      var dist = b.s <= 2 ? 0 : (b.s < 7 ? b.s - 3 : b.s - 7);
+      results.push({e:e, tier:tier, dist:dist, tok:b.tok, _score:b.s});
     }
-
-    // TIER 1 — exact-prefix via binary search.
-    var idx = _lowerBound(CMDK_TOKENS, q);
-    for(var k=idx; k<CMDK_TOKENS.length; k++){
-      var t = CMDK_TOKENS[k];
-      if(t.t.indexOf(q)!==0) break;
-      push(t.i, 1, 0, t.t);
-      if(results.length>=MAX) break;
-    }
-
-    // TIER 2 — substring linear scan (only if prefix hits <5).
-    if(results.length<5){
-      for(var p=0; p<CMDK_TOKENS.length; p++){
-        var tt = CMDK_TOKENS[p];
-        if(tt.t.indexOf(q)>=0){
-          push(tt.i, 2, 0, tt.t);
-          if(results.length>=MAX) break;
-        }
-      }
-    }
-
-    // TIER 3 — Levenshtein <=3, lazy across all length-compatible tokens.
-    // We pre-filter by |len(tok) - len(q)| <= 3 (Levenshtein lower bound),
-    // run _lev with early termination at maxDist=3, then keep the top 50
-    // by smallest distance. Empirically: 6.8k tokens at 1-2µs each = ~10ms.
-    if(results.length<5){
-      var qlen = q.length;
-      var lev = [];
-      for(var p2=0; p2<CMDK_TOKENS.length; p2++){
-        var tt2 = CMDK_TOKENS[p2];
-        if(seen[tt2.i]!==undefined) continue;
-        if(Math.abs(tt2.t.length - qlen) > 3) continue;
-        var d = _lev(tt2.t, q, 3);
-        if(d<=3) lev.push({i:tt2.i, d:d, t:tt2.t});
-      }
-      lev.sort(function(a,b){ return a.d-b.d; });
-      // Top-50 nearest, distance-capped at 3.
-      var limit = Math.min(lev.length, 50);
-      for(var l=0; l<limit && results.length<MAX; l++){
-        push(lev[l].i, 3, lev[l].d, lev[l].t);
-      }
-    }
-
-    // Ranking: tier ascending, then distance, then canonical length.
-    results.sort(function(a,b){
-      if(a.tier!==b.tier) return a.tier-b.tier;
-      if(a.dist!==b.dist) return a.dist-b.dist;
-      if(a.e.nl.length!==b.e.nl.length) return a.e.nl.length-b.e.nl.length;
-      return a.e.nl<b.e.nl?-1:a.e.nl>b.e.nl?1:0;
+    results.sort(function(a, b){
+      if(a._score !== b._score) return a._score - b._score;
+      if(a.e.nl.length !== b.e.nl.length) return a.e.nl.length - b.e.nl.length;
+      return a.e.nl < b.e.nl ? -1 : (a.e.nl > b.e.nl ? 1 : 0);
     });
     return results.slice(0, MAX);
   }
 
-  // Levenshtein with early termination at maxDist (used by C6 fuzzyMatch)
-  function _levCmdk(a, b, maxDist){
-    if(a===b) return 0;
-    var la=a.length, lb=b.length;
-    if(Math.abs(la-lb)>maxDist) return maxDist+1;
-    var prev = new Array(lb+1), cur = new Array(lb+1);
-    for(var j=0;j<=lb;j++) prev[j]=j;
-    for(var i=1;i<=la;i++){
-      cur[0]=i;
-      var rowMin=cur[0];
-      var ca=a.charCodeAt(i-1);
-      for(var j2=1;j2<=lb;j2++){
-        var cost = (ca===b.charCodeAt(j2-1)) ? 0 : 1;
-        var v = Math.min(prev[j2]+1, cur[j2-1]+1, prev[j2-1]+cost);
-        cur[j2]=v;
-        if(v<rowMin) rowMin=v;
-      }
-      if(rowMin>maxDist) return maxDist+1;
-      var tmp=prev; prev=cur; cur=tmp;
-    }
-    return prev[lb];
-  }
+  // fuzzyMatch is a thin adapter over ASR_MATCHER.score. It returns a higher-is-better
+  // 0–100 score for legacy callers (see asr-region.js, hero search). 0 means no match.
   function fuzzyMatch(q, s){
-    s = s.toLowerCase(); q = q.toLowerCase();
-    if(s===q) return 100;
-    if(s.indexOf(q)===0) return 90;
-    if(s.indexOf(q)>=0) return 70;
-    // C6 — case-insensitive partial-word: a 3+ char head of q appears in s
-    if(q.length>=3 && s.length>=3){
-      for(var pl = Math.min(q.length, 6); pl>=3; pl--){
-        if(s.indexOf(q.slice(0, pl))>=0) return 60 - (q.length - pl);
-      }
-    }
-    // C6 — prefix Levenshtein <=3 (loosened): compare head-slice of s against q
-    if(q.length>=3){
-      var headLen = Math.min(s.length, q.length + 2);
-      var head = s.slice(0, headLen);
-      var dp = _levCmdk(head, q, 3);
-      if(dp<=3) return 55 - dp*4;
-    }
-    // C6 — whole-token Levenshtein <=2 (substring fuzz)
-    var dw = _levCmdk(s, q, 2);
-    if(dw<=2) return 48 - dw*4;
-    // simple subseq (kept as last-chance match)
-    var i=0,j=0,gaps=0;
-    while(i<s.length && j<q.length){
-      if(s[i]===q[j]){ j++; }
-      else if(j>0){ gaps++; }
-      i++;
-    }
-    if(j===q.length) return 40 - Math.min(gaps,20);
-    return 0;
+    if(!window.ASR_MATCHER) return 0;
+    var sc = window.ASR_MATCHER.score(s.toLowerCase(), q.toLowerCase());
+    if(sc >= 999) return 0;
+    if(sc === -1) return 100;
+    if(sc === 0) return 90;
+    if(sc === 1) return 70;
+    if(sc === 2) return 60;
+    if(sc <= 6) return 55 - (sc - 3) * 4;   // prefix-Lev: 55,51,47,43
+    return 48 - (sc - 7) * 4;                // whole-Lev:  48,44,40
   }
 
   function cmdkReaderCta(q){
@@ -934,7 +839,7 @@
   function rerankByCanonical(results, q){
     for(var i=0; i<results.length; i++){
       var r = results[i];
-      r.canonDist = _lev(q, r.e.nl, 3);
+      r.canonDist = window.ASR_MATCHER.lev(q, r.e.nl, 3);
       r.po = _prefixOverlap(q, r.e.nl);
     }
     results.sort(function(a, b){
