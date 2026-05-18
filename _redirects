@@ -1,4 +1,4 @@
-# AsrNaam duplicate page redirects — coverage pages point to canonical
+# AsrNaam duplicate page redirects â coverage pages point to canonical
 /names/aamira-b20/ /names/aamira/ 301
 /names/aamira-b20/index.html /names/aamira/ 301
 /names/abdelaziz-2/ /names/abdelaziz/ 301
@@ -1221,7 +1221,73 @@
 /names/zulfaa/ /names/zulfa/ 301
 /names/zulfaa/index.html /names/zulfa/ 301
 
-# C6 — near-variant consolidations
+# C6 â near-variant consolidations
 /names/engar/  /names/ensar/  301
 /names/nur-ul-ain/  /names/noor-ul-ain/  301
 /names/nur-ul-ain-2/  /names/noor-ul-ain/  301
+
+# GSC fix 2026-05-18 — letter rename consolidation
+/letters/jim/ /letters/jeem/ 301
+/letters/jim/index.html /letters/jeem/ 301
+/letters/ghain/ /letters/ghayn/ 301
+/letters/ghain/index.html /letters/ghayn/ 301
+/letters/taa/ /letters/ta-light/ 301
+/letters/taa/index.html /letters/ta-light/ 301
+/letters/ha/ /letters/ha-light/ 301
+/letters/ha/index.html /letters/ha-light/ 301
+
+# GSC fix 2026-05-18 — name transliteration variants (404 -> canonical)
+/names/younus/ /names/yunus/ 301
+/names/younus/index.html /names/yunus/ 301
+/names/danyal/ /names/daniyal/ 301
+/names/danyal/index.html /names/daniyal/ 301
+/names/yousaf/ /names/yousef/ 301
+/names/yousaf/index.html /names/yousef/ 301
+/names/aimen/ /names/aiman/ 301
+/names/aimen/index.html /names/aiman/ 301
+/names/ammarah/ /names/ammara/ 301
+/names/ammarah/index.html /names/ammara/ 301
+/names/nouman/ /names/numan/ 301
+/names/nouman/index.html /names/numan/ 301
+/names/nauman/ /names/numan/ 301
+/names/nauman/index.html /names/numan/ 301
+/names/amran/ /names/imran/ 301
+/names/amran/index.html /names/imran/ 301
+/names/shehzad/ /names/shahzad/ 301
+/names/shehzad/index.html /names/shahzad/ 301
+/names/farouk/ /names/farook/ 301
+/names/farouk/index.html /names/farook/ 301
+/names/suleman/ /names/sulaiman/ 301
+/names/suleman/index.html /names/sulaiman/ 301
+/names/shafique/ /names/shafiq/ 301
+/names/shafique/index.html /names/shafiq/ 301
+/names/abeed/ /names/abid/ 301
+/names/abeed/index.html /names/abid/ 301
+/names/aamina/ /names/amina/ 301
+/names/aamina/index.html /names/amina/ 301
+/names/ishaque/ /names/ishaq/ 301
+/names/ishaque/index.html /names/ishaq/ 301
+/names/khurrum/ /names/khurram/ 301
+/names/khurrum/index.html /names/khurram/ 301
+/names/tayyab/ /names/tayyib/ 301
+/names/tayyab/index.html /names/tayyib/ 301
+/names/badar/ /names/badr/ 301
+/names/badar/index.html /names/badr/ 301
+/names/javid/ /names/javed/ 301
+/names/javid/index.html /names/javed/ 301
+/names/raza/ /names/reza/ 301
+/names/raza/index.html /names/reza/ 301
+/names/essa/ /names/eisa/ 301
+/names/essa/index.html /names/eisa/ 301
+/names/firoze/ /names/feroz/ 301
+/names/firoze/index.html /names/feroz/ 301
+/names/firoz/ /names/feroz/ 301
+/names/firoz/index.html /names/feroz/ 301
+/names/feroze/ /names/feroz/ 301
+/names/feroze/index.html /names/feroz/ 301
+/names/siddiqui/ /names/siddique/ 301
+/names/siddiqui/index.html /names/siddique/ 301
+
+# GSC fix 2026-05-18 — IPA/phonetic stray URL
+/ˈʕaː.ʔi.ʃa/ /names/aisha/ 301
+/%CB%88%CA%95a%CB%90.%CA%94i.%CA%83a/ /names/aisha/ 301
