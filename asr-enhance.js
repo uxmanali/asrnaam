@@ -468,20 +468,11 @@
           s: e.s, nl: (e.n||'').toLowerCase(), sl: e.s.toLowerCase()
         });
       }
-      // Build alphabetised token array.
-      var tokens = [];
-      for(var k=0;k<out.length;k++){
-        var ent = out[k];
-        tokens.push({t: ent.nl, i: k});
-        if(ent.sl && ent.sl !== ent.nl) tokens.push({t: ent.sl, i: k});
-        var vs = ent.v;
-        for(var j=0;j<vs.length;j++){
-          var v = (vs[j]||'').toLowerCase().replace(/-/g,' ');
-          if(v) tokens.push({t: v, i: k});
-        }
-      }
-      tokens.sort(function(a,b){ return a.t<b.t?-1:a.t>b.t?1:0; });
-      CMDK_TOKENS = tokens;
+      // Token index now built by the shared matcher (script-aware: Latin +
+      // normalized Arabic/Urdu spellings). See /asr-matcher.js → buildTokenIndex.
+      CMDK_TOKENS = (window.ASR_MATCHER && window.ASR_MATCHER.buildTokenIndex)
+        ? window.ASR_MATCHER.buildTokenIndex(out)
+        : [];
       CMDK_CORPUS = out;
       CMDK_LOADING = false;
       return CMDK_CORPUS;
@@ -516,51 +507,26 @@
     }
     return lo;
   }
-  // Tiered search delegates per-token scoring to window.ASR_MATCHER (see /asr-matcher.js).
-  // Returns up to MAX results in the legacy shape {e, tier, dist, tok} consumed by
-  // the cmd-k renderers and rerankByCanonical below.
-  //   tier 1 = exact / exact-prefix     (score buckets -1, 0)
-  //   tier 2 = substring / partial-word (score buckets 1, 2)
-  //   tier 3 = Levenshtein fuzz         (score buckets 3-9)
+  // tieredSearch — thin adapter over the shared runSearch pipeline. Returns
+  // the legacy shape {e, tier, dist, tok, mode} so existing callers (cmdk,
+  // home hero) keep working without changes. mode is added: 'list'|'cta'|'empty'.
   function tieredSearch(q, MAX){
     MAX = MAX || 10;
-    if(!CMDK_TOKENS || !q || !window.ASR_MATCHER) return [];
-    var scoreFn = window.ASR_MATCHER.score;
-    var tierFn  = window.ASR_MATCHER.tier;
-    var best = Object.create(null); // canonIdx -> {s, tok}
-    for(var p=0; p<CMDK_TOKENS.length; p++){
-      var tt = CMDK_TOKENS[p];
-      var s = scoreFn(tt.t, q);
-      if(s>=999) continue;
-      var cur = best[tt.i];
-      if(!cur || s < cur.s){ best[tt.i] = {s: s, tok: tt.t}; }
-    }
-    var results = [];
-    var keys = Object.keys(best);
-    for(var k=0; k<keys.length; k++){
-      var i = keys[k];
-      var e = CMDK_CORPUS[i]; if(!e) continue;
-      var b = best[i];
-      // Map raw score to tier (0=exact, 1=prefix, 2=substring, 3=fuzzy).
-      var tier = tierFn(b.s);
-      var dist = b.s <= 2 ? 0 : (b.s < 7 ? b.s - 3 : b.s - 7);
-      results.push({e:e, tier:tier, dist:dist, tok:b.tok, _score:b.s});
-    }
-    // STRICT TIER PRECEDENCE: if ANY tier-N result exists, drop every
-    // tier-(N+1+) result so an exact slug match always beats a fuzzy one.
-    // Example: q="orhan" → "orhan" matches at tier 0 → "burhan"/"noorhan"
-    // (tier 2/3) are excluded from the response entirely.
-    var minTier = 4;
-    for(var r0=0; r0<results.length; r0++){ if(results[r0].tier < minTier) minTier = results[r0].tier; }
-    if(minTier < 4){
-      results = results.filter(function(r){ return r.tier === minTier; });
-    }
-    results.sort(function(a, b){
-      if(a._score !== b._score) return a._score - b._score;
-      if(a.e.nl.length !== b.e.nl.length) return a.e.nl.length - b.e.nl.length;
-      return a.e.nl < b.e.nl ? -1 : (a.e.nl > b.e.nl ? 1 : 0);
+    if(!CMDK_TOKENS || !q || !window.ASR_MATCHER || !window.ASR_MATCHER.runSearch) return [];
+    var res = window.ASR_MATCHER.runSearch(CMDK_CORPUS, CMDK_TOKENS, q, {max: MAX, singleCharCap: 8});
+    if(!res || res.mode !== 'list') return [];
+    return res.results.map(function(r){
+      var dist = window.ASR_MATCHER.levDist(r.score);
+      return {e:r.e, tier:r.tier, dist:dist, tok:r.tok, _score:r.score, isCluster:!!r.isCluster};
     });
-    return results.slice(0, MAX);
+  }
+  // Public for callers that need the {mode} hint (CTA gating).
+  function tieredSearchFull(q, MAX){
+    MAX = MAX || 10;
+    if(!CMDK_TOKENS || !q || !window.ASR_MATCHER || !window.ASR_MATCHER.runSearch){
+      return {q: q, mode: 'empty', results: []};
+    }
+    return window.ASR_MATCHER.runSearch(CMDK_CORPUS, CMDK_TOKENS, q, {max: MAX, singleCharCap: 8});
   }
 
   // fuzzyMatch is a thin adapter over ASR_MATCHER.score. It returns a higher-is-better
@@ -577,27 +543,34 @@
     return 48 - (sc - 7) * 4;                // whole-Lev:  48,44,40
   }
 
-  function cmdkReaderCta(q){
+  function cmdkReaderCta(q, focusable){
     if(!q) return '';
     var qsafe = esc(q);
     var qenc = encodeURIComponent(q);
-    return '<a class="asr-cmdk-item asr-cmdk-reader-cta" href="/reader/?name=' + qenc + '" style="background:rgba(139,105,20,.06);border-top:1px dashed rgba(139,105,20,.3);">' +
+    var optAttrs = focusable
+      ? ' id="asr-cmdk-o0" role="option" aria-selected="true"'
+      : ' role="option" aria-selected="false"';
+    return '<a class="asr-cmdk-item asr-cmdk-reader-cta'+(focusable?' active':'')+'"'+optAttrs+' href="/reader/?name=' + qenc + '" style="background:rgba(139,105,20,.06);border-top:1px dashed rgba(139,105,20,.3);">' +
       '<span class="asr-cmdk-name" style="font-style:italic">↻ Generate a reading for "' + qsafe + '"</span>' +
       '<span class="asr-cmdk-meaning">Read it letter by letter — even if not in the library yet.</span>' +
     '</a>';
   }
 
-  function cmdkRender(items, listEl, q){
-    if(!items.length){
-      listEl.innerHTML = '<div class="asr-cmdk-empty">No exact matches for "'+esc(q)+'" in our verified library.</div>' + cmdkReaderCta(q);
+  // mode: 'list' | 'cta' | 'empty'. CTA is rendered only when mode='cta' —
+  // when actual matches exist, CTA is suppressed (defect E).
+  function cmdkRender(items, listEl, q, mode){
+    if(mode === 'cta' || (!items.length && q)){
+      listEl.innerHTML = '<div class="asr-cmdk-empty">No exact matches for "'+esc(q)+'" in our verified library.</div>' + cmdkReaderCta(q, true);
       return;
     }
-    listEl.innerHTML = items.slice(0,30).map(function(e,i){
-      return '<a class="asr-cmdk-item'+(i===0?' active':'')+'" href="'+e.h+'" data-i="'+i+'">'+
-        '<span class="asr-cmdk-name">'+esc(e.n)+'</span>'+
+    if(!items.length){ listEl.innerHTML = ''; return; }
+    listEl.innerHTML = items.slice(0, 10).map(function(e, i){
+      var clusterBadge = e.__cluster ? '<span class="asr-cmdk-badge" style="display:inline-block;margin-left:.45rem;padding:.05rem .45rem;border:1px solid rgba(139,105,20,0.3);border-radius:8px;font-size:.65rem;letter-spacing:.08em;text-transform:uppercase;color:#8B6914;">also spelt</span>' : '';
+      return '<a class="asr-cmdk-item'+(i===0?' active':'')+'" id="asr-cmdk-o'+i+'" role="option" aria-selected="'+(i===0?'true':'false')+'" href="'+e.h+'" data-i="'+i+'">'+
+        '<span class="asr-cmdk-name">'+esc(e.n)+'</span>'+clusterBadge+
         (e.m?'<span class="asr-cmdk-meaning">'+esc(e.m)+'</span>':'')+
       '</a>';
-    }).join('') + cmdkReaderCta(q);
+    }).join('');
   }
 
   function openCmdk(){
@@ -607,10 +580,10 @@
     ov.innerHTML = '<div class="asr-cmdk" role="dialog" aria-label="Quick search">'+
       '<div class="asr-cmdk-head">'+
       '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>'+
-      '<input type="search" class="asr-cmdk-input" placeholder="Search 1,996 names…" aria-label="Quick search" autocomplete="off" autofocus>'+
+      '<input type="search" class="asr-cmdk-input" role="combobox" aria-autocomplete="list" aria-controls="asr-cmdk-listbox" aria-expanded="true" placeholder="Search names…" aria-label="Quick search" autocomplete="off" autofocus>'+
       '<kbd>Esc</kbd>'+
       '</div>'+
-      '<div class="asr-cmdk-list" role="listbox"><div class="asr-cmdk-loading"><div class="asr-skel"></div><div class="asr-skel"></div><div class="asr-skel"></div></div></div>'+
+      '<div class="asr-cmdk-list" id="asr-cmdk-listbox" role="listbox" aria-label="Search results"><div class="asr-cmdk-loading"><div class="asr-skel"></div><div class="asr-skel"></div><div class="asr-skel"></div></div></div>'+
       '</div>';
     document.body.appendChild(ov);
     document.body.classList.add('asr-modal-open');
@@ -631,8 +604,8 @@
     ov.addEventListener('click', function(e){ if(e.target===ov) close(); });
 
     function doSearch(q){
-      q = (q||'').toLowerCase().trim();
-      if(!q){
+      var raw = (q||'').trim();
+      if(!raw){
         listEl.innerHTML = '<div class="asr-cmdk-hint">Type to search names, meanings, or letters.</div>' +
           '<button type="button" class="asr-cmdk-random" id="asrCmdkRandom">↻ &nbsp;Try a random name</button>';
         var rb = listEl.querySelector('#asrCmdkRandom');
@@ -643,22 +616,33 @@
             location.href = (pick.h || ('/names/'+pick.s+'/'));
           });
         });
-        lastResults=[]; return;
+        lastResults=[]; input.removeAttribute('aria-activedescendant'); return;
       }
       if(!CMDK_CORPUS){ return; }
-      // Tiered: prefix(binary) → substring → Levenshtein. 10 results.
-      var ranked = tieredSearch(q, 10);
-      var items = ranked.map(function(r){ return r.e; });
-      // If still empty (e.g. 1-char query), fall back to legacy fuzzy on meaning.
-      if(!items.length && q.length<=2){
-        for(var i=0;i<CMDK_CORPUS.length && items.length<10;i++){
-          var e = CMDK_CORPUS[i];
-          if((e.nl||'').indexOf(q)===0) items.push(e);
-        }
+      var full = tieredSearchFull(raw, 10);
+      if(full.mode === 'list'){
+        var items = full.results.map(function(r){
+          var e = r.e;
+          // Build the lightweight entry the legacy renderer expects.
+          return {h: '/names/'+e.s+'/', n: e.n, m: e.m||'', s: e.s, __cluster: !!r.isCluster};
+        });
+        lastResults = items;
+        active = 0;
+        cmdkRender(items, listEl, raw, 'list');
+      } else {
+        // mode === 'cta' or 'empty'
+        lastResults = [];
+        active = 0;
+        cmdkRender([], listEl, raw, 'cta');
       }
-      lastResults = items;
-      active = 0;
-      cmdkRender(items, listEl, q);
+      // Wire aria-activedescendant to the first option (if any).
+      var firstOpt = listEl.querySelector('.asr-cmdk-item');
+      if(firstOpt){
+        if(!firstOpt.id) firstOpt.id = 'asr-cmdk-o0';
+        input.setAttribute('aria-activedescendant', firstOpt.id);
+      } else {
+        input.removeAttribute('aria-activedescendant');
+      }
     }
 
     fetchCorpus().then(function(){ doSearch(input.value); });
@@ -678,7 +662,15 @@
     });
     function refreshActive(){
       var items = listEl.querySelectorAll('.asr-cmdk-item');
-      items.forEach(function(el,i){ el.classList.toggle('active', i===active); });
+      items.forEach(function(el,i){
+        var on = (i===active);
+        el.classList.toggle('active', on);
+        el.setAttribute('aria-selected', on?'true':'false');
+        if(on){
+          if(!el.id) el.id = 'asr-cmdk-o'+i;
+          input.setAttribute('aria-activedescendant', el.id);
+        }
+      });
       if(items[active] && items[active].scrollIntoView) items[active].scrollIntoView({block:'nearest'});
     }
   }
@@ -933,31 +925,46 @@
     var active = -1;
     var lastItems = [];
 
-    function ctaRow(q){
+    // Add ARIA wiring on input
+    input.setAttribute('role','combobox');
+    input.setAttribute('aria-autocomplete','list');
+    input.setAttribute('aria-controls','asr-hero-dd');
+    input.setAttribute('aria-expanded','false');
+
+    function ctaRow(q, focusable){
       var safeQ = esc(q || '');
       var enc = encodeURIComponent(q || '');
-      return '<a class="ahero-cta" href="/reader/?name=' + enc + '" data-cta="1">' +
+      var optAttrs = focusable
+        ? ' id="ahero-o0" role="option" aria-selected="true"'
+        : ' role="option" aria-selected="false"';
+      return '<a class="ahero-cta'+(focusable?' ahero-active':'')+'"'+optAttrs+' href="/reader/?name=' + enc + '" data-cta="1">' +
         '<strong>Generate a reading for "<span>' + safeQ + '</span>" →</strong>' +
         '<span class="ahero-cta-sub">Not in our verified library yet — read it letter by letter with our Ilm ul Huroof tool.</span>' +
       '</a>';
     }
 
-    function render(items, q){
+    function render(items, q, mode){
       lastItems = items;
       active = -1;
-      if(!items.length){
-        // No corpus hit within Levenshtein 3 — show only the dynamic-reader CTA.
-        dd.innerHTML = ctaRow(q);
+      input.setAttribute('aria-expanded','true');
+      if(mode === 'cta' || (!items.length && q)){
+        // Only show CTA when no real matches exist.
+        dd.innerHTML = ctaRow(q, true);
         dd.style.display = 'block';
+        var ctaEl = dd.querySelector('.ahero-cta');
+        if(ctaEl){ input.setAttribute('aria-activedescendant', ctaEl.id || 'ahero-o0'); }
         return;
       }
-      var html = items.slice(0, 8).map(function(e, i){
+      if(!items.length){ dd.style.display = 'none'; input.setAttribute('aria-expanded','false'); return; }
+      var html = items.slice(0, 10).map(function(r, i){
+        var e = r.e || r;
         var label = (e.n || e.s || '').replace(/-/g,' ');
         var arabic = e.a ? '<span class="ahero-ar" lang="ar" dir="rtl">' + esc(e.a) + '</span>' : '';
         var meaning = shortMeaning(e.m, e.n);
         var meanHtml = meaning ? '<span class="ahero-meaning">' + esc(meaning) + '</span>' : '';
-        return '<a class="ahero-item" href="/names/' + encodeURIComponent(e.s) + '/" data-i="' + i + '">' +
-          '<span class="ahero-name">' + esc(label) + '</span>' + arabic + meanHtml +
+        var clusterBadge = (r && r.isCluster) ? '<span class="ahero-badge" style="display:inline-block;margin-left:.45rem;padding:.05rem .45rem;border:1px solid rgba(139,105,20,0.3);border-radius:8px;font-size:.65rem;letter-spacing:.08em;text-transform:uppercase;color:#8B6914;font-style:normal;vertical-align:middle;">also spelt</span>' : '';
+        return '<a class="ahero-item" id="ahero-o' + i + '" role="option" aria-selected="false" href="/names/' + encodeURIComponent(e.s) + '/" data-i="' + i + '">' +
+          '<span class="ahero-name">' + esc(label) + '</span>' + arabic + clusterBadge + meanHtml +
         '</a>';
       }).join('');
       dd.innerHTML = html;
@@ -966,23 +973,42 @@
 
     function setActive(i){
       var els = dd.querySelectorAll('.ahero-item, .ahero-cta');
+      if(!els.length){ active = -1; input.removeAttribute('aria-activedescendant'); return; }
+      if(i < 0) i = 0;
+      if(i >= els.length) i = els.length - 1;
       els.forEach(function(el, idx){
-        if(idx === i) el.classList.add('ahero-active');
-        else el.classList.remove('ahero-active');
+        if(idx === i){
+          el.classList.add('ahero-active');
+          el.setAttribute('aria-selected','true');
+        } else {
+          el.classList.remove('ahero-active');
+          el.setAttribute('aria-selected','false');
+        }
       });
       active = i;
-      if(i >= 0 && els[i] && els[i].scrollIntoView) els[i].scrollIntoView({block:'nearest'});
+      var sel = els[i];
+      if(sel){
+        if(!sel.id) sel.id = 'ahero-o'+i;
+        input.setAttribute('aria-activedescendant', sel.id);
+        if(sel.scrollIntoView) sel.scrollIntoView({block:'nearest'});
+      }
     }
 
     function searchAndRender(v){
-      var q = (v || '').toLowerCase().trim();
-      if(!q || q.length < 2){ dd.style.display = 'none'; return; }
+      var q = (v || '').trim();
+      if(!q || q.length < 1){ dd.style.display = 'none'; input.setAttribute('aria-expanded','false'); return; }
+      // Latin single-char: only run if user gives 1 char that the matcher will
+      // serve (cap 8). Arabic single-char also valid.
       fetchCorpus().then(function(){
-        // tieredSearch only returns matches with dist <= 3 (or tier 1/2 with
-        // dist=0). An empty array therefore means "no strong match" → CTA-only.
-        var ranked = rerankByCanonical(tieredSearch(q, 8), q);
-        var items = ranked.map(function(r){ return r.e; });
-        render(items, v);
+        var res = tieredSearchFull(v, 10);
+        if(res.mode === 'list'){
+          render(res.results, v, 'list');
+        } else if(res.mode === 'cta'){
+          render([], v, 'cta');
+        } else {
+          dd.style.display = 'none';
+          input.setAttribute('aria-expanded','false');
+        }
       });
     }
 
@@ -1031,7 +1057,7 @@
 
       function route(){
         if(CMDK_CORPUS && CMDK_CORPUS.length){
-          // 1. exact canonical slug or canonical lowercase name
+          // 1. exact canonical slug or canonical lowercase name (fast path)
           for(var i = 0; i < CMDK_CORPUS.length; i++){
             var e = CMDK_CORPUS[i];
             if(e.s === slug || e.nl === q){
@@ -1039,21 +1065,14 @@
               return;
             }
           }
-          // 2. top fuzzy hit. Re-rank by canonical proximity first so
-          //    variant-token matches don't beat the obviously closer canonical
-          //    (e.g. "muhamad" must reach /names/muhammad/, not /names/mouhamad/).
-          var ranked = rerankByCanonical(tieredSearch(q, 8), q);
-          if(ranked.length){
-            var best = ranked[0];
-            // Tier 1 (prefix) / Tier 2 (substring) on canonical OR variant
-            // token are accepted unconditionally — variants are registered
-            // alt-spellings the corpus owner trusts as redirects.
-            // Tier 3 (Levenshtein) requires the CANONICAL itself to be ≤2
-            // away — this is what filters "Brennan" away from /names/banan/.
-            if(best.tier <= 2 || best.canonDist <= 2){
-              window.location.href = '/names/' + best.e.s + '/';
-              return;
-            }
+          // 2. shared pipeline. mode='list' means the matcher accepted a hit
+          //    under its strict-tier rules (canonical Lev<=maxLev for fuzzy);
+          //    we route to the top result. mode='cta' means no hit worth
+          //    routing — fall to /reader/.
+          var res = tieredSearchFull(v, 5);
+          if(res.mode === 'list' && res.results.length){
+            window.location.href = '/names/' + res.results[0].e.s + '/';
+            return;
           }
         }
         // 3. fallback — dynamic /reader/ tool
