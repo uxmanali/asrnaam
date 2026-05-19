@@ -316,6 +316,8 @@
   }
 
   .letter-cell:hover { background: var(--white); }
+  a.letter-cell { text-decoration: none; color: inherit; display: block; }
+  a.letter-cell:hover .letter-cell-arabic { color: var(--gold-light); }
 
   .letter-cell-arabic {
     font-family: 'Amiri', serif;
@@ -736,47 +738,51 @@
       Eight of the twenty-eight Arabic letters, and the principles they encode. These are not translations. They are the ontological realities the letters carry in themselves.
     </p>
     <div class="letters-showcase">
-      <div class="letter-cell">
+      <a class="letter-cell" href="/letters/alif/" aria-label="Open the letter Alif — its full reading">
         <span class="letter-cell-arabic">ا</span>
         <span class="letter-cell-name">Alif</span>
         <span class="letter-cell-meaning">Origin · Oneness · The first breath before speech</span>
-      </div>
-      <div class="letter-cell">
+      </a>
+      <a class="letter-cell" href="/letters/ain/" aria-label="Open the letter Ain — its full reading">
         <span class="letter-cell-arabic">ع</span>
         <span class="letter-cell-name">Ain</span>
         <span class="letter-cell-meaning">The eye · The source · Essence and witnessing</span>
-      </div>
-      <div class="letter-cell">
+      </a>
+      <a class="letter-cell" href="/letters/meem/" aria-label="Open the letter Meem — its full reading">
         <span class="letter-cell-arabic">م</span>
         <span class="letter-cell-name">Meem</span>
         <span class="letter-cell-meaning">Love · Depth · The mother principle that sustains</span>
-      </div>
-      <div class="letter-cell">
+      </a>
+      <a class="letter-cell" href="/letters/lam/" aria-label="Open the letter Lam — its full reading">
         <span class="letter-cell-arabic">ل</span>
         <span class="letter-cell-name">Lam</span>
         <span class="letter-cell-meaning">Belonging · Connection · The bond between things</span>
-      </div>
-      <div class="letter-cell">
+      </a>
+      <a class="letter-cell" href="/letters/seen/" aria-label="Open the letter Seen — its full reading">
         <span class="letter-cell-arabic">س</span>
         <span class="letter-cell-name">Seen</span>
         <span class="letter-cell-meaning">The horizon · Continuous flow · The secret within</span>
-      </div>
-      <div class="letter-cell">
+      </a>
+      <a class="letter-cell" href="/letters/ta-heavy/" aria-label="Open the letter Ta — its full reading">
         <span class="letter-cell-arabic">ط</span>
         <span class="letter-cell-name">Ta</span>
         <span class="letter-cell-meaning">The wheel · Circular return · Completion of cycles</span>
-      </div>
-      <div class="letter-cell">
+      </a>
+      <a class="letter-cell" href="/letters/nun/" aria-label="Open the letter Nun — its full reading">
         <span class="letter-cell-arabic">ن</span>
         <span class="letter-cell-name">Nun</span>
         <span class="letter-cell-meaning">Ocean depths · What is preserved · The divine ink</span>
-      </div>
-      <div class="letter-cell">
+      </a>
+      <a class="letter-cell" href="/letters/qaf/" aria-label="Open the letter Qaf — its full reading">
         <span class="letter-cell-arabic">ق</span>
         <span class="letter-cell-name">Qaf</span>
         <span class="letter-cell-meaning">The deepest letter · Divine decree · Furthest reach</span>
-      </div>
+      </a>
     </div>
+
+    <p class="letters-showcase-cta" style="text-align:center;margin:32px 0 0;font-family:'Cinzel',serif;font-size:0.7rem;letter-spacing:0.28em;text-transform:uppercase;">
+      <a href="/letters/" style="color:var(--gold);text-decoration:none;border-bottom:1px solid var(--gold-line);padding-bottom:4px;transition:border-color 0.3s;" aria-label="Browse all 28 Arabic letters of Ilm ul Huroof">Browse all 28 letters →</a>
+    </p>
   </div>
 </div>
 
