@@ -347,7 +347,13 @@
   .how { background:#F3F1EC; border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); padding:100px 56px; }
   .how-inner { max-width:1100px; margin:0 auto; }
   .section-tag { font-family:'Cinzel',serif; font-size:0.64rem; letter-spacing:0.25em; text-transform:uppercase; color:#6B4F10; margin-bottom:16px; display:flex; align-items:center; gap:14px; font-weight:600; }
-  /* Voices / testimonials + Why Asrnaam value-prop trio */
+
+  /* A9: editor's note replaces the testimonial trio */
+  .voices-note { max-width:760px; margin:36px auto 0; }
+  .voices-note-text { font-size:1.05rem; line-height:1.85; color:#2C2C2C; margin-bottom:1.1rem; }
+  .voices-note-attrib { font-family:'Cinzel',serif; font-size:0.72rem; letter-spacing:0.2em; text-transform:uppercase; color:#8B6914; margin-top:8px; }
+  @media (max-width:640px) { .voices-note-text { font-size:1rem; line-height:1.75; } }
+  /* Voices / editor note + Why AsrNaam value-prop trio */
   .voices { padding:96px 56px 80px; background:#F8F4EA; border-bottom:1px solid var(--rule); }
   .voices-inner { max-width:1100px; margin:0 auto; }
   .voices-quotes { display:grid; grid-template-columns:repeat(3, 1fr); gap:28px; margin-top:40px; }
@@ -762,33 +768,19 @@
 <!-- ═══════════════════════════════════════════════ -->
 <!-- VOICES + WHY ASRNAAM                            -->
 <!-- ═══════════════════════════════════════════════ -->
-<section class="voices" aria-label="Voices and Why AsrNaam">
+<section class="voices" aria-label="A note from the editor and Why AsrNaam">
   <div class="voices-inner">
-    <div class="section-tag">Voices</div>
-    <h2 class="section-heading">Why people sit with their <em>name</em> here</h2>
-    <p class="section-sub">A few notes from early readers. The site is young — these are not curated marketing quotes, they are the kind of thing people have actually said in the first weeks of release.</p>
-    <div class="voices-quotes">
-      <figure class="voice-card">
-        <blockquote class="voice-quote">Reading my daughter's name through the letter system felt different from anything I'd seen — concrete and warm at the same time.</blockquote>
-        <figcaption>
-          <span class="voice-attrib">Sara K.</span>
-          <span class="voice-meta">Reader · Early May 2026</span>
-        </figcaption>
-      </figure>
-      <figure class="voice-card">
-        <blockquote class="voice-quote">I went down a rabbit hole for an hour reading every name in my family. The Ilm ul Huroof framing is what kept me.</blockquote>
-        <figcaption>
-          <span class="voice-attrib">Adnan R.</span>
-          <span class="voice-meta">Reader · Early May 2026</span>
-        </figcaption>
-      </figure>
-      <figure class="voice-card">
-        <blockquote class="voice-quote">The Arabic and Urdu spelling side by side with the meaning was exactly what I needed when naming my son.</blockquote>
-        <figcaption>
-          <span class="voice-attrib">Hira M.</span>
-          <span class="voice-meta">Reader · Early May 2026</span>
-        </figcaption>
-      </figure>
+    <div class="section-tag">A note from the editor</div>
+    <h2 class="section-heading">This site is <em>young</em>. We're building in the open.</h2>
+    <p class="section-sub">AsrNaam launched in 2026. We are not going to fill this section with manufactured testimonials. Instead: a short note from the editor about what we are doing and what we are not doing.</p>
+    <div class="voices-note">
+      <p class="voices-note-text">
+        Every name on this site was researched against classical Arabic lexicons (Lisan al-Arab, al-Sihah, Taj al-Arus), checked for Quranic root usage, and read through the letter framework of Ilm ul Huroof in the tradition of Ibn Arabi. The Urdu form is given alongside the Arabic — not as a transliteration of a transliteration, but as the form actually used in South Asia.
+      </p>
+      <p class="voices-note-text">
+        We do not predict your future. We do not score your name. We read what the letters carry, and we let you decide what to do with that. If a meaning is contested in the classical record, we say so on the page rather than invent certainty. If a name is missing or wrong, write to <a href="mailto:hello@asrnaam.com" style="color:inherit;border-bottom:1px solid rgba(139,105,20,0.3);">hello@asrnaam.com</a> — we will fix it.
+      </p>
+      <p class="voices-note-attrib">— The AsrNaam editors</p>
     </div>
 
     <div class="why">
