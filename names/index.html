@@ -145,6 +145,23 @@ html[data-theme='dark'] .recently-grid .name-card {
   .alphabet-link:hover{background:#8B6914;color:#fff;border-color:#8B6914;}
   .alphabet-ar{font-family:'Amiri',serif;font-size:1.4rem;line-height:1;}
   .alphabet-name{font-size:.7rem;letter-spacing:.04em;}
+
+/* ── B2 pagination ── */
+body.is-paged main#namesMain .letter-section{display:none}
+body.is-paged main#namesMain .letter-section.letter-section-active{display:block}
+body.is-paged.paged-suspended main#namesMain .letter-section{display:block}
+body.is-paged.paged-suspended main#namesMain .letter-section.hidden{display:none}
+body.is-paged.paged-suspended .letter-pager{display:none}
+.letter-pager{display:flex;align-items:center;justify-content:space-between;gap:.75rem;margin-top:36px;padding-top:24px;border-top:1px solid var(--border)}
+.letter-pager-link{font-family:'Cinzel',serif;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);text-decoration:none;padding:.55rem 1.05rem;border:1px solid var(--border);border-radius:4px;background:#fff;transition:background .15s,color .15s,border-color .15s;white-space:nowrap}
+.letter-pager-link:hover{background:var(--gold);color:#fff;border-color:var(--gold)}
+.letter-pager-current{font-family:'Cinzel',serif;font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:var(--text-secondary)}
+.letter-nav .nav-letter.current{background:var(--gold);color:#fff}
+.letter-nav .nav-letter.current .nav-count{color:rgba(255,255,255,0.85)}
+@media (max-width:600px){
+  .letter-pager-link{font-size:.7rem;padding:.45rem .8rem}
+  .letter-pager-current{font-size:.7rem;letter-spacing:.18em}
+}
 </style>
 
 <link rel="stylesheet" href="/asr-enhance.css" media="print" onload="this.media='all'"/>
@@ -8912,5 +8929,113 @@ window.__asrAlts = {"aabid":["aabeed","abid"],"aabida":["aabidah","aabeeda","abi
 })();
 </script>
 <time datetime="2026-05-18T05:57:09+00:00" itemprop="dateModified" hidden></time>
+
+<script>
+/* B2 — page-by-letter pagination + letter pager + letter-nav highlighting.
+   Works alongside the existing applyFilters() search/gender/category controls:
+   when any of them is active, pagination is suspended and all matching
+   letter sections are shown (existing applyFilters .hidden toggling drives that).
+
+   TODO (region facet): pending Agent A populating data-origin on .name-card
+   elements (one of: arabic, turkic, persian, urdu-south-asian, malay,
+   north-african, quranic, hadith). Once present, add a region chip-bar
+   similar to #catBar and extend applyFilters() to match on data-origin.
+   Until then we only ship gender + meaning-category + free-text search. */
+(function(){
+  var sections = Array.prototype.slice.call(document.querySelectorAll('main#namesMain .letter-section'));
+  if(!sections.length) return;
+  var bodyEl = document.body;
+  bodyEl.classList.add('is-paged');
+
+  var LETTERS = sections.map(function(s){
+    return { id: s.id, letter: s.id.replace(/^letter-/,''), el: s };
+  });
+  var letterByKey = {};
+  LETTERS.forEach(function(L){ letterByKey[L.letter] = L; });
+
+  function clampLetter(L){ return /^[A-Z]$/.test(L) && letterByKey[L] ? L : 'A'; }
+  var active = clampLetter((location.hash.match(/^#letter-([A-Z])/)||[])[1] || 'A');
+
+  // Append a prev/next pager to each letter section
+  LETTERS.forEach(function(L, i){
+    var prev = LETTERS[(i - 1 + LETTERS.length) % LETTERS.length];
+    var next = LETTERS[(i + 1) % LETTERS.length];
+    var pager = document.createElement('nav');
+    pager.className = 'letter-pager';
+    pager.setAttribute('aria-label','Letter pagination');
+    pager.innerHTML =
+      '<a class="letter-pager-link letter-pager-prev" data-letter="'+prev.letter+'" href="#'+prev.id+'" rel="prev" aria-label="Previous letter: '+prev.letter+'">← '+prev.letter+'</a>'+
+      '<span class="letter-pager-current" aria-hidden="true">Letter '+L.letter+'</span>'+
+      '<a class="letter-pager-link letter-pager-next" data-letter="'+next.letter+'" href="#'+next.id+'" rel="next" aria-label="Next letter: '+next.letter+'">'+next.letter+' →</a>';
+    L.el.appendChild(pager);
+  });
+
+  function setActive(letter, scroll){
+    active = clampLetter(letter);
+    LETTERS.forEach(function(L){
+      L.el.classList.toggle('letter-section-active', L.letter === active);
+    });
+    document.querySelectorAll('.letter-nav .nav-letter').forEach(function(a){
+      a.classList.toggle('current', a.getAttribute('href') === '#letter-' + active);
+    });
+    if(history && history.replaceState){
+      history.replaceState(null, '', '#letter-' + active);
+    }
+    if(scroll){
+      var t = document.getElementById('letter-' + active);
+      if(t){
+        var headerOffset = 120; // sticky header + letter-nav height
+        var top = t.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+        window.scrollTo({top: top, behavior: 'smooth'});
+      }
+    }
+  }
+  setActive(active, false);
+
+  // Letter nav clicks
+  document.querySelectorAll('.letter-nav .nav-letter').forEach(function(a){
+    a.addEventListener('click', function(e){
+      var m = (a.getAttribute('href')||'').match(/^#letter-([A-Z])/);
+      if(!m) return;
+      e.preventDefault();
+      setActive(m[1], true);
+    });
+  });
+
+  // Pager clicks
+  document.addEventListener('click', function(e){
+    var a = e.target.closest && e.target.closest('.letter-pager-link');
+    if(!a) return;
+    var letter = a.getAttribute('data-letter');
+    if(!letter) return;
+    e.preventDefault();
+    setActive(letter, true);
+  });
+
+  // Back/forward via hashchange
+  window.addEventListener('hashchange', function(){
+    var m = (location.hash||'').match(/^#letter-([A-Z])/);
+    if(m && m[1] !== active) setActive(m[1], true);
+  });
+
+  // Suspend pagination when any filter is active
+  function isFilterActive(){
+    var s = (document.getElementById('nameSearch')||{}).value || '';
+    if(s.trim()) return true;
+    var g = document.querySelector('.filter-bar .filter-btn.active');
+    if(g && g.getAttribute('data-filter') !== 'all') return true;
+    var c = document.querySelector('#catBar .cat-chip.active');
+    if(c && (c.getAttribute('data-cat')||'').length) return true;
+    return false;
+  }
+  function syncSuspended(){
+    bodyEl.classList.toggle('paged-suspended', isFilterActive());
+  }
+  syncSuspended();
+  // Listen broadly — covers both legacy applyFilters callers and any new ones.
+  document.addEventListener('input', function(){ requestAnimationFrame(syncSuspended); }, true);
+  document.addEventListener('click', function(){ requestAnimationFrame(syncSuspended); }, true);
+})();
+</script>
 </body>
 </html>
