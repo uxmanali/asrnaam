@@ -1336,14 +1336,3 @@ html[data-theme='dark'] .step-num {
 .letter-cluster { contain-intrinsic-size: auto 220px; }
 .related-section.shared-section { contain-intrinsic-size: auto 260px; }
 .faq-section { contain-intrinsic-size: auto 380px; }
-
-/* ---------- B4: Strip duplicate Muhammad variant slugs from UI ---------- */
-/* Hides hard-coded "Muhammad 2/3/4/Final" related-name cards on
-   /names/muhammad/. The underlying /names/muhammad-*/ pages and any
-   data references remain in place; only the display is suppressed. */
-a[href^="/names/muhammad-2/"],
-a[href^="/names/muhammad-3/"],
-a[href^="/names/muhammad-4/"],
-a[href^="/names/muhammad-final/"] {
-  display: none !important;
-}
