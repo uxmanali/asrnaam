@@ -1233,8 +1233,8 @@
 /letters/ghain/index.html /letters/ghayn/ 301
 /letters/taa/ /letters/ta-light/ 301
 /letters/taa/index.html /letters/ta-light/ 301
-/letters/ha/ /letters/ha-light/ 301
-/letters/ha/index.html /letters/ha-light/ 301
+/letters/ha/ /letters/ha-breath/ 301
+/letters/ha/index.html /letters/ha-breath/ 301
 
 # GSC fix 2026-05-18 — name transliteration variants (404 -> canonical)
 /names/younus/ /names/yunus/ 301
