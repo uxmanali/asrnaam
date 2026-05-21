@@ -1291,3 +1291,7 @@
 # GSC fix 2026-05-18 — IPA/phonetic stray URL
 /ˈʕaː.ʔi.ʃa/ /names/aisha/ 301
 /%CB%88%CA%95a%CB%90.%CA%94i.%CA%83a/ /names/aisha/ 301
+
+# GSC fix 2026-05-21 — variant-spelling 404s
+/names/aly/ /names/ali/ 301
+/names/aly/index.html /names/ali/ 301
