@@ -18,7 +18,7 @@
     var CORPUS = null, TOKENS = null, LOADING = false;
     function fetchCorpus(){
       if(CORPUS) return Promise.resolve(CORPUS);
-      if(LOADING) return new Promise(function(res){ var t = setInterval(function(){ if(CORPUS){ clearInterval(t); res(CORPUS); } }, 30); });
+      if(LOADING) return new Promise(function(res){ var t = setInterval(function(){ if(CORPUS || !LOADING){ clearInterval(t); res(CORPUS || []); } }, 30); });
       LOADING = true;
       return fetch('/names/names-index.json', {cache:'force-cache'}).then(function(r){
         if(!r.ok) throw new Error('idx '+r.status);

@@ -451,7 +451,7 @@
   var CMDK_TOKENS = null;
   function fetchCorpus(){
     if(CMDK_CORPUS) return Promise.resolve(CMDK_CORPUS);
-    if(CMDK_LOADING) return new Promise(function(res){ var t=setInterval(function(){ if(CMDK_CORPUS){ clearInterval(t); res(CMDK_CORPUS); } }, 30); });
+    if(CMDK_LOADING) return new Promise(function(res){ var t=setInterval(function(){ if(CMDK_CORPUS || !CMDK_LOADING){ clearInterval(t); res(CMDK_CORPUS || []); } }, 30); });
     CMDK_LOADING = true;
     return fetch('/names/names-index.json', {cache:'force-cache'}).then(function(r){
       if(!r.ok) throw new Error('idx http '+r.status);
@@ -494,7 +494,7 @@
         CMDK_TOKENS = unique.map(function(e,i){ return {t:e.nl, i:i}; }).sort(function(a,b){return a.t<b.t?-1:a.t>b.t?1:0;});
         CMDK_CORPUS = unique;
         return CMDK_CORPUS;
-      }).catch(function(){ return []; });
+      }).catch(function(){ CMDK_LOADING=false; CMDK_CORPUS = CMDK_CORPUS || []; return CMDK_CORPUS; });
     });
   }
 
@@ -678,7 +678,7 @@
   // ---- Global Cmd-K shortcut ----
   function bindCmdkShortcut(){
     document.addEventListener('keydown', function(e){
-      var isMac = /Mac|iPhone|iPad/.test(navigator.platform);
+      var isMac = /Mac|iPhone|iPad/.test((navigator.userAgentData && navigator.userAgentData.platform) || navigator.platform || navigator.userAgent);
       var trigger = ( (isMac && e.metaKey) || (!isMac && e.ctrlKey) ) && (e.key==='k' || e.key==='K');
       if(trigger){
         // don't hijack inside other inputs unless it's our input

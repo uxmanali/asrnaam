@@ -48,3 +48,18 @@ The same source meaning is rendered with full markup inside the page `<body>` (i
 grep -rl 'name="description" content="[^"]*<span lang=' --include=index.html ar/names ur/names | wc -l
 # Expected: 0
 ```
+
+---
+
+## Update — 2026-06-02 (Agent H/K)
+
+**Rendered HTML: clean.** A repo-wide sweep (`_quality_scripts/fix_jsonld_and_meta.py`)
+re-checked every EN/AR/UR page: 0 pages now have `<span>` markup leaked inside
+meta/og/twitter `content="..."` attributes (16 stragglers fixed this pass).
+
+**Root cause: still in the untracked generator.** The AR/UR page generator
+(`c1_gen.py`, listed in `.gitignore` and therefore not in this repo) remains the
+source. Until it is committed it cannot be patched here. When it is next run,
+apply the strip-then-escape step from `_quality_scripts/fix_jsonld_and_meta.py`
+(`fix_meta()` strips tags; the JSON-LD repair handles unescaped quotes) before
+emitting `<meta>`/`og:`/`twitter:` descriptions and FAQ JSON-LD.

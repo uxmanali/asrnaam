@@ -179,8 +179,8 @@ function composeReading(rawName){
   html += '<div class="letter-cards">';
   letters.forEach(function(k, i){
     const l = L[k]; if(!l) return;
-    const isFirst = i === 0;
-    const isLast  = i === letters.length - 1 && letters.length > 1;
+    const isFirst = k === letters[0];
+    const isLast  = k === letters[letters.length - 1] && letters.length > 1;
     const pos = isFirst ? 'First' : isLast ? 'Last' : 'Interior';
     html += '<div class="letter-card">';
     html += '<span class="letter-arabic" lang="ar" dir="rtl">' + esc(l.arabic) + '</span>';
