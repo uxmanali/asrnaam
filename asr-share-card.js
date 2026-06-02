@@ -306,6 +306,7 @@
       await new Promise(function(r){ setTimeout(r, 60); });
       var canvas = render(data);
       downloadCanvas(canvas, data.slug + '-reading.png');
+      try{ if(typeof gtag==='function') gtag('event','save_card',{event_category:'engagement',name:(data.name||''),slug:(data.slug||'')}); }catch(e){}
       if(labelEl) labelEl.textContent = 'Saved ✓';
       setTimeout(function(){
         if(labelEl) labelEl.textContent = orig;

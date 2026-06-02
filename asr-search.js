@@ -137,6 +137,7 @@
       fetchCorpus().then(function(){
         var res = M.runSearch(CORPUS, TOKENS, rawV, {max: 10, singleCharCap: 8});
         render(res, rawV);
+        try{ if(typeof gtag==='function' && rawV && rawV.trim().length>=2) gtag('event','search',{search_term:rawV.trim(),results:(res&&res.results?res.results.length:0)}); }catch(e){}
       });
     }
 
