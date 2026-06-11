@@ -300,6 +300,42 @@
     font-family:'Cinzel',serif; font-size:0.95rem;
     margin-right:6px; letter-spacing:0.02em;
   }
+  /* ----- Name of the day widget ----- */
+  .name-of-the-day {
+    max-width:680px; margin:36px auto 8px;
+    padding:26px 32px;
+    background:linear-gradient(180deg, rgba(139,105,20,0.04) 0%, rgba(139,105,20,0.07) 100%);
+    border:1px solid rgba(139,105,20,0.22);
+    border-radius:8px;
+    text-align:center;
+    box-shadow:0 2px 18px rgba(139,105,20,0.06);
+  }
+  .name-of-the-day .notd-eyebrow {
+    display:flex; align-items:center; justify-content:center; gap:14px;
+    font-family:'Cinzel',serif; font-size:0.62rem; letter-spacing:0.28em;
+    text-transform:uppercase; color:#8B6914; margin-bottom:14px;
+    font-weight:600;
+  }
+  .name-of-the-day .notd-eyebrow-date {
+    color:rgba(139,105,20,0.65); font-weight:500; letter-spacing:0.16em;
+    font-size:0.6rem; padding-left:14px; border-left:1px solid rgba(139,105,20,0.3);
+  }
+  .name-of-the-day .notd-title {
+    font-family:'Cinzel',serif; font-size:clamp(1.3rem,3vw,1.8rem); font-weight:400;
+    color:#111010; margin:0 0 10px; line-height:1.2; letter-spacing:-0.005em;
+  }
+  .name-of-the-day .notd-title a { color:inherit; text-decoration:none; transition:color 0.2s; display:inline-flex; align-items:baseline; gap:14px; flex-wrap:wrap; justify-content:center; }
+  .name-of-the-day .notd-title a:hover { color:#8B6914; }
+  .name-of-the-day .notd-arabic { font-family:'Amiri','Noto Naskh Arabic',serif; font-size:clamp(1.5rem,3.5vw,2.1rem); color:#8B6914; }
+  .name-of-the-day .notd-meaning { font-size:1.02rem; color:#3A3A3A; font-style:italic; margin:0 0 16px; line-height:1.65; max-width:540px; margin-left:auto; margin-right:auto; }
+  .name-of-the-day .notd-cta {
+    display:inline-block;
+    font-family:'Cinzel',serif; font-size:0.62rem; letter-spacing:0.22em; text-transform:uppercase;
+    color:#8B6914; text-decoration:none;
+    border-bottom:1px solid rgba(139,105,20,0.4); padding-bottom:3px;
+    transition:color 0.2s, border-color 0.2s; font-weight:600;
+  }
+  .name-of-the-day .notd-cta:hover { color:#C9930A; border-bottom-color:#C9930A; }
   .hero-input-row { display:flex; gap:0; max-width:560px; margin:0 auto 16px;  box-shadow:0 2px 24px rgba(139,105,20,0.1); }
   .hero-input {
     flex:1;
@@ -638,6 +674,9 @@
     .social-proof-ribbon .proof-stat{padding:6px 0;}
     .social-proof-ribbon .proof-stat + .proof-stat::before{display:none;}
     .social-proof-ribbon .proof-stat + .proof-stat{border-top:1px solid rgba(139,105,20,0.18);padding-top:10px;}
+    .name-of-the-day{margin:28px 12px 6px;padding:22px 18px;}
+    .name-of-the-day .notd-title a{flex-direction:column;gap:6px;}
+    .name-of-the-day .notd-meaning{font-size:0.96rem;}
     .how,.about{padding:72px 24px;}
     .steps,.about-grid,.footer-grid{grid-template-columns:1fr;}
     .tool-wrap,.muq{padding:72px 24px;}
@@ -810,6 +849,36 @@
         <button type="button" class="example-dot-btn" data-idx="3" aria-label="Show Maryam" aria-selected="false"></button>
       </div>
     </div>
+
+    <!-- Name of the day widget -->
+    <aside class="name-of-the-day" id="nameOfTheDay" aria-label="Name of the day">
+      <p class="notd-eyebrow"><span class="notd-eyebrow-label">Name of the day</span><span class="notd-eyebrow-date" id="notdDate"></span></p>
+      <h2 class="notd-title"><a id="notdLink" href="/names/"><span class="notd-name" id="notdName"></span> <span class="notd-arabic" lang="ar" dir="rtl" id="notdArabic"></span></a></h2>
+      <p class="notd-meaning" id="notdMeaning"></p>
+      <a class="notd-cta" id="notdCta" href="/names/">Read the full letter-by-letter meaning →</a>
+    </aside>
+    <script type="application/json" id="notd-rotation">[{"s": "muhammad", "n": "Muhammad", "a": "مُحَمَّد", "m": "The most praised; the praiseworthy one"}, {"s": "aisha", "n": "Aisha", "a": "عَائِشَة", "m": "Living, lively, prosperous — Mother of the Believers, wife of the Prophet"}, {"s": "fatima", "n": "Fatima", "a": "فَاطِمَة", "m": "One who weans, abstains — daughter of the Prophet ﷺ"}, {"s": "maryam", "n": "Maryam", "a": "مَرْيَم", "m": "The mother of Jesus — preserved in the Quran (Sūrat Maryam, 19)"}, {"s": "yusuf", "n": "Yusuf", "a": "يُوسُف", "m": "The prophet Joseph; God increases or adds"}, {"s": "ibrahim", "n": "Ibrahim", "a": "إِبْرَاهِيم", "m": "Father of nations — the patriarch; the prophet Abraham"}, {"s": "ahmad", "n": "Ahmad", "a": "أَحْمَد", "m": "The most praised; the most praiseful"}, {"s": "ali", "n": "Ali", "a": "عَلِيّ", "m": "The high; the elevated; the exalted"}, {"s": "omar", "n": "Omar", "a": "عُمَر", "m": "Long-lived, flourishing — the second caliph ʿUmar"}, {"s": "hasan", "n": "Hasan", "a": "حَسَن", "m": "Beautiful, handsome, good — the morally and aesthetically excellent"}, {"s": "husayn", "n": "Husayn", "a": "حُسَيْن", "m": "Beautiful, little Hasan — Imam Husayn ibn Ali, Prophet grand"}, {"s": "usman", "n": "Usman", "a": "عُثْمَان", "m": "Persian/Urdu form of ʿUthmān — the third caliph"}, {"s": "khalid", "n": "Khalid", "a": "خَالِد", "m": "Eternal, everlasting; the famous companion Khālid ibn al-Walīd"}, {"s": "hamza", "n": "Hamza", "a": "حَمْزَة", "m": "Lion, strong — the Prophet's uncle, martyr of Uhud"}, {"s": "abdullah", "n": "Abdullah", "a": "عَبْد الله", "m": "Servant of God"}, {"s": "zainab", "n": "Zainab", "a": "زَيْنَب", "m": "Variant spelling of Zaynab — a fragrant flowering tree"}, {"s": "hana", "n": "Hana", "a": "هناء", "m": "Happiness, bliss — top global Muslim girls name"}, {"s": "farida", "n": "Farida", "a": "فريدة", "m": "Unique precious gem"}, {"s": "sumaira", "n": "Sumaira", "a": "سميرة", "m": "Night-companion, the pleasant evening conversationalist"}, {"s": "luay", "n": "Luay", "a": "لؤي", "m": "Shield, protector — the ancestor of the Quraysh, guardian of noble lineage"}, {"s": "vera", "n": "Vera", "a": "فيرا", "m": "Vera — Faith/true — European convert bridge"}, {"s": "volkan", "n": "Volkan", "a": "بركان", "m": "Volcano — Turkish boys name"}, {"s": "sayhan", "n": "Sayhan", "a": "سيحان", "m": "Flowing, the one who moves freely — the river of the Quran's paradise"}, {"s": "zaviyar", "n": "Zaviyar", "a": "زاویار", "m": "Brave and noble — the number one trending Muslim boy name in Pakistan 2025-2026"}, {"s": "gulnaz", "n": "Gulnaz", "a": "گلناز", "m": "Rose fragrance, coy like a rose — Urdu/Persian"}, {"s": "ashfaq", "n": "Ashfaq", "a": "أشفق", "m": "Most compassionate friend, kindest companion"}, {"s": "abeer", "n": "Abeer", "a": "عبير", "m": "Fragrance"}, {"s": "eisa", "n": "Eisa", "a": "عِيسَى", "m": "Jesus — the Prophet born of a virgin, who will return before the Day of…"}, {"s": "ishaq", "n": "Ishaq", "a": "إِسْحَاق", "m": "He laughs; the prophet Isaac"}, {"s": "ismail", "n": "Ismail", "a": "إِسْمَاعِيل", "m": "God hears — the prophet Ishmael"}]</script>
+    <script>
+    (function(){
+      var data = JSON.parse(document.getElementById('notd-rotation').textContent);
+      if (!data.length) return;
+      var d = new Date();
+      var idx = (d.getDate() - 1) % data.length;
+      var entry = data[idx];
+      var url = '/names/' + entry.s + '/';
+      document.getElementById('notdName').textContent = entry.n;
+      document.getElementById('notdArabic').textContent = entry.a;
+      document.getElementById('notdMeaning').textContent = entry.m;
+      document.getElementById('notdLink').href = url;
+      document.getElementById('notdCta').href = url;
+      // Date in short form (e.g. "June 4")
+      try {
+        document.getElementById('notdDate').textContent = d.toLocaleDateString('en-US', {month:'long', day:'numeric'});
+      } catch(_) {
+        document.getElementById('notdDate').textContent = '';
+      }
+    })();
+    </script>
 
     <div class="hero-divider">
       <div class="hero-divider-line"></div>
