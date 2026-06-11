@@ -227,6 +227,51 @@
   .hero-sub { font-size:1.1rem; color:#2C2C2C; max-width:580px; margin:0 auto 40px; font-weight:400; line-height:1.88;  }
 
   /* HERO INLINE INPUT */
+  /* ----- New prominent hero-search form (route → /reader/?name=) ----- */
+  .sr-only { position:absolute !important; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+  .hero-search {
+    display:flex; gap:0; max-width:640px; margin:8px auto 14px;
+    box-shadow:0 4px 28px rgba(139,105,20,0.12), 0 1px 2px rgba(0,0,0,0.04);
+    border-radius:6px; overflow:hidden;
+    background:#fff;
+  }
+  .hero-search-input {
+    flex:1; min-width:0;
+    background:#fff !important;
+    border:1.5px solid rgba(139,105,20,0.28);
+    border-right:none;
+    padding:18px 24px;
+    color:#111010 !important;
+    -webkit-text-fill-color:#111010 !important;
+    font-family:'Cormorant Garamond',serif;
+    font-size:1.15rem;
+    outline:none; box-shadow:none;
+    transition:border-color 0.25s, box-shadow 0.25s;
+    caret-color:#8B6914;
+    border-radius:6px 0 0 6px;
+  }
+  .hero-search-input::placeholder { color:rgba(90,90,90,0.55) !important; -webkit-text-fill-color:rgba(90,90,90,0.55) !important; font-style:italic; }
+  .hero-search:focus-within .hero-search-input { border-color:#8B6914; box-shadow:inset 0 0 0 1px #8B6914; }
+  .hero-search-btn {
+    background:#8B6914; color:#fff;
+    border:1.5px solid #8B6914;
+    padding:18px 28px;
+    font-family:'Cinzel',serif;
+    font-size:0.7rem;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    cursor:pointer;
+    transition:background 0.2s, transform 0.1s;
+    white-space:nowrap;
+    border-radius:0 6px 6px 0;
+    font-weight:600;
+  }
+  .hero-search-btn:hover { background:#C9930A; border-color:#C9930A; }
+  .hero-search-btn:active { transform:scale(0.985); }
+  .hero-search-help {
+    font-size:0.92rem; color:#5A5A5A; font-style:italic; text-align:center;
+    max-width:540px; margin:0 auto 20px;
+  }
   .hero-input-row { display:flex; gap:0; max-width:560px; margin:0 auto 16px;  box-shadow:0 2px 24px rgba(139,105,20,0.1); }
   .hero-input {
     flex:1;
@@ -557,6 +602,10 @@
     .hero-input-row{flex-direction:column;gap:12px;}
     .hero-input{border-right:1px solid rgba(139,105,20,0.3);border-bottom:1px solid rgba(139,105,20,0.3);border-radius:4px;}
     .hero-submit{border-radius:4px;width:100%;}
+    .hero-search{flex-direction:column;gap:0;border-radius:6px;max-width:100%;}
+    .hero-search-input{border-right:1.5px solid rgba(139,105,20,0.28);border-bottom:none;border-radius:6px 6px 0 0;padding:16px 18px;font-size:1.05rem;}
+    .hero-search-btn{border-radius:0 0 6px 6px;width:100%;padding:16px 18px;}
+    .hero-search-help{font-size:0.86rem;padding:0 12px;}
     .how,.about{padding:72px 24px;}
     .steps,.about-grid,.footer-grid{grid-template-columns:1fr;}
     .tool-wrap,.muq{padding:72px 24px;}
@@ -643,11 +692,12 @@
     <h1 class="hero-title">Every name is a <em>sentence</em> written in letters.<br>AsrNaam reads the sentence in yours.</h1>
     <p class="hero-sub">Type any name. You'll see it in Arabic and Urdu, its dictionary meaning, and a letter-by-letter reading drawn from <em>Ilm ul Huroof</em> — the classical Islamic Science of Letters.</p>
 
-    <div class="hero-input-row">
-      <input class="hero-input" type="text" id="heroName" placeholder="Enter a name — yours, or someone you love" autofocus autocomplete="off" onkeydown="if(event.key==='Enter')heroRead()" aria-label="Enter a name — yours, or someone you love"/>
-      <button class="hero-btn" onclick="heroRead()">Read the Name</button>
-    </div>
-    <p class="hero-input-note">Free reading — no sign up required · 2,000+ names</p>
+    <form class="hero-search" action="/reader/" method="get" autocomplete="off" role="search" aria-label="Search any Muslim name">
+      <label for="hero-search-input" class="sr-only">Search any Muslim name</label>
+      <input id="hero-search-input" class="hero-search-input" type="search" name="name" placeholder="Type any name — Muhammad, Aisha, Farida, Hana..." dir="auto" required autofocus maxlength="60" aria-label="Type any name — Muhammad, Aisha, Farida, Hana"/>
+      <button type="submit" class="hero-search-btn">Read the Name →</button>
+    </form>
+    <p class="hero-search-help">Searches 2,000+ names in English, Urdu, and Arabic. Free, instant, no signup.</p>
 
     <!-- EXAMPLE READING PREVIEW (auto-rotating carousel) -->
     <div class="example-frame example-frame-compact example-carousel" id="exampleCarousel" data-rotate="5000">
