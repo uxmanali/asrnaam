@@ -102,3 +102,8 @@ User-agent: MJ12bot
 Disallow: /
 
 Sitemap: https://asrnaam.com/sitemap.xml
+
+# IPA phonetic strings accidentally exposed as URLs. Not real pages.
+Disallow: /ˈraj.jaːn/
+Disallow: /mu.ˈħam.mad/
+Disallow: /ʔa.ˈmiːr/
