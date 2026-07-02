@@ -1097,18 +1097,36 @@
     }
   }
 
-  document.addEventListener('DOMContentLoaded', function(){
-    injectSkipLink();
-    injectThemeToggle();
-    injectCmdkTrigger();
-    injectHeroActions();
-    injectReadAnother();
-    enhanceStaticReadAnother();
-    recordRecent();
-    injectNamesIndexFeatures();
-    bindCmdkShortcut();
-    bindFadeIn();
-    initHeroSearch();
+  function safeCall(fn, name){
+    try{ fn(); }catch(err){
+      if(window.console && console.warn) console.warn('AsrNaam init step failed:', name, err);
+    }
+  }
+  function runAllInit(){
+    safeCall(injectSkipLink,'injectSkipLink');
+    safeCall(injectThemeToggle,'injectThemeToggle');
+    safeCall(injectCmdkTrigger,'injectCmdkTrigger');
+    safeCall(injectHeroActions,'injectHeroActions');
+    safeCall(injectReadAnother,'injectReadAnother');
+    safeCall(enhanceStaticReadAnother,'enhanceStaticReadAnother');
+    safeCall(recordRecent,'recordRecent');
+    safeCall(injectNamesIndexFeatures,'injectNamesIndexFeatures');
+    safeCall(bindCmdkShortcut,'bindCmdkShortcut');
+    safeCall(bindFadeIn,'bindFadeIn');
+    safeCall(initHeroSearch,'initHeroSearch');
+  }
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', runAllInit);
+  } else {
+    // Document already parsed. Run immediately.
+    runAllInit();
+  }
+  // Defensive re-run: if any step earlier in the chain silently failed and
+  // initHeroSearch never got to build the dropdown, retry on window.load.
+  window.addEventListener('load', function(){
+    if(!document.getElementById('asr-hero-dd') && document.getElementById('hero-search-input')){
+      safeCall(initHeroSearch, 'initHeroSearch (late)');
+    }
   });
 
   // Expose openers for any inline buttons (e.g. footer)
