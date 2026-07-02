@@ -858,7 +858,7 @@
 
   // ---- Homepage hero search: live corpus suggestions ----
   // Reuses fetchCorpus(), tieredSearch(), esc() above. Renders a dropdown below
-  // the homepage hero input (#heroName) with name (Cinzel) + Arabic script
+  // the homepage hero input (#hero-search-input) with name (Cinzel) + Arabic script
   // (small) + one-line meaning. Click → /names/<slug>/. Enter / button-click:
   //   1. exact slug or canonical-name match  → /names/<slug>/
   //   2. top fuzzy hit with dist ≤ 2          → that canonical
@@ -887,9 +887,9 @@
   }
 
   function initHeroSearch(){
-    var input = document.getElementById('heroName');
+    var input = document.getElementById('hero-search-input');
     if(!input) return;
-    var btn = document.querySelector('.hero-btn');
+    var btn = document.querySelector('.hero-search-btn');
     var row = input.parentNode;
     if(!row) return;
     row.style.position = 'relative';
