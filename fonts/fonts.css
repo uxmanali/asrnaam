@@ -90,3 +90,21 @@
   src: url('/fonts/noto-naskh-arabic-400.woff2') format('woff2');
   unicode-range: U+0600-06FF, U+0750-077F, U+FB50-FDFF, U+FE70-FEFC;
 }
+
+
+/* ============================================================
+   AsrNaam — Cyrillic + South Slavic fallback (added 2026-07-02)
+   For characters outside the subsetted Arabic/Latin-Basic ranges
+   (i.e. Cyrillic U+0400-04FF used in Chechen/Tatar/Russian names,
+   Latin Extended-A U+0100-017F used in Bosnian/Croatian names,
+   we fall through to system fonts — every modern OS has coverage.
+   No web fetch, no CDN dependency. Applied via :lang() selectors.
+   ============================================================ */
+:lang(ru), :lang(bs), :lang(hr), :lang(sr) {
+  font-family: 'Cormorant Garamond', 'Noto Sans', 'Segoe UI', 'Helvetica Neue',
+               system-ui, -apple-system, 'Arial Unicode MS', sans-serif;
+}
+.cyrillic-echo, [lang="ru"], [lang="bs"] {
+  font-family: 'Noto Sans', 'Segoe UI', system-ui, -apple-system,
+               'Helvetica Neue', 'Arial Unicode MS', sans-serif;
+}
