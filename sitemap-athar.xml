@@ -2,117 +2,317 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://asrnaam.com/athar/</loc>
-    <lastmod>2026-07-02</lastmod>
+    <lastmod>2026-07-03</lastmod>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://asrnaam.com/athar/abu-bakr-al-siddiq/</loc>
-    <lastmod>2026-07-02</lastmod>
+    <loc>https://asrnaam.com/athar/uthman-ibn-affan/</loc>
+    <lastmod>2026-07-03</lastmod>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://asrnaam.com/athar/abu-bakr-al-siddiq/the-day-the-arabs-came-apart/</loc>
-    <lastmod>2026-07-02</lastmod>
+    <loc>https://asrnaam.com/athar/hamza-ibn-abdul-muttalib/</loc>
+    <lastmod>2026-07-03</lastmod>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://asrnaam.com/athar/abu-bakr-al-siddiq/the-three-nights-in-the-cave/</loc>
-    <lastmod>2026-07-02</lastmod>
+    <loc>https://asrnaam.com/athar/bilal-ibn-rabah/</loc>
+    <lastmod>2026-07-03</lastmod>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://asrnaam.com/athar/ali-ibn-abi-talib/</loc>
-    <lastmod>2026-07-02</lastmod>
+    <loc>https://asrnaam.com/athar/khadijah-bint-khuwaylid/</loc>
+    <lastmod>2026-07-03</lastmod>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://asrnaam.com/athar/ali-ibn-abi-talib/the-gate-of-khaybar/</loc>
-    <lastmod>2026-07-02</lastmod>
+    <loc>https://asrnaam.com/athar/fatimah-az-zahra/</loc>
+    <lastmod>2026-07-03</lastmod>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://asrnaam.com/athar/ali-ibn-abi-talib/the-night-of-the-bed/</loc>
-    <lastmod>2026-07-02</lastmod>
+    <loc>https://asrnaam.com/athar/aisha-bint-abi-bakr/</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/athar/husayn-ibn-ali/</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/athar/jafar-ibn-abi-talib/</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/athar/sad-ibn-abi-waqqas/</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/athar/amr-ibn-al-as/</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/athar/musa-ibn-nusayr/</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/athar/nur-ad-din-zangi/</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/athar/muhammad-al-fatih/</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/athar/yusuf-ibn-tashfin/</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/athar/suleiman-the-magnificent/</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/athar/rabia-al-adawiyya/</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/athar/fatima-al-fihriyah/</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/athar/al-khansa/</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/athar/ertugrul/</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/athar/aurangzeb-alamgir/</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/athar/uthman-ibn-affan/the-well-of-rumah/</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/athar/hamza-ibn-abdul-muttalib/the-day-hamza-accepted-islam/</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/athar/bilal-ibn-rabah/ahad-ahad/</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/athar/khadijah-bint-khuwaylid/the-proposal-and-the-cloak/</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/athar/fatimah-az-zahra/the-tasbih-of-fatima/</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/athar/aisha-bint-abi-bakr/the-month-of-the-ifk/</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/athar/husayn-ibn-ali/the-tenth-of-muharram/</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/athar/jafar-ibn-abi-talib/before-the-negus/</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/athar/sad-ibn-abi-waqqas/qadisiyya-the-four-days-that-broke-persia/</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/athar/amr-ibn-al-as/egypt-in-a-single-winter/</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/athar/musa-ibn-nusayr/the-governor-who-sent-tariq/</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/athar/nur-ad-din-zangi/the-just-sultan-who-prepared-salahuddin/</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/athar/muhammad-al-fatih/the-walls-of-constantinople/</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/athar/yusuf-ibn-tashfin/zallaqa-the-day-the-reconquista-stopped/</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/athar/suleiman-the-magnificent/the-lawgivers-court/</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/athar/rabia-al-adawiyya/the-torch-and-the-water/</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/athar/fatima-al-fihriyah/the-inheritance-and-the-university/</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/athar/al-khansa/four-sons-at-qadisiyya/</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/athar/ertugrul/the-frontier-tent-at-sogut/</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/athar/aurangzeb-alamgir/forty-nine-years-and-a-cap/</loc>
+    <lastmod>2026-07-03</lastmod>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://asrnaam.com/athar/khalid-ibn-al-waleed/</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://asrnaam.com/athar/khalid-ibn-al-waleed/mutah-and-the-nine-swords/</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://asrnaam.com/athar/khalid-ibn-al-waleed/the-march-through-the-desert/</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://asrnaam.com/athar/khalid-ibn-al-waleed/yamama-and-the-false-prophet/</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://asrnaam.com/athar/nusaybah-bint-kaab/</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://asrnaam.com/athar/nusaybah-bint-kaab/the-hand-she-left-at-yamama/</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://asrnaam.com/athar/nusaybah-bint-kaab/the-shield-at-uhud/</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://asrnaam.com/athar/salahuddin-al-ayyubi/</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://asrnaam.com/athar/salahuddin-al-ayyubi/the-day-jerusalem-was-not-a-massacre/</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://asrnaam.com/athar/salahuddin-al-ayyubi/the-snow-for-richards-fever/</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://asrnaam.com/athar/tariq-ibn-ziyad/</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://asrnaam.com/athar/tariq-ibn-ziyad/the-day-he-burned-the-boats/</loc>
-    <lastmod>2026-07-02</lastmod>
+    <lastmod>2026-07-03</lastmod>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://asrnaam.com/athar/umar-ibn-al-khattab/</loc>
-    <lastmod>2026-07-02</lastmod>
+    <lastmod>2026-07-03</lastmod>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://asrnaam.com/athar/umar-ibn-al-khattab/the-day-he-set-out-with-a-drawn-sword/</loc>
-    <lastmod>2026-07-02</lastmod>
+    <loc>https://asrnaam.com/athar/ali-ibn-abi-talib/</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/athar/salahuddin-al-ayyubi/</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/athar/nusaybah-bint-kaab/</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/athar/abu-bakr-al-siddiq/</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/athar/tariq-ibn-ziyad/</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/athar/nusaybah-bint-kaab/the-shield-at-uhud/</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/athar/nusaybah-bint-kaab/the-hand-she-left-at-yamama/</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/athar/ali-ibn-abi-talib/the-gate-of-khaybar/</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/athar/ali-ibn-abi-talib/the-night-of-the-bed/</loc>
+    <lastmod>2026-07-03</lastmod>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://asrnaam.com/athar/umar-ibn-al-khattab/the-judgment-of-the-egyptian-boy/</loc>
-    <lastmod>2026-07-02</lastmod>
+    <lastmod>2026-07-03</lastmod>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://asrnaam.com/athar/umar-ibn-al-khattab/the-year-of-the-ashes/</loc>
-    <lastmod>2026-07-02</lastmod>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/athar/umar-ibn-al-khattab/the-day-he-set-out-with-a-drawn-sword/</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/athar/abu-bakr-al-siddiq/the-three-nights-in-the-cave/</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/athar/abu-bakr-al-siddiq/the-day-the-arabs-came-apart/</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/athar/salahuddin-al-ayyubi/the-snow-for-richards-fever/</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/athar/salahuddin-al-ayyubi/the-day-jerusalem-was-not-a-massacre/</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/athar/khalid-ibn-al-waleed/yamama-and-the-false-prophet/</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/athar/khalid-ibn-al-waleed/mutah-and-the-nine-swords/</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/athar/khalid-ibn-al-waleed/the-march-through-the-desert/</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://asrnaam.com/athar/tariq-ibn-ziyad/the-day-he-burned-the-boats/</loc>
+    <lastmod>2026-07-03</lastmod>
     <changefreq>monthly</changefreq>
   </url>
 </urlset>
