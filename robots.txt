@@ -102,6 +102,12 @@ User-agent: MJ12bot
 Disallow: /
 
 Sitemap: https://asrnaam.com/sitemap.xml
+Sitemap: https://asrnaam.com/sitemap-canonicals.xml
+Sitemap: https://asrnaam.com/sitemap-ar.xml
+Sitemap: https://asrnaam.com/sitemap-ur.xml
+Sitemap: https://asrnaam.com/sitemap-letters.xml
+Sitemap: https://asrnaam.com/sitemap-blog-meta.xml
+Sitemap: https://asrnaam.com/sitemap-athar.xml
 
 # IPA phonetic strings accidentally exposed as URLs. Not real pages.
 Disallow: /ˈraj.jaːn/
