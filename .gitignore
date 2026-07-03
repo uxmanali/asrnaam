@@ -4,3 +4,7 @@ c1_gen.py
 c1_runner.py
 batch_*.py
 __pycache__/
+
+# build tooling should not be shipped to Pages
+*.py
+.deploy-token
