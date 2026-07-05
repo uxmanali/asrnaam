@@ -108,6 +108,7 @@ Sitemap: https://asrnaam.com/sitemap-ur.xml
 Sitemap: https://asrnaam.com/sitemap-letters.xml
 Sitemap: https://asrnaam.com/sitemap-blog-meta.xml
 Sitemap: https://asrnaam.com/sitemap-athar.xml
+Sitemap: https://asrnaam.com/sitemap-basaair.xml
 
 # IPA phonetic strings accidentally exposed as URLs. Not real pages.
 Disallow: /ˈraj.jaːn/
