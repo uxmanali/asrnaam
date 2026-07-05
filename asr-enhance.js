@@ -899,7 +899,7 @@
       var st = document.createElement('style');
       st.id = 'asr-hero-dd-style';
       st.textContent = [
-        '#asr-hero-dd{position:absolute;top:100%;left:0;right:0;background:#fff;border:1px solid rgba(139,105,20,0.25);border-top:none;border-radius:0 0 6px 6px;box-shadow:0 12px 28px rgba(0,0,0,0.14);max-height:380px;overflow-y:auto;z-index:50;display:none;margin-top:0;text-align:left;}',
+        '#asr-hero-dd{position:absolute;top:100%;left:0;right:0;background:#fff;border:1px solid rgba(139,105,20,0.25);border-top:none;border-radius:0 0 6px 6px;box-shadow:0 12px 28px rgba(0,0,0,0.14);max-height:min(380px,calc(100vh - var(--asr-dd-anchor,660px) - 20px));overflow-y:auto;z-index:9999;display:none;margin-top:0;text-align:left;}',
         '#asr-hero-dd .ahero-item{display:block;padding:.75rem 1rem;color:#2C2C2C;text-decoration:none;border-bottom:1px solid rgba(139,105,20,0.10);cursor:pointer;}',
         '#asr-hero-dd .ahero-item:last-child{border-bottom:none;}',
         '#asr-hero-dd .ahero-item:hover,#asr-hero-dd .ahero-item.ahero-active{background:rgba(139,105,20,0.07);}',
@@ -911,7 +911,7 @@
         '#asr-hero-dd .ahero-cta strong{display:block;font-family:"Cinzel",serif;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:#8B6914;margin-bottom:.25rem;font-weight:600;}',
         '#asr-hero-dd .ahero-cta strong span{font-style:italic;text-transform:capitalize;letter-spacing:.02em;}',
         '#asr-hero-dd .ahero-cta-sub{display:block;font-size:.8rem;color:#6B6B6B;font-style:italic;line-height:1.45;}',
-        '@media(max-width:560px){#asr-hero-dd{position:fixed;top:auto;left:12px;right:12px;max-height:60vh;border-radius:6px;border:1px solid rgba(139,105,20,0.25);} }',
+        '@media(max-width:560px){#asr-hero-dd{position:fixed;top:auto;bottom:20px;left:12px;right:12px;max-height:min(60vh,420px);border-radius:6px;border:1px solid rgba(139,105,20,0.25);box-shadow:0 20px 48px rgba(0,0,0,0.28);z-index:9999;} }',
         '@media(prefers-color-scheme:dark){#asr-hero-dd{background:#1f1f1f;border-color:#3a3a3a;}#asr-hero-dd .ahero-item{border-color:#3a3a3a;color:#e8e2d4;}#asr-hero-dd .ahero-item:hover,#asr-hero-dd .ahero-item.ahero-active{background:#2a2a2a;}#asr-hero-dd .ahero-name{color:#f5efe3;}#asr-hero-dd .ahero-ar{color:#d4b86a;}#asr-hero-dd .ahero-meaning{color:#b6b0a2;}#asr-hero-dd .ahero-cta{background:rgba(212,184,106,.08);color:#d4b86a;border-color:rgba(212,184,106,.35);}#asr-hero-dd .ahero-cta strong{color:#d4b86a;}#asr-hero-dd .ahero-cta-sub{color:#b6b0a2;}}'
       ].join('\n');
       document.head.appendChild(st);
@@ -951,6 +951,13 @@
         // Only show CTA when no real matches exist.
         dd.innerHTML = ctaRow(q, true);
         dd.style.display = 'block';
+        try {
+          var ddRectC = dd.getBoundingClientRect();
+          var vhC = window.innerHeight || document.documentElement.clientHeight;
+          if(ddRectC.bottom > vhC - 12){
+            window.scrollBy({top: ddRectC.bottom - (vhC - 20), behavior: 'smooth'});
+          }
+        } catch(e) {}
         var ctaEl = dd.querySelector('.ahero-cta');
         if(ctaEl){ input.setAttribute('aria-activedescendant', ctaEl.id || 'ahero-o0'); }
         return;
@@ -969,6 +976,19 @@
       }).join('');
       dd.innerHTML = html;
       dd.style.display = 'block';
+      // Compute anchor for dynamic max-height & scroll into view if cut off
+      try {
+        var inputRect = input.getBoundingClientRect();
+        var anchorPx = Math.round(inputRect.bottom + window.scrollY - window.scrollY);
+        dd.style.setProperty('--asr-dd-anchor', anchorPx + 'px');
+        var ddRect = dd.getBoundingClientRect();
+        var vh = window.innerHeight || document.documentElement.clientHeight;
+        // If dropdown extends below the viewport, scroll to bring it into view
+        if(ddRect.bottom > vh - 12){
+          var scrollBy = Math.min(ddRect.bottom - (vh - 20), inputRect.top - 12);
+          window.scrollBy({top: scrollBy, behavior: 'smooth'});
+        }
+      } catch(e) {}
     }
 
     function setActive(i){
