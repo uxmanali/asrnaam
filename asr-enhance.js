@@ -899,7 +899,7 @@
       var st = document.createElement('style');
       st.id = 'asr-hero-dd-style';
       st.textContent = [
-        '#asr-hero-dd{position:absolute;top:100%;left:0;right:0;background:#fff;border:1px solid rgba(139,105,20,0.25);border-top:none;border-radius:0 0 6px 6px;box-shadow:0 12px 28px rgba(0,0,0,0.14);max-height:min(380px,calc(100vh - var(--asr-dd-anchor,660px) - 20px));overflow-y:auto;z-index:9999;display:none;margin-top:0;text-align:left;}',
+        '#asr-hero-dd{position:absolute;top:100%;left:0;right:0;background:#fff;border:1px solid rgba(139,105,20,0.25);border-top:none;border-radius:0 0 6px 6px;box-shadow:0 12px 28px rgba(0,0,0,0.14);max-height:380px;overflow-y:auto;z-index:9999;display:none;margin-top:0;text-align:left;}',
         '#asr-hero-dd .ahero-item{display:block;padding:.75rem 1rem;color:#2C2C2C;text-decoration:none;border-bottom:1px solid rgba(139,105,20,0.10);cursor:pointer;}',
         '#asr-hero-dd .ahero-item:last-child{border-bottom:none;}',
         '#asr-hero-dd .ahero-item:hover,#asr-hero-dd .ahero-item.ahero-active{background:rgba(139,105,20,0.07);}',
