@@ -72,6 +72,8 @@ aside.related-names ul{list-style:none;padding:0;margin:0;display:flex;flex-wrap
 footer{max-width:760px;margin:0 auto;padding:2.4rem 2rem 4rem;border-top:1px solid var(--border);text-align:center;font-size:.85rem;color:var(--text-secondary);}
 footer a{color:var(--gold);border:none;margin:0 .8rem;}
 </style>
+<script defer src="/asr-matcher.js?v=202607051800"></script>
+<script defer src="/asr-enhance.js?v=202607051800"></script>
 </head>
 <body>
 <nav><a href="/" class="nav-logo">Asr<span>Naam</span></a></nav>
@@ -165,9 +167,26 @@ footer a{color:var(--gold);border:none;margin:0 .8rem;}
 </aside>
 
 </main>
-<footer>
-<p>© 2026 AsrNaam. Names are meant to be lived, not just labelled.</p>
-<p style="margin-top:.8rem"><a href="/">Home</a> <a href="/names/">Names</a> <a href="/letters/">Letters</a> <a href="/blog/">Blog</a> <a href="/aathaar/">Aathaar</a></p>
+<footer role="contentinfo" style="max-width:760px;margin:0 auto;padding:2.4rem 2rem 4rem;border-top:1px solid #E8E2D4;text-align:center;font-size:.86rem;color:#5C5C5C;">
+<p style="margin-bottom:1rem;font-family:'Cinzel',serif;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:#8B6914;font-weight:600;">AsrNaam</p>
+<p style="margin-bottom:1.4rem;font-style:italic;">Names are meant to be lived, not just labelled.</p>
+<nav aria-label="Footer" style="margin-bottom:1.4rem;line-height:2;">
+<a href="/" style="color:#8B6914;text-decoration:none;margin:0 .6rem;border:none;">Home</a> ·
+<a href="/names/" style="color:#8B6914;text-decoration:none;margin:0 .6rem;border:none;">Names</a> ·
+<a href="/letters/" style="color:#8B6914;text-decoration:none;margin:0 .6rem;border:none;">Letters</a> ·
+<a href="/blog/" style="color:#8B6914;text-decoration:none;margin:0 .6rem;border:none;">Blog</a> ·
+<a href="/aathaar/" style="color:#8B6914;text-decoration:none;margin:0 .6rem;border:none;">Aathaar</a> ·
+<a href="/basaair/" style="color:#8B6914;text-decoration:none;margin:0 .6rem;border:none;">Basaair</a>
+</nav>
+<nav aria-label="Legal" style="margin-bottom:1rem;font-size:.82rem;line-height:2;">
+<a href="/about/" style="color:#5C5C5C;text-decoration:none;margin:0 .5rem;border:none;">About</a> ·
+<a href="/contact/" style="color:#5C5C5C;text-decoration:none;margin:0 .5rem;border:none;">Contact</a> ·
+<a href="/privacy/" style="color:#5C5C5C;text-decoration:none;margin:0 .5rem;border:none;">Privacy</a> ·
+<a href="/terms/" style="color:#5C5C5C;text-decoration:none;margin:0 .5rem;border:none;">Terms</a>
+</nav>
+<p style="font-size:.78rem;color:#8a8a8a;margin-top:1.4rem;">© <span class="asr-year">2026</span> AsrNaam · Puppis PTY LTD · ABN 40 658 970 640</p>
+<p style="font-size:.75rem;color:#a0a0a0;margin-top:.4rem;font-style:italic;">Inspired by Ibn Arabi and the scholars of Ilm ul Huroof.</p>
+<script>(function(){var yrs=document.querySelectorAll(".asr-year");var y=new Date().getFullYear();yrs.forEach(function(e){e.textContent=y;});})();</script>
 </footer>
 </body>
 </html>
