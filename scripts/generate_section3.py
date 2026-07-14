@@ -252,12 +252,14 @@ CLOSE_VARIANTS = {
     ],
 }
 
-def _pick_close(pattern, name, letters=""):
+def _pick_close(pattern, name, letters="", slug=""):
     variants = CLOSE_VARIANTS.get(pattern, ["A person named {name} carries this reading in a way only they can."])
-    # Mix name + Arabic letter sequence into a position-weighted hash so anagrams,
-    # permutations, or same-pattern-but-different-name pages diverge.
+    # Mix slug + name + Arabic letter sequence into a position-weighted hash so
+    # anagrams, permutations, same-pattern-different-name, and same-name-different-
+    # slug pages diverge. Slug is the strongest disambiguator when two records
+    # share the same roman name (e.g. two "Moosa" slugs).
     seed = 0
-    src = name + "|" + "".join(letters)
+    src = (slug or "") + "||" + name + "|" + "".join(letters)
     for c in src:
         seed = (seed * 131 + ord(c)) & 0xFFFFFFF
     return variants[seed % len(variants)]
@@ -341,7 +343,7 @@ def divine_name_key(arabic_char: str) -> str:
     return phrase.split(",")[0]
 
 
-def synthesize(name: str, letters: List[str]) -> Optional[str]:
+def synthesize(name: str, letters: List[str], slug: str = "") -> Optional[str]:
     if not letters or len(letters) < 2:
         return None
     pattern, _ = element_distribution(letters)
@@ -361,20 +363,18 @@ def synthesize(name: str, letters: List[str]) -> Optional[str]:
         name=name,
         anchor1_phrase=anchor1_phrase,
         anchor1_quality=anchor1_quality,
-        close=_pick_close(pattern, name, letters).format(name=name),
+        close=_pick_close(pattern, name, letters, slug=slug).format(name=name),
     )
     if "{anchor2_phrase}" in tpl:
         if len(anchors) < 2:
-            # collapse to a single-anchor variant by dropping the joined clause
-            tpl = re.sub(r", joined by \{anchor2_phrase\} adding \{anchor2_quality\}", "", tpl)
-            tpl = re.sub(r", softened by \{anchor2_phrase\} carried as \{anchor2_quality\}", "", tpl)
+            # collapse to a single-anchor variant by dropping any joined clause
+            tpl = re.sub(r",\s*(?:joined by|softened by|and beside it)\s+\{anchor2_phrase\}[^.]*?\{anchor2_quality\}", "", tpl)
         else:
             anchor2_char = anchors[1]
             slots["anchor2_phrase"] = ARABIC_TO_DIVINE_PHRASE.get(anchor2_char, "")
             slots["anchor2_quality"] = DIVINE_TO_QUALITY.get(divine_name_key(anchor2_char), "")
             if not (slots["anchor2_phrase"] and slots["anchor2_quality"]):
-                tpl = re.sub(r", joined by \{anchor2_phrase\} adding \{anchor2_quality\}", "", tpl)
-                tpl = re.sub(r", softened by \{anchor2_phrase\} carried as \{anchor2_quality\}", "", tpl)
+                tpl = re.sub(r",\s*(?:joined by|softened by|and beside it)\s+\{anchor2_phrase\}[^.]*?\{anchor2_quality\}", "", tpl)
                 slots.pop("anchor2_phrase", None)
                 slots.pop("anchor2_quality", None)
     prose = tpl.format(**slots)
@@ -383,12 +383,12 @@ def synthesize(name: str, letters: List[str]) -> Optional[str]:
     return prose
 
 
-def apply_synthesis(html: str) -> Optional[str]:
+def apply_synthesis(html: str, slug: str = "") -> Optional[str]:
     name = extract_roman_name(html)
     letters = extract_arabic_letters(html)
     if not name or not letters:
         return None
-    prose = synthesize(name, letters)
+    prose = synthesize(name, letters, slug=slug)
     if not prose:
         return None
     block_inner = f'\n<div class="prose asr-v2-synthesis-prose"><p>{prose}</p></div>\n'
@@ -412,7 +412,7 @@ def process_slug(slug: str) -> str:
     if not en_path.exists():
         return "no page"
     html = en_path.read_text(encoding="utf-8")
-    new_html = apply_synthesis(html)
+    new_html = apply_synthesis(html, slug=slug)
     if new_html is None:
         with SKIP_LOG.open("a", encoding="utf-8") as f:
             f.write(f"{slug}\n")
