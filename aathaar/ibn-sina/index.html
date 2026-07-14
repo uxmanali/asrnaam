@@ -38,7 +38,38 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", "p.lede"]}}</script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-:root{--gold:#8B6914;--charcoal:#2A2A2A;--warm-white:#FAFAF8;--warm-mid:#F2EFE8;--text-secondary:#6B6B6B;--border:#E8E2D4;}
+:root{--gold:#8B6914;--charcoal:#2A2A2A;--warm-white:#FAFAF8;--warm-mid:#F2EFE8;--text-secondary:#6B6B6B;--border:#E8E2D4;}/*NM2026-07-14*/
+@media (prefers-color-scheme: dark){
+:root{--warm-white:#1a1a1a;--charcoal:#e8e0d4;--warm-mid:#242322;--text-secondary:#bfb6a8;--border:#3a3935;--gold:#d4af6c;}
+html,body{background:#1a1a1a !important;color:#e8e0d4 !important;}
+nav{background:#1a1a1a !important;border-bottom-color:#3a3935 !important;}
+a{color:#d4af6c !important;}
+.nav-logo, .nav-logo span{color:#d4af6c !important;}
+h1,h2,h3,h4,h5,h6{color:#f5ede0 !important;}
+h3{color:#d4af6c !important;}
+.eyebrow, .byline, .lede, .breadcrumb, .breadcrumb a{color:#bfb6a8 !important;}
+.arabic-name{color:#d4af6c !important;}
+.pull-quote{background:#242322 !important;color:#f5ede0 !important;border-left-color:#a83a3a !important;}
+.callout{background:#242322 !important;border-color:#3a3935 !important;color:#e8e0d4 !important;}
+.callout strong{color:#d4af6c !important;}
+blockquote{color:#bfb6a8 !important;border-left-color:#d4af6c !important;}
+.hero-card{background:#242322 !important;border-color:#3a3935 !important;}
+.hero-card:hover{background:#2e2c28 !important;}
+.hero-card h3{color:#f5ede0 !important;}
+.hero-card .years{color:#d4af6c !important;}
+.hero-card .blurb{color:#bfb6a8 !important;}
+.story-card{background:#242322 !important;border-color:#3a3935 !important;}
+.story-card:hover{background:#2e2c28 !important;}
+.story-card h4{color:#f5ede0 !important;}
+.story-card p{color:#bfb6a8 !important;}
+.related-nav{background:#242322 !important;border-top-color:#3a3935 !important;}
+.related-nav h2{color:#d4af6c !important;}
+footer{background:#0f0f0f !important;color:rgba(232,224,212,0.72) !important;}
+footer a{color:#d4af6c !important;}
+p,li{color:#e8e0d4;}
+strong{color:#f5ede0;}
+}
+
 body{font-family:'Cormorant Garamond',Georgia,serif;background:var(--warm-white);color:var(--charcoal);line-height:1.75;}
 a{color:var(--gold);border-bottom:1px dotted rgba(139,105,20,.35);text-decoration:none;}
 a:hover{color:#6B4F10;}

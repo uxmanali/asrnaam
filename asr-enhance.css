@@ -1336,3 +1336,100 @@ html[data-theme='dark'] .step-num {
 .letter-cluster { contain-intrinsic-size: auto 220px; }
 .related-section.shared-section { contain-intrinsic-size: auto 260px; }
 .faq-section { contain-intrinsic-size: auto 380px; }
+
+
+/* ============================================================
+   PREFERS-COLOR-SCHEME DARK MIRROR (2026-07-14 nm-hard-fix)
+   ============================================================
+   The site's dark-mode overrides live behind html[data-theme='dark'].
+   That attribute is set by asr-enhance.js which:
+     - Reads localStorage saved theme; if 'dark' -> applies
+     - Else reads matchMedia('(prefers-color-scheme:dark)'); if true -> applies
+   Pages that (a) load asr-enhance.css but skip asr-enhance.js, or (b) render
+   before the JS runs, will not get the dark treatment via the attribute.
+   
+   This block mirrors the critical dark-mode rules under an explicit
+   @media (prefers-color-scheme: dark) so a user's OS dark-mode preference
+   is honored even without JS. Contrast targets: body 4.5:1 minimum,
+   large text 3:1 (WCAG AA), body target 13.30:1 on #1a1a1a bg.
+   ============================================================ */
+
+@media (prefers-color-scheme: dark) {
+  html, body { background:#1a1a1a; color:#e8e0d4; }
+  html { color-scheme: dark; }
+  
+  /* Sitewide sections */
+  nav, .asr-site-header { background:rgba(26,26,26,0.94) !important; border-bottom-color:#3a3935 !important; }
+  .nav-links a, .asr-site-header .nav-links a { color:#e8e0d4 !important; }
+  .nav-links a:hover, .asr-site-header .nav-links a:hover { color:#d4af6c !important; }
+  .nav-brand, .nav-brand span, .asr-site-header .nav-brand { color:#d4af6c !important; }
+  .nav-browse, .nav-cta { color:#d4af6c !important; }
+  
+  /* Headings */
+  h1, .hero-title { color:#f5ede0 !important; }
+  h2, h3, .section-heading { color:#d4af6c !important; }
+  
+  /* Hero */
+  .hero { background:#1a1a1a !important; }
+  .hero-eyebrow, .hero-arabic, .hero-title em { color:#d4af6c !important; }
+  .hero-sub { color:#e8e0d4 !important; }
+  .hero-search-input, .hero-input { background:#242322 !important; color:#e8e0d4 !important; border-color:#3a3935 !important; }
+  .hero-search-input::placeholder, .hero-input::placeholder { color:rgba(191,182,168,0.55) !important; -webkit-text-fill-color:rgba(191,182,168,0.55) !important; }
+  .hero-search-help, .hero-input-note { color:#bfb6a8 !important; }
+  .hero-scroll-link, .hero-random-btn { color:#d4af6c !important; border-color:rgba(212,175,108,0.4) !important; }
+  
+  /* Section backgrounds — homepage sections */
+  .how { background:#1f1e1d !important; border-top-color:#3a3935 !important; border-bottom-color:#3a3935 !important; }
+  .step { background:#1f1e1d !important; color:#e8e0d4 !important; }
+  .step:hover { background:#26241f !important; }
+  .step-text { color:#e8e0d4 !important; }
+  .step-title, .step-num, .step-arabic { color:#d4af6c !important; }
+  .voices { background:#1f1e1d !important; }
+  .voice-card { background:#242322 !important; border-color:#3a3935 !important; color:#e8e0d4 !important; }
+  .voice-card cite { color:#d4af6c !important; }
+  .explore { background:#1a1a1a !important; }
+  .explore-card, .explore-card-blog { background:#242322 !important; color:#e8e0d4 !important; }
+  .explore-card h3 { color:#f5ede0 !important; }
+  .explore-card p { color:#bfb6a8 !important; }
+  .explore-grid { background:rgba(212,175,108,0.15) !important; }
+  
+  /* Name page cards */
+  .lcard { background:#242322 !important; border-color:#3a3935 !important; color:#e8e0d4 !important; }
+  .r-section { background:#242322 !important; border-left-color:rgba(212,175,108,0.35) !important; color:#e8e0d4 !important; }
+  .disclaimer { background:#242322 !important; border-color:#3a3935 !important; color:#bfb6a8 !important; }
+  .muq-cell { background:#242322 !important; color:#e8e0d4 !important; }
+  .muq-cell:hover { background:#2e2c28 !important; }
+  .letter-cluster .lc-card { background:#242322 !important; border-color:#3a3935 !important; color:#e8e0d4 !important; }
+  .letter-cluster .lc-card:hover { background:#2e2c28 !important; color:#d4af6c !important; border-color:#d4af6c !important; }
+  
+  /* Text colors */
+  .section-heading, .section-heading em, .section-tag { color:#d4af6c !important; }
+  .section-sub { color:#bfb6a8 !important; }
+  main p, .prose p, p.step-text, p.section-sub, p.hero-sub, p.lede, p.letters-intro, p.related-intro, p.spellings-intro { color:#e8e0d4 !important; }
+  
+  /* Letter pages */
+  .letter-nav { background:#1a1a1a !important; border-bottom-color:#3a3935 !important; }
+  .nav-letter { color:#e8e0d4 !important; }
+  .nav-letter:hover { background:#d4a84a !important; color:#1a1a1a !important; }
+  
+  /* Site nav */
+  .site-nav a { color:#a8a39a !important; }
+  .site-nav a:hover { color:#d4af6c !important; }
+  
+  /* Blog / aathaar shared */
+  .arabic-name { color:#d4af6c !important; }
+  .eyebrow, .byline, .lede, .breadcrumb, .breadcrumb a { color:#bfb6a8 !important; }
+  .pull-quote { background:#242322 !important; color:#f5ede0 !important; }
+  .callout { background:#242322 !important; border-color:#3a3935 !important; color:#e8e0d4 !important; }
+  .callout strong { color:#d4af6c !important; }
+  blockquote { color:#bfb6a8 !important; border-left-color:#d4af6c !important; }
+  .hero-card { background:#242322 !important; border-color:#3a3935 !important; }
+  .hero-card h3 { color:#f5ede0 !important; }
+  .hero-card .years { color:#d4af6c !important; }
+  .hero-card .blurb { color:#bfb6a8 !important; }
+  .story-card { background:#242322 !important; border-color:#3a3935 !important; }
+  .story-card h4 { color:#f5ede0 !important; }
+  .story-card p { color:#bfb6a8 !important; }
+  .related-nav { background:#242322 !important; border-top-color:#3a3935 !important; }
+  .related-nav h2 { color:#d4af6c !important; }
+}

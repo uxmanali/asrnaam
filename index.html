@@ -173,10 +173,10 @@
   }
 
   *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-  html { background:#FAFAF8 !important; scroll-behavior:smooth; }
+  html { background:#FAFAF8; scroll-behavior:smooth; }
 
   body {
-    background:#FAFAF8 !important;
+    background:#FAFAF8;
     color:#111010;
     font-family:'Cormorant Garamond',serif;
     font-size:18px;
@@ -695,6 +695,58 @@
     .explore-grid{grid-template-columns:1fr;}
     .explore-card{padding:36px 28px;}
   }
+
+  /* ============================================================
+     NIGHT MODE OVERRIDES (2026-07-14 rebuild)
+     Fix: page-level section backgrounds & hardcoded light colors
+     that had no dark counterpart. Uses prefers-color-scheme so it
+     fires with or without the JS theme toggle.
+     Target: WCAG AA 4.5:1 minimum for body text.
+     ============================================================ */
+  @media (prefers-color-scheme: dark) {
+    html, body { background:#1a1a1a !important; color:#e8e0d4 !important; }
+    nav { background:rgba(26,26,26,0.94) !important; border-bottom-color:#3a3935 !important; }
+    .nav-links a { color:#e8e0d4 !important; }
+    .nav-links a:hover { color:#d4af6c !important; }
+    .nav-browse, .nav-cta { color:#d4af6c !important; border-color:rgba(212,175,108,0.4) !important; }
+    .nav-sep { background:rgba(212,175,108,0.25) !important; }
+    .hero { background:#1a1a1a !important; }
+    .hero-title { color:#f5ede0 !important; }
+    .hero-title em, .hero-arabic, .hero-eyebrow { color:#d4af6c !important; }
+    .hero-sub { color:#e8e0d4 !important; }
+    .hero-search-input { background:#242322 !important; color:#e8e0d4 !important; border-color:#3a3935 !important; }
+    .hero-search-input::placeholder { color:rgba(191,182,168,0.55) !important; -webkit-text-fill-color:rgba(191,182,168,0.55) !important; }
+    .hero-search-help { color:#bfb6a8 !important; }
+    .hero-input { background:#242322 !important; color:#e8e0d4 !important; border-color:#3a3935 !important; }
+    .hero-input::placeholder { color:rgba(191,182,168,0.5) !important; -webkit-text-fill-color:rgba(191,182,168,0.5) !important; }
+    .hero-input-note { color:#bfb6a8 !important; }
+    .hero-scroll-link, .hero-random-btn { color:#d4af6c !important; border-color:rgba(212,175,108,0.4) !important; }
+    .example-dot-btn { background:rgba(212,175,108,0.28) !important; }
+    .example-dot-btn.is-active { background:#d4af6c !important; }
+    .how { background:#1f1e1d !important; border-top-color:#3a3935 !important; border-bottom-color:#3a3935 !important; }
+    .step { background:#1f1e1d !important; }
+    .step:hover { background:#26241f !important; }
+    .step-text { color:#e8e0d4 !important; }
+    .step-title, .step-num, .step-arabic { color:#d4af6c !important; }
+    .voices { background:#1f1e1d !important; border-bottom-color:#3a3935 !important; }
+    .voice-card { background:#242322 !important; border-color:#3a3935 !important; border-top-color:rgba(212,175,108,0.5) !important; color:#e8e0d4 !important; }
+    .voice-card * { color:#e8e0d4; }
+    .voice-card .voice-title, .voice-card cite { color:#d4af6c !important; }
+    .explore { background:#1a1a1a !important; border-bottom-color:#3a3935 !important; }
+    .explore-grid { background:rgba(212,175,108,0.15) !important; }
+    .explore-card, .explore-card-blog { background:#242322 !important; color:#e8e0d4 !important; }
+    .explore-card h3, .explore-card .explore-title { color:#f5ede0 !important; }
+    .explore-card p, .explore-card .explore-desc { color:#bfb6a8 !important; }
+    .lcard { background:#242322 !important; border-color:#3a3935 !important; color:#e8e0d4 !important; }
+    .r-section { background:#242322 !important; border-left-color:rgba(212,175,108,0.35) !important; color:#e8e0d4 !important; }
+    .disclaimer { background:#242322 !important; border-color:#3a3935 !important; color:#bfb6a8 !important; }
+    .muq-cell { background:#242322 !important; color:#e8e0d4 !important; }
+    .muq-cell:hover { background:#2e2c28 !important; }
+    .section-heading, .section-heading em, .section-tag { color:#d4af6c !important; }
+    .section-sub { color:#bfb6a8 !important; }
+    .steps { background:rgba(212,175,108,0.12) !important; }
+  }
+
 </style>
 
 <link rel="stylesheet" href="/asr-enhance.css" media="print" onload="this.media='all'"/>
