@@ -2,7 +2,7 @@
 Scanned: 2368 pages
 
 ## Totals per category
-- **geo_gloss**: 2
+- **geo_gloss**: 1
 - **stub_phrase**: 0
 - **short_dict**: 462
 - **tautology**: 0
@@ -10,9 +10,8 @@ Scanned: 2368 pages
 - **missing_marker**: 337
 - **qfacts_meaning_geo**: 4
 
-## geo_gloss (2)
+## geo_gloss (1)
 
-- `asia` (Asia): {"origin": "Arabic", "sample": "Asia, the continent, used as a girls name across multiple Muslim communities. In Turkey, Asya is a common girls name (Asia). In the Arab world, Asia is used particularly in North Africa and the Levant"}
 - `derya` (Derya): {"origin": "Persian", "sample": "Ocean, sea, from Persian/Turkish \u062f\u0631\u064a\u0627 (Derya/Darya, the sea, the ocean). The sea in Islamic tradition is one of the most powerful symbols of divine abundance: 'And if all the trees on earth were pens "}
 
 ## stub_phrase (0)

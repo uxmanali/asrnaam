@@ -1,6 +1,6 @@
 {
   "totals": {
-    "geo_gloss": 2,
+    "geo_gloss": 1,
     "stub_phrase": 0,
     "short_dict": 462,
     "tautology": 0,
@@ -10,12 +10,6 @@
   },
   "flags": {
     "geo_gloss": [
-      {
-        "slug": "asia",
-        "n": "Asia",
-        "origin": "Arabic",
-        "sample": "Asia, the continent, used as a girls name across multiple Muslim communities. In Turkey, Asya is a common girls name (Asia). In the Arab world, Asia is used particularly in North Africa and the Levant"
-      },
       {
         "slug": "derya",
         "n": "Derya",
