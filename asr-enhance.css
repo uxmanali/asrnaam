@@ -1432,4 +1432,248 @@ html[data-theme='dark'] .step-num {
   .story-card p { color:#bfb6a8 !important; }
   .related-nav { background:#242322 !important; border-top-color:#3a3935 !important; }
   .related-nav h2 { color:#d4af6c !important; }
+/* ═══════════════════════════════════════════════════════════════
+   LAYOUT V2 — the 5-section reordered reading experience
+   Added 2026-07-14. Amiri titles; element pills; 8-point-star
+   dividers. Light + night mode WCAG AA verified.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Container */
+.asr-layout-v2 {
+  max-width: 760px;
+  margin: 1.4rem auto 2rem;
+  padding: 0;
+}
+
+/* Each V2 section shell */
+.asr-v2 {
+  padding: 2rem 0 1.6rem;
+}
+.asr-v2:first-child { padding-top: 1rem; }
+
+.asr-v2-kicker {
+  font-family: 'Cinzel', serif;
+  font-size: .68rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: #6B4F10;
+  margin: 0 0 .5rem;
+  font-weight: 500;
+}
+@media (prefers-color-scheme: dark) {
+  .asr-v2-kicker { color: #d4a84a; }
+}
+
+.asr-v2-title {
+  font-family: 'Amiri', 'Noto Naskh Arabic', serif;
+  font-size: clamp(1.45rem, 3.2vw, 1.85rem);
+  font-weight: 400;
+  color: #2A2A2A;
+  line-height: 1.35;
+  margin: 0 0 1.2rem;
+}
+@media (prefers-color-scheme: dark) {
+  .asr-v2-title { color: #f5ede0; }
+}
+/* Arabic emphasis inside titles keeps Amiri, no override needed */
+
+/* Divider — 8-point star flanked by nothing, centered */
+.asr-v2-divider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.9rem 0;
+  color: #b8924b;
+  opacity: 0.75;
+}
+@media (prefers-color-scheme: dark) {
+  .asr-v2-divider { color: #d4af6c; opacity: 0.85; }
+}
+.asr-v2-divider svg { display: block; }
+
+/* Section 1: Root */
+.asr-v2-root-glyph {
+  font-family: 'Amiri', 'Noto Naskh Arabic', serif;
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  color: #6B4F10;
+  text-align: center;
+  letter-spacing: .1em;
+  margin: 0.4rem 0 1.2rem;
+  padding: 0.6rem 0;
+}
+@media (prefers-color-scheme: dark) {
+  .asr-v2-root-glyph { color: #d4af6c; }
+}
+
+/* Section 2: Letter grid + element pills */
+.asr-v2-letter-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.9rem;
+  margin: 1rem 0 1.6rem;
+}
+@media (min-width: 560px) {
+  .asr-v2-letter-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 900px) {
+  .asr-v2-letter-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+.asr-v2-letter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 1.1rem 0.9rem 1rem;
+  border: 1px solid #E8E2D4;
+  border-radius: 6px;
+  background: #FAFAF8;
+  color: #2A2A2A;
+  text-decoration: none;
+  transition: transform .18s, box-shadow .18s, border-color .18s;
+}
+.asr-v2-letter:hover {
+  border-color: #b8924b;
+  box-shadow: 0 3px 10px rgba(139,105,20,.08);
+  transform: translateY(-1px);
+}
+@media (prefers-color-scheme: dark) {
+  .asr-v2-letter {
+    background: #222;
+    border-color: #3a3a3a;
+    color: #e8e0d4;
+  }
+  .asr-v2-letter:hover {
+    border-color: #d4af6c;
+    box-shadow: 0 3px 10px rgba(212,175,108,.15);
+  }
+}
+
+.asr-v2-letter-arabic {
+  font-family: 'Amiri', 'Noto Naskh Arabic', serif;
+  font-size: 2.4rem;
+  line-height: 1;
+  color: #2A2A2A;
+}
+@media (prefers-color-scheme: dark) {
+  .asr-v2-letter-arabic { color: #f5ede0; }
+}
+
+.asr-v2-letter-roman {
+  font-family: 'Cinzel', serif;
+  font-size: 0.78rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: #6B4F10;
+  font-weight: 500;
+}
+@media (prefers-color-scheme: dark) {
+  .asr-v2-letter-roman { color: #d4a84a; }
+}
+
+.asr-v2-letter-anchor {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 0.88rem;
+  font-style: italic;
+  color: #4A4237;
+  text-align: center;
+  line-height: 1.35;
+}
+@media (prefers-color-scheme: dark) {
+  .asr-v2-letter-anchor { color: #bfb6a8; }
+}
+
+/* Element pills */
+.asr-v2-letter-pill {
+  font-family: 'Cinzel', serif;
+  font-size: 0.68rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  padding: 0.22rem 0.7rem;
+  border-radius: 999px;
+  font-weight: 500;
+  margin-top: .1rem;
+}
+.pill-fire  { background: #FDECE0; color: #8B3A16; }
+.pill-earth { background: #EBE4D2; color: #5D4A1E; }
+.pill-air   { background: #DFEBF3; color: #2A5772; }
+.pill-water { background: #D9EAE9; color: #1E5757; }
+@media (prefers-color-scheme: dark) {
+  .pill-fire  { background: rgba(245,175,138,.14); color: #F5AF8A; }
+  .pill-earth { background: rgba(217,200,146,.12); color: #D9C892; }
+  .pill-air   { background: rgba(164,200,225,.14); color: #A4C8E1; }
+  .pill-water { background: rgba(122,200,192,.14); color: #7AC8C0; }
+}
+
+/* Section 3: Synthesis — softly featured */
+.asr-v2-synthesis {
+  background: linear-gradient(180deg, rgba(184,146,75,.05), rgba(184,146,75,.01));
+  border-radius: 8px;
+  padding: 1.6rem 1.4rem 1.4rem;
+}
+@media (prefers-color-scheme: dark) {
+  .asr-v2-synthesis {
+    background: linear-gradient(180deg, rgba(212,175,108,.08), rgba(212,175,108,.02));
+  }
+}
+.asr-v2-synthesis-prose p {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.13rem;
+  line-height: 1.85;
+  color: #2A2A2A;
+}
+@media (prefers-color-scheme: dark) {
+  .asr-v2-synthesis-prose p { color: #e8e0d4; }
+}
+
+/* Section 4: Dictionary — the "family answer" */
+.asr-v2-dict {
+  background: #F2EFE8;
+  border-left: 3px solid #8B6914;
+  border-radius: 0 6px 6px 0;
+  padding: 1.6rem 1.4rem;
+}
+@media (prefers-color-scheme: dark) {
+  .asr-v2-dict {
+    background: #222;
+    border-left-color: #d4af6c;
+  }
+}
+.asr-v2-dict .prose p,
+.asr-v2-quranic-nest .prose p {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.08rem;
+  line-height: 1.8;
+  color: #2A2A2A;
+}
+@media (prefers-color-scheme: dark) {
+  .asr-v2-dict .prose p,
+  .asr-v2-quranic-nest .prose p { color: #e8e0d4; }
+}
+
+.asr-v2-quranic-nest {
+  margin-top: 1.2rem;
+  padding-top: 1rem;
+  border-top: 1px dashed rgba(139,105,20,.3);
+}
+.asr-v2-quranic-nest section {
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Section 5: Bearers — inherit existing list styles */
+.asr-v2-bearers ul.bearers-list {
+  margin: 1rem 0 0;
+}
+
+/* Mobile-first tightening */
+@media (max-width: 640px) {
+  .asr-layout-v2 { padding: 0 0.2rem; }
+  .asr-v2 { padding: 1.6rem 0 1.4rem; }
+  .asr-v2-synthesis { padding: 1.3rem 1rem 1.2rem; }
+  .asr-v2-dict { padding: 1.3rem 1rem; }
+  .asr-v2-letter { padding: 1rem 0.7rem; }
+  .asr-v2-letter-arabic { font-size: 2.1rem; }
 }
