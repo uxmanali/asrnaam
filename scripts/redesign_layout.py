@@ -559,7 +559,10 @@ def apply_layout_v2_mirror(html: str, lang: str) -> Optional[str]:
     block_letters = slice_of(expected_labels[3])  # معنى الحروف / حروف کا مطلب
     block_life    = slice_of(expected_labels[4])  # القراءة / قراءت (LIFE-like)
 
-    if not (block_dict and block_root and block_letters):
+    # Thin-mirror support: some AR/UR pages only ship dict + letters (no root
+    # section, no bearers). Require the minimum-viable pair (dict + letters).
+    # The root section, when absent, is silently omitted from the V2 output.
+    if not (block_dict and block_letters):
         return None
 
     # Strip trailing whitespace / stray newlines
@@ -598,7 +601,7 @@ def apply_layout_v2_mirror(html: str, lang: str) -> Optional[str]:
 
     inner_dict    = strip_label_and_h2(block_dict)
     inner_bearers = strip_label_and_h2(block_bearers) if block_bearers else ""
-    inner_root    = strip_label_and_h2(block_root)
+    inner_root    = strip_label_and_h2(block_root) if block_root else ""
     inner_letters = strip_label_and_h2(block_letters)
 
     # For mirrors, derive a letter grid from the Arabic name (in the hero) so
@@ -640,7 +643,7 @@ def apply_layout_v2_mirror(html: str, lang: str) -> Optional[str]:
     # translates key nouns; for the sample we emit the section shell so the
     # layout is complete.
 
-    layout = shell(kicker_root, title_root, inner_root, "root")
+    layout = shell(kicker_root, title_root, inner_root, "root") if inner_root else ""
     layout += shell(kicker_letters, title_letters, inner_letters, "letters")
     layout += shell(kicker_synth, title_synth, synth_inner, "synthesis")
     layout += shell(kicker_dict, title_dict, inner_dict, "dict")

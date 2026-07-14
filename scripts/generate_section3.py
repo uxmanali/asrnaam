@@ -252,16 +252,14 @@ CLOSE_VARIANTS = {
     ],
 }
 
-def _pick_close(pattern, name, letters="", slug=""):
+def _pick_close(pattern, name, letters="", slug="", salt=""):
     variants = CLOSE_VARIANTS.get(pattern, ["A person named {name} carries this reading in a way only they can."])
-    # Mix slug + name + Arabic letter sequence into a position-weighted hash so
-    # anagrams, permutations, same-pattern-different-name, and same-name-different-
-    # slug pages diverge. Slug is the strongest disambiguator when two records
-    # share the same roman name (e.g. two "Moosa" slugs).
-    seed = 0
-    src = (slug or "") + "||" + name + "|" + "".join(letters)
-    for c in src:
-        seed = (seed * 131 + ord(c)) & 0xFFFFFFF
+    # Mix slug + name + Arabic letter sequence into an MD5 hash. Salt is used
+    # by the duplicate-resolver pass to shift a colliding page to a different
+    # variant.
+    import hashlib
+    src = (slug or "") + "||" + name + "|" + "".join(letters) + "|" + (salt or "")
+    seed = int(hashlib.md5(src.encode("utf-8")).hexdigest(), 16)
     return variants[seed % len(variants)]
 
 TEMPLATES = {
@@ -343,7 +341,7 @@ def divine_name_key(arabic_char: str) -> str:
     return phrase.split(",")[0]
 
 
-def synthesize(name: str, letters: List[str], slug: str = "") -> Optional[str]:
+def synthesize(name: str, letters: List[str], slug: str = "", salt: str = "") -> Optional[str]:
     if not letters or len(letters) < 2:
         return None
     pattern, _ = element_distribution(letters)
@@ -363,7 +361,7 @@ def synthesize(name: str, letters: List[str], slug: str = "") -> Optional[str]:
         name=name,
         anchor1_phrase=anchor1_phrase,
         anchor1_quality=anchor1_quality,
-        close=_pick_close(pattern, name, letters, slug=slug).format(name=name),
+        close=_pick_close(pattern, name, letters, slug=slug, salt=salt).format(name=name),
     )
     if "{anchor2_phrase}" in tpl:
         if len(anchors) < 2:
@@ -383,12 +381,12 @@ def synthesize(name: str, letters: List[str], slug: str = "") -> Optional[str]:
     return prose
 
 
-def apply_synthesis(html: str, slug: str = "") -> Optional[str]:
+def apply_synthesis(html: str, slug: str = "", salt: str = "") -> Optional[str]:
     name = extract_roman_name(html)
     letters = extract_arabic_letters(html)
     if not name or not letters:
         return None
-    prose = synthesize(name, letters, slug=slug)
+    prose = synthesize(name, letters, slug=slug, salt=salt)
     if not prose:
         return None
     block_inner = f'\n<div class="prose asr-v2-synthesis-prose"><p>{prose}</p></div>\n'
@@ -407,12 +405,12 @@ def apply_synthesis(html: str, slug: str = "") -> Optional[str]:
     return html[:insertion] + "\n" + marker + "\n" + html[insertion:]
 
 
-def process_slug(slug: str) -> str:
+def process_slug(slug: str, salt: str = "") -> str:
     en_path = ROOT / "names" / slug / "index.html"
     if not en_path.exists():
         return "no page"
     html = en_path.read_text(encoding="utf-8")
-    new_html = apply_synthesis(html, slug=slug)
+    new_html = apply_synthesis(html, slug=slug, salt=salt)
     if new_html is None:
         with SKIP_LOG.open("a", encoding="utf-8") as f:
             f.write(f"{slug}\n")
