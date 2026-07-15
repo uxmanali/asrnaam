@@ -1827,41 +1827,50 @@ html[data-theme='dark'] .step-num {
   background: transparent;
   border: 0;
 }
-.asr-name-hero-kicker {
-  font-family: 'Inter', 'Cinzel', serif;
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--gold-strong);
-  margin: 0 0 var(--space-4);
+.asr-name-hero .asr-name-hero-kicker,
+p.asr-name-hero-kicker {
+  font-family: 'Inter', 'Cinzel', serif !important;
+  font-size: 0.75rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.16em !important;
+  text-transform: uppercase !important;
+  color: var(--gold-strong) !important;
+  margin: 0 0 var(--space-4) !important;
+  font-style: normal !important;
+  max-width: none !important;
 }
-.asr-name-hero-arabic {
-  font-family: 'Amiri', 'Noto Naskh Arabic', serif;
-  font-size: clamp(3.4rem, 9vw, 5.6rem);
-  color: var(--gold);
-  line-height: 1.2;
-  margin: 0 0 var(--space-3);
+.asr-name-hero .asr-name-hero-arabic {
+  font-family: 'Amiri', 'Noto Naskh Arabic', serif !important;
+  font-size: clamp(3.4rem, 9vw, 5.6rem) !important;
+  color: var(--gold) !important;
+  line-height: 1.2 !important;
+  margin: 0 auto var(--space-3) !important;
   direction: rtl;
+  text-align: center;
+  display: block;
 }
-.asr-name-hero-roman {
-  font-family: 'Cinzel', Georgia, serif;
-  font-size: clamp(1.4rem, 3vw, 1.9rem);
-  font-weight: 500;
-  color: var(--text-primary);
-  line-height: 1.25;
-  margin: 0 0 var(--space-3);
-  letter-spacing: 0.02em;
-  font-style: normal;
+.asr-name-hero .asr-name-hero-roman,
+h1.asr-name-hero-roman {
+  font-family: 'Cinzel', Georgia, serif !important;
+  font-size: clamp(1.4rem, 3vw, 1.9rem) !important;
+  font-weight: 500 !important;
+  color: var(--text-primary) !important;
+  line-height: 1.25 !important;
+  margin: 0 0 var(--space-3) !important;
+  letter-spacing: 0.02em !important;
+  font-style: normal !important;
+  text-align: center !important;
 }
-.asr-name-hero-sub {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 1.08rem;
-  line-height: 1.6;
-  color: var(--text-secondary);
-  font-style: italic;
-  max-width: 60ch;
-  margin: 0 auto;
+.asr-name-hero .asr-name-hero-sub,
+p.asr-name-hero-sub {
+  font-family: 'Cormorant Garamond', Georgia, serif !important;
+  font-size: 1.1rem !important;
+  line-height: 1.6 !important;
+  color: var(--text-secondary) !important;
+  font-style: italic !important;
+  font-weight: 400 !important;
+  max-width: 60ch !important;
+  margin: 0 auto !important;
 }
 @media (max-width: 640px) {
   .asr-name-hero { padding: var(--space-6) var(--space-3) var(--space-5); }
