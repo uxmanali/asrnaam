@@ -1807,6 +1807,83 @@ html[data-theme='dark'] .step-num {
 .name-of-the-day { box-shadow: var(--shadow-sm) !important; }
 .tool-box { box-shadow: var(--shadow-sm) !important; }
 
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   DESIGN SYSTEM v2 · Canonical name-page hero (2026-07-15)
+   ═══════════════════════════════════════════════════════════════════════════
+
+   The new <header class="asr-name-hero"> lives above QFACTS and SHARE-HERO.
+   Reads like the opening of a book: tiny Inter kicker, large Amiri Arabic
+   form, solid Cinzel English transliteration, one-line italic sub. No CTA,
+   no share button, no emoji, no aggressive shadow.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.asr-name-hero {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: var(--space-7) var(--space-4) var(--space-6);
+  background: transparent;
+  border: 0;
+}
+.asr-name-hero-kicker {
+  font-family: 'Inter', 'Cinzel', serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold-strong);
+  margin: 0 0 var(--space-4);
+}
+.asr-name-hero-arabic {
+  font-family: 'Amiri', 'Noto Naskh Arabic', serif;
+  font-size: clamp(3.4rem, 9vw, 5.6rem);
+  color: var(--gold);
+  line-height: 1.2;
+  margin: 0 0 var(--space-3);
+  direction: rtl;
+}
+.asr-name-hero-roman {
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: clamp(1.4rem, 3vw, 1.9rem);
+  font-weight: 500;
+  color: var(--text-primary);
+  line-height: 1.25;
+  margin: 0 0 var(--space-3);
+  letter-spacing: 0.02em;
+  font-style: normal;
+}
+.asr-name-hero-sub {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.08rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  font-style: italic;
+  max-width: 60ch;
+  margin: 0 auto;
+}
+@media (max-width: 640px) {
+  .asr-name-hero { padding: var(--space-6) var(--space-3) var(--space-5); }
+  .asr-name-hero-sub { font-size: 1rem; }
+}
+
+/* Kill old .hero .arabic-name / .name-badge / italic h1 residue on any page
+   that still ships the pre-v2 hero markup (fallback). Once every canonical
+   is migrated (Commit 3 + follow-up), these overrides become dead code. */
+.asr-name-article > .hero .arabic-name { color: var(--gold); }
+.asr-name-article > .hero .name-badge { color: var(--text-muted); }
+
+/* Breathing room between LAYOUT V2 sections on canonical name pages */
+.asr-layout-v2 { margin: var(--space-6) auto var(--space-6); }
+.asr-v2 { padding: var(--space-6) 0 var(--space-4); }
+.asr-v2:first-child { padding-top: var(--space-4); }
+.asr-v2-divider { padding: var(--space-5) 0; }
+@media (max-width: 640px) {
+  .asr-v2 { padding: var(--space-5) 0 var(--space-3); }
+  .asr-v2-divider { padding: var(--space-4) 0; }
+}
+
 /* ═══════════════════════════════════════════════════════════════
    LAYOUT V2 — the 5-section reordered reading experience
    Added 2026-07-14. Amiri titles; element pills; 8-point-star
