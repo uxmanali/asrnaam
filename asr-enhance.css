@@ -43,6 +43,131 @@
    via a wrapping selector instead. Print rules don't need
    !important — @media print is its own media context.
    ============================================================ */
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   DESIGN SYSTEM v2 · Semantic tokens (2026-07-15)
+   ═══════════════════════════════════════════════════════════════════════════
+
+   Single source of truth for color, spacing, shadow, and typography values.
+   Every new rule below this block references these tokens; legacy tokens
+   (--warm-white, --warm-mid, --charcoal, --text-secondary, --border, --gold)
+   are aliased to the semantic tokens for backward compatibility so pages that
+   still ship the older palette declarations continue to render correctly.
+
+   Migration path (per design-system-v2.md):
+     1. This commit adds tokens site-wide. No visible change.
+     2. Follow-up commits retire hardcoded #FAFAF8 / #F2EFE8 / #fff / etc.
+        in per-page inline <style> blocks in favor of these tokens.
+     3. Card/tile/pill classes consolidate to .asr-card and .asr-pill shapes.
+
+   Hard rules going forward:
+     - No hardcoded hex color in any new CSS. Use var(--surface-*), var(--text-*),
+       var(--gold), var(--border).
+     - No new shadow recipe. Use --shadow-sm (interactive) or --shadow-md (modal).
+     - No new gradient panel. Flat --surface-2 is the panel background.
+     - No new pill/card class. Use .asr-card / .asr-pill with variant modifiers.
+   ═══════════════════════════════════════════════════════════════════════════ */
+:root {
+  /* Surfaces */
+  --surface-1:      #FAFAF8;
+  --surface-2:      #F2EFE8;
+  --surface-3:      #FFFFFF;
+  --surface-quote:  #F7F1E4;
+
+  /* Text */
+  --text-primary:   #1F1D18;
+  --text-secondary: #4B4740;
+  --text-muted:     #6B6459;
+
+  /* Gold accent */
+  --gold:           #8B6914;
+  --gold-strong:    #6B4F10;
+  --gold-soft:      rgba(139,105,20,0.08);
+  --gold-hairline:  rgba(139,105,20,0.18);
+
+  /* Border */
+  --border:         #E8E2D4;
+  --border-strong:  #D6CDBB;
+
+  /* Gender tints (name-card boy/girl) */
+  --gender-boy:       #3B6B38;
+  --gender-boy-soft:  #E9F1E8;
+  --gender-boy-border:#B8D4B6;
+  --gender-girl:      #7A3F5A;
+  --gender-girl-soft: #F3EBEE;
+  --gender-girl-border:#D4B8C8;
+
+  /* Spacing scale (8pt, but --space-1 is 4px for tight cases) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 16px;
+  --space-4: 24px;
+  --space-5: 32px;
+  --space-6: 48px;
+  --space-7: 64px;
+  --space-8: 96px;
+
+  /* Radii */
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 10px;
+  --radius-pill: 999px;
+
+  /* Shadows (only two recipes; primary surfaces are flat) */
+  --shadow-sm: 0 1px 2px rgba(30,25,18,0.04);
+  --shadow-md: 0 12px 32px rgba(30,25,18,0.16);
+
+  /* ── Backward-compat aliases ──
+     Legacy tokens still used by per-page inline <style> blocks and the
+     older asr-enhance sections below. Keep exact prior hex values so
+     migration is non-visual. */
+  --warm-white:     var(--surface-1);
+  --warm-mid:       var(--surface-2);
+  --charcoal:       var(--text-primary);
+  /* --text-secondary already declared above; matches legacy name */
+  /* --border already declared above; matches legacy name */
+  /* --gold already declared above; matches legacy name */
+}
+
+/* Semantic tokens · dark mode via prefers-color-scheme.
+   The [data-theme='dark'] selectors further down redeclare the same
+   legacy tokens for the JS-controlled dark toggle. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --surface-1:      #1A1815;
+    --surface-2:      #242019;
+    --surface-3:      #2C2822;
+    --surface-quote:  #282320;
+
+    --text-primary:   #EFE7D9;
+    --text-secondary: #C7BFB0;
+    --text-muted:     #928B7E;
+
+    --gold:           #D6B36A;
+    --gold-strong:    #E5C67C;
+    --gold-soft:      rgba(214,179,106,0.10);
+    --gold-hairline:  rgba(214,179,106,0.22);
+
+    --border:         #3A342B;
+    --border-strong:  #4B4436;
+
+    --gender-boy:       #9CC59B;
+    --gender-boy-soft:  #22301F;
+    --gender-boy-border:#3d4f3c;
+    --gender-girl:      #D6A5BB;
+    --gender-girl-soft: #2E2028;
+    --gender-girl-border:#4f3d49;
+
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.35);
+    --shadow-md: 0 12px 32px rgba(0,0,0,0.6);
+
+    /* Aliases re-resolve inside the media query so legacy vars flip too */
+    --warm-white: var(--surface-1);
+    --warm-mid:   var(--surface-2);
+    --charcoal:   var(--text-primary);
+  }
+}
+
 :root{
   --asr-sage: #5D7A5C;
   --asr-sage-soft: #E8EFE7;
