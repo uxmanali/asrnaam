@@ -1477,6 +1477,73 @@ html[data-theme='dark'] .step-num {
   .obs-callout { background: #242322 !important; border-color: #3a3935 !important; color: #e8e0d4 !important; }
 
   .related-nav h2 { color:#d4af6c !important; }
+
+  /* ---- Hub-page components (2026-07-15 nm-hub-cards) ----
+     /names/, /letters/, /basaair/, blog hub components hardcode #fff or
+     var(--off-white) backgrounds and never invert. When body text flips
+     to cream via the palette redefinition above, the cards keep light
+     backgrounds and the cream copy becomes invisible. Explicit dark
+     backgrounds restore contrast. Uses !important because several of
+     these components carry inline style="background:#fff" from
+     server-rendered templates and one JS-injected button strip. */
+
+  /* /names/ hub: base and grid name cards */
+  .name-card { background:#1f1e1d !important; border-color:#3a3935 !important; }
+  .name-card:hover { background:#26241f !important; box-shadow:0 3px 12px rgba(0,0,0,.4) !important; }
+  .name-card .name-english { color:#f5ede0 !important; }
+  .name-card .name-meaning { color:#bfb6a8 !important; }
+  .featured-grid .name-card, .recently-grid .name-card {
+    background: linear-gradient(180deg, #2a2a28 0%, #242322 100%) !important;
+  }
+  .featured-grid .name-card:hover, .recently-grid .name-card:hover {
+    background: linear-gradient(180deg, #2e2c28 0%, #26241f 100%) !important;
+  }
+
+  /* /names/ hub: A-Z letter-btn strip. Buttons ship with inline
+     style="background:#fff;color:#8B6914" and the filter JS resets
+     them the same way on click, so !important is required. The .active
+     button stays on gold (#8B6914) which reads correctly in both modes. */
+  .letter-btn { background:#242322 !important; color:#d4af6c !important; border-color:#3a3935 !important; }
+  .letter-btn:hover { background:#2e2c28 !important; color:#f5ede0 !important; }
+  .letter-btn.active { background:#8B6914 !important; color:#f5ede0 !important; border-color:#8B6914 !important; }
+
+  /* /names/ hub: BROWSE BY TRADITION pills. These are bare <a> tags
+     inside .hub-bar-wrap with inline background:#fff, no class of
+     their own, so target them by container. */
+  .hub-bar-wrap a { background:#242322 !important; color:#e8e0d4 !important; border-color:#3a3935 !important; }
+  .hub-bar-wrap a:hover { background:#2e2c28 !important; border-color:#d4af6c !important; color:#d4af6c !important; }
+
+  /* /names/ hub: BROWSE BY MEANING chip row + Boys/Girls filter row */
+  .cat-chip { background:#242322 !important; color:#e8e0d4 !important; border-color:#3a3935 !important; }
+  .cat-chip:hover { border-color:#d4af6c !important; color:#d4af6c !important; }
+  .cat-chip.active { background:#d4af6c !important; color:#1a1a1a !important; border-color:#d4af6c !important; }
+  .filter-btn { background:#242322 !important; color:#e8e0d4 !important; border-color:#3a3935 !important; }
+  .filter-btn:hover, .filter-btn.active { background:#d4af6c !important; color:#1a1a1a !important; border-color:#d4af6c !important; }
+  .filter-adv select { background:#242322 !important; color:#e8e0d4 !important; border-color:#3a3935 !important; }
+
+  /* /letters/ hub: Arabic-letter index tiles. Base is var(--off-white)
+     which is NOT redefined in the palette flip; hover is var(--white).
+     Both need explicit dark values. */
+  .index-grid { background:#3a3935 !important; }
+  .index-card { background:#242322 !important; }
+  .index-card:hover { background:#2e2c28 !important; }
+  .index-card .index-arabic { color:#d4af6c !important; }
+  .index-card .index-name { color:#f5ede0 !important; }
+  .index-card .index-meaning { color:#bfb6a8 !important; }
+
+  /* /basaair/ hub: essay-card list, quran-anchor pull, why-section band */
+  a.essay-card { background:#242322 !important; }
+  a.essay-card:hover { background:#2e2c28 !important; }
+  a.essay-card h3 { color:#f5ede0 !important; }
+  a.essay-card p { color:#bfb6a8 !important; }
+  .quran-anchor { background:#242322 !important; color:#e8e0d4 !important; }
+  .quran-anchor .arabic { color:#d4af6c !important; }
+  .why-section { background:#242322 !important; color:#e8e0d4 !important; }
+
+  /* /blog/ hub: hover on .blog-card used a light cream (#F0EADC) that
+     leaked through, so clamp it to warm-dark. */
+  .blog-card:hover { background:#2e2c28 !important; }
+
 }
 /* ═══════════════════════════════════════════════════════════════
    LAYOUT V2 — the 5-section reordered reading experience
