@@ -1081,7 +1081,7 @@ html[data-theme='dark'] .breadcrumb a { color: #bfb6a8 !important; }
 main:focus { outline: none; }
 
 /* Share CTA (above meaning content) */
-.asr-share-hero{margin:1.5rem 0 1.8rem;padding:1rem 1.1rem;border:1px solid var(--border,#E8E2D4);border-radius:6px;background:linear-gradient(90deg,rgba(139,105,20,0.06),rgba(139,105,20,0.02));}
+.asr-share-hero{margin:1.5rem 0 1.8rem;padding:1rem 1.2rem;border:1px solid var(--border);border-radius:var(--radius-md);background:var(--surface-2);}
 .asr-share-hero-title{display:block;font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:#8B6914;font-weight:600;margin-bottom:.55rem;}
 .asr-share-hero-sub{display:block;font-size:.93rem;color:#5A5A5A;font-style:italic;margin-bottom:.85rem;line-height:1.45;}
 .asr-share-hero-row{display:flex;gap:.55rem;flex-wrap:wrap;}
@@ -1098,7 +1098,7 @@ main:focus { outline: none; }
 .asr-share-btn.copy:hover{background:#F2EFE8;border-color:rgba(139,105,20,.7);}
 .asr-share-btn.copy.copied{background:#8B6914;color:#fff!important;border-color:#8B6914;}
 @media (max-width: 640px){.asr-share-hero-row{gap:.4rem;}.asr-share-btn{padding:.5rem .7rem;font-size:.62rem;}}
-@media(prefers-color-scheme:dark){.asr-share-hero{background:linear-gradient(90deg,rgba(212,160,23,.08),rgba(212,160,23,.03));border-color:#3a3a3a;}.asr-share-hero-sub{color:#9a9a9a;}}
+@media(prefers-color-scheme:dark){.asr-share-hero{background:var(--surface-2);border-color:var(--border);}.asr-share-hero-sub{color:var(--text-secondary);}}
 
 /* ============================================================
    C7 — Mobile readability tuning
@@ -1221,17 +1221,16 @@ html[data-theme='dark'] .content hr.section-break {
 }
 .asr-save-card-cta{
   display:flex; align-items:center; gap:1rem; width:100%;
-  background:linear-gradient(135deg, #C9930A 0%, #8B6914 100%);
-  color:#FAFAF8; border:1px solid #8B6914;
-  padding:0.95rem 1.3rem; border-radius:8px;
+  background:var(--gold);
+  color:var(--surface-1); border:1px solid var(--gold);
+  padding:0.95rem 1.3rem; border-radius:var(--radius-md);
   font-family:'Cinzel', Georgia, serif; cursor:pointer;
-  box-shadow:0 4px 18px rgba(139,105,20,0.22), inset 0 1px 0 rgba(255,255,255,0.18);
-  transition:transform .18s ease, box-shadow .18s ease, filter .18s ease;
+  box-shadow:var(--shadow-sm);
+  transition:background .2s ease, border-color .2s ease;
   text-align:left;
 }
 .asr-save-card-cta:hover{
-  transform:translateY(-1px); filter:brightness(1.05);
-  box-shadow:0 8px 24px rgba(139,105,20,0.32), inset 0 1px 0 rgba(255,255,255,0.22);
+  background:var(--gold-strong); border-color:var(--gold-strong);
 }
 .asr-save-card-cta:disabled, .asr-save-card-cta.busy{ cursor:wait; filter:saturate(0.7) brightness(0.92); }
 .asr-save-card-cta .cta-icon{
@@ -1259,8 +1258,8 @@ html[data-theme='dark'] .content hr.section-break {
   .asr-save-card-cta .cta-arrow{ font-size:1.15rem; }
 }
 html[data-theme='dark'] .asr-save-card-cta{
-  background:linear-gradient(135deg, #D4A017 0%, #8B6914 100%);
-  color:#fff; border-color:#a07b0f;
+  background:var(--gold);
+  color:var(--surface-1); border-color:var(--gold);
 }
 
 /* Instagram + Threads share buttons (SHARE-HERO row) */
@@ -1279,10 +1278,10 @@ html[data-theme='dark'] .asr-save-card-cta{
    C10 — Random discovery loop: "Read another" footer CTA
    ============================================================ */
 .asr-read-another{
-  margin:3.5rem auto 1.5rem; max-width:760px; padding:2rem 1.6rem;
-  border:1px solid rgba(139,105,20,0.18);
-  background:linear-gradient(180deg, rgba(139,105,20,0.04), rgba(139,105,20,0.01));
-  border-radius:8px; text-align:center;
+  margin:3.5rem auto 1.5rem; max-width:760px; padding:var(--space-5) var(--space-4);
+  border:1px solid var(--border);
+  background:var(--surface-2);
+  border-radius:var(--radius-md); text-align:center;
 }
 .asr-read-another .ra-inner{ display:flex; flex-direction:column; align-items:center; gap:0.6rem; }
 .asr-read-another .ra-eyebrow{
@@ -1301,21 +1300,21 @@ html[data-theme='dark'] .asr-save-card-cta{
 }
 .asr-read-another .ra-cta{
   display:inline-flex; align-items:center; gap:0.6rem; margin-top:0.8rem;
-  font-family:'Cinzel',serif; font-size:0.78rem; letter-spacing:0.18em;
-  text-transform:uppercase; color:#FAFAF8;
-  background:#8B6914; padding:0.85rem 1.6rem; border-radius:6px;
+  font-family:'Cinzel',serif; font-size:0.78rem; letter-spacing:0.14em;
+  text-transform:uppercase; color:var(--surface-1);
+  background:var(--gold); padding:0.9rem 1.6rem; border-radius:var(--radius-md);
   text-decoration:none; font-weight:600;
-  box-shadow:0 2px 12px rgba(139,105,20,0.18);
-  transition:background .2s, transform .15s, box-shadow .2s;
+  box-shadow:var(--shadow-sm);
+  transition:background .2s, border-color .2s;
+  border:1px solid var(--gold);
 }
 .asr-read-another .ra-cta:hover{
-  background:#C9930A; transform:translateY(-1px);
-  box-shadow:0 4px 18px rgba(201,147,10,0.28);
+  background:var(--gold-strong); border-color:var(--gold-strong);
 }
 .asr-read-another .ra-cta-label{ display:inline-block; }
 html[data-theme='dark'] .asr-read-another{
-  background:linear-gradient(180deg, rgba(212,160,23,.07), rgba(212,160,23,.02));
-  border-color:#3a3935;
+  background:var(--surface-2);
+  border-color:var(--border);
 }
 html[data-theme='dark'] .asr-read-another .ra-title{ color:#e8e0d4 !important; }
 html[data-theme='dark'] .asr-read-another .ra-sub{ color:#bfb6a8 !important; }
@@ -1670,6 +1669,144 @@ html[data-theme='dark'] .step-num {
   .blog-card:hover { background:#2e2c28 !important; }
 
 }
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   DESIGN SYSTEM v2 · Shared shape classes (2026-07-15)
+   ═══════════════════════════════════════════════════════════════════════════
+
+   Canonical .asr-card, .asr-pill, .asr-btn-primary/secondary shapes.
+   New markup uses these classes. Legacy classes (.name-card, .blog-card,
+   .lcard, .explore-card, .step, .voice-card, .muq-cell, .letter-card,
+   .index-card, .name-tile, .hero-card, .story-card) continue to work
+   through their own declarations but should migrate to .asr-card + variant
+   during the Phase 6 template pass.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.asr-card {
+  background: var(--surface-3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  transition: background .2s ease, border-color .2s ease;
+  color: var(--text-primary);
+  text-decoration: none;
+  display: block;
+}
+.asr-card:hover {
+  background: var(--surface-2);
+  border-color: var(--border-strong);
+}
+.asr-card--tile {
+  padding: var(--space-3);
+  text-align: center;
+}
+.asr-card--panel {
+  background: var(--surface-2);
+  padding: var(--space-4);
+}
+.asr-card--panel-quote {
+  background: var(--surface-quote);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--gold);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  padding: var(--space-4);
+}
+
+.asr-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.9rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border);
+  background: var(--surface-3);
+  color: var(--text-primary);
+  font-family: 'Cinzel', serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background .18s, color .18s, border-color .18s;
+}
+.asr-pill:hover {
+  background: var(--surface-2);
+  border-color: var(--gold);
+  color: var(--gold);
+}
+.asr-pill--gold {
+  background: var(--gold);
+  color: var(--surface-1);
+  border-color: var(--gold);
+}
+.asr-pill--gold:hover {
+  background: var(--gold-strong);
+  border-color: var(--gold-strong);
+  color: var(--surface-1);
+}
+
+.asr-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--gold);
+  color: var(--surface-1);
+  border: 1px solid var(--gold);
+  padding: 0.9rem 1.6rem;
+  border-radius: var(--radius-sm);
+  font-family: 'Cinzel', serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background .2s, border-color .2s;
+}
+.asr-btn-primary:hover {
+  background: var(--gold-strong);
+  border-color: var(--gold-strong);
+}
+.asr-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  color: var(--gold);
+  border: 1px solid var(--gold-hairline);
+  padding: 0.9rem 1.6rem;
+  border-radius: var(--radius-sm);
+  font-family: 'Cinzel', serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background .2s, border-color .2s, color .2s;
+}
+.asr-btn-secondary:hover {
+  background: var(--gold-soft);
+  border-color: var(--gold);
+}
+
+/* ── Card / tile / pill hover overrides for existing legacy classes ──
+   Kill the aggressive translateY(-2px) lift on hover. Retain shadow lift for
+   name-card only (kept subtle via --shadow-sm to preserve scanable list feel).
+   Everything else gets bg + border-color shift, no transform. */
+.name-card:hover { transform: none !important; box-shadow: var(--shadow-sm) !important; }
+.blog-card:hover { transform: none !important; }
+.hero-card:hover { transform: none !important; }
+.story-card:hover { transform: none !important; }
+.essay-card:hover { transform: none !important; }
+.example-card:hover { box-shadow: var(--shadow-sm) !important; }
+.hero-search { box-shadow: var(--shadow-sm) !important; }
+.hero-input-row { box-shadow: none !important; }
+.name-of-the-day { box-shadow: var(--shadow-sm) !important; }
+.tool-box { box-shadow: var(--shadow-sm) !important; }
+
 /* ═══════════════════════════════════════════════════════════════
    LAYOUT V2 — the 5-section reordered reading experience
    Added 2026-07-14. Amiri titles; element pills; 8-point-star
@@ -1691,27 +1828,21 @@ html[data-theme='dark'] .step-num {
 
 .asr-v2-kicker {
   font-family: 'Cinzel', serif;
-  font-size: .68rem;
-  letter-spacing: .22em;
+  font-size: 0.72rem;
+  letter-spacing: .16em;
   text-transform: uppercase;
-  color: #6B4F10;
+  color: var(--gold-strong);
   margin: 0 0 .5rem;
-  font-weight: 500;
-}
-@media (prefers-color-scheme: dark) {
-  .asr-v2-kicker { color: #d4a84a; }
+  font-weight: 600;
 }
 
 .asr-v2-title {
   font-family: 'Amiri', 'Noto Naskh Arabic', serif;
-  font-size: clamp(1.45rem, 3.2vw, 1.85rem);
+  font-size: clamp(1.5rem, 3.2vw, 1.9rem);
   font-weight: 400;
-  color: #2A2A2A;
+  color: var(--text-primary);
   line-height: 1.35;
   margin: 0 0 1.2rem;
-}
-@media (prefers-color-scheme: dark) {
-  .asr-v2-title { color: #f5ede0; }
 }
 /* Arabic emphasis inside titles keeps Amiri, no override needed */
 
@@ -1720,12 +1851,9 @@ html[data-theme='dark'] .step-num {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0.9rem 0;
-  color: #b8924b;
-  opacity: 0.75;
-}
-@media (prefers-color-scheme: dark) {
-  .asr-v2-divider { color: #d4af6c; opacity: 0.85; }
+  padding: var(--space-3) 0;
+  color: var(--gold);
+  opacity: 0.7;
 }
 .asr-v2-divider svg { display: block; }
 
@@ -1733,14 +1861,11 @@ html[data-theme='dark'] .step-num {
 .asr-v2-root-glyph {
   font-family: 'Amiri', 'Noto Naskh Arabic', serif;
   font-size: clamp(2rem, 5vw, 2.8rem);
-  color: #6B4F10;
+  color: var(--gold);
   text-align: center;
   letter-spacing: .1em;
   margin: 0.4rem 0 1.2rem;
   padding: 0.6rem 0;
-}
-@media (prefers-color-scheme: dark) {
-  .asr-v2-root-glyph { color: #d4af6c; }
 }
 
 /* Section 2: Letter grid + element pills */
@@ -1762,28 +1887,27 @@ html[data-theme='dark'] .step-num {
   flex-direction: column;
   align-items: center;
   gap: 0.4rem;
-  padding: 1.1rem 0.9rem 1rem;
-  border: 1px solid #E8E2D4;
-  border-radius: 6px;
-  background: #FAFAF8;
-  color: #2A2A2A;
+  padding: var(--space-3) var(--space-2) var(--space-3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--surface-3);
+  color: var(--text-primary);
   text-decoration: none;
-  transition: transform .18s, box-shadow .18s, border-color .18s;
+  transition: background .2s, border-color .2s;
 }
 .asr-v2-letter:hover {
-  border-color: #b8924b;
-  box-shadow: 0 3px 10px rgba(139,105,20,.08);
-  transform: translateY(-1px);
+  background: var(--surface-2);
+  border-color: var(--gold);
 }
 @media (prefers-color-scheme: dark) {
   .asr-v2-letter {
-    background: #222;
-    border-color: #3a3a3a;
-    color: #e8e0d4;
+    background: var(--surface-3);
+    border-color: var(--border);
+    color: var(--text-primary);
   }
   .asr-v2-letter:hover {
-    border-color: #d4af6c;
-    box-shadow: 0 3px 10px rgba(212,175,108,.15);
+    background: var(--surface-2);
+    border-color: var(--gold);
   }
 }
 
@@ -1791,10 +1915,7 @@ html[data-theme='dark'] .step-num {
   font-family: 'Amiri', 'Noto Naskh Arabic', serif;
   font-size: 2.4rem;
   line-height: 1;
-  color: #2A2A2A;
-}
-@media (prefers-color-scheme: dark) {
-  .asr-v2-letter-arabic { color: #f5ede0; }
+  color: var(--text-primary);
 }
 
 .asr-v2-letter-roman {
@@ -1802,23 +1923,16 @@ html[data-theme='dark'] .step-num {
   font-size: 0.78rem;
   letter-spacing: .12em;
   text-transform: uppercase;
-  color: #6B4F10;
+  color: var(--gold-strong);
   font-weight: 500;
-}
-@media (prefers-color-scheme: dark) {
-  .asr-v2-letter-roman { color: #d4a84a; }
 }
 
 .asr-v2-letter-anchor {
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-size: 0.88rem;
-  font-style: italic;
-  color: #4A4237;
+  color: var(--text-secondary);
   text-align: center;
-  line-height: 1.35;
-}
-@media (prefers-color-scheme: dark) {
-  .asr-v2-letter-anchor { color: #bfb6a8; }
+  line-height: 1.4;
 }
 
 /* Element pills */
@@ -1845,48 +1959,30 @@ html[data-theme='dark'] .step-num {
 
 /* Section 3: Synthesis — softly featured */
 .asr-v2-synthesis {
-  background: linear-gradient(180deg, rgba(184,146,75,.05), rgba(184,146,75,.01));
-  border-radius: 8px;
-  padding: 1.6rem 1.4rem 1.4rem;
-}
-@media (prefers-color-scheme: dark) {
-  .asr-v2-synthesis {
-    background: linear-gradient(180deg, rgba(212,175,108,.08), rgba(212,175,108,.02));
-  }
+  background: var(--gold-soft);
+  border-radius: var(--radius-md);
+  padding: var(--space-4) var(--space-4);
 }
 .asr-v2-synthesis-prose p {
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-size: 1.13rem;
   line-height: 1.85;
-  color: #2A2A2A;
-}
-@media (prefers-color-scheme: dark) {
-  .asr-v2-synthesis-prose p { color: #e8e0d4; }
+  color: var(--text-primary);
 }
 
 /* Section 4: Dictionary — the "family answer" */
 .asr-v2-dict {
-  background: #F2EFE8;
-  border-left: 3px solid #8B6914;
-  border-radius: 0 6px 6px 0;
-  padding: 1.6rem 1.4rem;
-}
-@media (prefers-color-scheme: dark) {
-  .asr-v2-dict {
-    background: #222;
-    border-left-color: #d4af6c;
-  }
+  background: var(--surface-2);
+  border-left: 3px solid var(--gold);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  padding: var(--space-4) var(--space-4);
 }
 .asr-v2-dict .prose p,
 .asr-v2-quranic-nest .prose p {
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-size: 1.08rem;
   line-height: 1.8;
-  color: #2A2A2A;
-}
-@media (prefers-color-scheme: dark) {
-  .asr-v2-dict .prose p,
-  .asr-v2-quranic-nest .prose p { color: #e8e0d4; }
+  color: var(--text-primary);
 }
 
 .asr-v2-quranic-nest {
