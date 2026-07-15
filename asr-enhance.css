@@ -1431,6 +1431,51 @@ html[data-theme='dark'] .step-num {
   .story-card h4 { color:#f5ede0 !important; }
   .story-card p { color:#bfb6a8 !important; }
   .related-nav { background:#242322 !important; border-top-color:#3a3935 !important; }
+
+  /* ---- Class-selector dark-mode overrides (added 2026-07-15) ----
+     Content pages define classes like .qfacts-title, .hero-subtitle,
+     .blog-card-title, .urdu-heading, .spellings-hook, etc. in their
+     inline <style> using var(--charcoal)=#2A2A2A. Their inline dark
+     media only overrides .qf-value, so most classes stay ~1.1 contrast
+     against #1a1a1a. Redefine tokens plus explicit class rules. */
+  :root {
+    --charcoal: #e8e0d4 !important;
+    --text-secondary: #bfb6a8 !important;
+    --warm-mid: #242322 !important;
+    --border: #3a3935 !important;
+  }
+  /* Explicit class overrides for hardcoded colors */
+  .qfacts, .quick-facts { background: #242322 !important; border-color: #3a3935 !important; }
+  .qfacts-title, .qfacts-val, .qf-value, .qf-arabic { color: #e8e0d4 !important; }
+  .qfacts-key, .qf-label { color: #d4af6c !important; }
+  .hero-subtitle { color: #bfb6a8 !important; }
+  .lede, .spellings-intro, .spellings-hook, .related-intro, .related-hook,
+  .related-teaser, .related-social-label, .related-terminal,
+  .footer-tagline, .footer-blurb, .life-note, .letter-gateway-pull,
+  .faq-a, .faq-a p, .faq-door, .cta-box p, .breadcrumb, .breadcrumb a,
+  .chip-community, .letter-quality { color: #bfb6a8 !important; }
+  .blog-card { background: #242322 !important; border-color: #3a3935 !important; color: #e8e0d4 !important; }
+  .blog-card:hover { background: #2e2c28 !important; }
+  .blog-card-title { color: #f5ede0 !important; }
+  .blog-card-lede { color: #bfb6a8 !important; }
+  .blog-card-eyebrow, .blog-card-cta { color: #d4af6c !important; }
+  .urdu-section { background: transparent !important; }
+  .urdu-heading, .urdu-lead-in, .urdu-bridge { color: #bfb6a8 !important; }
+  .urdu-bridge-link { color: #d4af6c !important; }
+  .urdu-main, .urdu-name-display { color: #f5ede0 !important; }
+  .urdu-meaning, .urdu-meaning-line, .urdu-roman, .urdu-translit-back,
+  .meaning-urdu { color: #e8e0d4 !important; }
+  .name-badge, .footer-col-title { color: #d4af6c !important; }
+  .section-heading, .section-label { color: #d4af6c !important; }
+  .spelling-chip { background: #242322 !important; border-color: #3a3935 !important; color: #e8e0d4 !important; }
+  .spelling-chip.current { background: #d4af6c !important; color: #1a1a1a !important; border-color: #d4af6c !important; }
+  summary { background: #1a1a1a !important; color: #e8e0d4 !important; }
+  details[open] summary { background: #242322 !important; color: #d4af6c !important; }
+  .related-terminal { background: #242322 !important; border-left-color: #d4af6c !important; }
+  /* CTA/callout boxes on name pages */
+  .cta-box { background: #242322 !important; border-color: #3a3935 !important; color: #e8e0d4 !important; }
+  .obs-callout { background: #242322 !important; border-color: #3a3935 !important; color: #e8e0d4 !important; }
+
   .related-nav h2 { color:#d4af6c !important; }
 /* ═══════════════════════════════════════════════════════════════
    LAYOUT V2 — the 5-section reordered reading experience
