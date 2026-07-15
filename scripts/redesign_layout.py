@@ -643,20 +643,23 @@ def apply_layout_v2_mirror(html: str, lang: str) -> Optional[str]:
     # translates key nouns; for the sample we emit the section shell so the
     # layout is complete.
 
-    layout = shell(kicker_root, title_root, inner_root, "root") if inner_root else ""
-    layout += shell(kicker_letters, title_letters, inner_letters, "letters")
-    layout += shell(kicker_synth, title_synth, synth_inner, "synthesis")
-    layout += shell(kicker_dict, title_dict, inner_dict, "dict")
-    if inner_bearers:
-        # bearers is the last section, no trailing divider
-        layout_bearers = (
-            f'<section class="asr-v2 asr-v2-bearers">'
-            f'<p class="asr-v2-kicker">{kicker_bearers}</p>'
-            f'<h2 class="asr-v2-title">{title_bearers}</h2>'
-            f'{inner_bearers}'
-            f'</section>'
-        )
-        layout += layout_bearers
+    # Preserve all five sections even when a source block is empty. Downstream
+    # counters and readers expect the full 5-section skeleton on every mirror;
+    # dropping a section produced <5 blocks on pages like `zahra` (missing 1+5)
+    # and `mustafa` (missing 5). Emit an empty shell so the heading still lands.
+    layout = shell(kicker_root,    title_root,    inner_root    or "", "root")
+    layout += shell(kicker_letters, title_letters, inner_letters,       "letters")
+    layout += shell(kicker_synth,   title_synth,   synth_inner,         "synthesis")
+    layout += shell(kicker_dict,    title_dict,    inner_dict,          "dict")
+    # Bearers is the last section, no trailing divider
+    layout_bearers = (
+        f'<section class="asr-v2 asr-v2-bearers">'
+        f'<p class="asr-v2-kicker">{kicker_bearers}</p>'
+        f'<h2 class="asr-v2-title">{title_bearers}</h2>'
+        f'{inner_bearers or ""}'
+        f'</section>'
+    )
+    layout += layout_bearers
 
     layout = f'<!-- LAYOUT-V2:START -->\n<div class="asr-layout-v2">{layout}</div>\n<!-- LAYOUT-V2:END -->'
 
