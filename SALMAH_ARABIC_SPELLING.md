@@ -1,4 +1,4 @@
-## Salmah — Arabic spelling field appears to use U+06C6 (Kurdish O with V) in place of a final letter
+## Salmah, Arabic spelling field appears to use U+06C6 (Kurdish O with V) in place of a final letter
 
 **File:** `names/salmah/index.html`
 **Current Arabic:** `سلمۆ` (s-l-m-ۆ)

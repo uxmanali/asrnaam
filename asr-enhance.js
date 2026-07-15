@@ -718,13 +718,13 @@
       '<div class="ra-inner">' +
         '<span class="ra-eyebrow">More from the library</span>' +
         '<h3 class="ra-title">Read another <em>name</em></h3>' +
-        '<p class="ra-sub">A different name from the same tradition — chosen at random.</p>' +
+        '<p class="ra-sub">A different name from the same tradition, chosen at random.</p>' +
         '<a href="#" class="ra-cta" id="asrReadAnother" data-loading="Loading…">' +
           '<span class="ra-cta-label">Read another →</span>' +
           '<span class="ra-cta-name" hidden></span>' +
         '</a>' +
         '<p class="ra-reader-link" style="margin-top:1.2rem;font-size:.88rem;color:rgba(245,239,227,.65);font-style:italic;line-height:1.55;">' +
-          'Or — <a href="/reader/" style="color:#d4b86a;border-bottom:1px dotted rgba(212,184,106,.5);text-decoration:none;font-style:normal;">generate a fresh reading for any name →</a> using our letter-based tool, even one not yet in the library.' +
+          'Or <a href="/reader/" style="color:#d4b86a;border-bottom:1px dotted rgba(212,184,106,.5);text-decoration:none;font-style:normal;">generate a fresh reading for any name →</a> using our letter-based tool, even one not yet in the library.' +
         '</p>' +
       '</div>';
     if(anchor && anchor.parentNode){
