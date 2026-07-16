@@ -3,6 +3,9 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="color-scheme" content="light dark"/>
+<meta name="theme-color" content="#FAFAF8" media="(prefers-color-scheme: light)"/>
+<meta name="theme-color" content="#1a1a1a" media="(prefers-color-scheme: dark)"/>
 <title>Name not found, AsrNaam</title>
 <meta name="description" content="This page does not exist on AsrNaam. Try a search or browse popular Muslim names."/>
 <meta name="robots" content="noindex,follow"/>
@@ -11,6 +14,17 @@
 <link rel="stylesheet" href="/fonts/fonts.css">
 <style>
   :root { --gold:#8B6914; --charcoal:#1a1a1a; --warm-white:#FAFAF8; --warm-mid:#F5F0E8; --border:rgba(0,0,0,.1); }
+  @media(prefers-color-scheme:dark){
+    :root { --gold:#d4a84a; --charcoal:#eae6dc; --warm-white:#1a1a1a; --warm-mid:#242322; --border:rgba(255,255,255,.12); }
+    html,body { background:#1a1a1a !important; color:#eae6dc !important; }
+    h1 { color:#eae6dc !important; }
+    h1 em { color:#d4a84a !important; }
+    p.lede { color:#a8a39a !important; }
+    input { background:#242322 !important; color:#eae6dc !important; border-color:rgba(255,255,255,.12) !important; }
+    .popular a { background:#242322 !important; color:#eae6dc !important; border-color:rgba(255,255,255,.12) !important; }
+    .popular a:hover { border-color:#d4a84a !important; color:#d4a84a !important; }
+    .links a, .section-label, .arabic { color:#d4a84a !important; }
+  }
   * { box-sizing:border-box; }
   body { margin:0; font-family:'Cormorant Garamond',Georgia,serif; background:var(--warm-white); color:var(--charcoal); }
   main { max-width:640px; margin:0 auto; padding:4rem 1.5rem 6rem; text-align:center; }
