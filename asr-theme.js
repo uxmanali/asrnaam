@@ -29,6 +29,12 @@
     collect();
     var t = mode==='dark' ? 'all' : mode==='light' ? 'not all' : '(prefers-color-scheme: dark)';
     for(var i=0;i<rules.length;i++){ try{ rules[i].mediaText=t; }catch(e){} }
+    /* Chromium does not invalidate styles on CSSOM mediaText edits;
+       force a synchronous recalc so the change paints immediately. */
+    try{
+      var h=document.documentElement;
+      h.classList.add('asr-theme-sync'); void h.offsetHeight; h.classList.remove('asr-theme-sync');
+    }catch(e){}
   }
   function osDark(){ return !!(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches); }
   function saved(){ try{ return localStorage.getItem(KEY); }catch(e){ return null; } }

@@ -45,6 +45,12 @@
     for(var i=0;i<_darkRules.length;i++){
       try{ _darkRules[i].mediaText = target; }catch(e){}
     }
+    // Chromium does not invalidate styles on CSSOM mediaText edits;
+    // force a synchronous recalc so the change paints immediately.
+    try{
+      var _h = document.documentElement;
+      _h.classList.add('asr-theme-sync'); void _h.offsetHeight; _h.classList.remove('asr-theme-sync');
+    }catch(e){}
   }
   function _osDark(){
     return !!(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
