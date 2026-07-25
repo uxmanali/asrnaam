@@ -151,7 +151,7 @@ function composeReading(rawName){
   let html = '';
 
   // Dynamic-reading flag
-  html += '<div class="reader-flag">Dynamic Reading · Composed on the fly · Not yet in our verified library</div>';
+  html += '<div class="reader-flag" id="reader-flag">Dynamic Reading · Composed on the fly</div>';
 
   // Hero
   html += '<div class="hero">';
@@ -271,9 +271,10 @@ function renderInto(el, name){
   if(!clean){ el.innerHTML = composeReading(''); bindCtas(el, ''); return; }
   // Cache lookup
   const cached = readCache(clean);
-  if(cached){ el.innerHTML = cached; bindCtas(el, clean); return; }
+  if(cached){ el.innerHTML = cached; bindCtas(el, clean); annotateLibrary(el, clean); return; }
   const html = composeReading(clean);
   el.innerHTML = html;
+  annotateLibrary(el, clean);
   writeCache(clean, html);
   bindCtas(el, clean);
   updateUrl(clean);
@@ -312,7 +313,35 @@ function bindCtas(el, name){
   });
 }
 
+// If the typed name is in the verified library, link straight to it.
+var __asrIdxCache=null;
+function annotateLibrary(el, q){
+  if(!q) return;
+  var run=function(idx){
+    var lq=(q||'').toLowerCase().trim();
+    var hit=null;
+    for(var i=0;i<idx.length;i++){
+      var e=idx[i];
+      if(e.s===lq || (e.n||'').toLowerCase()===lq || (e.v||[]).indexOf(lq)>=0){ hit=e; break; }
+    }
+    var flag=el.querySelector('#reader-flag');
+    if(!flag) return;
+    if(hit){
+      flag.innerHTML='In our verified library: <a href="/names/'+hit.s+'/" style="color:inherit;text-decoration:underline;font-weight:600;">read the full researched page for '+hit.n+' \u2192</a>';
+    } else {
+      flag.textContent='Dynamic Reading \u00b7 Composed on the fly \u00b7 Not yet in our verified library';
+    }
+  };
+  if(__asrIdxCache){ run(__asrIdxCache); return; }
+  try{
+    fetch('/names/names-index.json',{cache:'force-cache'}).then(function(x){return x.json();}).then(function(idx){
+      __asrIdxCache=idx; run(idx);
+    }).catch(function(){});
+  }catch(e){}
+}
+
 document.addEventListener('DOMContentLoaded', function(){
+
   const out = document.getElementById('reader-output');
   const form = document.getElementById('reader-form');
   const input = document.getElementById('reader-input');

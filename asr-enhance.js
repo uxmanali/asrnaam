@@ -188,7 +188,7 @@
   function injectHeroActions(){
     var ctx = pageContext();
     if(!ctx.slug) return;
-    var hero = document.querySelector('.hero');
+    var hero = document.querySelector('.hero, .asr-name-hero');
     if(!hero) return;
     var name = pageNameFromHero();
     if(!name) return;
