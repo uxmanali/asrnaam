@@ -2174,3 +2174,7 @@ h1 em, h2 em, h3 em, .section-label { color: #7A570E; }
 }
 .pull-quote span { color: #666; }
 @media (prefers-color-scheme: dark) { .pull-quote span { color: #bfb6a8 !important; } }
+@media (prefers-color-scheme: dark) {
+  .example-frame { background-color: #242322 !important; border-color: #3a3935 !important; }
+}
+html[data-theme='dark'] .example-frame { background-color: #242322 !important; border-color: #3a3935 !important; }

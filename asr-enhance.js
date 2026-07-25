@@ -10,18 +10,86 @@
   };
   var REDUCED = (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
 
-  // ---- Theme toggle ----
-  function applyTheme(t){
-    if(t==='dark') document.documentElement.setAttribute('data-theme','dark');
-    else document.documentElement.removeAttribute('data-theme');
-  }
-  try{
-    var saved = localStorage.getItem(LS.theme);
-    if(saved){ applyTheme(saved); }
-    else{
-      var dark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-      if(dark) applyTheme('dark');
+  // ---- Theme engine (2026-07-25 rebuild) ----
+  // The site's dark styles fire from hundreds of
+  // @media (prefers-color-scheme: dark) blocks across pages and sheets.
+  // A data-theme attribute alone cannot override those, so an explicit
+  // user choice retargets the media conditions themselves at runtime:
+  // dark -> 'all' (always on), light -> 'not all' (always off),
+  // auto -> restore '(prefers-color-scheme: dark)'.
+  var _darkRules = [];           // remembered CSSMediaRule refs
+  var _scannedSheets = (typeof WeakSet!=='undefined') ? new WeakSet() : null;
+  function _collectDarkRules(){
+    var sheets = document.styleSheets;
+    for(var i=0;i<sheets.length;i++){
+      var ss = sheets[i];
+      if(_scannedSheets){ if(_scannedSheets.has(ss)) continue; _scannedSheets.add(ss); }
+      var rules; try{ rules = ss.cssRules; }catch(e){ continue; }
+      if(!rules) continue;
+      for(var j=0;j<rules.length;j++){
+        var r = rules[j];
+        if(r.media){
+          var cond = r.media.mediaText || '';
+          if(cond.indexOf('prefers-color-scheme') !== -1 && cond.indexOf('dark') !== -1){
+            _darkRules.push(r.media);
+          }
+        }
+      }
     }
+  }
+  function _retarget(mode){ // 'dark' | 'light' | 'auto'
+    _collectDarkRules();
+    var target = mode==='dark' ? 'all'
+               : mode==='light' ? 'not all'
+               : '(prefers-color-scheme: dark)';
+    for(var i=0;i<_darkRules.length;i++){
+      try{ _darkRules[i].mediaText = target; }catch(e){}
+    }
+  }
+  function _osDark(){
+    return !!(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+  }
+  function _effectiveDark(){
+    try{
+      var saved = localStorage.getItem(LS.theme);
+      if(saved==='dark') return true;
+      if(saved==='light') return false;
+    }catch(e){}
+    return _osDark();
+  }
+  function applyTheme(t){ // t: 'dark' | 'light' | 'auto'
+    var dark = (t==='dark') || (t==='auto' && _osDark());
+    if(dark) document.documentElement.setAttribute('data-theme','dark');
+    else document.documentElement.removeAttribute('data-theme');
+    _retarget(t==='auto' ? 'auto' : t);
+    try{ document.documentElement.style.colorScheme = (t==='auto') ? '' : (dark ? 'dark' : 'light'); }catch(e){}
+    // keep the browser chrome color in step
+    try{
+      var metas = document.querySelectorAll('meta[name="theme-color"]');
+      for(var i=0;i<metas.length;i++){
+        if(t!=='auto') metas[i].setAttribute('content', dark ? '#1a1a1a' : '#FAFAF8');
+      }
+    }catch(e){}
+  }
+  function _initTheme(){
+    var saved = null;
+    try{ saved = localStorage.getItem(LS.theme); }catch(e){}
+    if(saved==='dark' || saved==='light') applyTheme(saved);
+    else applyTheme('auto');
+  }
+  _initTheme();
+  // Late-injected sheets (search dropdown, region chips, notd) add their own
+  // dark media blocks after init; re-apply so a forced choice covers them too.
+  if(document.readyState!=='complete'){
+    window.addEventListener('load', function(){ _initTheme(); setTimeout(_initTheme, 800); });
+  } else { setTimeout(_initTheme, 800); }
+  // If the OS scheme changes while in auto, keep the attribute in step.
+  try{
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(){
+      var saved = null;
+      try{ saved = localStorage.getItem(LS.theme); }catch(e){}
+      if(saved!=='dark' && saved!=='light') applyTheme('auto');
+    });
   }catch(e){}
 
   // ---- Storage helpers (graceful degrade) ----
@@ -76,10 +144,15 @@
       '<svg class="asr-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>'+
       '<svg class="asr-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>';
     btn.addEventListener('click', function(){
-      var cur = document.documentElement.getAttribute('data-theme')==='dark' ? 'dark' : 'light';
-      var nw = cur==='dark' ? 'light' : 'dark';
-      applyTheme(nw);
-      try{ localStorage.setItem(LS.theme, nw); }catch(e){}
+      var nw = _effectiveDark() ? 'light' : 'dark';
+      if((nw==='dark') === _osDark()){
+        // choosing what the OS already prefers: return to follow-the-system
+        try{ localStorage.removeItem(LS.theme); }catch(e){}
+        applyTheme('auto');
+      } else {
+        try{ localStorage.setItem(LS.theme, nw); }catch(e){}
+        applyTheme(nw);
+      }
     });
     var links = nav.querySelector('.nav-links');
     if(links) links.appendChild(btn); else nav.appendChild(btn);
