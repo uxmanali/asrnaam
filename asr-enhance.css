@@ -756,7 +756,7 @@ p, .prose, .prose p, main p, .body-text, .hero-sub, .section-sub,
 .prose em, p em, .hero-title em, h1 em, h2 em, h3 em {
   font-family: 'Cormorant Garamond',Georgia,serif !important;
   font-style: italic !important;
-  color: #8B6914 !important;
+  color: #7A570E !important; /* contrast pass 2026-07-25: was #8B6914 (4.43:1 on warm-mid) */
 }
 html[data-theme='dark'] p, html[data-theme='dark'] .prose,
 html[data-theme='dark'] .prose p, html[data-theme='dark'] main p,
@@ -1629,7 +1629,7 @@ html[data-theme='dark'] .step-num {
      button stays on gold (#8B6914) which reads correctly in both modes. */
   .letter-btn { background:#242322 !important; color:#d4af6c !important; border-color:#3a3935 !important; }
   .letter-btn:hover { background:#2e2c28 !important; color:#f5ede0 !important; }
-  .letter-btn.active { background:#8B6914 !important; color:#f5ede0 !important; border-color:#8B6914 !important; }
+  .letter-btn.active { background:#7A570E !important; color:#f5ede0 !important; border-color:#7A570E !important; }
 
   /* /names/ hub: BROWSE BY TRADITION pills. These are bare <a> tags
      inside .hub-bar-wrap with inline background:#fff, no class of
@@ -2097,3 +2097,80 @@ p.asr-name-hero-sub {
   .asr-v2-letter { padding: 1rem 0.7rem; }
   .asr-v2-letter-arabic { font-size: 2.1rem; }
 }
+
+/* ============================================================
+   CONTRAST PASS 2026-07-25 — measured WCAG AA repair
+   Source: headless render + computed-contrast audit of 12 page
+   types in both schemes. Light: small gold text on warm-mid was
+   4.43:1 (fails 4.5). Dark: missed components kept light-mode
+   colors. Values verified: #7A570E on #F2EFE8 = 5.72:1,
+   #666 on #F2EFE8 = 5.0:1, #d4af6c on #242322 = 7.58:1,
+   #1a1a1a on #d4a84a = 7.87:1, #fff on #0E7A40 = 5.42:1,
+   #fff on #125BC4 = 6.33:1.
+   ============================================================ */
+:root { --gold: #7A570E; }
+.asr-share-hero-title, .asr-read-another .ra-eyebrow, .blog-card-eyebrow,
+.blog-card-cta, .urdu-heading, .related-terminal-link, .urdu-bridge-link,
+.asr-fresh-link { color: #7A570E; }
+.asr-fresh-link { border-bottom: 1px dotted rgba(122,87,14,.5); }
+.asr-share-btn.wa { background: #0E7A40; border-color: #0a5c30; }
+.asr-share-btn.fb { background: #125BC4; border-color: #0c4494; }
+
+@media (prefers-color-scheme: dark) {
+  :root { --gold: #d4af6c; }
+  h1 em, h2 em, h3 em, .section-label em { color: #d4af6c !important; }
+  .asr-share-hero-title, .asr-read-another .ra-eyebrow, .blog-card-eyebrow,
+  .blog-card-cta, .urdu-heading, .related-terminal-link, .urdu-bridge-link,
+  .asr-fresh-link { color: #d4af6c !important; }
+  .asr-fresh-link { border-bottom-color: rgba(212,175,108,.5); }
+  .asr-read-another .ra-cta-label, .cta-btn { color: #1a1a1a !important; }
+  .asr-skip-link, .asr-skip-link:focus { color: #1a1a1a !important; }
+  .nav-brand-sub, .asr-site-header .nav-brand-sub { color: #d4af6c !important; opacity: .85; }
+  .asr-breadcrumb .current, nav[aria-label="Breadcrumb"] .current { color: #e8e0d4 !important; }
+  .asr-breadcrumb a, nav[aria-label="Breadcrumb"] a { color: #bfb6a8 !important; }
+  .asr-lettercluster a, .lc-card, a.lc-tile { background-color: #242322 !important; border-color: #3a3935 !important; }
+  .lc-name { color: #d4af6c !important; }
+  .lc-meaning, .lc-teaser { color: #bfb6a8 !important; }
+  .asr-filterbar label, .asr-cmp-label { color: #bfb6a8 !important; }
+  .asr-cmp-go { background: #3d5f3c !important; color: #f5ede0 !important; }
+  .letter-btn.active { background: #d4af6c !important; color: #1a1a1a !important; }
+  footer .asr-year, footer p, .asr-footer-muted { color: #bfb6a8 !important; }
+}
+/* mirror for the JS toggle attribute (dark chosen while OS is light) */
+html[data-theme='dark'] h1 em, html[data-theme='dark'] h2 em, html[data-theme='dark'] h3 em { color: #d4af6c !important; }
+html[data-theme='dark'] .asr-share-hero-title, html[data-theme='dark'] .asr-read-another .ra-eyebrow,
+html[data-theme='dark'] .blog-card-eyebrow, html[data-theme='dark'] .blog-card-cta,
+html[data-theme='dark'] .urdu-heading, html[data-theme='dark'] .related-terminal-link,
+html[data-theme='dark'] .urdu-bridge-link, html[data-theme='dark'] .asr-fresh-link { color: #d4af6c !important; }
+html[data-theme='dark'] .asr-read-another .ra-cta-label, html[data-theme='dark'] .cta-btn,
+html[data-theme='dark'] .asr-skip-link { color: #1a1a1a !important; }
+html[data-theme='dark'] .lc-name { color: #d4af6c !important; }
+html[data-theme='dark'] .asr-lettercluster a, html[data-theme='dark'] .lc-card { background-color: #242322 !important; border-color: #3a3935 !important; }
+
+/* Contrast pass 2026-07-25 (b): light-!important leak repairs.
+   body/p rules above set #1f2937 !important; anything not p-shaped
+   (li, dd, blockquote) leaked dark text into dark mode. */
+@media (prefers-color-scheme: dark) {
+  body, li, dd, dt, blockquote { color: #e8e0d4 !important; }
+  p, .prose, .prose p, main p, .body-text, .lede { color: #e8e0d4 !important; }
+  p em, .prose em, article em, li em { color: #d4af6c !important; }
+  .asr-site-header .nav-links a { color: #e8e0d4 !important; }
+}
+html[data-theme='dark'] body, html[data-theme='dark'] li, html[data-theme='dark'] dd,
+html[data-theme='dark'] dt, html[data-theme='dark'] blockquote { color: #e8e0d4 !important; }
+html[data-theme='dark'] p, html[data-theme='dark'] .prose, html[data-theme='dark'] main p,
+html[data-theme='dark'] .body-text, html[data-theme='dark'] .lede { color: #e8e0d4 !important; }
+html[data-theme='dark'] p em, html[data-theme='dark'] .prose em,
+html[data-theme='dark'] article em, html[data-theme='dark'] li em { color: #d4af6c !important; }
+html[data-theme='dark'] :root { --gold: #d4af6c; }
+
+/* Contrast pass 2026-07-25 (c): hard light-mode values where var overrides
+   don't reach (pages defining gold inline), + tiny nav Arabic. */
+h1 em, h2 em, h3 em, .section-label { color: #7A570E; }
+.asr-site-header .nav-brand span[lang="ar"] { color: #666; }
+@media (prefers-color-scheme: dark) {
+  .letter-cluster .lc-card, .lc-card { background-color: #242322 !important; }
+  footer p, footer .asr-year { color: #bfb6a8 !important; }
+}
+.pull-quote span { color: #666; }
+@media (prefers-color-scheme: dark) { .pull-quote span { color: #bfb6a8 !important; } }
