@@ -50,6 +50,12 @@
     try{
       var _h = document.documentElement;
       _h.classList.add('asr-theme-sync'); void _h.offsetHeight; _h.classList.remove('asr-theme-sync');
+      // stable-channel Chromium needs a harder nudge than a class toggle
+      if(document.body){
+        var _d = document.body.style.display;
+        document.body.style.display = 'none'; void document.body.offsetHeight;
+        document.body.style.display = _d || '';
+      }
     }catch(e){}
   }
   function _osDark(){

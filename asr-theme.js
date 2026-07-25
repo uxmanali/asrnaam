@@ -34,6 +34,12 @@
     try{
       var h=document.documentElement;
       h.classList.add('asr-theme-sync'); void h.offsetHeight; h.classList.remove('asr-theme-sync');
+      /* stable-channel Chromium needs a harder nudge than a class toggle */
+      if(document.body){
+        var d=document.body.style.display;
+        document.body.style.display='none'; void document.body.offsetHeight;
+        document.body.style.display=d||'';
+      }
     }catch(e){}
   }
   function osDark(){ return !!(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches); }
