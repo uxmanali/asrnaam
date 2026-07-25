@@ -6879,8 +6879,10 @@ window.__asrAlts = {"aabid":["aabeed","abid"],"aabida":["aabidah","aabeeda","abi
   }
   syncSuspended();
   // Listen broadly. Covers both legacy applyFilters callers and any new ones.
-  document.addEventListener('input', function(){ requestAnimationFrame(syncSuspended); }, true);
-  document.addEventListener('click', function(){ requestAnimationFrame(syncSuspended); }, true);
+  // setTimeout, not requestAnimationFrame: rAF never fires in background
+  // tabs, leaving the suspended state stale.
+  document.addEventListener('input', function(){ setTimeout(syncSuspended, 0); }, true);
+  document.addEventListener('click', function(){ setTimeout(syncSuspended, 0); }, true);
 })();
 </script>
 </body>
