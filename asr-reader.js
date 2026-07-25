@@ -334,7 +334,7 @@ function annotateLibrary(el, q){
   };
   if(__asrIdxCache){ run(__asrIdxCache); return; }
   try{
-    fetch('/names/names-index.json',{cache:'force-cache'}).then(function(x){return x.json();}).then(function(idx){
+    fetch('/names/names-index.json?v=202607251700',{cache:'force-cache'}).then(function(x){return x.json();}).then(function(idx){
       __asrIdxCache=idx; run(idx);
     }).catch(function(){});
   }catch(e){}

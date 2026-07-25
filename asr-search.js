@@ -20,7 +20,7 @@
       if(CORPUS) return Promise.resolve(CORPUS);
       if(LOADING) return new Promise(function(res){ var t = setInterval(function(){ if(CORPUS || !LOADING){ clearInterval(t); res(CORPUS || []); } }, 30); });
       LOADING = true;
-      return fetch('/names/names-index.json', {cache:'force-cache'}).then(function(r){
+      return fetch('/names/names-index.json?v=202607251700', {cache:'force-cache'}).then(function(r){
         if(!r.ok) throw new Error('idx '+r.status);
         return r.json();
       }).then(function(arr){
