@@ -162,6 +162,16 @@
 "v": []
 },
 {
+"s": "aban",
+"n": "Aban",
+"a": "أبان",
+"u": "ابان",
+"g": "Male",
+"r": [],
+"m": "Clear, lucid, manifest",
+"v": []
+},
+{
 "s": "abbas",
 "n": "Abbas",
 "a": "عَبَّاس",
@@ -2176,6 +2186,16 @@
 ]
 },
 {
+"s": "afshan",
+"n": "Afshan",
+"a": "أفشان",
+"u": "افشاں",
+"g": "Female",
+"r": [],
+"m": "Scattering of light, glitter, gold-dust",
+"v": []
+},
+{
 "s": "afzal",
 "n": "Afzal",
 "a": "أفضل",
@@ -3068,6 +3088,16 @@
 "allaia",
 "alaiyah"
 ]
+},
+{
+"s": "alam",
+"n": "Alam",
+"a": "عالم",
+"u": "عالم",
+"g": "Male",
+"r": [],
+"m": "The world, the universe; also banner",
+"v": []
 },
 {
 "s": "alassane",
@@ -4566,6 +4596,16 @@
 "v": []
 },
 {
+"s": "asher",
+"n": "Asher",
+"a": "آشر",
+"u": "آشر",
+"g": "Male",
+"r": [],
+"m": "Happy, blessed, felicitous",
+"v": []
+},
+{
 "s": "ashfaq",
 "n": "Ashfaq",
 "a": "أشفق",
@@ -4867,6 +4907,16 @@
 ]
 },
 {
+"s": "ata",
+"n": "Ata",
+"a": "عطاء",
+"u": "عطا",
+"g": "Male",
+"r": [],
+"m": "Gift, bestowal",
+"v": []
+},
+{
 "s": "athar",
 "n": "Athar",
 "a": "أطهر",
@@ -5014,6 +5064,18 @@
 "aways",
 "awaes",
 "awayes"
+]
+},
+{
+"s": "awn",
+"n": "Awn",
+"a": "عون",
+"u": "عون",
+"g": "Male",
+"r": [],
+"m": "Help, support, aid",
+"v": [
+"aun"
 ]
 },
 {
@@ -10072,6 +10134,16 @@
 "farrzan",
 "pharzan"
 ]
+},
+{
+"s": "farzana",
+"n": "Farzana",
+"a": "فرزانة",
+"u": "فرزانہ",
+"g": "Female",
+"r": [],
+"m": "Wise, learned, intelligent",
+"v": []
 },
 {
 "s": "fateh",
@@ -22352,6 +22424,16 @@
 ]
 },
 {
+"s": "qaisar",
+"n": "Qaisar",
+"a": "قيصر",
+"u": "قیصر",
+"g": "Male",
+"r": [],
+"m": "Emperor, sovereign; Arabic form of Caesar",
+"v": []
+},
+{
 "s": "qaitbay",
 "n": "Qaitbay",
 "a": "قَايِتْبَاي",
@@ -24619,6 +24701,18 @@
 "v": []
 },
 {
+"s": "sabih",
+"n": "Sabih",
+"a": "صبيح",
+"u": "صبیح",
+"g": "Male",
+"r": [],
+"m": "Radiant, morning-bright, beautiful of face",
+"v": [
+"sabeeh"
+]
+},
+{
 "s": "sabiha",
 "n": "Sabiha",
 "a": "صبيحة",
@@ -25566,6 +25660,16 @@
 ]
 },
 {
+"s": "samina",
+"n": "Samina",
+"a": "ثمينة",
+"u": "ثمینہ",
+"g": "Female",
+"r": [],
+"m": "Precious, valuable, treasured",
+"v": []
+},
+{
 "s": "samir",
 "n": "Samir",
 "a": "سمير",
@@ -26222,6 +26326,16 @@
 ]
 },
 {
+"s": "shahbaz",
+"n": "Shahbaz",
+"a": "شهباز",
+"u": "شہباز",
+"g": "Male",
+"r": [],
+"m": "Royal falcon",
+"v": []
+},
+{
 "s": "shahd",
 "n": "Shahd",
 "a": "شهد",
@@ -26486,6 +26600,16 @@
 "ع"
 ],
 "m": "A candle, a soft flame.",
+"v": []
+},
+{
+"s": "shamim",
+"n": "Shamim",
+"a": "شميم",
+"u": "شمیم",
+"g": "Both",
+"r": [],
+"m": "Fragrance, sweet scent carried on air",
 "v": []
 },
 {
@@ -31046,6 +31170,26 @@
 ]
 },
 {
+"s": "zahid",
+"n": "Zahid",
+"a": "زاهد",
+"u": "زاہد",
+"g": "Male",
+"r": [],
+"m": "Ascetic, detached from worldliness",
+"v": []
+},
+{
+"s": "zahir",
+"n": "Zahir",
+"a": "ظاهر",
+"u": "ظاہر",
+"g": "Male",
+"r": [],
+"m": "Manifest, evident, outward",
+"v": []
+},
+{
 "s": "zahiya",
 "n": "Zahiya",
 "a": "زاهية",
@@ -31752,6 +31896,16 @@
 "v": []
 },
 {
+"s": "zia",
+"n": "Zia",
+"a": "ضياء",
+"u": "ضیاء",
+"g": "Male",
+"r": [],
+"m": "Light, radiance, splendour",
+"v": []
+},
+{
 "s": "ziad",
 "n": "Ziad",
 "a": "زياد",
@@ -31876,6 +32030,16 @@
 "v": [
 "dhiyad"
 ]
+},
+{
+"s": "zobia",
+"n": "Zobia",
+"a": "زوبيا",
+"u": "زوبیہ",
+"g": "Female",
+"r": [],
+"m": "Gifted, radiant; modern South Asian girl name",
+"v": []
 },
 {
 "s": "zohaib",
