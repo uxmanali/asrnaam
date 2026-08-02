@@ -31,9 +31,10 @@
     var href = a.getAttribute("href") || "";
     if (/^\/ur\//.test(href)) set("asr-lang-pref", "ur");
     else if (/^\/ar\//.test(href)) set("asr-lang-pref", "ar");
+    else if (/^\/hi\//.test(href)) set("asr-lang-pref", "hi");
     else if (/^\/(names|blog|letters|basaair|aathaar|athar)?\/?/.test(href) &&
-             !/^\/(ur|ar)\//.test(href) &&
-             /^(ur|ar)$/.test(document.documentElement.lang)) {
+             !/^\/(ur|ar|hi)\//.test(href) &&
+             /^(ur|ar|hi)$/.test(document.documentElement.lang)) {
       set("asr-lang-pref", "en");
     }
   }, true);
@@ -49,7 +50,7 @@
     var l = document.querySelector('link[rel="alternate"][hreflang="' + lang + '"]');
     return l && l.href ? l.href : null;
   }
-  if (!altFor("ur") && !altFor("ar")) return;
+  if (!altFor("ur") && !altFor("ar") && !altFor("hi")) return;
 
   function go(lang) {
     var target = altFor(lang);
@@ -59,13 +60,16 @@
     return true;
   }
 
-  /* A previously pinned ur/ar preference routes immediately. */
-  if (pref === "ur" || pref === "ar") { go(pref); return; }
+  /* A previously pinned ur/ar/hi preference routes immediately. */
+  if (pref === "ur" || pref === "ar" || pref === "hi") { go(pref); return; }
 
-  /* 1. Browser language — decisive when it names ur or ar. */
+  /* 1. Browser language — decisive when it names ur, ar or hi.
+     (India is deliberately routed by language, not geography: Indian
+     visitors arriving on Urdu-meaning queries should keep Urdu/English.) */
   var langs = (navigator.languages || [navigator.language || ""]).join(",").toLowerCase();
   if (/(^|,)\s*ur\b/.test(langs)) { go("ur"); return; }
   if (/(^|,)\s*ar\b/.test(langs)) { go("ar"); return; }
+  if (/(^|,)\s*hi\b/.test(langs)) { go("hi"); return; }
 
   /* 2. IP country (cached 30 days). */
   var cached = get("asr-geo-cc"), cachedAt = parseInt(get("asr-geo-at") || "0", 10);
