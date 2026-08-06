@@ -87,5 +87,43 @@
     <a href="/aathaar/">Aathaar</a>
   </div>
 </main>
+<script>
+/* 404 recovery (SEO action #5): variant slugs auto-redirect to the canonical
+   name page; near-miss slugs get a "did you mean" suggestion. Data source:
+   /names/names-index.json (slug, variants). No-op on failure. */
+(function () {
+  var seg = location.pathname.toLowerCase().replace(/\/+$/, "").split("/").pop();
+  if (!seg || seg.length < 2 || seg.indexOf(".") !== -1) return;
+  var slug = decodeURIComponent(seg).replace(/[^a-z\-]/g, "");
+  if (!slug) return;
+  fetch("/names/names-index.json?v=202608").then(function (r) { return r.json(); }).then(function (idx) {
+    var exact = null, close = null, best = 3;
+    function lev(a, b) {
+      if (Math.abs(a.length - b.length) > 2) return 99;
+      var m = [], i, j;
+      for (i = 0; i <= a.length; i++) m[i] = [i];
+      for (j = 0; j <= b.length; j++) m[0][j] = j;
+      for (i = 1; i <= a.length; i++) for (j = 1; j <= b.length; j++)
+        m[i][j] = Math.min(m[i-1][j]+1, m[i][j-1]+1, m[i-1][j-1] + (a[i-1] === b[j-1] ? 0 : 1));
+      return m[a.length][b.length];
+    }
+    for (var k = 0; k < idx.length; k++) {
+      var e = idx[k];
+      if (e.s === slug || (e.v && e.v.indexOf(slug) !== -1)) { exact = e; break; }
+      var d = lev(slug, e.s);
+      if (d < best) { best = d; close = e; }
+    }
+    if (exact) { location.replace("/names/" + exact.s + "/"); return; }
+    if (close) {
+      var main = document.querySelector("main");
+      var p = document.createElement("p");
+      p.className = "lede";
+      p.innerHTML = 'Did you mean <a href="/names/' + close.s + '/" style="color:var(--gold);font-weight:600;">' + close.n + "</a>?";
+      var h1 = main.querySelector("h1");
+      if (h1 && h1.nextSibling) main.insertBefore(p, h1.nextSibling); else main.appendChild(p);
+    }
+  }).catch(function () {});
+})();
+</script>
 </body>
 </html>

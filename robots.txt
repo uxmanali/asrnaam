@@ -105,6 +105,7 @@ Sitemap: https://asrnaam.com/sitemap.xml
 Sitemap: https://asrnaam.com/sitemap-canonicals.xml
 Sitemap: https://asrnaam.com/sitemap-ar.xml
 Sitemap: https://asrnaam.com/sitemap-ur.xml
+Sitemap: https://asrnaam.com/sitemap-hi.xml
 Sitemap: https://asrnaam.com/sitemap-letters.xml
 Sitemap: https://asrnaam.com/sitemap-blog-meta.xml
 Sitemap: https://asrnaam.com/sitemap-aathaar.xml
