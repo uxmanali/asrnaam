@@ -73,7 +73,24 @@ aside.related-names h2{font-family:'Cinzel',serif;font-size:.72rem;letter-spacin
 aside.related-names ul{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:.5rem 1.1rem;font-size:1.05rem;}
 footer{max-width:760px;margin:0 auto;padding:2.4rem 2rem 4rem;border-top:1px solid var(--border);text-align:center;font-size:.85rem;color:var(--text-secondary);}
 footer a{color:var(--gold);border:none;margin:0 .8rem;}
-/*ASRNAAM_DARK_INJECT*/@media(prefers-color-scheme:dark){html,body{background:#1a1a1a!important;color:#eae6dc!important;}h1,h2,h3,h4{color:#f5ede0!important;}a{color:#d4af6c!important;}a:hover{color:#f5ede0!important;}:root{--white:#1a1a1a!important;--off-white:#242322!important;--panel:#242322!important;--charcoal:#eae6dc!important;--body:#eae6dc!important;--muted:#bfb6a8!important;--subtle:#a8a39a!important;--warm-white:#1a1a1a!important;--warm-mid:#242322!important;--text-secondary:#bfb6a8!important;--border:#3a3935!important;--surface-1:#1a1a1a!important;--surface-2:#242322!important;--surface-3:#2c2822!important;}nav{background:#1a1a1a!important;border-bottom-color:#3a3935!important;}}</style>
+/*ASRNAAM_DARK_INJECT*/@media(prefers-color-scheme:dark){html,body{background:#1a1a1a!important;color:#eae6dc!important;}h1,h2,h3,h4{color:#f5ede0!important;}a{color:#d4af6c!important;}a:hover{color:#f5ede0!important;}:root{--white:#1a1a1a!important;--off-white:#242322!important;--panel:#242322!important;--charcoal:#eae6dc!important;--body:#eae6dc!important;--muted:#bfb6a8!important;--subtle:#a8a39a!important;--warm-white:#1a1a1a!important;--warm-mid:#242322!important;--text-secondary:#bfb6a8!important;--border:#3a3935!important;--surface-1:#1a1a1a!important;--surface-2:#242322!important;--surface-3:#2c2822!important;}nav{background:#1a1a1a!important;border-bottom-color:#3a3935!important;}}
+/*ASR-ANSWER*/
+.asr-answer{max-width:760px;margin:0 auto 2rem;padding:1.4rem 1.6rem;background:var(--warm-mid,#F2EFE8);border:1px solid var(--border,#E8E2D4);border-radius:6px;}
+.asr-answer-script{font-family:'Amiri','Noto Naskh Arabic',serif;font-size:1.5rem;text-align:center;margin-bottom:1rem;color:var(--charcoal,#2A2A2A);}
+.asr-answer-script .sep{color:var(--gold,#8B6914);padding:0 .5rem;font-family:'Cormorant Garamond',serif;font-size:1.1rem;}
+.asr-answer-script .rom{font-family:'Cinzel',serif;font-size:1.05rem;letter-spacing:.06em;}
+.asr-answer-rows{margin:0;}
+.asr-answer-rows .r{display:flex;gap:1rem;padding:.5rem 0;border-bottom:1px solid var(--border,#E8E2D4);}
+.asr-answer-rows .r:last-child{border-bottom:none;}
+.asr-answer-rows dt{flex:0 0 8.5rem;font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold,#8B6914);font-weight:600;align-self:center;margin:0;}
+.asr-answer-rows dd{flex:1;margin:0;font-size:1.04rem;line-height:1.6;color:var(--charcoal,#2A2A2A);}
+.asr-answer-rows dd[dir="rtl"]{font-family:'Amiri','Noto Naskh Arabic',serif;font-size:1.2rem;text-align:left;unicode-bidi:isolate;}
+.asr-answer-islamic{margin:1.1rem 0 0;padding-top:1rem;border-top:1px solid var(--border,#E8E2D4);font-size:1.04rem;line-height:1.75;color:var(--charcoal,#2A2A2A);}
+.asr-answer-islamic strong{font-family:'Cinzel',serif;font-size:.95rem;letter-spacing:.02em;display:block;margin-bottom:.3rem;color:var(--gold,#8B6914);}
+.asr-answer-jump{display:inline-block;margin-top:.9rem;font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold,#8B6914);text-decoration:none;border-bottom:1px solid rgba(139,105,20,.4);padding-bottom:.15rem;}
+@media(max-width:640px){.asr-answer{padding:1.1rem 1rem;}.asr-answer-rows .r{flex-direction:column;gap:.15rem;align-items:flex-start;}.asr-answer-rows dt{flex:none;text-align:left;align-self:flex-start;}.asr-answer-rows dd{text-align:left;}}
+@media(prefers-color-scheme:dark){.asr-answer{background:#242322;border-color:#3a3935;}.asr-answer-rows .r{border-bottom-color:#3a3935;}.asr-answer-islamic{border-top-color:#3a3935;}.asr-answer-rows dd,.asr-answer-script,.asr-answer-islamic{color:#eae6dc;}}
+</style>
 <script defer src="/asr-matcher.js?v=202607051800"></script>
 <script defer src="/asr-enhance.js?v=202607251700"></script>
 <link rel="icon" href="/favicon.ico" sizes="48x48"/><link rel="icon" href="/favicon.svg" type="image/svg+xml"/><link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
@@ -86,15 +103,25 @@ footer a{color:var(--gold);border:none;margin:0 .8rem;}
 <div class="hero">
   <div class="arabic-name" lang="ar" dir="rtl">عبد القدوس</div>
   <div class="name-badge">Abdul Quddus <span>·</span> Male <span>·</span> Arabic <span>·</span> 9 letters</div>
-  <h1>Abdul Quddus: <em>Islamic Meaning</em>, Urdu Spelling & Letter-by-Letter Ilm ul Huroof Reading</h1>
+  <h1>Abdul Quddus Name Meaning in Islam</h1>
   <p class="hero-subtitle">Servant of the Most Holy</p>
 </div>
 <main role="main">
+<!-- ANSWER:START -->
+<div class="asr-answer" aria-label="Quick answer about Abdul Quddus">
+<div class="asr-answer-script"><span lang="ar" dir="rtl">عبد القدوس</span><span class="sep">·</span><span class="rom">Abdul Quddus</span></div>
+<dl class="asr-answer-rows"><div class="r"><dt>Meaning</dt><dd data-asr-field="meaning-dict">Servant of the Most Holy</dd></div><div class="r"><dt>Origin</dt><dd data-asr-field="origin">Arabic</dd></div><div class="r"><dt>Gender</dt><dd data-asr-field="gender">Boy</dd></div><div class="r"><dt>Arabic root</dt><dd dir="rtl" lang="ar">ق-د-س</dd></div><div class="r"><dt>Urdu</dt><dd dir="rtl" lang="ar" data-asr-field="urdu">عبد القدوس</dd></div><div class="r"><dt>Pronunciation</dt><dd data-asr-field="pronunciation">abd-ul-qudd-us</dd></div></dl>
+<p class="asr-answer-islamic"><strong>Is Abdul Quddus an Islamic name?</strong> Yes. Abdul Quddus is an established name in Muslim use, Arabic in origin. Its settled meaning is: Servant of the Most Holy. Islamic tradition asks that a name carry a good meaning and claim nothing that belongs to God alone, and this name meets both.</p>
+<a class="asr-answer-jump" href="#reading">Read the letter-by-letter reading &darr;</a>
+</div>
+<!-- ANSWER:END -->
+
 
 <div class="section-label"><span>Meaning</span></div>
 <div class="prose">
 <p><strong>Abdul Quddus</strong> (عبد القدوس) means: Servant of the Most Holy. Al-Quddus is one of the ninety-nine divine names.</p>
-</div><!-- LAYOUT-V2:START -->
+</div><span id="reading"></span>
+<!-- LAYOUT-V2:START -->
 <div class="asr-layout-v2"><section class="asr-v2 asr-v2-root"><p class="asr-v2-kicker">Section 1 · Arabic Root</p><h2 class="asr-v2-title">Where the Name Comes From</h2><div class="asr-v2-root-glyph" lang="ar" dir="rtl" aria-label="Root letters">ق-د-س</div><!-- MEAN-ROOT:START --><div class="prose">
 <p>The root letters of Abdul Quddus are <strong>ق-د-س</strong>. From this same root the classical Arabic dictionaries derive a whole family of words that share the underlying idea. In Ilm ul Huroof each letter of the root is read for its ontological quality; the sum of the root letters gives the field of meanings that the name is set inside.</p>
 <p>See the letter reading above for how each letter carries its share of the whole.</p>
