@@ -61,7 +61,13 @@ footer{border-top:1px solid var(--border);padding:2.5rem 2.5rem;text-align:cente
   .quick-facts{background:#242322;border-color:#3a3935;}
   nav.asr-nav, .breadcrumb, footer{background:#1a1a1a;border-color:#3a3935;}
 }
-/*ASRNAAM_DARK_INJECT*/@media(prefers-color-scheme:dark){html,body{background:#1a1a1a!important;color:#eae6dc!important;}h1,h2,h3,h4{color:#f5ede0!important;}a{color:#d4af6c!important;}a:hover{color:#f5ede0!important;}:root{--white:#1a1a1a!important;--off-white:#242322!important;--panel:#242322!important;--charcoal:#eae6dc!important;--body:#eae6dc!important;--muted:#bfb6a8!important;--subtle:#a8a39a!important;--warm-white:#1a1a1a!important;--warm-mid:#242322!important;--text-secondary:#bfb6a8!important;--border:#3a3935!important;--surface-1:#1a1a1a!important;--surface-2:#242322!important;--surface-3:#2c2822!important;}nav{background:#1a1a1a!important;border-bottom-color:#3a3935!important;}}</style>
+/*ASRNAAM_DARK_INJECT*/@media(prefers-color-scheme:dark){html,body{background:#1a1a1a!important;color:#eae6dc!important;}h1,h2,h3,h4{color:#f5ede0!important;}a{color:#d4af6c!important;}a:hover{color:#f5ede0!important;}:root{--white:#1a1a1a!important;--off-white:#242322!important;--panel:#242322!important;--charcoal:#eae6dc!important;--body:#eae6dc!important;--muted:#bfb6a8!important;--subtle:#a8a39a!important;--warm-white:#1a1a1a!important;--warm-mid:#242322!important;--text-secondary:#bfb6a8!important;--border:#3a3935!important;--surface-1:#1a1a1a!important;--surface-2:#242322!important;--surface-3:#2c2822!important;}nav{background:#1a1a1a!important;border-bottom-color:#3a3935!important;}}
+/*ASR-MIRROR-ANSWER*/
+.asr-mq{margin:1.2rem auto 2rem;max-width:760px;padding:1.1rem 1.3rem;background:var(--warm-mid,#F2EFE8);border:1px solid var(--border,#E8E2D4);border-radius:6px;}
+.asr-mq-q{display:block;margin-bottom:.35rem;font-weight:700;color:var(--gold,#8B6914);font-size:1.02rem;}
+.asr-mq-a{margin:0;font-size:1.02rem;line-height:1.9;color:var(--charcoal,#2A2A2A);}
+@media(prefers-color-scheme:dark){.asr-mq{background:#242322;border-color:#3a3935;}.asr-mq-a{color:#eae6dc;}}
+</style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "الرئيسية", "item": "https://asrnaam.com/ar/"}, {"@type": "ListItem", "position": 2, "name": "الأسماء", "item": "https://asrnaam.com/ar/names/"}, {"@type": "ListItem", "position": 3, "name": "حمو"}]}</script>
 <script defer src="/asr-theme.js?v=202607251600"></script>
 <link rel="icon" href="/favicon.ico" sizes="48x48"/><link rel="icon" href="/favicon.svg" type="image/svg+xml"/><link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
@@ -95,22 +101,17 @@ footer{border-top:1px solid var(--border);padding:2.5rem 2.5rem;text-align:cente
 <div class="content">
 
 <aside class="quick-facts" aria-label="معلومات سريعة">
-<div class="qf-row"><span class="qf-label">النطق اللاتيني</span><span class="qf-value">Hamou</span></div>
-<div class="qf-row"><span class="qf-label">الرسم العربي</span><span class="qf-value"><span lang="ar" dir="rtl" style="font-family:'Amiri',serif;font-size:1.15em;">حمو</span></span></div>
-<div class="qf-row"><span class="qf-label">الرسم الأردي</span><span class="qf-value"><span lang="ur" dir="rtl" style="font-family:'Amiri',serif;font-size:1.15em;">حمو</span></span></div>
-<div class="qf-row"><span class="qf-label">الجنس</span><span class="qf-value">ذكر</span></div>
-<div class="qf-row"><span class="qf-label">الأصل</span><span class="qf-value">بربري</span></div>
-<div class="qf-row full-row" style="grid-column:1/-1;"><span class="qf-label">عدد الحروف</span><span class="qf-value">3</span></div>
-<div class="qf-row full-row" style="grid-column:1/-1;"><span class="qf-label">تفصيل الحروف</span><span class="qf-value">ح · م · و</span></div>
-<div class="qf-row full-row" style="grid-column:1/-1;"><span class="qf-label">المعنى المعجمي</span><span class="qf-value">أحمد, أكثر حمداً</span></div>
-<div class="qf-row full-row" style="grid-column:1/-1;"><span class="qf-label">الجذر العربي</span><span class="qf-value"></span></div>
-<div class="qf-row full-row" style="grid-column:1/-1;"><span class="qf-label">علم الحروف</span><span class="qf-value">الحاء نَفَسٌ من الصدر، الميم مَلاذ يُؤوي، الواو وَصْل يَجمع</span></div>
+<div class="qf-row full-row" style="grid-column:1/-1;"><span class="qf-label">المعنى المعجمي</span><span class="qf-value">أحمد, أكثر حمداً</span></div><div class="qf-row"><span class="qf-label">الأصل</span><span class="qf-value">بربري</span></div><div class="qf-row"><span class="qf-label">الجنس</span><span class="qf-value">ذكر</span></div><div class="qf-row full-row" style="grid-column:1/-1;"><span class="qf-label">الجذر العربي</span><span class="qf-value"></span></div><div class="qf-row"><span class="qf-label">الرسم الأردي</span><span class="qf-value"><span lang="ur" dir="rtl" style="font-family:'Amiri',serif;font-size:1.15em;">حمو</span></span></div><div class="qf-row"><span class="qf-label">الرسم العربي</span><span class="qf-value"><span lang="ar" dir="rtl" style="font-family:'Amiri',serif;font-size:1.15em;">حمو</span></span></div><div class="qf-row"><span class="qf-label">النطق اللاتيني</span><span class="qf-value">Hamou</span></div><div class="qf-row full-row" style="grid-column:1/-1;"><span class="qf-label">عدد الحروف</span><span class="qf-value">3</span></div><div class="qf-row full-row" style="grid-column:1/-1;"><span class="qf-label">تفصيل الحروف</span><span class="qf-value">ح · م · و</span></div><div class="qf-row full-row" style="grid-column:1/-1;"><span class="qf-label">علم الحروف</span><span class="qf-value">الحاء نَفَسٌ من الصدر، الميم مَلاذ يُؤوي، الواو وَصْل يَجمع</span></div>
 </aside>
 
 <!-- LAYOUT-V2:START -->
 <div class="asr-layout-v2"><section class="asr-v2 asr-v2-root"><p class="asr-v2-kicker">القسم 1 · الجذر العربي</p><h2 class="asr-v2-title">من أين يأتي الاسم</h2><div class="prose">
 <p>يَنبني هذا الاسم على معنى لُغوي يتّصل بـ«أحمد, أكثر حمداً»، وهو المُلتقى الذي تَستقي منه دلالته.</p>
 </div>
+<!-- MQ:START -->
+<div class="asr-mq"><span class="asr-mq-q">هل حمو اسم إسلاميّ؟</span><p class="asr-mq-a">نعم. حمو اسمٌ مستعملٌ في بلاد المسلمين، وأصلُه بربري. ومعناه المتداوَل: أحمد, أكثر حمداً. والتقليدُ الإسلاميُّ يشترطُ في الاسمِ حُسنَ المعنى، وألّا يَدّعي لصاحبِه ما هو للهِ وحده، وهذا الاسمُ يستوفي الشرطَين.</p></div>
+<!-- MQ:END -->
+
 
 </section><div class="asr-v2-divider" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M12 2 L14 10 L22 12 L14 14 L12 22 L10 14 L2 12 L10 10 Z" fill="currentColor"/><path d="M12 5 L13 11 L19 12 L13 13 L12 19 L11 13 L5 12 L11 11 Z" fill-opacity=".55" fill="var(--warm-white,#FAFAF8)"/></svg></div><section class="asr-v2 asr-v2-letters"><p class="asr-v2-kicker">القسم 2 · علم الحروف</p><h2 class="asr-v2-title">قراءة حرفاً بحرف</h2><div class="asr-v2-letter-grid"><a href="/letters/ha-breath/" class="asr-v2-letter" data-element="water"><span class="asr-v2-letter-arabic" lang="ar" dir="rtl">ح</span><span class="asr-v2-letter-roman">Ha</span><span class="asr-v2-letter-anchor">Al-Hamid · The Praiseworthy</span><span class="asr-v2-letter-pill pill-water">Water</span></a><a href="/letters/meem/" class="asr-v2-letter" data-element="fire"><span class="asr-v2-letter-arabic" lang="ar" dir="rtl">م</span><span class="asr-v2-letter-roman">Meem</span><span class="asr-v2-letter-anchor">Al-Mu'min · The Faithful</span><span class="asr-v2-letter-pill pill-fire">Fire</span></a><a href="/letters/waw/" class="asr-v2-letter" data-element="earth"><span class="asr-v2-letter-arabic" lang="ar" dir="rtl">و</span><span class="asr-v2-letter-roman">Waw</span><span class="asr-v2-letter-anchor">Al-Wadud · The Loving</span><span class="asr-v2-letter-pill pill-earth">Earth</span></a></div><div class="prose">
 <p>الحاء نَفَسٌ من الصدر، الميم مَلاذ يُؤوي، الواو وَصْل يَجمع. هذه القراءة الحرفية تَكشف صورةً مُجمَلة لإيقاع الاسم وحركته الباطنة، وكيف يَتآلف صدرُه مع مَقطعه ومع خاتمته.</p>
