@@ -524,6 +524,22 @@
   }
 
   // ---- Cmd-K global search ----
+
+  // ---- Category pages, merged into the search corpus (browse axes) ----
+  var ASR_CATS = null, ASR_CATS_TRIED = false;
+  function asrLoadCats(){
+    if(ASR_CATS || ASR_CATS_TRIED) return Promise.resolve(ASR_CATS || []);
+    ASR_CATS_TRIED = true;
+    return fetch('/names/categories.json', {cache:'force-cache'})
+      .then(function(r){ return r.ok ? r.json() : []; })
+      .then(function(a){
+        ASR_CATS = a.map(function(c){
+          return {h:c.h, n:c.n, m:c.m, g:'', a:'', u:'', r:[], v:(c.k||'').split(' '), __cat:1};
+        });
+        return ASR_CATS;
+      }).catch(function(){ ASR_CATS = []; return ASR_CATS; });
+  }
+
   var CMDK_CORPUS = null;
   var CMDK_LOADING = false;
 
@@ -536,6 +552,7 @@
   var CMDK_TOKENS = null;
   function fetchCorpus(){
     if(CMDK_CORPUS) return Promise.resolve(CMDK_CORPUS);
+    asrLoadCats();
     if(CMDK_LOADING) return new Promise(function(res){ var t=setInterval(function(){ if(CMDK_CORPUS || !CMDK_LOADING){ clearInterval(t); res(CMDK_CORPUS || []); } }, 30); });
     CMDK_LOADING = true;
     return fetch('/names/names-index.json?v=202607252100', {cache:'force-cache'}).then(function(r){
@@ -558,6 +575,7 @@
       CMDK_TOKENS = (window.ASR_MATCHER && window.ASR_MATCHER.buildTokenIndex)
         ? window.ASR_MATCHER.buildTokenIndex(out)
         : [];
+      out = (ASR_CATS || []).concat(out);
       CMDK_CORPUS = out;
       CMDK_LOADING = false;
       return CMDK_CORPUS;

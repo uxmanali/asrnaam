@@ -14,6 +14,22 @@
     if(!window.ASR_MATCHER) return;
     var M = window.ASR_MATCHER;
 
+
+  // ---- Category pages, merged into the search corpus (browse axes) ----
+  var ASR_CATS = null, ASR_CATS_TRIED = false;
+  function asrLoadCats(){
+    if(ASR_CATS || ASR_CATS_TRIED) return Promise.resolve(ASR_CATS || []);
+    ASR_CATS_TRIED = true;
+    return fetch('/names/categories.json', {cache:'force-cache'})
+      .then(function(r){ return r.ok ? r.json() : []; })
+      .then(function(a){
+        ASR_CATS = a.map(function(c){
+          return {h:c.h, n:c.n, m:c.m, g:'', a:'', u:'', r:[], v:(c.k||'').split(' '), __cat:1};
+        });
+        return ASR_CATS;
+      }).catch(function(){ ASR_CATS = []; return ASR_CATS; });
+  }
+
     // ---- Corpus loader (shared with Cmd-K / homepage hero search) ----
     var CORPUS = null, TOKENS = null, LOADING = false;
     function fetchCorpus(){
@@ -23,6 +39,8 @@
       return fetch('/names/names-index.json?v=202607251700', {cache:'force-cache'}).then(function(r){
         if(!r.ok) throw new Error('idx '+r.status);
         return r.json();
+      }).then(function(arr){
+        return asrLoadCats().then(function(cats){ return cats.concat(arr); });
       }).then(function(arr){
         CORPUS = arr;
         TOKENS = M.buildTokenIndex(arr);
