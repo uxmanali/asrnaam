@@ -49,23 +49,63 @@ the business.
    conversion on a $15 report is $15,000, before any ad revenue. Ads are the
    floor, not the ceiling.
 
+## Where the site actually is
+
+Measured 23 April to 22 July 2026, the site's first 91 days.
+
+| | Clicks | Impressions | CTR |
+|---|---|---|---|
+| Month 1 | 34 | 14,557 | 0.23% |
+| Month 2 | 368 | 95,104 | 0.39% |
+| Month 3 | 996 | 268,381 | 0.37% |
+| **Run rate** | **~1,350/mo** | **~333,000/mo** | **0.37%** |
+
+Two things matter in that table.
+
+Impressions grew eighteenfold in ninety days. The content and the crawl are
+working, and average position is around 9 on mobile, which is respectable for a
+site this young.
+
+CTR did not move at all. 0.23%, 0.39%, 0.37%. Eighteen times the impressions
+bought no improvement in the rate at which they convert. Growth is coming
+entirely from more impressions, not from better conversion of them.
+
 ## The honest constraint
 
-Traffic, not monetisation, is the binding constraint. At the current 235 clicks
-a month, advertising at a $15 RPM earns about $3.50. The ad work exists so the
-approval clock starts and the plumbing is ready, not because it pays yet.
+CTR is a multiplier on everything else, and it is stuck.
 
-The levers that matter, in order:
+At 0.37%, 333,000 impressions a month yields 1,350 clicks. At a par rate for
+position 9, nearer 2%, the same impressions yield 6,600. That is roughly a
+fivefold difference on traffic already won, before a single new page is built
+or a single position gained.
 
-1. **Index coverage.** Google shows roughly 1,996 names indexed against 2,450
-   live. Closing that gap is free traffic on pages that already exist.
-2. **Click-through rate.** 235 clicks from 86,088 impressions is 0.27% at an
-   average position around 9. Par at that position is nearer 2%. Ranking is
-   already there; the clicks are not.
+Individual queries show the problem plainly: "ibrahim in urdu" at 1,743
+impressions and zero clicks, position 9.7. "muhammad name meaning in urdu",
+854 impressions, zero clicks, position 8.4.
+
+Some of that is unwinnable. A query like "ibrahim in urdu" is often answered in
+the result page itself, and no title will beat a reader who already has what
+they came for. But zero clicks at position 8 across thousands of impressions is
+not all zero-click search.
+
+The levers, in order:
+
+1. **CTR.** Titles ran to a median 81 characters against roughly 60 that Google
+   renders, so every one was cut mid-phrase. Fixed August 2026; watch whether
+   the rate moves.
+2. **Index coverage.** Sitemaps are complete, so the gap between pages built and
+   pages indexed is a crawl and quality question, not a plumbing one. 6,500
+   variant-spelling redirect stubs sit in the crawl path.
 3. **Then rankings**, and only then more pages.
 
-Building Layer 4 before fixing CTR would add impressions to a funnel that
-converts at a seventh of par.
+Advertising revenue follows traffic and cannot lead it. At the current run rate
+a $15 RPM earns roughly $20 a month. The ad plumbing exists so the approval
+clock can start, not because it pays yet.
+
+Note on RPM: the audience is 27% Pakistan and 19% India by impressions, with the
+United States and United Kingdom together under 10%. Ad rates in the dominant
+markets run a fraction of the $5 to $25 the plan assumes. Model the low end, and
+treat the paid product as the real business rather than a supplement to ads.
 
 ## Rules of the house
 
