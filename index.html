@@ -840,6 +840,105 @@
 @media(max-width:640px){.mean-hub{padding:12px 18px 30px;}.mean-links a{padding:.35rem .6rem;font-size:.74rem;}}
 @media(prefers-color-scheme:dark){.mean-links a{background:#242322;border-color:#3a3935;}}
 </style>
+<style>
+/*ASR-FILTER-MINI*/
+
+/*ASR-FILTER*/
+.ff-wrap{max-width:1240px;margin:0 auto;padding:0 2rem 2rem;}
+.ff-grid{display:grid;grid-template-columns:272px minmax(0,1fr);gap:2rem;align-items:start;}
+.ff-side{position:sticky;top:1rem;max-height:calc(100vh - 2rem);overflow-y:auto;overscroll-behavior:contain;padding-right:.3rem;}
+.ff-side::-webkit-scrollbar{width:6px}.ff-side::-webkit-scrollbar-thumb{background:var(--border,#E8E2D4);border-radius:3px}
+.ff-g{border:1px solid var(--border,#E8E2D4);border-radius:6px;margin-bottom:.7rem;background:var(--warm-white,#FAFAF8);}
+.ff-g>summary{cursor:pointer;list-style:none;padding:.75rem .9rem;display:flex;justify-content:space-between;align-items:center;gap:.6rem;font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold,#8B6914);}
+.ff-g>summary::-webkit-details-marker{display:none}
+.ff-g>summary::after{content:"\FF0B";font-size:.9rem;margin-inline-start:auto;}
+.ff-g[open]>summary::after{content:"\FF0D"}
+.ff-sel{font-family:inherit;font-size:.62rem;color:#fff;background:var(--gold,#8B6914);border-radius:9px;padding:.05rem .4rem;letter-spacing:.04em;}
+.ff-sel:empty{display:none}
+.ff-opts{display:flex;flex-direction:column;gap:.15rem;padding:.3rem .5rem .6rem;}
+.ff-opts.wide,.ff-opts.rtl{flex-direction:row;flex-wrap:wrap;gap:.3rem;padding:.5rem;}
+.ff-opts.rtl{direction:rtl}
+.ff-opt{display:flex;align-items:center;justify-content:space-between;gap:.6rem;width:100%;min-height:38px;padding:.4rem .55rem;border:1px solid transparent;border-radius:4px;background:none;color:var(--charcoal,#2A2A2A);font:inherit;font-size:.94rem;text-align:start;cursor:pointer;}
+.ff-opts.wide .ff-opt,.ff-opts.rtl .ff-opt{width:auto;min-width:44px;min-height:44px;justify-content:center;flex-direction:column;gap:0;border-color:var(--border,#E8E2D4);}
+.ff-opt:hover:not(:disabled){background:var(--warm-mid,#F2EFE8)}
+/* the selected state has to beat :hover, or a hovered selection turns
+   white-on-near-white. Explicit colours rather than --gold, which is a text
+   gold and too light to carry white text in the dark theme. */
+.ff-opt[aria-pressed=true],.ff-opt[aria-pressed=true]:hover:not(:disabled){background:#7A570E;border-color:#7A570E;color:#fff}
+.ff-opt[aria-pressed=true] .ff-c,.ff-opt[aria-pressed=true]:hover .ff-c{color:rgba(255,255,255,.82)}
+.ff-opt:disabled,.ff-dead{opacity:.32;cursor:not-allowed}
+.ff-c{font-size:.72rem;color:var(--text-secondary,#6B6B6B);font-variant-numeric:tabular-nums;}
+.ff-ar{font-family:'Amiri','Noto Naskh Arabic',serif;font-size:1.2rem;line-height:1}
+.ff-bar{display:flex;flex-wrap:wrap;align-items:center;gap:.8rem;justify-content:space-between;padding:.2rem 0 .9rem;border-bottom:1px solid var(--border,#E8E2D4);margin-bottom:1rem;}
+.ff-count{font-family:'Cinzel',serif;font-size:1rem;letter-spacing:.05em;color:var(--gold,#8B6914)}
+.ff-chips{display:flex;flex-wrap:wrap;gap:.4rem;margin:0 0 1rem}
+.ff-chip{display:inline-flex;align-items:center;gap:.4rem;min-height:34px;padding:.28rem .6rem;border:1px solid var(--gold,#8B6914);border-radius:16px;background:var(--warm-mid,#F2EFE8);color:var(--charcoal,#2A2A2A);font:inherit;font-size:.9rem;cursor:pointer}
+.ff-chip:hover{background:var(--gold,#8B6914);color:#fff}
+.ff-chip:hover .ff-chip-k{color:rgba(255,255,255,.75)}
+.ff-chip-k{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-secondary,#6B6B6B)}
+.ff-x{font-size:1.05rem;line-height:1}
+.ff-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.ff-clear{min-height:34px;padding:.28rem .8rem;border:1px solid var(--border,#E8E2D4);border-radius:16px;background:none;color:var(--text-secondary,#6B6B6B);font:inherit;font-size:.85rem;cursor:pointer}
+.ff-clear:hover{border-color:var(--gold,#8B6914);color:var(--gold,#8B6914)}
+.ff-res{display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));gap:.65rem}
+.ff-card{display:block;text-align:start;padding:.7rem .85rem;border:1px solid var(--border,#E8E2D4);border-radius:5px;background:var(--warm-white,#FAFAF8);text-decoration:none}
+.ff-card:hover{border-color:var(--gold,#8B6914)}
+.ff-card.b{border-inline-start:3px solid #3B6B38}
+.ff-card.g{border-inline-start:3px solid #7A3F5A}
+.ff-ca{float:right;font-family:'Amiri','Noto Naskh Arabic',serif;font-size:1.1rem;color:var(--gold,#8B6914)}
+.ff-cn{font-size:1.04rem;color:var(--charcoal,#2A2A2A)}
+.ff-cm{display:block;clear:both;font-size:.83rem;line-height:1.5;color:var(--text-secondary,#6B6B6B);margin-top:.15rem}
+.ff-more{display:block;margin:1.4rem auto 0;padding:.65rem 1.7rem;border:1px solid var(--gold,#8B6914);border-radius:3px;background:none;color:var(--gold,#8B6914);font:inherit;font-size:.92rem;cursor:pointer}
+.ff-more:hover{background:var(--gold,#8B6914);color:#fff}
+.ff-empty{padding:2.4rem 1rem;text-align:center;color:var(--text-secondary,#6B6B6B);line-height:1.8}
+.ff-undo{border:1px solid var(--gold,#8B6914);border-radius:3px;background:none;color:var(--gold,#8B6914);font:inherit;font-size:.9rem;padding:.3rem .8rem;cursor:pointer;margin-inline-start:.3rem}
+.ff-mobar{display:none}
+@media(max-width:860px){
+  .ff-wrap{padding:0 1rem 5rem}
+  .ff-grid{grid-template-columns:1fr;gap:0}
+  .ff-side{position:fixed;inset:auto 0 0 0;top:auto;max-height:82vh;z-index:120;background:var(--warm-white,#FAFAF8);border-top:1px solid var(--border,#E8E2D4);border-radius:14px 14px 0 0;box-shadow:0 -8px 30px rgba(0,0,0,.18);padding:.5rem 1rem 5.4rem;transform:translateY(102%);transition:transform .22s ease;visibility:hidden}
+  .ff-sheet-open .ff-side{transform:translateY(0);visibility:visible}
+  .ff-sheet-head{display:flex;align-items:center;justify-content:space-between;padding:.4rem 0 .7rem;position:sticky;top:0;background:inherit;z-index:2}
+  .ff-sheet-head h2{font-family:'Cinzel',serif;font-size:.9rem;margin:0}
+  .ff-close{border:none;background:none;font-size:1.6rem;line-height:1;color:var(--text-secondary,#6B6B6B);cursor:pointer;padding:.2rem .5rem}
+  .ff-apply{position:fixed;left:1rem;right:1rem;bottom:1rem;z-index:121;display:none;padding:.9rem;border:none;border-radius:6px;background:var(--gold,#8B6914);color:#fff;font:inherit;font-size:1rem;cursor:pointer}
+  .ff-sheet-open .ff-apply{display:block}
+  .ff-mobar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:110;align-items:center;justify-content:space-between;gap:.8rem;padding:.7rem 1rem;background:var(--warm-white,#FAFAF8);border-top:1px solid var(--border,#E8E2D4);box-shadow:0 -3px 14px rgba(0,0,0,.08)}
+  .ff-sheet-open .ff-mobar{display:none}
+  .ff-open{flex:0 0 auto;min-height:44px;padding:.6rem 1.3rem;border:none;border-radius:5px;background:var(--gold,#8B6914);color:#fff;font:inherit;font-size:.95rem;cursor:pointer}
+  .ff-res{grid-template-columns:1fr 1fr;gap:.5rem}
+  .ff-cm{display:none}
+}
+@media(min-width:861px){.ff-sheet-head,.ff-apply{display:none}}
+@media(prefers-color-scheme:dark){
+  .ff-g,.ff-card{background:#242322;border-color:#3a3935}
+  .ff-opt{color:#eae6dc}.ff-cn{color:#eae6dc}
+  .ff-opt:hover:not(:disabled){background:#2e2c28}
+  .ff-opt[aria-pressed=true],.ff-opt[aria-pressed=true]:hover:not(:disabled){background:#d4af6c;border-color:#d4af6c;color:#1a1a1a}
+  .ff-opt[aria-pressed=true] .ff-c,.ff-opt[aria-pressed=true]:hover .ff-c{color:rgba(26,26,26,.72)}
+  .ff-chip{background:#242322;color:#eae6dc}
+  .ff-chip:hover{background:#d4af6c;color:#1a1a1a}
+  .ff-chip:hover .ff-chip-k{color:rgba(26,26,26,.7)}
+  .ff-mobar,.ff-side{background:#1a1a1a;border-color:#3a3935}
+  .ff-bar{border-bottom-color:#3a3935}
+  .ff-more:hover{background:#d4af6c;color:#1a1a1a}
+}
+/* the compact home finder */
+.ffm{max-width:900px;margin:0 auto;padding:0 1.5rem}
+.ffm-row{display:flex;flex-wrap:wrap;justify-content:center;gap:.4rem;margin:0 0 .7rem}
+.ffm-row .ff-opt{width:auto;min-height:40px;padding:.4rem .85rem;border-color:var(--border,#E8E2D4);background:var(--warm-white,#FAFAF8);justify-content:center}
+/* this block sits after the base rules, so the selected state has to be
+   restated here or the plain background wins on equal specificity */
+.ffm-row .ff-opt[aria-pressed=true],.ffm-row .ff-opt[aria-pressed=true]:hover{background:#7A570E;border-color:#7A570E;color:#fff}
+.ffm-row .ff-opt[aria-pressed=true] .ff-c{color:rgba(255,255,255,.82)}
+.ffm-lab{display:block;font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--text-secondary,#6B6B6B);margin:.9rem 0 .45rem}
+.ffm .ff-res{grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:.55rem;margin-top:1rem}
+.ffm-foot{margin-top:1.1rem}
+@media(prefers-color-scheme:dark){.ffm-row .ff-opt{background:#242322;border-color:#3a3935}
+.ffm-row .ff-opt[aria-pressed=true],.ffm-row .ff-opt[aria-pressed=true]:hover{background:#d4af6c;border-color:#d4af6c;color:#1a1a1a}
+.ffm-row .ff-opt[aria-pressed=true] .ff-c{color:rgba(26,26,26,.72)}}
+
+</style>
 </head>
 <body>
 <a class="skip-link" href="#main" style="position:absolute;left:-9999px;top:0;background:#8B6914;color:#fff;padding:8px 16px;z-index:9999;text-decoration:none" onfocus="this.style.left='0'" onblur="this.style.left='-9999px'">Skip to content</a>
@@ -857,7 +956,7 @@
   <ul class="nav-links" id="asrNavLinks">
     <li><a href="/ilm-ul-huroof/">Ilm ul Huroof</a></li>
     <li><a href="/letters/">Letters</a></li>
-    <li><a href="/names/">Names</a></li>
+    <li><a href="/names/">Names</a></li><li><a href="/names/find/">Find a Name</a></li>
     <li><a href="/blog/">Blog</a></li>
     <li><a href="/aathaar/">Aathaar</a></li>
     <li><a href="/basaair/">Basaair</a></li>
@@ -1214,6 +1313,24 @@
   </p>
 </div>
 
+<!-- HOMEFIND:START -->
+<div class="mean-hub" style="padding-bottom:20px;">
+  <div class="section-tag">Find a name</div>
+  <h2 class="section-heading">Start from what you <em>want it to mean</em></h2>
+  <p class="section-sub">Pick a gender, a meaning, a first letter, or all three. 2,451 researched names, each sorted by what it means at the Arabic root rather than by how it sounds.</p>
+  <div class="ffm" data-filter="mini">
+    <div data-f="app" hidden>
+      <span class="ffm-lab">Gender</span><div class="ffm-row"><button type="button" class="ff-opt" data-k="g" data-v="0" aria-pressed="false"><span class="ff-l">Boy</span></button><button type="button" class="ff-opt" data-k="g" data-v="1" aria-pressed="false"><span class="ff-l">Girl</span></button></div>
+      <span class="ffm-lab">Meaning</span><div class="ffm-row"><button type="button" class="ff-opt" data-k="t" data-v="0" aria-pressed="false"><span class="ff-l">Light</span><span class="ff-c">161</span></button><button type="button" class="ff-opt" data-k="t" data-v="1" aria-pressed="false"><span class="ff-l">Beautiful</span><span class="ff-c">121</span></button><button type="button" class="ff-opt" data-k="t" data-v="2" aria-pressed="false"><span class="ff-l">Flower</span><span class="ff-c">108</span></button><button type="button" class="ff-opt" data-k="t" data-v="3" aria-pressed="false"><span class="ff-l">Noble</span><span class="ff-c">107</span></button><button type="button" class="ff-opt" data-k="t" data-v="4" aria-pressed="false"><span class="ff-l">King, Queen or Royal</span><span class="ff-c">102</span></button><button type="button" class="ff-opt" data-k="t" data-v="5" aria-pressed="false"><span class="ff-l">Mercy</span><span class="ff-c">81</span></button><button type="button" class="ff-opt" data-k="t" data-v="6" aria-pressed="false"><span class="ff-l">Brave</span><span class="ff-c">71</span></button><button type="button" class="ff-opt" data-k="t" data-v="7" aria-pressed="false"><span class="ff-l">Faithful</span><span class="ff-c">63</span></button><button type="button" class="ff-opt" data-k="t" data-v="8" aria-pressed="false"><span class="ff-l">Paradise</span><span class="ff-c">61</span></button><button type="button" class="ff-opt" data-k="t" data-v="9" aria-pressed="false"><span class="ff-l">Strength</span><span class="ff-c">59</span></button></div>
+      <span class="ffm-lab">First letter</span><div class="ffm-row"><button type="button" class="ff-opt" data-k="e" data-v="A" aria-pressed="false"><span class="ff-l">A</span></button><button type="button" class="ff-opt" data-k="e" data-v="B" aria-pressed="false"><span class="ff-l">B</span></button><button type="button" class="ff-opt" data-k="e" data-v="C" aria-pressed="false"><span class="ff-l">C</span></button><button type="button" class="ff-opt" data-k="e" data-v="D" aria-pressed="false"><span class="ff-l">D</span></button><button type="button" class="ff-opt" data-k="e" data-v="E" aria-pressed="false"><span class="ff-l">E</span></button><button type="button" class="ff-opt" data-k="e" data-v="F" aria-pressed="false"><span class="ff-l">F</span></button><button type="button" class="ff-opt" data-k="e" data-v="G" aria-pressed="false"><span class="ff-l">G</span></button><button type="button" class="ff-opt" data-k="e" data-v="H" aria-pressed="false"><span class="ff-l">H</span></button><button type="button" class="ff-opt" data-k="e" data-v="I" aria-pressed="false"><span class="ff-l">I</span></button><button type="button" class="ff-opt" data-k="e" data-v="J" aria-pressed="false"><span class="ff-l">J</span></button><button type="button" class="ff-opt" data-k="e" data-v="K" aria-pressed="false"><span class="ff-l">K</span></button><button type="button" class="ff-opt" data-k="e" data-v="L" aria-pressed="false"><span class="ff-l">L</span></button><button type="button" class="ff-opt" data-k="e" data-v="M" aria-pressed="false"><span class="ff-l">M</span></button><button type="button" class="ff-opt" data-k="e" data-v="N" aria-pressed="false"><span class="ff-l">N</span></button><button type="button" class="ff-opt" data-k="e" data-v="O" aria-pressed="false"><span class="ff-l">O</span></button><button type="button" class="ff-opt" data-k="e" data-v="P" aria-pressed="false"><span class="ff-l">P</span></button><button type="button" class="ff-opt" data-k="e" data-v="Q" aria-pressed="false"><span class="ff-l">Q</span></button><button type="button" class="ff-opt" data-k="e" data-v="R" aria-pressed="false"><span class="ff-l">R</span></button><button type="button" class="ff-opt" data-k="e" data-v="S" aria-pressed="false"><span class="ff-l">S</span></button><button type="button" class="ff-opt" data-k="e" data-v="T" aria-pressed="false"><span class="ff-l">T</span></button><button type="button" class="ff-opt" data-k="e" data-v="U" aria-pressed="false"><span class="ff-l">U</span></button><button type="button" class="ff-opt" data-k="e" data-v="V" aria-pressed="false"><span class="ff-l">V</span></button><button type="button" class="ff-opt" data-k="e" data-v="W" aria-pressed="false"><span class="ff-l">W</span></button><button type="button" class="ff-opt" data-k="e" data-v="X" aria-pressed="false"><span class="ff-l">X</span></button><button type="button" class="ff-opt" data-k="e" data-v="Y" aria-pressed="false"><span class="ff-l">Y</span></button><button type="button" class="ff-opt" data-k="e" data-v="Z" aria-pressed="false"><span class="ff-l">Z</span></button></div>
+      <p class="ffm-lab" style="letter-spacing:.06em;text-transform:none;font-size:.95rem;color:var(--gold,#8B6914);margin-top:1.2rem;" data-f="count" role="status" aria-live="polite"></p>
+      <div class="ff-res" data-f="res"></div>
+      <p class="ffm-foot"><a class="cta-btn" data-f="go" href="/names/find/">Open the full filter</a></p>
+    </div>
+    <div data-f="nojs"><p class="section-sub" style="font-size:.95rem;"><a href="/names/by-meaning/light/" style="color:#8B6914;">Light</a> &nbsp;&middot;&nbsp; <a href="/names/by-meaning/beautiful/" style="color:#8B6914;">Beautiful</a> &nbsp;&middot;&nbsp; <a href="/names/by-meaning/flower/" style="color:#8B6914;">Flower</a> &nbsp;&middot;&nbsp; <a href="/names/by-meaning/noble/" style="color:#8B6914;">Noble</a> &nbsp;&middot;&nbsp; <a href="/names/by-meaning/royal/" style="color:#8B6914;">King, Queen or Royal</a> &nbsp;&middot;&nbsp; <a href="/names/by-meaning/mercy/" style="color:#8B6914;">Mercy</a> &nbsp;&middot;&nbsp; <a href="/names/by-meaning/brave/" style="color:#8B6914;">Brave</a> &nbsp;&middot;&nbsp; <a href="/names/by-meaning/faithful/" style="color:#8B6914;">Faithful</a> &nbsp;&middot;&nbsp; <a href="/names/by-meaning/paradise/" style="color:#8B6914;">Paradise</a> &nbsp;&middot;&nbsp; <a href="/names/by-meaning/strength/" style="color:#8B6914;">Strength</a></p></div>
+  </div>
+</div>
+<!-- HOMEFIND:END -->
 <!-- MEANHUB:START -->
 <div class="mean-hub">
   <div class="section-tag">By Meaning</div>
@@ -1223,11 +1340,6 @@
   <p class="section-sub" style="margin-top:1.4rem;font-size:.92rem;"><a href="/names/by-meaning/" style="color:#8B6914;">All nineteen meanings, with the root behind each</a>.</p>
 </div>
 <!-- MEANHUB:END -->
-<!-- FINDCTA:START -->
-<div class="mean-hub" style="padding-top:0;">
-  <p class="section-sub" style="font-size:1rem;">Or use all of it at once. The <a href="/names/find/" style="color:#8B6914;font-weight:600;">name filter</a> narrows by gender, English letter, <a href="/names/urdu-alphabet/" style="color:#8B6914;">Urdu letter</a>, meaning and region together, so a girl name meaning light used in South Asia is three clicks.</p>
-</div>
-<!-- FINDCTA:END -->
 <!-- AZHUB:START -->
 <div class="az-hub">
   <div class="section-tag">Browse</div>
@@ -2271,5 +2383,6 @@ function resetForm(){
 })();
 </script>
 <time datetime="2026-05-18T05:57:39+00:00" itemprop="dateModified" hidden></time>
+<script src="/asr-filter.js" defer></script>
 </body>
 </html>
