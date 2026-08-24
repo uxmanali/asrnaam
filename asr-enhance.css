@@ -2203,3 +2203,18 @@ html[data-theme='dark'] .asr-ad .asr-ad-label{color:#7d766c;}
 body > nav:not(.asr-site-header):not(.asr-breadcrumb){min-height:120px;box-sizing:border-box;}
 @media(min-width:900px){body > nav:not(.asr-site-header):not(.asr-breadcrumb){min-height:77px;}}
 .asr-breadcrumb{min-height:38px;box-sizing:border-box;}
+
+
+/* ============================================================
+   Alternate spellings block (asr-altspell)
+   One page carries every romanisation of the same name.
+   ============================================================ */
+.asr-altspell{margin:2rem 0;}
+.asr-altspell .section-label{font-family:'Cinzel',Georgia,serif;font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold,#8B6914);}
+.asr-altspell .spellings-intro{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.02rem;line-height:1.7;color:var(--text-secondary,#6B6B6B);margin:.2rem 0 .8rem;}
+.asr-altspell .spellings-grid{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.8rem;}
+.asr-altspell .spelling-chip{display:inline-block;font-family:'Cormorant Garamond',Georgia,serif;font-size:1rem;padding:.3rem .85rem;border:1px solid var(--border,#E5E0D8);border-radius:3px;background:var(--warm-mid,#F5F1EA);color:var(--charcoal,#2A2A2A);}
+.asr-altspell .spelling-chip.current{background:var(--gold,#8B6914);color:#fff;border-color:var(--gold,#8B6914);}
+html[data-theme='dark'] .asr-altspell .spelling-chip{background:#242424;border-color:#3a3a3a;color:#e6e2da;}
+html[data-theme='dark'] .asr-altspell .spelling-chip.current{background:#d4af6c;color:#1a1a1a;border-color:#d4af6c;}
+html[data-theme='dark'] .asr-altspell .spellings-intro{color:#b9b3a8;}
