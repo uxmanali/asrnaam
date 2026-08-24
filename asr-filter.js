@@ -7,12 +7,16 @@
 (function () {
   'use strict';
   var DATA = null, LOADING = null;
+  /* The page stamps a content version here. Without it the browser happily
+     serves a filters.json or a build of this file from an earlier deploy, and
+     the controls render against logic that does not know about them. */
+  var V = (window.ASR_FV ? '?v=' + window.ASR_FV : '');
   var GEN = ['Boy', 'Girl', 'Both'];
 
   function load() {
     if (DATA) return Promise.resolve(DATA);
     if (LOADING) return LOADING;
-    LOADING = fetch('/names/filters.json', { cache: 'force-cache' })
+    LOADING = fetch('/names/filters.json' + V, { cache: 'force-cache' })
       .then(function (r) { if (!r.ok) throw new Error('http ' + r.status); return r.json(); })
       .then(function (d) { DATA = d; return d; });
     return LOADING;
