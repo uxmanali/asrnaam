@@ -16,6 +16,14 @@
   var LS, SS;
   try { LS = window.localStorage; SS = window.sessionStorage; } catch (e) { return; }
 
+  /* Never redirect an automated client. Googlebot renders JavaScript, and a
+     location.replace() during rendering can cost the English URL its own
+     indexing. Crawlers get the page they asked for. */
+  var UA = (navigator.userAgent || "");
+  if (/bot|crawler|spider|crawling|slurp|bingpreview|lighthouse|headless|preview|inspectiontool/i.test(UA)
+      || navigator.webdriver === true) { return; }
+
+
   var ARABIC = { SA:1, AE:1, EG:1, DZ:1, MA:1, TN:1, LY:1, JO:1, IQ:1, SY:1,
                  LB:1, KW:1, QA:1, BH:1, OM:1, YE:1, SD:1, PS:1, MR:1, SO:1,
                  DJ:1, KM:1 };
