@@ -1,0 +1,15 @@
+# AsrNaam ads.txt (IAB Tech Lab authorised digital sellers)
+#
+# HOW TO ACTIVATE
+# Once AdSense approves the account, replace pub-0000000000000000 below with
+# the publisher ID shown in AdSense (Account -> Settings -> Account information).
+# It looks like pub-1234567890123456. Keep the "pub-" prefix and drop the "ca-".
+#
+# AdSense also generates this line for you at:
+#   AdSense -> Sites -> (your site) -> ads.txt
+# If the two ever disagree, trust the one AdSense generates.
+#
+# Until the real ID is in place this file is inert: it authorises nobody, which
+# is the safe default. An ads.txt naming the wrong seller is worse than none.
+
+google.com, pub-0000000000000000, DIRECT, f08c47fec0942fa0

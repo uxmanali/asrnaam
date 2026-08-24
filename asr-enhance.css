@@ -2178,3 +2178,28 @@ h1 em, h2 em, h3 em, .section-label { color: #7A570E; }
   .example-frame { background-color: #242322 !important; border-color: #3a3935 !important; }
 }
 html[data-theme='dark'] .example-frame { background-color: #242322 !important; border-color: #3a3935 !important; }
+
+/* ---------- Advertising slots ----------
+   Space is reserved before the creative arrives so nothing below an ad moves
+   when it loads. Layout shift is a ranking input; an unreserved ad unit costs
+   more in rankings than it earns in RPM. */
+.asr-ad{display:block;max-width:760px;margin:2rem auto;padding:0 1.5rem;text-align:center;min-height:130px;}
+.asr-ad .asr-ad-label{display:block;font-family:'Cinzel',serif;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:#8a8378;margin-bottom:.4rem;}
+.asr-ad ins.adsbygoogle{display:block;min-height:100px;}
+@media(min-width:900px){.asr-ad{min-height:280px;}.asr-ad ins.adsbygoogle{min-height:250px;}}
+@media(prefers-color-scheme:dark){.asr-ad .asr-ad-label{color:#7d766c;}}
+html[data-theme='dark'] .asr-ad .asr-ad-label{color:#7d766c;}
+
+/* ---------- Header height reservation (Core Web Vitals) ----------
+   Every font on this site loads with font-display: swap, and the header had no
+   reserved height, so when Cinzel and Amiri arrived the header resized and
+   pushed the entire page down. That single shift was measuring 0.21 to 0.27
+   CLS on mobile, well past Google's 0.1 threshold, on pages already sitting
+   around position 9 where small ranking inputs matter.
+
+   Reserving the settled height stops the swap from moving anything. */
+.asr-site-header{min-height:69px;box-sizing:border-box;}
+@media(min-width:900px){.asr-site-header{min-height:81px;}}
+body > nav:not(.asr-site-header):not(.asr-breadcrumb){min-height:120px;box-sizing:border-box;}
+@media(min-width:900px){body > nav:not(.asr-site-header):not(.asr-breadcrumb){min-height:77px;}}
+.asr-breadcrumb{min-height:38px;box-sizing:border-box;}
