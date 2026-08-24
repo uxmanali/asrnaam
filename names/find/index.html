@@ -154,6 +154,21 @@ footer a{color:rgba(139,105,20,0.85);}
 .ff-opt:disabled,.ff-dead{opacity:.32;cursor:not-allowed}
 .ff-c{font-size:.72rem;color:var(--text-secondary,#6B6B6B);font-variant-numeric:tabular-nums;}
 .ff-ar{font-family:'Amiri','Noto Naskh Arabic',serif;font-size:1.2rem;line-height:1}
+
+/* display: values beat the [hidden] attribute, so anything toggled with
+   .hidden needs this or it never actually hides */
+.ff-more[hidden],.ff-chips[hidden],[data-f=app][hidden],[data-f=nojs][hidden]{display:none!important}
+.ff-q::-webkit-search-cancel-button,.ff-q::-webkit-search-decoration{-webkit-appearance:none;appearance:none}
+
+.ff-search{position:relative;margin:0 0 1rem}
+.ff-q{width:100%;padding:.8rem 2.4rem .8rem 1rem;border:1px solid var(--border,#E8E2D4);border-radius:6px;background:var(--warm-white,#FAFAF8);color:var(--charcoal,#2A2A2A);font:inherit;font-size:1rem}
+.ff-q:focus{outline:2px solid var(--gold,#8B6914);outline-offset:1px;border-color:var(--gold,#8B6914)}
+.ff-q::placeholder{color:var(--text-secondary,#6B6B6B);opacity:.85}
+.ff-qclear{position:absolute;inset-inline-end:.5rem;top:50%;transform:translateY(-50%);width:30px;height:30px;border:none;background:none;color:var(--text-secondary,#6B6B6B);font-size:1.3rem;line-height:1;cursor:pointer}
+.ff-qclear:hover{color:var(--gold,#8B6914)}
+.ff-sortwrap{display:inline-flex;align-items:center;gap:.4rem}
+.ff-sort{padding:.4rem 1.9rem .4rem .7rem;border:1px solid var(--border,#E8E2D4);border-radius:4px;background:var(--warm-white,#FAFAF8);color:var(--charcoal,#2A2A2A);font:inherit;font-size:.9rem;cursor:pointer;-webkit-appearance:none;appearance:none;background-image:linear-gradient(45deg,transparent 50%,currentColor 50%),linear-gradient(135deg,currentColor 50%,transparent 50%);background-position:calc(100% - 15px) 55%,calc(100% - 10px) 55%;background-size:5px 5px,5px 5px;background-repeat:no-repeat}
+.ff-sort:focus{outline:2px solid var(--gold,#8B6914);outline-offset:1px}
 .ff-bar{display:flex;flex-wrap:wrap;align-items:center;gap:.8rem;justify-content:space-between;padding:.2rem 0 .9rem;border-bottom:1px solid var(--border,#E8E2D4);margin-bottom:1rem;}
 .ff-count{font-family:'Cinzel',serif;font-size:1rem;letter-spacing:.05em;color:var(--gold,#8B6914)}
 .ff-chips{display:flex;flex-wrap:wrap;gap:.4rem;margin:0 0 1rem}
@@ -205,6 +220,7 @@ footer a{color:rgba(139,105,20,0.85);}
   .ff-chip:hover{background:#d4af6c;color:#1a1a1a}
   .ff-chip:hover .ff-chip-k{color:rgba(26,26,26,.7)}
   .ff-mobar,.ff-side{background:#1a1a1a;border-color:#3a3935}
+  .ff-q,.ff-sort{background:#242322;border-color:#3a3935;color:#eae6dc}
   .ff-bar{border-bottom-color:#3a3935}
   .ff-more:hover{background:#d4af6c;color:#1a1a1a}
 }
@@ -254,7 +270,7 @@ footer a{color:rgba(139,105,20,0.85);}
 <header class="hero">
 <p class="crumbtag">Browse &nbsp;&middot;&nbsp; Find a name</p>
 <h1>Find a Muslim Name</h1>
-<p class="lede">Narrow 2,451 researched names by gender, by what the name means, by the English or Urdu letter it starts with, and by where it is used. The filters work together and the results move as you choose.</p>
+<p class="lede">Type a name, an Arabic or Urdu spelling, or a meaning, or narrow 2,451 researched names by gender, meaning, first letter and where the name is used. The filters work together and the results move as you type.</p>
 </header>
 <div class="ff-wrap" data-filter="full">
 <div data-f="app" hidden>
@@ -263,7 +279,8 @@ footer a{color:rgba(139,105,20,0.85);}
     <div class="ff-sheet-head"><h2>Filters</h2><button type="button" class="ff-close" data-f="close" aria-label="Close filters">&times;</button></div>
   </aside>
   <div class="ff-main">
-    <div class="ff-bar"><span class="ff-count" data-f="count" role="status" aria-live="polite">2,451 names</span></div>
+    <div class="ff-search"><label class="ff-sr" for="ffq">Search names, spellings and meanings</label><input type="search" id="ffq" data-f="q" class="ff-q" autocomplete="off" placeholder="Start typing a name, an Arabic or Urdu spelling, or a meaning"><button type="button" class="ff-qclear" data-f="qclear" hidden aria-label="Clear the search">&times;</button></div>
+    <div class="ff-bar"><span class="ff-count" data-f="count" role="status" aria-live="polite">2,451 names</span><label class="ff-sortwrap"><span class="ff-sr">Sort by</span><select class="ff-sort" data-f="sort"><option value="az">A to Z</option><option value="pop">Most looked-up</option><option value="short">Shortest first</option></select></label></div>
     <div class="ff-chips" data-f="chips" aria-label="Applied filters" hidden></div>
     <div class="ff-res" data-f="res"></div>
     <button type="button" class="ff-more" data-f="more" hidden>Show more</button>

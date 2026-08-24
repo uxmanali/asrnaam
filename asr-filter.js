@@ -28,9 +28,22 @@
   function Engine(d) {
     this.d = d;
     this.S = { g: [], e: [], u: [], t: [], r: [] };
+    this.q = '';
+    this.sort = 'az';
   }
+  /* Typing is the fastest filter there is when you half-know the name, so it
+     runs over the Latin name, the Arabic, the Urdu and the meaning at once. */
+  Engine.prototype.hit = function (n) {
+    var q = this.q;
+    if (!q) return true;
+    if (n[1].toLowerCase().indexOf(q) >= 0) return true;
+    if (n[2].indexOf(q) >= 0 || n[3].indexOf(q) >= 0) return true;
+    if (n[5].toLowerCase().indexOf(q) >= 0) return true;
+    return false;
+  };
   Engine.prototype.match = function (n, skip) {
     var S = this.S;
+    if (!this.hit(n)) return false;
     if (skip !== 'g' && S.g.length && S.g.indexOf(n[4]) < 0 && n[4] !== 2) return false;
     if (skip !== 'e' && S.e.length && S.e.indexOf(n[6]) < 0) return false;
     if (skip !== 'u' && S.u.length && S.u.indexOf(n[7]) < 0) return false;
@@ -47,6 +60,11 @@
   Engine.prototype.results = function () {
     var out = [], n = this.d.n;
     for (var i = 0; i < n.length; i++) if (this.match(n[i])) out.push(n[i]);
+    if (this.sort === 'pop') {
+      out.sort(function (a, b) { return (b[10] || 0) - (a[10] || 0) || (a[1] < b[1] ? -1 : 1); });
+    } else if (this.sort === 'short') {
+      out.sort(function (a, b) { return a[1].length - b[1].length || (a[1] < b[1] ? -1 : 1); });
+    }
     return out;
   };
   /* live counts: how many results each option would still leave, with the rest
@@ -97,7 +115,7 @@
 
   /* ------------------------------------------------------------ full page */
   function mountFull(root, d) {
-    var E = new Engine(d), SHOW = 48, shown = SHOW, sort = 'az';
+    var E = new Engine(d), SHOW = 48, shown = SHOW;
     var el = {
       side: root.querySelector('[data-f=side]'),
       chips: root.querySelector('[data-f=chips]'),
@@ -105,6 +123,8 @@
       res: root.querySelector('[data-f=res]'),
       more: root.querySelector('[data-f=more]'),
       sort: root.querySelector('[data-f=sort]'),
+      q: root.querySelector('[data-f=q]'),
+      qclear: root.querySelector('[data-f=qclear]'),
       bar: root.querySelector('[data-f=bar]'),
       barCount: root.querySelector('[data-f=barcount]'),
       sheetBtn: root.querySelector('[data-f=apply]')
@@ -184,7 +204,6 @@
 
     function render() {
       var rows = E.results();
-      if (sort === 'pop') rows = rows.slice();
       var total = rows.length;
       var label = total === 0 ? 'No names match' : (total === 1 ? '1 name' : nfmt(total) + ' names');
       el.count.textContent = label;
@@ -198,9 +217,11 @@
                b.k + '">Remove that filter</button></p>' : '') + '</div>';
         el.more.hidden = true;
       } else {
+        if (shown > total) shown = Math.max(SHOW, Math.min(shown, total));
         el.res.innerHTML = rows.slice(0, shown).map(card).join('');
-        el.more.hidden = total <= shown;
-        el.more.textContent = 'Show ' + nfmt(Math.min(SHOW, total - shown)) + ' more';
+        var left = total - shown;
+        el.more.hidden = left <= 0;
+        if (left > 0) el.more.textContent = 'Show ' + nfmt(Math.min(SHOW, left)) + ' more';
       }
       writeHash();
     }
@@ -252,6 +273,29 @@
       }
       if (t === el.more) { shown += SHOW; render(); }
     });
+
+    if (el.q) {
+      var deb;
+      el.q.addEventListener('input', function () {
+        clearTimeout(deb);
+        deb = setTimeout(function () {
+          E.q = el.q.value.trim().toLowerCase();
+          if (el.qclear) el.qclear.hidden = !E.q;
+          shown = SHOW; paintCounts(); render();
+        }, 130);
+      });
+    }
+    if (el.qclear) {
+      el.qclear.addEventListener('click', function () {
+        el.q.value = ''; E.q = ''; el.qclear.hidden = true;
+        shown = SHOW; paintCounts(); render(); el.q.focus();
+      });
+    }
+    if (el.sort) {
+      el.sort.addEventListener('change', function () {
+        E.sort = el.sort.value; shown = SHOW; render();
+      });
+    }
 
     window.addEventListener('hashchange', function () {
       readHash(); shown = SHOW; paintCounts(); paintChips(); render();

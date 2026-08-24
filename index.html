@@ -869,6 +869,21 @@
 .ff-opt:disabled,.ff-dead{opacity:.32;cursor:not-allowed}
 .ff-c{font-size:.72rem;color:var(--text-secondary,#6B6B6B);font-variant-numeric:tabular-nums;}
 .ff-ar{font-family:'Amiri','Noto Naskh Arabic',serif;font-size:1.2rem;line-height:1}
+
+/* display: values beat the [hidden] attribute, so anything toggled with
+   .hidden needs this or it never actually hides */
+.ff-more[hidden],.ff-chips[hidden],[data-f=app][hidden],[data-f=nojs][hidden]{display:none!important}
+.ff-q::-webkit-search-cancel-button,.ff-q::-webkit-search-decoration{-webkit-appearance:none;appearance:none}
+
+.ff-search{position:relative;margin:0 0 1rem}
+.ff-q{width:100%;padding:.8rem 2.4rem .8rem 1rem;border:1px solid var(--border,#E8E2D4);border-radius:6px;background:var(--warm-white,#FAFAF8);color:var(--charcoal,#2A2A2A);font:inherit;font-size:1rem}
+.ff-q:focus{outline:2px solid var(--gold,#8B6914);outline-offset:1px;border-color:var(--gold,#8B6914)}
+.ff-q::placeholder{color:var(--text-secondary,#6B6B6B);opacity:.85}
+.ff-qclear{position:absolute;inset-inline-end:.5rem;top:50%;transform:translateY(-50%);width:30px;height:30px;border:none;background:none;color:var(--text-secondary,#6B6B6B);font-size:1.3rem;line-height:1;cursor:pointer}
+.ff-qclear:hover{color:var(--gold,#8B6914)}
+.ff-sortwrap{display:inline-flex;align-items:center;gap:.4rem}
+.ff-sort{padding:.4rem 1.9rem .4rem .7rem;border:1px solid var(--border,#E8E2D4);border-radius:4px;background:var(--warm-white,#FAFAF8);color:var(--charcoal,#2A2A2A);font:inherit;font-size:.9rem;cursor:pointer;-webkit-appearance:none;appearance:none;background-image:linear-gradient(45deg,transparent 50%,currentColor 50%),linear-gradient(135deg,currentColor 50%,transparent 50%);background-position:calc(100% - 15px) 55%,calc(100% - 10px) 55%;background-size:5px 5px,5px 5px;background-repeat:no-repeat}
+.ff-sort:focus{outline:2px solid var(--gold,#8B6914);outline-offset:1px}
 .ff-bar{display:flex;flex-wrap:wrap;align-items:center;gap:.8rem;justify-content:space-between;padding:.2rem 0 .9rem;border-bottom:1px solid var(--border,#E8E2D4);margin-bottom:1rem;}
 .ff-count{font-family:'Cinzel',serif;font-size:1rem;letter-spacing:.05em;color:var(--gold,#8B6914)}
 .ff-chips{display:flex;flex-wrap:wrap;gap:.4rem;margin:0 0 1rem}
@@ -920,6 +935,7 @@
   .ff-chip:hover{background:#d4af6c;color:#1a1a1a}
   .ff-chip:hover .ff-chip-k{color:rgba(26,26,26,.7)}
   .ff-mobar,.ff-side{background:#1a1a1a;border-color:#3a3935}
+  .ff-q,.ff-sort{background:#242322;border-color:#3a3935;color:#eae6dc}
   .ff-bar{border-bottom-color:#3a3935}
   .ff-more:hover{background:#d4af6c;color:#1a1a1a}
 }
