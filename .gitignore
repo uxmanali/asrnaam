@@ -8,3 +8,21 @@ __pycache__/
 # build tooling should not be shipped to Pages
 *.py
 .deploy-token
+
+# ------------------------------------------------------------------
+# Anything in this repo is published by GitHub Pages, whatever the
+# repository's visibility. Private repo does not mean private site.
+# Internal documents live in ~/Documents/AsrNaam/private-docs instead.
+# ------------------------------------------------------------------
+OBJECTIVES.md
+.handoff.md
+quality-tracker.csv
+scan-report.md
+*_BUG.md
+*_SPELLING.md
+scripts/
+_quality_scripts/
+*.sh
+*.mjs
+*.tar.gz
+*.bundle
