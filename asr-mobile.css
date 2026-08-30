@@ -279,7 +279,8 @@ html body .quick-facts{grid-template-columns:minmax(0,1fr) !important;}
 }
 /* the mirror pages carry the same cross-language row in a <section>; give its
    links a real tap target without changing the layout they already have */
-html body section.asr-crosslang a{
+html body section.asr-crosslang a,
+html body div.crosslang a{
   display:inline-block;
   padding-block:.7rem;
   min-height:24px;
