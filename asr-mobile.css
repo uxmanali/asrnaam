@@ -183,3 +183,117 @@ html[data-theme='dark'] input:-webkit-autofill:focus{
   -webkit-text-fill-color:#eae6dc !important;
   -webkit-box-shadow:0 0 0 1000px #242322 inset !important;
 }
+
+/* ---------------------------------------------------------------------------
+   RULE 10 - the cross-language row.
+   The Urdu and Arabic pages carry a third of this site's impressions and the
+   best click-through on it, and until now not one English page linked to them.
+   This row is the link. It has to survive three scripts on a 320px screen, so
+   it wraps rather than scrolls, and every link is a 44px target.
+   --------------------------------------------------------------------------- */
+html body nav.asr-crosslang{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:.15rem .55rem;
+  max-width:760px;
+  margin:.9rem auto 1.1rem;
+  padding:.55rem .9rem;
+  border:1px solid rgba(128,116,90,.28);
+  border-radius:10px;
+  font-size:.95rem;
+  line-height:1.6;
+}
+html body nav.asr-crosslang .asr-crosslang-label{
+  flex:0 0 auto;
+  opacity:.72;
+  font-size:.86rem;
+  letter-spacing:.01em;
+  margin-inline-end:.2rem;
+}
+html body nav.asr-crosslang a{
+  display:inline-flex;
+  align-items:center;
+  min-height:44px;
+  padding:0 .35rem;
+  text-decoration:none;
+  border-bottom:1px solid rgba(128,116,90,.45);
+  white-space:nowrap;
+}
+html body nav.asr-crosslang a:hover,
+html body nav.asr-crosslang a:focus-visible{
+  border-bottom-color:currentColor;
+}
+html body nav.asr-crosslang .sep{
+  flex:0 0 auto;
+  opacity:.4;
+  user-select:none;
+}
+/* the whole row is one line of running text on a narrow screen, so let the
+   label sit on its own line rather than squeezing the scripts */
+@media (max-width:400px){
+  html body nav.asr-crosslang .asr-crosslang-label{flex:1 0 100%;margin-bottom:-.2rem;}
+}
+
+/* ---------------------------------------------------------------------------
+   RULE 11 - the pages this round sends traffic to had to be able to receive it.
+   Measured on a 320px screen: the Hindi nav ran 431px wide, the homepage figure
+   grid 356px, and CSS grid columns were sized by their content instead of by
+   the space available. minmax(0,1fr) is the fix for that: it lets a column be
+   narrower than the words inside it, which is what a phone needs.
+   --------------------------------------------------------------------------- */
+html body .asr-nav .nav-links{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:.3rem .7rem;
+  min-width:0;
+}
+html body .asr-nav{
+  flex-wrap:wrap;
+  gap:.3rem .6rem;
+  min-width:0;
+}
+html body .muq-grid{
+  grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+}
+@media (max-width:359px){
+  html body .muq-grid{grid-template-columns:repeat(2,minmax(0,1fr)) !important;}
+}
+html body .muq-cell{min-width:0;}
+html body .muq-cell > *{min-width:0;overflow-wrap:anywhere;}
+html body .quick-facts{grid-template-columns:minmax(0,1fr) !important;}
+/* any grid on a phone: never let a track be wider than its share */
+@media (max-width:480px){
+  html body .example-cards-wrap,
+  html body .steps,
+  html body .why-grid,
+  html body .explore-grid,
+  html body .related-grid,
+  html body .footer-grid,
+  html body .blog-grid,
+  html body .card-grid,
+  html body .post-grid{grid-template-columns:minmax(0,1fr) !important;}
+  html body .blog-grid > *,
+  html body .related-grid > *{min-width:0;}
+}
+/* the mirror pages carry the same cross-language row in a <section>; give its
+   links a real tap target without changing the layout they already have */
+html body section.asr-crosslang a{
+  display:inline-block;
+  padding-block:.7rem;
+  min-height:24px;
+}
+/* the breadcrumb was a single unwrapping line; on a 320px screen the last
+   crumb ran past the edge */
+html body .asr-breadcrumb,
+html body .breadcrumb{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:0 .3rem;
+  min-width:0;
+  white-space:normal;
+}
+html body .asr-breadcrumb > *,
+html body .breadcrumb > *{min-width:0;overflow-wrap:anywhere;}
