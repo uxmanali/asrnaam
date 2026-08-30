@@ -127,3 +127,59 @@ html body .spellings-hook a{
   padding-block:.45rem;   /* grows the tap area without changing display, so a
                              long link still wraps instead of widening the page */
 }
+
+
+/* 9. THE ONE THAT ACTUALLY BIT A READER.
+      .hero-search-input carries -webkit-text-fill-color:#111010 !important at
+      top level in the homepage's own stylesheet. The dark override restates
+      `color` and `background` but never restates the fill colour, and on WebKit
+      -webkit-text-fill-color wins over color. So on an iPhone the field went
+      dark and the typed text stayed near-black: 1.2:1, invisible.
+
+      It survived the earlier pass because rule 2 keys on [data-theme] and the
+      dark appearance on that phone comes from the media query instead. It
+      survived my testing because I measured `color` and not the fill colour.
+      Both paths are covered now, and the audit measures both. */
+@media (prefers-color-scheme: dark){
+  html:not([data-theme='light']) input[type="text"],
+  html:not([data-theme='light']) input[type="search"],
+  html:not([data-theme='light']) input[type="email"],
+  html:not([data-theme='light']) input:not([type]),
+  html:not([data-theme='light']) textarea,
+  html:not([data-theme='light']) select,
+  html:not([data-theme='light']) .hero-search-input,
+  html:not([data-theme='light']) .hero-input,
+  html:not([data-theme='light']) .ff-q,
+  html:not([data-theme='light']) .asr-cmdk-input{
+    background:#242322 !important;
+    color:#eae6dc !important;
+    -webkit-text-fill-color:#eae6dc !important;
+    border-color:#3a3935 !important;
+    caret-color:#d4af6c !important;
+  }
+  html:not([data-theme='light']) input::placeholder,
+  html:not([data-theme='light']) textarea::placeholder{
+    color:#9d968a !important; -webkit-text-fill-color:#9d968a !important; opacity:1;
+  }
+  /* Safari keeps its own yellow-on-white autofill unless both are restated */
+  html:not([data-theme='light']) input:-webkit-autofill,
+  html:not([data-theme='light']) input:-webkit-autofill:focus{
+    -webkit-text-fill-color:#eae6dc !important;
+    -webkit-box-shadow:0 0 0 1000px #242322 inset !important;
+  }
+}
+/* and the light side of the same coin: a phone in dark mode with light chosen
+   on the site must not keep a light fill colour on a white field */
+html[data-theme='light'] input,
+html[data-theme='light'] textarea,
+html[data-theme='light'] select,
+html[data-theme='light'] .hero-search-input,
+html[data-theme='light'] .hero-input,
+html[data-theme='light'] .ff-q{
+  -webkit-text-fill-color:#1f1d18 !important;
+}
+html[data-theme='dark'] input:-webkit-autofill,
+html[data-theme='dark'] input:-webkit-autofill:focus{
+  -webkit-text-fill-color:#eae6dc !important;
+  -webkit-box-shadow:0 0 0 1000px #242322 inset !important;
+}
