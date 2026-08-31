@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Moderation queue | AsrNaam</title>
+<link rel="stylesheet" href="/asr-community.css?v=1">
+<style>
+  body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;max-width:820px;margin:0 auto;padding:1.4rem 1rem 4rem;line-height:1.6}
+  h1{font-size:1.2rem} .q{border:1px solid rgba(139,105,20,.25);border-radius:10px;padding:.9rem;margin:.8rem 0}
+  .q header{display:flex;flex-wrap:wrap;gap:.6rem;font-size:.85rem;opacity:.8}
+  .q p{overflow-wrap:anywhere}
+  .row{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.6rem}
+  .row button{min-height:44px;padding:0 1rem;border-radius:8px;cursor:pointer;border:1px solid rgba(139,105,20,.4);background:transparent;font-size:.95rem}
+  .ok{border-color:#2f7a48;background:rgba(47,122,72,.12)} .no{border-color:#b3462f;background:rgba(179,70,47,.1)}
+  .muted{opacity:.65;font-size:.9rem}
+  @media (prefers-color-scheme:dark){body{background:#1a1a1a;color:#eae6dc}
+    .row button{color:#eae6dc}}
+</style>
+</head>
+<body>
+<h1>Moderation queue</h1>
+<p class="muted">Pending comments, oldest first. Nothing here has been seen by a reader.
+Approving publishes it on the name page immediately.</p>
+<div id="auth"></div>
+<div id="queue"></div>
+<script src="/asr-community-config.js?v=1"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js" crossorigin="anonymous"></script>
+<script>
+(function(){
+  var CFG=window.ASR_COMMUNITY||{};
+  var authEl=document.getElementById('auth'), q=document.getElementById('queue');
+  if(!CFG.url||!CFG.anonKey){authEl.innerHTML='<p class="muted">Not configured yet. Fill in asr-community-config.js.</p>';return;}
+  var sb=window.supabase.createClient(CFG.url,CFG.anonKey), me=null;
+  function esc(s){var d=document.createElement('div');d.textContent=s==null?'':s;return d.innerHTML;}
+  function signin(){
+    authEl.innerHTML='<form class="asrc-signin"><label>Moderator email<input type="email" name="email" required autocomplete="email"></label><button type="submit">Send me a code</button></form>';
+    authEl.querySelector('form').onsubmit=function(e){e.preventDefault();var em=e.target.email.value.trim();
+      sb.auth.signInWithOtp({email:em,options:{shouldCreateUser:false}}).then(function(r){
+        if(r.error){authEl.innerHTML+='<p class="muted">'+esc(r.error.message)+'</p>';return;}
+        authEl.innerHTML='<form class="asrc-signin"><label>Six digit code<input name="c" inputmode="numeric" maxlength="6" required autocomplete="one-time-code"></label><button type="submit">Verify</button></form>';
+        authEl.querySelector('form').onsubmit=function(e2){e2.preventDefault();
+          sb.auth.verifyOtp({email:em,token:e2.target.c.value.trim(),type:'email'}).then(function(r2){
+            if(r2.error){authEl.innerHTML+='<p class="muted">'+esc(r2.error.message)+'</p>';return;}
+            me=r2.data.user;boot();});};});};
+  }
+  function boot(){
+    sb.from('profiles').select('display_name,is_moderator').eq('id',me.id).maybeSingle().then(function(r){
+      if(!r.data||!r.data.is_moderator){
+        authEl.innerHTML='<p class="muted">Signed in, but this account is not a moderator. Set is_moderator to true on its row in the profiles table.</p>';return;}
+      authEl.innerHTML='<p class="muted">Signed in as '+esc(r.data.display_name)+'. <button id="out" style="min-height:44px">Sign out</button></p>';
+      document.getElementById('out').onclick=function(){sb.auth.signOut().then(function(){location.reload();});};
+      loadQueue();});
+  }
+  function loadQueue(){
+    sb.from('comments').select('id,name_slug,body,created_at,lang,profiles(display_name)')
+      .eq('status','pending').order('created_at',{ascending:true}).limit(200).then(function(r){
+      var rows=r.data||[];
+      if(!rows.length){q.innerHTML='<p class="muted">Queue is empty.</p>';return;}
+      q.innerHTML=rows.map(function(c){
+        return '<div class="q" data-id="'+esc(c.id)+'"><header><b>'+esc(c.profiles?c.profiles.display_name:'')+
+        '</b><span>on <a href="/names/'+esc(c.name_slug)+'/">'+esc(c.name_slug)+'</a></span><span>'+
+        new Date(c.created_at).toLocaleString()+'</span><span>'+esc(c.lang)+'</span></header><p>'+esc(c.body)+
+        '</p><div class="row"><button class="ok" data-s="approved">Approve</button>'+
+        '<button class="no" data-s="rejected">Reject</button>'+
+        '<button class="no" data-s="spam">Spam</button></div></div>';}).join('');
+      q.querySelectorAll('button[data-s]').forEach(function(b){b.onclick=function(){
+        var box=b.closest('.q');
+        sb.from('comments').update({status:b.dataset.s,approved_at:new Date().toISOString(),approved_by:me.id})
+          .eq('id',box.dataset.id).then(function(){box.remove();
+            if(!q.querySelector('.q'))q.innerHTML='<p class="muted">Queue is empty.</p>';});};});
+    });
+  }
+  sb.auth.getUser().then(function(r){me=(r.data&&r.data.user)||null;me?boot():signin();});
+})();
+</script>
+</body>
+</html>

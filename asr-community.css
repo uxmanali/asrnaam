@@ -1,0 +1,108 @@
+/* ============================================================================
+   AsrNaam community layer styles.
+   Mobile first, because 91% of this site's readers are on a phone.
+   The container reserves its height before the script runs, so the block
+   cannot push the page around when it renders. That reservation is the whole
+   reason this file exists as something other than an afterthought.
+   ============================================================================ */
+#asr-community{
+  max-width:760px;margin:2.6rem auto 1.4rem;padding:1.1rem 1rem 1.3rem;
+  min-height:320px;                     /* reserved: see note above */
+  box-sizing:border-box;
+  border:1px solid rgba(139,105,20,.22);border-radius:12px;
+  contain:layout;
+}
+#asr-community.failed{display:none}
+#asr-community:not(.ready)::after{
+  content:'';display:block;height:200px;
+  background:linear-gradient(90deg,rgba(139,105,20,.05) 25%,rgba(139,105,20,.10) 37%,rgba(139,105,20,.05) 63%);
+  background-size:400% 100%;border-radius:8px;
+}
+@media (prefers-reduced-motion:no-preference){
+  #asr-community:not(.ready)::after{animation:asrc-shimmer 1.4s ease-in-out infinite}
+  @keyframes asrc-shimmer{0%{background-position:100% 0}100%{background-position:0 0}}
+}
+.asrc-head{font-size:1.05rem;margin:0 0 .9rem;line-height:1.35}
+.asrc-sub{font-size:.78rem;letter-spacing:.13em;text-transform:uppercase;opacity:.7;margin:1.4rem 0 .6rem}
+
+/* rating */
+.asrc-rate{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem}
+.asrc-stars{display:flex;gap:.1rem}
+.asrc-star{min-width:44px;min-height:44px;font-size:1.5rem;line-height:1;background:none;border:0;
+  cursor:pointer;padding:0;color:currentColor;opacity:.45}
+.asrc-star.on{opacity:1;color:#c99a2e}
+.asrc-rate-n{font-size:.86rem;opacity:.75}
+
+/* trait axes */
+.asrc-axis{display:grid;grid-template-columns:1fr;gap:.25rem;margin:0 0 1.1rem}
+.asrc-pole{font-size:.82rem;opacity:.8}
+.asrc-axis .asrc-pole:first-of-type{grid-row:2}
+.asrc-axis .asrc-pole:last-of-type{grid-row:2;justify-self:end;text-align:end}
+.asrc-bar{grid-row:3;grid-column:1;position:relative;display:block;height:6px;border-radius:3px;
+  background:rgba(139,105,20,.18)}
+.asrc-fill{position:absolute;top:50%;width:12px;height:12px;border-radius:50%;background:#c99a2e;
+  transform:translate(-50%,-50%);transition:left .25s ease}
+.asrc-fill.empty{left:50%;opacity:.25}
+.asrc-axis-n{grid-row:4;font-size:.74rem;opacity:.6}
+.asrc-axis-vote{grid-row:5;display:flex;gap:.3rem;margin-top:.15rem}
+.asrc-axis-vote button{flex:1 1 0;min-width:0;min-height:44px;border:1px solid rgba(139,105,20,.3);
+  border-radius:7px;background:transparent;cursor:pointer;padding:0}
+.asrc-axis-vote button.on{background:rgba(201,154,46,.28);border-color:#c99a2e}
+
+/* would you use */
+.asrc-use-row{display:flex;flex-wrap:wrap;gap:.45rem}
+.asrc-use-btn{min-height:44px;padding:0 .85rem;border:1px solid rgba(139,105,20,.3);border-radius:22px;
+  background:transparent;cursor:pointer;font-size:.9rem;color:inherit}
+.asrc-use-btn.on{background:rgba(201,154,46,.24);border-color:#c99a2e}
+.asrc-use-btn b{font-weight:600;opacity:.8}
+
+/* comments */
+.asrc-c{padding:.85rem 0;border-top:1px solid rgba(139,105,20,.14)}
+.asrc-c header{display:flex;flex-wrap:wrap;gap:.6rem;align-items:baseline;font-size:.86rem}
+.asrc-c header time{opacity:.6;font-size:.78rem}
+.asrc-c p{margin:.4rem 0 .3rem;line-height:1.65;overflow-wrap:anywhere}
+.asrc-report{background:none;border:0;padding:.4rem 0;font-size:.74rem;opacity:.55;cursor:pointer;color:inherit}
+.asrc-empty{opacity:.7;font-size:.92rem}
+
+/* auth and writing */
+.asrc-auth{margin-top:1.1rem}
+.asrc-signin,.asrc-write{display:flex;flex-direction:column;gap:.6rem}
+.asrc-signin label{display:flex;flex-direction:column;gap:.3rem;font-size:.86rem}
+.asrc-signin input,.asrc-write textarea{
+  font-size:max(16px,1rem);           /* under 16px iOS zooms the whole page */
+  min-height:44px;padding:.6rem .7rem;border:1px solid rgba(139,105,20,.35);
+  border-radius:8px;background:transparent;color:inherit;font-family:inherit;width:100%;box-sizing:border-box}
+.asrc-write textarea{min-height:96px;resize:vertical}
+.asrc-signin button,.asrc-write button{min-height:44px;padding:0 1.1rem;border-radius:8px;cursor:pointer;
+  border:1px solid #c99a2e;background:rgba(201,154,46,.18);color:inherit;font-size:.95rem}
+.asrc-write-row{display:flex;flex-wrap:wrap;gap:.5rem}
+.asrc-write-row .asrc-out{background:transparent;border-color:rgba(139,105,20,.3);opacity:.8}
+.asrc-guide{font-size:.8rem;opacity:.7;margin:0}
+.asrc-ok{font-size:.92rem;color:#2f7a48}
+.asrc-note{font-size:.86rem}
+.asrc-note.bad{color:#b3462f}
+
+/* dark: the site sets data-theme, but a phone on system dark sets nothing */
+@media (prefers-color-scheme:dark){
+  html:not([data-theme='light']) #asr-community{border-color:rgba(212,175,108,.26)}
+  html:not([data-theme='light']) .asrc-bar{background:rgba(212,175,108,.2)}
+  html:not([data-theme='light']) .asrc-signin input,
+  html:not([data-theme='light']) .asrc-write textarea{
+    background:#242322;color:#eae6dc;-webkit-text-fill-color:#eae6dc;border-color:rgba(212,175,108,.32)}
+  html:not([data-theme='light']) .asrc-ok{color:#7fc79a}
+}
+html[data-theme='dark'] #asr-community{border-color:rgba(212,175,108,.26)}
+html[data-theme='dark'] .asrc-bar{background:rgba(212,175,108,.2)}
+html[data-theme='dark'] .asrc-signin input,
+html[data-theme='dark'] .asrc-write textarea{
+  background:#242322;color:#eae6dc;-webkit-text-fill-color:#eae6dc;border-color:rgba(212,175,108,.32)}
+html[data-theme='dark'] .asrc-ok{color:#7fc79a}
+
+@media (min-width:560px){
+  .asrc-axis{grid-template-columns:auto 1fr auto;align-items:center;gap:.5rem .7rem}
+  .asrc-axis .asrc-pole:first-of-type{grid-row:1;grid-column:1}
+  .asrc-bar{grid-row:1;grid-column:2}
+  .asrc-axis .asrc-pole:last-of-type{grid-row:1;grid-column:3}
+  .asrc-axis-n{grid-row:2;grid-column:2;text-align:center}
+  .asrc-axis-vote{grid-row:2;grid-column:1/4;max-width:320px;margin-inline:auto}
+}

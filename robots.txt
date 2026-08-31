@@ -13,6 +13,9 @@ User-agent: *
 Allow: /
 Disallow: /cdn-cgi/
 
+# Moderation queue. Signed-in staff only, and nothing to index.
+Disallow: /moderate/
+
 # IPA phonetic strings accidentally exposed as URLs. Not real pages.
 Disallow: /ˈraj.jaːn/
 Disallow: /mu.ˈħam.mad/
