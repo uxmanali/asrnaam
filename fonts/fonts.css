@@ -68,7 +68,7 @@
   font-family: 'Amiri';
   font-style: normal;
   font-weight: 400;
-  font-display: swap;
+  font-display: optional;
   src: url('/fonts/amiri-400.woff2') format('woff2');
   unicode-range: U+0600-06FF, U+0750-077F, U+FB50-FDFF, U+FE70-FEFC;
 }
@@ -76,7 +76,7 @@
   font-family: 'Amiri';
   font-style: normal;
   font-weight: 700;
-  font-display: swap;
+  font-display: optional;
   src: url('/fonts/amiri-700.woff2') format('woff2');
   unicode-range: U+0600-06FF, U+0750-077F, U+FB50-FDFF, U+FE70-FEFC;
 }
@@ -86,7 +86,7 @@
   font-family: 'Noto Naskh Arabic';
   font-style: normal;
   font-weight: 400;
-  font-display: swap;
+  font-display: optional;
   src: url('/fonts/noto-naskh-arabic-400.woff2') format('woff2');
   unicode-range: U+0600-06FF, U+0750-077F, U+FB50-FDFF, U+FE70-FEFC;
 }
@@ -108,3 +108,12 @@
   font-family: 'Noto Sans', 'Segoe UI', system-ui, -apple-system,
                'Helvetica Neue', 'Arial Unicode MS', sans-serif;
 }
+
+/* Arabic faces use font-display:optional, not swap. Measured on a throttled phone:
+   the system Arabic fallback is about 1.7x wider than Amiri (avg char width 797 vs
+   456 per 1000 em), so a line that fits in one row with Amiri wraps to two without
+   it. When Amiri then swapped in, the nav lost 47px and the hero subtitle 32px, and
+   everything below jumped: 0.116 CLS on every Urdu page. 'optional' means the browser
+   either has the font in time and uses it, or uses the fallback for that whole page
+   load and never swaps. Either way nothing moves. Preloading it on the pages that are
+   mostly Arabic script makes the first outcome the usual one. */

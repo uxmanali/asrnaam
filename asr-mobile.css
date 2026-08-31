@@ -298,3 +298,20 @@ html body .breadcrumb{
 }
 html body .asr-breadcrumb > *,
 html body .breadcrumb > *{min-width:0;overflow-wrap:anywhere;}
+
+/* the letter pages carry the most internal links on the site and the worst
+   average rank on it: 41,587 links in, median position 11.6. They were also the
+   thinnest pages here, around 480 words. This is the shape of what was added. */
+html body .asr-letterforms{
+  display:flex;flex-wrap:wrap;gap:.6rem;margin:1rem 0 1.4rem;
+}
+html body .asr-lf{
+  flex:1 1 5.5rem;min-width:0;display:flex;flex-direction:column;align-items:center;
+  gap:.3rem;padding:.9rem .5rem;border:1px solid rgba(139,105,20,.22);border-radius:10px;
+}
+html body .asr-lf-glyph{
+  font-family:'Amiri','Noto Naskh Arabic',serif;font-size:2.1rem;line-height:1.3;
+}
+html body .asr-lf-label{
+  font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;opacity:.72;
+}
