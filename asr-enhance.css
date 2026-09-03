@@ -2183,7 +2183,13 @@ html[data-theme='dark'] .example-frame { background-color: #242322 !important; b
    Space is reserved before the creative arrives so nothing below an ad moves
    when it loads. Layout shift is a ranking input; an unreserved ad unit costs
    more in rankings than it earns in RPM. */
-.asr-ad{display:block;max-width:760px;margin:2rem auto;padding:0 1.5rem;text-align:center;min-height:130px;}
+.asr-ad{display:block;max-width:760px;margin:2rem auto;padding:0 1.5rem;text-align:center;min-height:280px;}
+/* A responsive AdSense unit on a 390px phone commonly serves around 250 to 280
+   pixels tall. The old reservation was 130, so a filled ad pushed everything
+   below it down by roughly 150 pixels: exactly the layout shift this site spent
+   a whole round removing. Reserve what the ad actually takes. */
+.asr-ad.is-unfilled{min-height:0;height:0;margin:0;padding:0;overflow:hidden;visibility:hidden;}
+.asr-ad.is-unfilled-visible .asr-ad-label{visibility:hidden;}
 .asr-ad .asr-ad-label{display:block;font-family:'Cinzel',serif;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:#8a8378;margin-bottom:.4rem;}
 .asr-ad ins.adsbygoogle{display:block;min-height:100px;}
 @media(min-width:900px){.asr-ad{min-height:280px;}.asr-ad ins.adsbygoogle{min-height:250px;}}

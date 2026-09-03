@@ -37,8 +37,8 @@
 <link rel="manifest" href="/manifest.json"/>
 <link rel="stylesheet" href="/fonts/fonts.css"/>
 <!-- ASR:CLS-CRITICAL --><style>/* asr-enhance.css loads asynchronously, so until it lands the page is laid out to different rules and everything below the header jumps when it arrives: 0.21 CLS on the homepage, measured on a throttled phone. These three are that file's geometry rules, verbatim, inlined so the first frame already has the final measurements. Making the stylesheet render-blocking instead does fix CLS outright, but costs 2.2s of LCP on a slow connection, which is the worse trade. Kept deliberately small: inlining more of the typographic scale measured worse, not better. */body{font-size:17px;line-height:1.65;}@media(max-width:640px){body{font-size:16px;line-height:1.6;}}@media(min-width:900px){body{font-size:18px;line-height:1.65;}}.hero{padding:4rem 2rem 2.4rem;}.asr-site-header{position:sticky;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;min-height:69px;box-sizing:border-box;padding:12px 16px;border-bottom:1px solid rgba(139,105,20,0.15);}@media(min-width:900px){.asr-site-header{min-height:81px;padding:14px 24px;}}body>nav:not(.asr-site-header):not(.asr-breadcrumb){min-height:120px;box-sizing:border-box;}@media(min-width:900px){body>nav:not(.asr-site-header):not(.asr-breadcrumb){min-height:77px;}}.asr-site-header .nav-brand{font-family:"Amiri","Noto Naskh Arabic",serif;font-size:1.4rem;display:inline-flex;flex-direction:column;gap:1px;line-height:1.1;text-decoration:none;}.asr-site-header .nav-brand-sub{font-family:"Cinzel",serif;font-size:0.6rem;letter-spacing:0.22em;text-transform:uppercase;font-weight:600;line-height:1.1;}</style>
-<link rel="stylesheet" href="/asr-enhance.css" media="print" onload="this.media='all'"/>
-<noscript><link rel="stylesheet" href="/asr-enhance.css"/></noscript>
+<link rel="stylesheet" href="/asr-enhance.css?v=20260901" media="print" onload="this.media='all'"/>
+<noscript><link rel="stylesheet" href="/asr-enhance.css?v=20260901"/></noscript>
 <script defer src="/asr-enhance.js?v=202607251700"></script>
 <style>
 :root{--gold:#8B6914;--charcoal:#2A2A2A;--warm-white:#FAFAF8;--warm-mid:#F2EFE8;--text-secondary:#6B6B6B;--border:#E8E2D4;--boy:#3B6B38;--boy-light:#EDF4EC;--boy-border:#B8D4B6;--girl:#7A3F5A;--girl-light:#F5EDF2;--girl-border:#D4B8C8;}@media(prefers-color-scheme:dark){:root{--gold:#d4a84a;--charcoal:#eae6dc;--warm-white:#1a1a1a;--warm-mid:#242322;--text-secondary:#a8a39a;--border:#3a3935;--boy:#8FB28E;--boy-light:#1f2a1f;--boy-border:#3d4f3c;--girl:#c98da8;--girl-light:#2a1f26;--girl-border:#4f3d49;}html,body{background:#1a1a1a!important;color:#eae6dc!important;}}
@@ -263,7 +263,7 @@ h1{font-family:'Cinzel',serif;font-size:clamp(1.9rem,3.6vw,2.6rem);font-weight:5
 </footer>
 <!-- ASR:FOOTER:END -->
 
-<script src="/ads-config.js"></script>
-<script src="/asr-ads.js" defer></script>
+<script src="/ads-config.js?v=20260901"></script>
+<script src="/asr-ads.js?v=20260901" defer></script>
 </body>
 </html>

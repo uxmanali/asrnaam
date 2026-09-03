@@ -53,14 +53,54 @@
     } catch (e) { /* a blocked or failed ad must never break the page */ }
   }
 
+  /* The AdSense library is already in the head of every page, put there for
+     site verification during approval. Appending a second copy here loaded the
+     same script twice on every page load: a wasted request and a second
+     initialisation. Only inject it if, for some reason, it is absent. */
   function loadLibrary() {
     if (LOADED) return;
     LOADED = true;
+    if (document.querySelector('script[src*="adsbygoogle.js"]')) return;
     var s = document.createElement('script');
     s.async = true;
     s.crossOrigin = 'anonymous';
     s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' + CFG.client;
     document.head.appendChild(s);
+  }
+
+  /* ── FIX: an unfilled slot must not leave a labelled hole in the page ──
+     A new account on a low-authority site will not fill every request, and
+     Pakistan and India are among the cheapest inventory there is. Without this,
+     an unfilled slot leaves a reserved gap with the word "Advertisement" above
+     it and nothing underneath, which reads as broken rather than as empty.
+
+     AdSense marks the <ins> data-ad-status="unfilled" when it declines to
+     serve. We collapse the slot only while it is off screen. Collapsing a slot
+     a reader is currently looking at would move the text under their thumb,
+     and that shift counts against Core Web Vitals; one sitting below the fold
+     costs nothing. */
+  function watchFill(wrap) {
+    var ins = wrap.querySelector('ins.adsbygoogle');
+    if (!ins) return;
+    var settled = false;
+    function verdict() {
+      if (settled) return;
+      var st = ins.getAttribute('data-ad-status');
+      if (st === 'filled') { settled = true; wrap.classList.add('is-filled'); return; }
+      if (st !== 'unfilled') return;
+      settled = true;
+      var r = wrap.getBoundingClientRect();
+      var onScreen = r.bottom > 0 && r.top < (window.innerHeight || 0);
+      if (onScreen) { wrap.classList.add('is-unfilled-visible'); }
+      else { wrap.classList.add('is-unfilled'); }
+    }
+    if ('MutationObserver' in window) {
+      var mo = new MutationObserver(function () { verdict(); if (settled) mo.disconnect(); });
+      mo.observe(ins, { attributes: true, attributeFilter: ['data-ad-status'] });
+      setTimeout(function () { verdict(); mo.disconnect(); }, 6000);
+    } else {
+      setTimeout(verdict, 4000);
+    }
   }
 
   /* Anchors are resolved by document position, not by which selector matched
@@ -106,11 +146,11 @@
     var placed = 0;
     var s1 = slot('inArticle');
     if (s1 && first.parentNode) {
-      first.parentNode.insertBefore(s1, first.nextSibling); push(s1); placed++;
+      first.parentNode.insertBefore(s1, first.nextSibling); push(s1); watchFill(s1); placed++;
     }
     var s2 = last ? slot('belowContent') : null;
     if (s2 && last.parentNode) {
-      last.parentNode.insertBefore(s2, last.nextSibling); push(s2); placed++;
+      last.parentNode.insertBefore(s2, last.nextSibling); push(s2); watchFill(s2); placed++;
     }
     if (placed) loadLibrary();
   }
