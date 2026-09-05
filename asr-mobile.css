@@ -315,3 +315,35 @@ html body .asr-lf-glyph{
 html body .asr-lf-label{
   font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;opacity:.72;
 }
+
+/* ---------------------------------------------------------------------------
+   RULE 12 - the letter row on the prophetic bridge pages.
+   These 23 pages are the site's Western front door, and not one of them
+   carried an abjad reading: the whole differentiator was missing from exactly
+   the pages aimed at readers who have never seen one. Each glyph links to its
+   letter page, so the row also feeds the one cluster with no real competition.
+   --------------------------------------------------------------------------- */
+html body .asr-blrow{
+  display:flex;flex-wrap:wrap;gap:.5rem;margin:1rem 0 1.2rem;
+}
+html body .asr-bl{
+  flex:1 1 8.5rem;min-width:0;display:flex;flex-direction:column;align-items:center;
+  gap:.25rem;padding:.85rem .5rem;border:1px solid rgba(139,105,20,.22);border-radius:10px;
+  text-decoration:none;color:inherit;text-align:center;min-height:44px;
+}
+html body a.asr-bl:hover,html body a.asr-bl:focus-visible{
+  border-color:rgba(139,105,20,.5);
+}
+html body .asr-bl-g{
+  font-family:'Amiri','Noto Naskh Arabic',serif;font-size:2rem;line-height:1.25;
+}
+html body .asr-bl-v{
+  font-size:.9rem;font-weight:600;font-variant-numeric:tabular-nums;opacity:.85;
+}
+html body .asr-bl-p{
+  font-size:.7rem;line-height:1.4;opacity:.7;overflow-wrap:anywhere;
+}
+@media (prefers-color-scheme:dark){
+  html:not([data-theme='light']) .asr-bl{border-color:rgba(212,175,108,.24)}
+}
+html[data-theme='dark'] .asr-bl{border-color:rgba(212,175,108,.24)}
