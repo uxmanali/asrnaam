@@ -347,3 +347,59 @@ html body .asr-bl-p{
   html:not([data-theme='light']) .asr-bl{border-color:rgba(212,175,108,.24)}
 }
 html[data-theme='dark'] .asr-bl{border-color:rgba(212,175,108,.24)}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   Rule 13 — contrast and target-size corrections, 2026-09-11.
+   Found by driving the rendered pages in a browser and computing real
+   contrast ratios; none of these are visible to markup-level checks.
+   Measured ratios are given per rule. asr-mobile.css is the only stylesheet
+   loaded by every locale, which is why the fixes live here.
+   ───────────────────────────────────────────────────────────────────────── */
+
+/* Bare <footer> on the category pages paints #111010 but inherited a dark
+   slate text colour: 1.29:1. Links were 3.02:1. Now 14.7:1 and 8.6:1. */
+/* asr-enhance.css line 751 sets `p { color:#1f2937 !important }` for every
+   paragraph on the site, which is why any <p> on a dark surface is
+   unreadable. That is the root cause here and it needs !important to undo. */
+html body footer:not([class]){background:#111010;}
+html body footer:not([class]),
+html body footer:not([class]) p{color:#e8e2d4 !important;}
+html body footer:not([class]) a{color:#d4a84a !important;}
+html body footer.asr-site-footer p:not(.index-card):not(.index-card *){color:#e7e5e4 !important;}
+
+/* /letters/ footer: .index-card forces a light card while the text kept the
+   footer's light grey, so four letter links sat at 1.28:1. Now 12.3:1. */
+html body footer .index-card,
+html body footer .index-card *{color:#2A2A2A;}
+
+/* Letter pages: a long stat value ("T (emphatic)") overflowed its 123px cell
+   and was clipped at the mobile viewport edge. */
+.letter-stat-value{overflow-wrap:anywhere;word-break:break-word;}
+@media(max-width:640px){.letter-stat-value{font-size:.92rem;line-height:1.25;}}
+
+/* Breadcrumb separator was 2.43:1. Now 5.10:1. */
+html body .asr-breadcrumb .sep{color:#6B6B6B;}
+
+/* "Advertisement" label was 3.59:1 at 9.28px. Now 5.52:1. */
+html body .asr-ad .asr-ad-label{color:#6b655c;}
+
+/* --gold #8B6914 measures 4.43:1 on --warm-mid #F2EFE8, just under AA. The
+   darker #7A570E is already used on /ilm-ul-huroof/ and /reader/ and passes
+   everywhere (5.72:1), so this is token drift rather than a new colour. */
+html body .qf-label{color:#7A570E;}
+
+/* Elements with the gold hardcoded ignored the dark-theme token (3.27:1). */
+@media(prefers-color-scheme:dark){
+  html body .why-num,
+  html body .section-sub>a,
+  html body .section-label>span{color:#d4a84a;}
+}
+
+/* Amiri ships no italic face, so the browser obliqued the Arabic. Arabic
+   script must never be slanted. */
+[dir="rtl"] em,[dir="rtl"] i,[lang="ar"] em,[lang="ur"] em,
+[dir="rtl"] .hero-subtitle,[lang="ar"] .hero-subtitle{font-style:normal;}
+
+/* WCAG 2.5.8: the site logo link was 211x16.2px. The header centres it, so a
+   floor of 24px changes the target without moving the layout. */
+html body .asr-site-header .nav-brand{min-height:24px;}

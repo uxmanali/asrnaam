@@ -32,9 +32,10 @@
   h1 { font-family:'Cinzel',serif; font-weight:400; font-size:clamp(1.6rem,4vw,2.2rem); color:var(--charcoal); margin:0 0 1.2rem; letter-spacing:-0.01em; }
   h1 em { font-style:italic; color:var(--gold); }
   p.lede { font-size:1.1rem; line-height:1.7; color:#555; max-width:520px; margin:0 auto 2.4rem; font-style:italic; }
-  form { display:flex; gap:.6rem; max-width:520px; margin:0 auto 3rem; box-shadow:0 2px 24px rgba(139,105,20,0.1); border-radius:6px; overflow:hidden; }
+  form { display:flex; gap:.6rem; max-width:520px; margin:0 auto 3rem; box-shadow:0 2px 24px rgba(139,105,20,0.1); border-radius:6px; overflow:hidden; max-width:100%; flex-wrap:wrap; }
   input { flex:1; padding:1rem 1.2rem; font-family:'Cormorant Garamond',serif; font-size:1.1rem; border:1px solid var(--border); border-right:none; background:#fff; outline:none; }
-  input:focus { border-color:var(--gold); }
+  input:focus { border-color:var(--gold); outline:3px solid var(--gold); outline-offset:2px; }
+  button:focus { outline:3px solid var(--gold); outline-offset:2px; }
   button { background:var(--gold); color:#fff; border:none; font-family:'Cinzel',serif; font-size:.72rem; letter-spacing:.2em; text-transform:uppercase; padding:0 1.6rem; cursor:pointer; }
   button:hover { background:#6B4F10; }
   .section-label { font-family:'Cinzel',serif; font-size:.68rem; letter-spacing:.24em; text-transform:uppercase; color:var(--gold); margin:2.4rem 0 1.4rem; font-weight:600; }
