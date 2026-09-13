@@ -403,3 +403,182 @@ html body .qf-label{color:#7A570E;}
 /* WCAG 2.5.8: the site logo link was 211x16.2px. The header centres it, so a
    floor of 24px changes the target without moving the layout. */
 html body .asr-site-header .nav-brand{min-height:24px;}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   Rule 14 — contrast and target-size corrections, 2026-09-13.
+   Found by driving the rendered pages in a browser with a contrast checker
+   that composites translucent layers rather than reading the nearest
+   background-color. The previous checker treated a tint such as
+   rgba(139,105,20,0.08) as the background, which both hid real failures and
+   invented false ones. Every ratio below is the composited, measured value.
+   ───────────────────────────────────────────────────────────────────────── */
+
+/* The header CTA paints background:var(--gold) and asks for white text, but
+   `.asr-site-header .nav-links a{color:#1f2937!important}` (asr-enhance.css)
+   is one specificity point heavier and wins: slate on gold, 2.23:1.
+   White on #7A570E is 6.57:1. In dark mode the same button paints #d4af6c,
+   where white would be 1.9:1 and #1A1A1A is 7.87:1. */
+html body .asr-site-header .nav-links a.nav-cta{color:#FFFFFF !important;}
+@media(prefers-color-scheme:dark){
+  html:not([data-theme='light']) body .asr-site-header .nav-links a.nav-cta{color:#1A1A1A !important;}
+}
+html[data-theme='dark'] body .asr-site-header .nav-links a.nav-cta{color:#1A1A1A !important;}
+
+/* Hero scroll cue was #8A8A8A on #FAFAF8: 3.30:1. #6B6B6B is 5.10:1. */
+html body .scroll-text{color:#6B6B6B;}
+
+/* Name-of-the-day date was rgba(139,105,20,0.65), which composites to
+   (178,156,100) on #FAFAF8: 2.57:1. Opaque #7A570E is 6.29:1. */
+html body .name-of-the-day .notd-eyebrow-date{color:#7A570E;}
+
+/* Pull-quote attribution: #666 over a 0.08 gold tint composites to #666 on
+   (232,224,208), 4.36:1, just under AA. #595959 is 5.34:1. */
+html body .pull-quote-attr{color:#595959;}
+
+/* Related-name teaser was (104,141,101) on (237,244,236): 3.35:1.
+   #3F6B3C on the same surface is 5.55:1. */
+html body .related-teaser{color:#3F6B3C;}
+
+/* The Arabic notice word above the disclaimer is content, not decoration, and
+   was rgba(139,105,20,0.5) = 1.91:1. At 28.8px the bar is 3:1; opaque
+   #8B6914 on #F0EAE0 is 4.25:1, so it clears AA for normal text as well. */
+html body .disclaimer-icon{color:#8B6914;}
+
+/* WCAG 2.5.8 (24x24). These are standalone controls, not links inside a
+   sentence, so the inline exception does not apply to them. */
+html body .hero-scroll-link,
+html body .notd-cta,
+html body .asr-answer-jump,
+html body .related-terminal-link{display:inline-flex;align-items:center;min-height:24px;}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   Rule 15 — the inline-style gold, 2026-09-13.
+
+   11,602 tags across 2,504 pages carried the gold as a style attribute:
+   style="...color:#8B6914...". Two consequences, neither of which any
+   stylesheet could reach, because an inline declaration outranks every
+   selector that is not !important:
+
+     light mode  #8B6914 on #FAFAF8 measures 4.43:1, below AA.
+     dark mode   the same gold on #1A1A1A measures 3.42:1, and the site's
+                 dark palette was simply overruled on all 11,602 of them.
+
+   The declaration has been lifted out of the attribute onto .asr-gold, which
+   is what a theme can actually address. Measured: #7A570E on #FAFAF8 is
+   6.29:1; #d4af6c on #1A1A1A is 9.42:1.
+   ───────────────────────────────────────────────────────────────────────── */
+html body .asr-gold{color:#7A570E;}
+@media(prefers-color-scheme:dark){
+  html:not([data-theme='light']) body .asr-gold{color:#d4af6c;}
+}
+html[data-theme='dark'] body .asr-gold{color:#d4af6c;}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   Rule 16 — dark mode, 2026-09-13. The site has shipped a dark palette for
+   months and no check had ever rendered a page in it. These are what the
+   first dark-mode pass found.
+   ───────────────────────────────────────────────────────────────────────── */
+
+/* The header CTA paints background:var(--gold) — #d4af6c in dark — and the
+   dark link rule painted the label the same gold: 1.00:1, an invisible
+   button. Filling it explicitly in both themes removes the ambiguity.
+   Measured: #FFFFFF on #7A570E is 6.57:1; #1A1A1A on #d4a84a is 7.87:1. */
+html body .asr-site-header .nav-links a.nav-cta{
+  background:#7A570E; border-color:#7A570E; color:#FFFFFF !important;}
+@media(prefers-color-scheme:dark){
+  html:not([data-theme='light']) body .asr-site-header .nav-links a.nav-cta{
+    background:#d4a84a; border-color:#d4a84a; color:#1A1A1A !important;}
+  /* Same defect on the filled call-to-action buttons in the page body. */
+  html:not([data-theme='light']) body a.cta-button,
+  html:not([data-theme='light']) body .cta-btn{color:#1A1A1A !important;}
+  /* The qf-label gold fix from Rule 13 had no dark counterpart: 2.39:1. */
+  html:not([data-theme='light']) body .qf-label{color:#d4af6c;}
+  /* The ad label's light-mode grey reads 3.88:1 on #1A1A1A. #A7A093 is 7.2:1. */
+  html:not([data-theme='light']) body .asr-ad .asr-ad-label{color:#A7A093;}
+}
+html[data-theme='dark'] body .asr-site-header .nav-links a.nav-cta{
+  background:#d4a84a; border-color:#d4a84a; color:#1A1A1A !important;}
+html[data-theme='dark'] body a.cta-button,
+html[data-theme='dark'] body .cta-btn{color:#1A1A1A !important;}
+html[data-theme='dark'] body .qf-label{color:#d4af6c;}
+html[data-theme='dark'] body .asr-ad .asr-ad-label{color:#A7A093;}
+
+/* The related-name teaser is dimmed with opacity:.75, which drags the text to
+   3.32:1 no matter what colour is set. Opacity is the wrong tool for a muted
+   tone: it also dims the text against the card it sits on. Setting the muted
+   colour directly keeps the look and reaches 5.55:1. */
+html body .related-teaser{opacity:1; color:#3F6B3C;}
+html body .related-card.girl .related-teaser{color:#6E3850;}
+@media(prefers-color-scheme:dark){
+  html:not([data-theme='light']) body .related-teaser{color:#9DC49A;}
+  html:not([data-theme='light']) body .related-card.girl .related-teaser{color:#E0A8BE;}
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   Rule 17 — target size and the locale dark palette, 2026-09-13.
+   Found by rendering one page per TEMPLATE rather than a fixed short list:
+   the aathaar, blog and locale-index templates had never been rendered by
+   any check, so nothing below had ever been measured.
+   ───────────────────────────────────────────────────────────────────────── */
+
+/* WCAG 2.5.8 (24x24). Each of these is a standalone control on its own line,
+   so the inline-in-a-sentence exception does not cover it.
+   Measured: related-nav links 179x20, language switch 57x15, compare chip
+   22x22, compare clear 22x24. */
+html body .related-nav ul a,
+html body .lang-switch a{display:inline-flex;align-items:center;min-height:24px;}
+html body .asr-cmp-chip,
+html body .asr-cmp-clear{min-width:24px;min-height:24px;}
+
+/* The locale index pages hardcode light surfaces (#F7F2E4, #fff) that the
+   dark palette never remapped, while the text colour did flip. The result in
+   dark mode was gold on cream: 1.98:1 on the examples label, 2.07:1 on the
+   example chips, 2.21:1 white on gold in the search button.
+   Measured after: #d4af6c on #242322 is 7.58:1; #eae6dc on #2c2822 is 11.8:1;
+   #1A1A1A on #d4a84a is 7.87:1. */
+@media(prefers-color-scheme:dark){
+  html:not([data-theme='light']) body .examples{background:#242322; border-color:#3a3935;}
+  html:not([data-theme='light']) body .examples-list a{
+    background:#2c2822; border-color:#3a3935; color:#eae6dc;}
+  html:not([data-theme='light']) body .search-card input{
+    background:#242322; color:#eae6dc;}
+  html:not([data-theme='light']) body .search-card button{
+    background:#d4a84a; color:#1A1A1A;}
+  /* Footer links were rgba(139,105,20,.85) on #111010: 2.99:1. */
+  html:not([data-theme='light']) body footer a{color:#d4af6c;}
+}
+
+/* Rule 17b. The scroll cue's #6B6B6B (Rule 14) had no dark counterpart:
+   3.27:1 on #1A1A1A. #A8A39A is the palette's own --subtle in dark, 7.42:1. */
+@media(prefers-color-scheme:dark){
+  html:not([data-theme='light']) body .scroll-text{color:#A8A39A;}
+}
+html[data-theme='dark'] body .scroll-text{color:#A8A39A;}
+
+/* Two more standalone controls: the "Meaning of the name X" link that is the
+   entire content of its <dd> (177x20), and the narrow language-switch chips,
+   which cleared 24px in height but were only 19px wide. */
+html body dd > a:only-child{display:inline-flex;align-items:center;min-height:24px;}
+html body .lang-switch a{min-width:24px;justify-content:center;}
+
+/* Rule 18 — the header wordmark, 2026-09-13.
+   Two things were wrong at every desktop width, in the live site as well as
+   in any draft: the Arabic wordmark اثر نام rendered at 0.5rem because the
+   page's own `.nav-brand span` rule out-specified the header's font-size, and
+   the English tagline could not fit beside nine nav items, so it wrapped to
+   three lines and crushed the wordmark next to it. Measured at 1280px: brand
+   natural width 265px + nav 1085px against 1232px of usable header. The
+   tagline is therefore shown only where there is room for it. */
+html body .asr-site-header .nav-brand span[lang="ar"]{font-size:1.4rem;line-height:1.15;}
+@media(max-width:900px){
+  html body .asr-site-header .nav-brand span[lang="ar"]{font-size:1.2rem;}
+}
+@media(min-width:901px) and (max-width:1439px){
+  html body .asr-site-header .nav-brand-sub{display:none;}
+}
+
+/* The wordmark carries dir="rtl", so inside a stretched flex column its box
+   spans the full brand width and the Arabic drifts right, over the tagline.
+   Shrink the items to their content and the two stack cleanly. */
+html body .asr-site-header .nav-brand{align-items:flex-start;}
+html body .asr-site-header .nav-brand span[lang="ar"]{line-height:1.3;}
