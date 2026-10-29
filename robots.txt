@@ -18,11 +18,6 @@ Disallow: /moderate/
 Disallow: /audit/
 Disallow: /db/
 
-# IPA phonetic strings accidentally exposed as URLs. Not real pages.
-Disallow: /ˈraj.jaːn/
-Disallow: /mu.ˈħam.mad/
-Disallow: /ʔa.ˈmiːr/
-
 Sitemap: https://asrnaam.com/sitemap.xml
 Sitemap: https://asrnaam.com/sitemap-canonicals.xml
 Sitemap: https://asrnaam.com/sitemap-ar.xml
