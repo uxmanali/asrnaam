@@ -1,15 +1,19 @@
-/* AsrNaam geo/language auto-routing (Aug 2026).
- * Pakistan -> Urdu (/ur/...), Arabic-speaking countries -> Arabic (/ar/...).
+/* AsrNaam language suggestion (rewritten 2026-10-29).
  *
- * Principles:
- *  - An explicit user choice always wins and is remembered (asr-lang-pref).
- *  - At most one automatic redirect per browser session (no ping-pong).
- *  - Redirect only when this page declares a matching hreflang alternate.
- *  - Browser language is checked first (instant, private); IP country via
- *    get.geojs.io only when the browser language is inconclusive.
- *  - Country result cached 30 days (asr-geo-cc) to avoid repeat lookups.
- *  - Search-engine crawlers are unaffected in practice (US-based crawling,
- *    and hreflang already maps the language versions).
+ * Until today this file redirected Pakistani visitors to /ur/ and visitors
+ * from Arabic-speaking countries to /ar/ on a guess from browser language or
+ * IP. Google's guidance is explicit: "Avoid automatically redirecting users
+ * from one language version of a site to a different language version" and
+ * "Don't use IP analysis to adapt your content". The redirect also cost us:
+ * the English page was counted with ~1s engagement and its ad requests were
+ * abandoned mid-load.
+ *
+ * Now:
+ *  - An explicit choice (a click into another language, remembered as
+ *    asr-lang-pref) still routes, at most once per session.
+ *  - A guess (browser language, cached or looked-up country) only highlights
+ *    the matching "read in" link already present in the page. No navigation,
+ *    no layout change.
  */
 (function () {
   "use strict";
@@ -71,19 +75,29 @@
   /* A previously pinned ur/ar/hi preference routes immediately. */
   if (pref === "ur" || pref === "ar" || pref === "hi") { go(pref); return; }
 
+  /* Guesses never navigate: they mark the matching link so it stands out. */
+  function suggest(lang) {
+    if (!altFor(lang)) return;
+    function mark() {
+      var ls = document.querySelectorAll('.asr-name-hero-langs a[data-lang="' + lang + '"], .asr-crosslang a[hreflang="' + lang + '"]');
+      for (var i = 0; i < ls.length; i++) ls[i].classList.add("is-suggested");
+    }
+    if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", mark); else mark();
+  }
+
   /* 1. Browser language — decisive when it names ur, ar or hi.
      (India is deliberately routed by language, not geography: Indian
      visitors arriving on Urdu-meaning queries should keep Urdu/English.) */
   var langs = (navigator.languages || [navigator.language || ""]).join(",").toLowerCase();
-  if (/(^|,)\s*ur\b/.test(langs)) { go("ur"); return; }
-  if (/(^|,)\s*ar\b/.test(langs)) { go("ar"); return; }
-  if (/(^|,)\s*hi\b/.test(langs)) { go("hi"); return; }
+  if (/(^|,)\s*ur\b/.test(langs)) { suggest("ur"); return; }
+  if (/(^|,)\s*ar\b/.test(langs)) { suggest("ar"); return; }
+  if (/(^|,)\s*hi\b/.test(langs)) { suggest("hi"); return; }
 
   /* 2. IP country (cached 30 days). */
   var cached = get("asr-geo-cc"), cachedAt = parseInt(get("asr-geo-at") || "0", 10);
   function route(cc) {
-    if (cc === "PK") go("ur");
-    else if (ARABIC[cc]) go("ar");
+    if (cc === "PK") suggest("ur");
+    else if (ARABIC[cc]) suggest("ar");
   }
   if (cached && Date.now() - cachedAt < 30 * 864e5) { route(cached); return; }
 

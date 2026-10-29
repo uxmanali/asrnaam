@@ -582,3 +582,18 @@ html body .asr-site-header .nav-brand span[lang="ar"]{font-size:1.4rem;line-heig
    Shrink the items to their content and the two stack cleanly. */
 html body .asr-site-header .nav-brand{align-items:flex-start;}
 html body .asr-site-header .nav-brand span[lang="ar"]{line-height:1.3;}
+
+/* Rule 19, 2026-10-29: language links in the name-page hero.
+   Replaces the automatic Pakistan/Arabic redirect (Google: "Avoid
+   automatically redirecting users from one language version of a site to a
+   different language version"). Static markup, styled here in a
+   render-blocking sheet so the line never shifts the page. Tap targets are
+   at least 24px tall; colours reuse the measured .asr-gold pair. */
+html body .asr-name-hero-langs{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:.15rem .5rem;margin:.75rem auto 0;font-size:.95rem;line-height:1.5;}
+html body .asr-name-hero-langs a{display:inline-block;min-height:24px;padding:.2rem .35rem;color:#7A570E;text-decoration:underline;text-underline-offset:3px;}
+html body .asr-name-hero-langs a.is-suggested{font-weight:700;}
+html body .asr-name-hero-langs .sep{opacity:.5;}
+@media(prefers-color-scheme:dark){
+  html:not([data-theme='light']) body .asr-name-hero-langs a{color:#d4af6c;}
+}
+html[data-theme='dark'] body .asr-name-hero-langs a{color:#d4af6c;}
