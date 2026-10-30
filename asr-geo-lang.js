@@ -44,9 +44,10 @@
     if (/^\/ur\//.test(href)) set("asr-lang-pref", "ur");
     else if (/^\/ar\//.test(href)) set("asr-lang-pref", "ar");
     else if (/^\/hi\//.test(href)) set("asr-lang-pref", "hi");
+    else if (/^\/tr\//.test(href)) set("asr-lang-pref", "tr");
     else if (/^\/(names|blog|letters|basaair|aathaar|athar)?\/?/.test(href) &&
-             !/^\/(ur|ar|hi)\//.test(href) &&
-             /^(ur|ar|hi)$/.test(document.documentElement.lang)) {
+             !/^\/(ur|ar|hi|tr)\//.test(href) &&
+             /^(ur|ar|hi|tr)$/.test(document.documentElement.lang)) {
       set("asr-lang-pref", "en");
     }
   }, true);
@@ -62,7 +63,7 @@
     var l = document.querySelector('link[rel="alternate"][hreflang="' + lang + '"]');
     return l && l.href ? l.href : null;
   }
-  if (!altFor("ur") && !altFor("ar") && !altFor("hi")) return;
+  if (!altFor("ur") && !altFor("ar") && !altFor("hi") && !altFor("tr")) return;
 
   function go(lang) {
     var target = altFor(lang);
@@ -73,7 +74,7 @@
   }
 
   /* A previously pinned ur/ar/hi preference routes immediately. */
-  if (pref === "ur" || pref === "ar" || pref === "hi") { go(pref); return; }
+  if (pref === "ur" || pref === "ar" || pref === "hi" || pref === "tr") { go(pref); return; }
 
   /* Guesses never navigate: they mark the matching link so it stands out. */
   function suggest(lang) {
@@ -92,12 +93,14 @@
   if (/(^|,)\s*ur\b/.test(langs)) { suggest("ur"); return; }
   if (/(^|,)\s*ar\b/.test(langs)) { suggest("ar"); return; }
   if (/(^|,)\s*hi\b/.test(langs)) { suggest("hi"); return; }
+  if (/(^|,)\s*tr\b/.test(langs)) { suggest("tr"); return; }
 
   /* 2. IP country (cached 30 days). */
   var cached = get("asr-geo-cc"), cachedAt = parseInt(get("asr-geo-at") || "0", 10);
   function route(cc) {
     if (cc === "PK") suggest("ur");
     else if (ARABIC[cc]) suggest("ar");
+    else if (cc === "TR") suggest("tr");
   }
   if (cached && Date.now() - cachedAt < 30 * 864e5) { route(cached); return; }
 
