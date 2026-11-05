@@ -185,7 +185,7 @@
         '<input name="dn" required minlength="2" maxlength="32"></label><button type="submit">' + esc(t.save) + '</button></form>';
       box.querySelector('form').addEventListener('submit', function (e) {
         e.preventDefault();
-        sb.from('profiles').upsert({ id: me.id, display_name: e.target.dn.value.trim() }).select().single()
+        sb.from('profiles').upsert({ id: me.id, display_name: e.target.dn.value.trim() }).select('id,display_name').single()
           .then(function (r) { if (!r.error) { profile = r.data; renderAuth(); } else note(box, r.error.message, true); });
       });
       return;
@@ -213,7 +213,7 @@
   }
 
   function ensureProfile() {
-    return sb.from('profiles').select('*').eq('id', me.id).maybeSingle()
+    return sb.from('profiles').select('id,display_name').eq('id', me.id).maybeSingle()
       .then(function (r) { profile = r.data; return profile; });
   }
 

@@ -271,14 +271,13 @@ function renderInto(el, name){
   if(!clean){ el.innerHTML = composeReading(''); bindCtas(el, ''); return; }
   // Cache lookup
   const cached = readCache(clean);
-  if(cached){ el.innerHTML = cached; bindCtas(el, clean); annotateLibrary(el, clean); return; }
+  if(cached){ el.innerHTML = cached; bindCtas(el, clean); annotateLibrary(el, clean); updateMeta(clean); return; }
   const html = composeReading(clean);
   el.innerHTML = html;
   annotateLibrary(el, clean);
   writeCache(clean, html);
   bindCtas(el, clean);
-  updateUrl(clean);
-  updateMeta(clean);
+  updateMeta(clean); // the entered name is no longer written into the address bar (audit 6 Nov 2026, section 7); sharing builds the link on request
 }
 
 function updateUrl(name){
@@ -303,7 +302,7 @@ function bindCtas(el, name){
     if(window.print) window.print();
   });
   if(share) share.addEventListener('click', async function(){
-    const url = window.location.href;
+    const url = window.location.origin + '/reader/?name=' + encodeURIComponent(name);
     const title = titleCase(name) + ' — Reading on AsrNaam';
     if(navigator.share){
       try { await navigator.share({title: title, url: url}); } catch(e){}
