@@ -136,8 +136,7 @@ function composeReading(rawName){
   }
 
   const display = titleCase(name);
-  const firstWord = name.split(' ')[0];
-  const letters = parseName(firstWord);
+  const letters = parseName(name);   // every word is read, in order, as one name (DA-2.1)
 
   if(!letters.length){
     return '<div class="reader-empty"><h2>Could not read this name</h2><p>The tool could not map "' + esc(display) + '" to Arabic letters. Try a different spelling, or check that you used Latin or Arabic characters only.</p></div>';
@@ -249,7 +248,8 @@ function getQueryName(){
   } catch(e){ return ''; }
 }
 
-function cacheKey(name){ return 'asr-reader-cache:' + name.toLowerCase(); }
+const READER_VERSION = 'v2-allwords-20261105';   // bump when parser or letter data change (DA-2.3)
+function cacheKey(name){ return 'asr-reader-cache:' + READER_VERSION + ':' + name.toLowerCase(); }
 
 function readCache(name){
   try {
