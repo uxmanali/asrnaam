@@ -1,8 +1,11 @@
 /* AsrNaam — Dynamic Reader (composeReading on the fly for any name)
    Loads on /reader/ and any page that wires #reader-output / #reader-form / #reader-input.
-   The L data, D dictionary, ARABIC_MAP, and parsers are mirrored from index.html
-   to keep this file fully self-contained. Single source of truth: keep them in sync
-   if index.html L / D / parser changes. */
+   Dependency order: /data/asr-letters.js (L, D, ARABIC_MAP) then /data/asr-parser.js
+   (isAr, parseAr, parseTr, parseWord, parseName), then this file. Edit letter data and
+   parsers in /data only; this file holds the UI and the Turkish-input mapping below.
+   Supported input: Arabic script, Latin transliteration, and Turkish spellings. Turkish
+   letters are kept in the typed name and mapped to the parser's Latin forms (TR_MAP);
+   the reading shows the mapped spelling whenever it differs, so nothing changes silently. */
 (function(){
 // L is now provided by /data/asr-letters.js (loaded ahead of this file)
 
@@ -107,11 +110,17 @@ function sanitizeName(raw){
   // Strip everything except letters, spaces, hyphens; collapse whitespace
   let s = String(raw||'');
   // Allow Arabic block + Latin letters + hyphen + space + apostrophe
-  s = s.replace(/[^؀-ۿA-Za-z\s'\-]/g, '');
+  s = s.replace(/[^؀-ۿA-Za-zÇĞİÖŞÜâîûçğıöşü\s'\-]/g, '');
   s = s.replace(/\s+/g, ' ').trim();
   // Cap length
   if(s.length > 60) s = s.slice(0, 60);
   return s;
+}
+
+// Turkish letters -> the Latin forms asr-parser.js understands (documented, shown to the reader)
+const TR_MAP = {'ç':'ch','Ç':'ch','ş':'sh','Ş':'sh','ğ':'gh','Ğ':'gh','ı':'i','İ':'i','ö':'o','Ö':'o','ü':'u','Ü':'u','â':'a','î':'i','û':'u'};
+function mapTurkish(s){
+  return String(s||'').replace(/[ÇçŞşĞğıİÖöÜüâîû]/g, function(c){ return TR_MAP[c]; });
 }
 
 function titleCase(s){
@@ -132,7 +141,8 @@ function composeReading(rawName){
   }
 
   const display = titleCase(name);
-  const letters = parseName(name);   // every word is read, in order, as one name (DA-2.1)
+  const parseForm = mapTurkish(name);   // Turkish letters mapped, never dropped (audit B5)
+  const letters = parseName(parseForm);   // every word is read, in order, as one name (DA-2.1)
 
   if(!letters.length){
     return '<div class="reader-empty"><h2>Could not read this name</h2><p>The tool could not map "' + esc(display) + '" to Arabic letters. Try a different spelling, or check that you used Latin or Arabic characters only.</p></div>';
@@ -153,6 +163,9 @@ function composeReading(rawName){
   html += '<div class="arabic-name" lang="ar" dir="rtl">' + esc(arabic) + '</div>';
   html += '<div class="name-badge">Generated Reading &nbsp;·&nbsp; <span>Ilm ul Huroof</span></div>';
   html += '<h1><em>' + esc(display) + '</em></h1>';
+  if(parseForm.toLowerCase() !== name.toLowerCase()){
+    html += '<p class="hero-subtitle" id="reader-tr-note">Turkish letters were read as: ' + esc(titleCase(parseForm)) + ' (ç as ch, ş as sh, ğ as gh, ı as i, ö as o, ü as u). If another spelling is intended, type it above.</p>';
+  }
   html += '<p class="hero-subtitle">' + esc(display) + ' read through its letters — composed on the fly using the same letter-analysis the static library uses.</p>';
   html += '</div>';
 

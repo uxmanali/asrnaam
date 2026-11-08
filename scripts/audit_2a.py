@@ -111,6 +111,23 @@ def discover_pages(root: Path) -> list[Path]:
             if p.exists():
                 pages.append(p)
 
+    # Audit B8 (8 Nov 2026): opt-in wider inventory. ASR_AUDIT_LOCALES=1 adds the ar/names, ur/names,
+    # hi/names and tr/names trees plus the homepage, finder, reader, community and legal routes.
+    # Off by default so the Protocol KPI (English-only C-checks) keeps its definition; checks/correction_propagation.py
+    # covers every locale on every run meanwhile.
+    if os.environ.get("ASR_AUDIT_LOCALES") == "1":
+        for tree in ("ar/names", "ur/names", "hi/names", "tr/names"):
+            d = root / tree
+            if d.exists():
+                for sub in sorted(d.iterdir()):
+                    p = sub / "index.html"
+                    if sub.is_dir() and p.exists():
+                        pages.append(p)
+        for route in ("", "finder", "reader", "community", "about", "contact", "privacy", "terms"):
+            p = (root / route / "index.html") if route else (root / "index.html")
+            if p.exists():
+                pages.append(p)
+
     return pages
 
 
