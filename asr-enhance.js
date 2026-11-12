@@ -555,7 +555,7 @@
     asrLoadCats();
     if(CMDK_LOADING) return new Promise(function(res){ var t=setInterval(function(){ if(CMDK_CORPUS || !CMDK_LOADING){ clearInterval(t); res(CMDK_CORPUS || []); } }, 30); });
     CMDK_LOADING = true;
-    return fetch('/names/names-index.json?v=202607252100', {cache:'force-cache'}).then(function(r){
+    return fetch('/names/names-index.json?v=20261112', {cache:'force-cache'}).then(function(r){
       if(!r.ok) throw new Error('idx http '+r.status);
       return r.json();
     }).then(function(arr){
