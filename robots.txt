@@ -18,6 +18,10 @@ Disallow: /moderate/
 Disallow: /audit/
 Disallow: /db/
 
+# /pins/ is Pinterest image assets plus the bulk-upload sheet, not a content
+# section. There is no HTML page in that folder, and it is omitted from every
+# sitemap on purpose. Leave the images crawlable: do not Disallow /pins/.
+
 Sitemap: https://asrnaam.com/sitemap.xml
 Sitemap: https://asrnaam.com/sitemap-canonicals.xml
 Sitemap: https://asrnaam.com/sitemap-ar.xml
