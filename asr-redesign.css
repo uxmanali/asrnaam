@@ -1177,7 +1177,7 @@ html body nav.asr-breadcrumb, html body nav.asr-breadcrumb a, html body .breadcr
 html[data-theme="dark"] body nav.asr-breadcrumb, html[data-theme="dark"] body nav.asr-breadcrumb a,
 html[data-theme="dark"] body .breadcrumb, html[data-theme="dark"] body .breadcrumb a { color: #C5D8D2 !important; }
 /* 8. Links inside running text are underlined so they do not rely on colour alone. */
-html body :is(p, li, .note) > a:not([class*="btn"]):not(.rd-btn):not(.related-card):not(.asr-pill) { text-decoration: underline; text-underline-offset: 2px; text-decoration-thickness: 1px; }
+html body :is(p, li, .note):not(nav *):not(nav) > a:not([class*="btn"]):not(.rd-btn):not(.related-card):not(.asr-pill) { text-decoration: underline; text-underline-offset: 2px; text-decoration-thickness: 1px; }
 /* 9. Locale headers: reserve the height the injected heart and theme buttons need
       (the Urdu hub shifted 0.23 on load), and give the brand link a full tap target. */
 html body nav.asr-nav { display: flex !important; align-items: center !important; min-height: 58px; box-sizing: border-box; }
@@ -1197,3 +1197,5 @@ html body nav.asr-nav .nav-links a { color: var(--emerald); }
   html body nav.asr-nav { gap: 6px !important; padding-left: 10px !important; padding-right: 10px !important; }
   html body nav.asr-nav .nav-links a { font-size: 13.5px !important; }
 }
+/* 10. Older page styles underline every link, including the 551 swapped-in headers. */
+html body .asr-site-header a:not(.nav-cta) { text-decoration: none !important; border-bottom: 0 !important; }
