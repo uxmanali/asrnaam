@@ -317,6 +317,14 @@
     if (document.getElementById('rd-raised-done')) return;
     var anchor = document.querySelector('.asr-answer') || document.querySelector('.quick-facts');
     if (!anchor || !anchor.parentNode) return;
+    // Some older pages put the answer box above the hero. Raising the letter and
+    // bearer sections after it then pushed the name and title 2,000px down the
+    // page (48 pages, found 13 Nov). Keep the hero first.
+    var heroEl = document.querySelector('.asr-name-hero, article > .hero, main > .hero');
+    if (heroEl && heroEl.parentNode === anchor.parentNode &&
+        (anchor.compareDocumentPosition(heroEl) & Node.DOCUMENT_POSITION_FOLLOWING)) {
+      anchor.parentNode.insertBefore(heroEl, anchor);
+    }
     var pieces = [
       document.querySelector('.asr-v2-letters'),
       document.querySelector('.asr-v2-bearers'),

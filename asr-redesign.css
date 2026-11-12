@@ -29,7 +29,7 @@
   --emerald-2: #0A3A34;
   --emerald-3: #13675C;
   --mint: #E3F0EA;
-  --gold: #C29A4B;
+  --gold: #80601C; /* was #C29A4B: 2.3:1 on cream, below the 4.5:1 text minimum (13 Nov audit) */
   --gold-soft: #E7CF97;
   --gold-ink: #7A5412;
   --cream: #FBF6EC;
@@ -175,7 +175,7 @@ html body .asr-site-header .nav-links { align-items: center; }
 }
 .rd-btn svg { width: 18px; height: 18px; }
 .rd-btn-primary { background: var(--emerald); color: #fff; }
-.rd-btn-gold { background: var(--gold); color: #1D2A27; }
+.rd-btn-gold { background: var(--gold-soft); color: #1D2A27; }
 .rd-btn-ghost { background: var(--card); color: var(--ink); border: 1px solid var(--line); }
 .rd-tag {
   display: inline-flex; align-items: center; gap: 6px;
@@ -632,7 +632,7 @@ html body .rd-play {
   border-radius: 999px; padding: 6px 16px 6px 6px; cursor: pointer; font: inherit;
 }
 html body .rd-play .play {
-  width: 42px; height: 42px; border-radius: 50%; background: var(--gold); color: #1D2A27;
+  width: 42px; height: 42px; border-radius: 50%; background: var(--gold-soft); color: #1D2A27;
   display: grid; place-items: center; flex: none;
 }
 html body .rd-play[hidden] { display: none; }
@@ -1079,3 +1079,121 @@ html body .asr-ad.is-unfilled {
   border: 0 !important;
 }
 /* Auto ads and anchor ads are left to AdSense settings; never hidden in CSS (12 Nov fix). */
+
+/* ---- 13 Nov GUI audit fixes ----
+   1. Heroes that sit directly in <body> (359 older English name pages, the 34
+      letter pages, the A-Z index) got white headings from the rules above but
+      no green background, so the name and title were white on cream. They now
+      get the same green card as every other hero. */
+html body > .hero {
+  max-width: 1160px;
+  margin: 16px auto 8px !important;
+  border-radius: 28px;
+  background: radial-gradient(900px 420px at 80% 0%, #16695E, var(--emerald) 50%, var(--emerald-2)) !important;
+  color: #fff !important;
+  position: relative;
+  overflow: hidden;
+  text-align: start !important;
+  padding: 36px 40px 32px !important;
+  box-sizing: border-box;
+  box-shadow: none !important;
+}
+html body > .hero::before {
+  content: ""; position: absolute; inset: 0;
+  background-image: var(--rd-pattern); background-size: 72px; opacity: .16;
+  pointer-events: none;
+}
+/* 2. Text inside any green hero that the page's own styles painted dark
+      (hub ledes, counts, kickers, letter subtitles) was dark green on dark
+      green. Low specificity on purpose: the named rules above still win. */
+html:root :where(main, article, body) > .hero :where(p, span, small, li, div, dt, dd, .lede, .count, .kicker, .eyebrow, .hero-sub, .hero-kicker, .letter-meta):where(:not(.asr-pa *, .asr-pa, .asr-ad *, .asr-ad, .rd-play *, .asr-action-bar *)) {
+  color: #DCEAE5 !important;
+}
+html:root :where(main, article, body) > .hero :where(a):where(:not(.asr-fav, .asr-share, .rd-btn, .hero-cta, .asr-pa *, .asr-ad *)) {
+  color: var(--gold-soft) !important;
+}
+html:root :where(main, article, body) > .hero :where(.kicker, .eyebrow, .hero-kicker, .hero-eyebrow, .hero-arabic, .letter-meta, .count) {
+  color: var(--gold-soft) !important;
+}
+@media (max-width: 900px) {
+  html body > .hero { margin-left: 12px !important; margin-right: 12px !important; padding: 24px 18px !important; }
+}
+/* 3. Arabic, Urdu, Hindi and Turkish headers wrapped onto two rows on phones,
+      leaving the favourites heart alone on the second row. One row, links
+      scroll sideways if a very narrow phone needs it. */
+@media (max-width: 600px) {
+  html body nav.asr-nav {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 10px !important;
+    padding: 8px 14px !important;
+  }
+  html body nav.asr-nav .nav-brand { flex: none; font-size: 1.45rem !important; }
+  html body nav.asr-nav .nav-links {
+    flex-wrap: nowrap !important;
+    gap: 12px !important;
+    overflow-x: auto;
+    scrollbar-width: none;
+    min-width: 0;
+  }
+  html body nav.asr-nav .nav-links::-webkit-scrollbar { display: none; }
+  html body nav.asr-nav .nav-links a { white-space: nowrap; flex: none; }
+  html body nav.asr-nav .rd-nav-heart { width: 36px; height: 36px; }
+  html body nav.asr-nav .asr-theme-toggle { margin-left: 0 !important; flex: none; }
+}
+/* 4. Letter and Ilm ul Huroof heroes faded their title in after a 0.6 s delay,
+      so the main heading (the page's largest paint) stayed invisible for up
+      to 1.8 s. Show it at once. */
+html body .hero :where(.hero-arabic, .hero-eyebrow, .hero-title, .hero-sub, .hero-cta) {
+  animation: none !important;
+  opacity: 1 !important;
+  transform: none !important;
+}
+/* 5. Letter pages style every <nav> as position:fixed, so the breadcrumb sat
+      on top of the site header and hid the logo and menu. */
+html body nav.asr-breadcrumb,
+html body nav.breadcrumb,
+html body nav.asr-crosslang,
+html body nav.asr-azjump,
+html body nav.letter-pager { position: static !important; }
+html:root :where(main, article, body) > .hero :where(em, .hero-title em, h1 em) { color: var(--gold-soft) !important; }
+/* 6. The lucky-number buttons were squeezed to 12px wide on phones (tap target). */
+.rd-num, .rd-lchip, .rd-chip { flex: none; }
+/* 7. Contrast. Older styles used --gold-soft as a faint tint; the redesign made it
+      solid #E7CF97, so the "What this reading says about you" box on every name
+      page turned light gold under light text in dark mode (1.2:1). */
+html body .asr-v2-synthesis { background: rgba(194,154,75,.12) !important; }
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) body .article-name-links { background: #132824 !important; }
+}
+html[data-theme="dark"] body .article-name-links { background: #132824 !important; }
+html body nav.asr-breadcrumb, html body nav.asr-breadcrumb a, html body .breadcrumb, html body .breadcrumb a { color: #555c69 !important; }
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) body nav.asr-breadcrumb, html:not([data-theme="light"]) body nav.asr-breadcrumb a,
+  html:not([data-theme="light"]) body .breadcrumb, html:not([data-theme="light"]) body .breadcrumb a { color: #C5D8D2 !important; }
+}
+html[data-theme="dark"] body nav.asr-breadcrumb, html[data-theme="dark"] body nav.asr-breadcrumb a,
+html[data-theme="dark"] body .breadcrumb, html[data-theme="dark"] body .breadcrumb a { color: #C5D8D2 !important; }
+/* 8. Links inside running text are underlined so they do not rely on colour alone. */
+html body :is(p, li, .note) > a:not([class*="btn"]):not(.rd-btn):not(.related-card):not(.asr-pill) { text-decoration: underline; text-underline-offset: 2px; text-decoration-thickness: 1px; }
+/* 9. Locale headers: reserve the height the injected heart and theme buttons need
+      (the Urdu hub shifted 0.23 on load), and give the brand link a full tap target. */
+html body nav.asr-nav { display: flex !important; align-items: center !important; min-height: 58px; box-sizing: border-box; }
+html body nav.asr-nav .nav-brand { display: inline-flex; align-items: center; min-height: 44px; }
+html body nav.asr-nav .nav-links a, html body nav.asr-nav .nav-brand { text-decoration: none !important; }
+html body nav.asr-nav .nav-links a { color: var(--emerald); }
+@media (max-width: 600px) {
+  html body nav.asr-nav .nav-links { gap: 10px !important; }
+  html body nav.asr-nav .nav-links a { font-size: 14px !important; }
+  html body nav.asr-nav .nav-brand { font-size: 1.3rem !important; }
+}
+@media (max-width: 420px) {
+  html body nav.asr-nav .asr-theme-toggle { display: none !important; }
+  html body nav.asr-nav .nav-links { gap: 6px !important; }
+  html body nav.asr-nav .nav-links a { padding-left: 5px !important; padding-right: 5px !important; }
+  html body nav.asr-nav .nav-brand { font-size: 1.15rem !important; }
+  html body nav.asr-nav { gap: 6px !important; padding-left: 10px !important; padding-right: 10px !important; }
+  html body nav.asr-nav .nav-links a { font-size: 13.5px !important; }
+}

@@ -141,16 +141,22 @@ footer a{color:rgba(139,105,20,0.85);}
 <link rel="stylesheet" href="/asr-redesign.css?v=20261112e">
 </head>
 <body>
-<nav>
-<a href="/" class="nav-logo"><span lang="ar" dir="rtl">اثر نام</span>Asrnaam</a>
-<div class="nav-links">
-<a href="/names/">All Names</a>
-<a href="/names/find/">Find</a>
-<a href="/names/boys/">Boys</a>
-<a href="/names/girls/">Girls</a>
-<a href="/letters/">Letters</a>
-<a href="/ilm-ul-huroof/">Science</a>
-</div>
+<nav class="asr-site-header" role="navigation" aria-label="Primary">
+  <a href="/" class="nav-brand">
+    <span lang="ar" dir="rtl">اثر نام</span>
+    <span class="nav-brand-sub">AsrNaam · The Impact of Your Name</span>
+  </a>
+  <button type="button" class="nav-hamburger" aria-label="Open menu" aria-controls="asrNavLinks" aria-expanded="false" onclick="var l=document.getElementById('asrNavLinks');var o=l.classList.toggle('open');this.setAttribute('aria-expanded',o);">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="asrNavLinks">
+    <li><a href="/ilm-ul-huroof/">Ilm ul Huroof</a></li>
+    <li><a href="/letters/">Letters</a></li>
+    <li><a href="/names/">Names</a></li><li><a href="/names/find/">Find a Name</a></li>
+    <li><a href="/blog/">Blog</a></li><li><a href="/aathaar/">Aathaar</a></li>
+    <li class="nav-sep" aria-hidden="true"></li>
+    <li><a href="/#tool" class="nav-cta">Read Your Name →</a></li>
+  </ul>
 </nav>
 <div class="breadcrumb"><a href="/">Home</a> &nbsp;›&nbsp; <a href="/names/">All Names</a> &nbsp;›&nbsp; By Letter &nbsp;›&nbsp; B</div>
 <main id="main-content">

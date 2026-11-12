@@ -58,7 +58,7 @@
   }
   function init(){ var s=saved(); apply(s==='dark'||s==='light'?s:'auto'); }
   function injectToggle(){
-    var nav=document.querySelector('nav');
+    var nav=document.querySelector('nav.asr-nav, nav.asr-site-header, .asr-site-header, nav[role="navigation"]')||document.querySelector('nav:not(.asr-azjump):not(.asr-breadcrumb):not(.breadcrumb):not(.asr-crosslang)');
     if(!nav||nav.querySelector('.asr-theme-toggle')) return;
     var st=document.createElement('style');
     st.textContent='.asr-theme-toggle{background:none;border:1px solid rgba(139,105,20,.35);border-radius:6px;cursor:pointer;padding:.35rem .5rem;margin-left:.8rem;color:inherit;vertical-align:middle;line-height:1;}'+

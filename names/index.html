@@ -6894,7 +6894,9 @@ window.__asrAlts = {"aabid":["aabeed","abid"],"aabida":["aabidah","aabeeda","abi
     document.querySelectorAll('.letter-nav .nav-letter').forEach(function(a){
       a.classList.toggle('current', a.getAttribute('href') === '#letter-' + active);
     });
-    if(history && history.replaceState){
+    // Only write #letter-X once the reader picks a letter, or when the URL already had one.
+    // Writing it on first load made Chrome jump 5,000px down to letter A when loading finished (13 Nov).
+    if(history && history.replaceState && (scroll || /^#letter-/.test(location.hash))){
       history.replaceState(null, '', '#letter-' + active);
     }
     if(scroll){

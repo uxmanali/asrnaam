@@ -148,7 +148,7 @@
 
   // ---- Theme toggle injection ----
   function injectThemeToggle(){
-    var nav = document.querySelector('nav');
+    var nav = document.querySelector('nav.asr-site-header, .asr-site-header, nav.asr-nav, nav[role="navigation"]') || document.querySelector('nav:not(.asr-azjump):not(.asr-breadcrumb):not(.breadcrumb):not(.asr-crosslang):not(.letter-pager)');
     if(!nav || nav.querySelector('.asr-theme-toggle')) return;
     var btn = document.createElement('button');
     btn.className = 'asr-theme-toggle';
@@ -173,7 +173,7 @@
 
   // ---- Cmd-K trigger button (subtle, in nav) ----
   function injectCmdkTrigger(){
-    var nav = document.querySelector('nav');
+    var nav = document.querySelector('nav.asr-site-header, .asr-site-header, nav.asr-nav, nav[role="navigation"]') || document.querySelector('nav:not(.asr-azjump):not(.asr-breadcrumb):not(.breadcrumb):not(.asr-crosslang):not(.letter-pager)');
     if(!nav || nav.querySelector('.asr-cmdk-trigger')) return;
     var btn = document.createElement('button');
     btn.className = 'asr-cmdk-trigger';
