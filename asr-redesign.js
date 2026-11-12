@@ -644,6 +644,8 @@
     mountHome();
     mountFavourites();
     document.addEventListener('asr-favs', updateBadges);
-    guardAds();
+    // guardAds() removed 12 Nov: it deleted Google Auto Ads and anchor ads, which
+    // cut ad impressions per page by about a third. Never remove or hide ads in code;
+    // turn ad formats on or off in AdSense instead (programme policy).
   });
 })();

@@ -1068,7 +1068,7 @@ html[data-theme="dark"] body {
   }
 }
 
-/* Auto ads and anchor units paint a white bar. Defined slots inside .asr-ad stay. */
+/* An unfilled defined slot collapses instead of leaving an empty box. */
 html body .asr-ad.is-unfilled {
   background: transparent !important;
   min-height: 0 !important;
@@ -1078,10 +1078,4 @@ html body .asr-ad.is-unfilled {
   overflow: hidden !important;
   border: 0 !important;
 }
-body > iframe[id^="google_ads"],
-body > div[id^="google_ads"],
-body > ins.adsbygoogle,
-#google-anno-sa,
-.google-auto-placed {
-  display: none !important;
-}
+/* Auto ads and anchor ads are left to AdSense settings; never hidden in CSS (12 Nov fix). */
