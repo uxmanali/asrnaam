@@ -66,10 +66,11 @@
     return m ? m[1].toLowerCase() : null;
   }
   function isNamePage() {
+    if (document.querySelector('meta[http-equiv="refresh"]')) return false;
     var slug = slugFromPath();
-    if (!slug || document.querySelector('meta[http-equiv="refresh"]')) return false;
-    if (/^(find|boys|girls|quranic|prophets|angels|scholars|by-letter|by-meaning|by-region|urdu-alphabet)$/.test(slug)) return false;
-    return true;
+    if (!slug) return false;
+    if (document.getElementById('asr-namecard') || document.querySelector('.asr-name-hero')) return true;
+    return !!(document.querySelector('.arabic-name') && document.querySelector('.asr-v2-letters'));
   }
   function pageName() {
     var h = document.querySelector('h1');

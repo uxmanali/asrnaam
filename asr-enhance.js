@@ -121,6 +121,7 @@
     // Per-name page: /names/<slug>/
     var nameMatch = p.match(/^\/names\/([a-z0-9-]+)$/i);
     var slug = nameMatch ? nameMatch[1].toLowerCase() : null;
+    if(slug && !document.querySelector('.asr-name-hero, #asr-namecard')) slug = null;
     return {isNamesIndex:isNamesIndex, isHome:isHome, slug:slug, path:p};
   }
 
