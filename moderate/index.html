@@ -18,6 +18,7 @@
   @media (prefers-color-scheme:dark){body{background:#1a1a1a;color:#eae6dc}
     .row button{color:#eae6dc}}
 </style>
+<link rel="stylesheet" href="/asr-redesign.css?v=20261112">
 </head>
 <body>
 <h1>Moderation queue</h1>
@@ -75,5 +76,6 @@ Approving publishes it on the name page immediately.</p>
   sb.auth.getUser().then(function(r){me=(r.data&&r.data.user)||null;me?boot():signin();});
 })();
 </script>
+<script src="/asr-redesign.js?v=20261112" defer></script>
 </body>
 </html>
