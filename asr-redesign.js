@@ -66,7 +66,10 @@
     return m ? m[1].toLowerCase() : null;
   }
   function isNamePage() {
-    return !!slugFromPath() && !document.querySelector('meta[http-equiv="refresh"]');
+    var slug = slugFromPath();
+    if (!slug || document.querySelector('meta[http-equiv="refresh"]')) return false;
+    if (/^(find|boys|girls|quranic|prophets|angels|scholars|by-letter|by-meaning|by-region|urdu-alphabet)$/.test(slug)) return false;
+    return true;
   }
   function pageName() {
     var h = document.querySelector('h1');
@@ -226,6 +229,14 @@
         }
       });
     }
+    if (luckyEl && luckyEl.closest) {
+      var luckyRow = luckyEl.closest('.r, .qf-row');
+      if (luckyRow) luckyRow.classList.add('rd-hide');
+    }
+    document.querySelectorAll('.qf-row').forEach(function (row) {
+      var lab = row.querySelector('.qf-label');
+      if (lab && /lucky|ابجد|خوش/i.test(lab.textContent || '')) row.classList.add('rd-hide');
+    });
     var pubNum = parseInt(String(published).replace(/[^\d]/g, ''), 10);
     var show = calc.red.root;
     var equation = calc.parts.map(function (p) { return p.v; }).join('+') + ' = ' + calc.sum;
@@ -262,24 +273,65 @@
       if (span) span.textContent = on ? 'Saved' : 'Save';
       btn.classList.toggle('on', on);
     }
-    var existing = document.querySelector('.asr-fav');
-    if (existing) {
-      existing.addEventListener('click', function () { setTimeout(function () { paint(existing); updateBadges(); }, 0); });
-      return;
-    }
-    var btn = document.createElement('button');
-    btn.type = 'button';
-    btn.className = 'rd-btn rd-btn-ghost asr-fav';
-    btn.style.marginTop = '12px';
-    btn.style.color = 'var(--girl)';
-    btn.innerHTML = heartSVG(true) + '<span>Save</span>';
-    btn.addEventListener('click', function () {
-      toggleFav(entry);
-      paint(btn);
-    });
-    paint(btn);
     var host = document.querySelector('.asr-name-hero, article > .hero, main > .hero');
-    if (host) host.appendChild(btn);
+    if (!host) return;
+    var bar = host.querySelector('.asr-action-bar');
+    if (!bar) {
+      bar = document.createElement('div');
+      bar.className = 'asr-action-bar';
+      host.appendChild(bar);
+    }
+    var existing = bar.querySelector('.asr-fav') || host.querySelector('.asr-fav');
+    if (existing) {
+      if (existing.parentNode !== bar) bar.appendChild(existing);
+      existing.addEventListener('click', function () { setTimeout(function () { paint(existing); updateBadges(); }, 0); });
+    } else {
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'rd-btn asr-fav';
+      btn.innerHTML = heartSVG(true) + '<span>Save</span>';
+      btn.addEventListener('click', function () {
+        toggleFav(entry);
+        paint(btn);
+      });
+      bar.appendChild(btn);
+      paint(btn);
+    }
+    if (!bar.querySelector('.asr-share, .rd-share')) {
+      var share = document.createElement('button');
+      share.type = 'button';
+      share.className = 'rd-btn rd-share asr-share';
+      share.innerHTML = '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg><span>Share</span>';
+      share.addEventListener('click', function () {
+        var url = location.href;
+        var text = (entry.name || document.title) + ' ' + url;
+        if (navigator.share) navigator.share({ title: document.title, text: text, url: url }).catch(function () {});
+        else window.open('https://wa.me/?text=' + encodeURIComponent(text), '_blank', 'noopener');
+      });
+      bar.appendChild(share);
+    }
+  }
+
+  function promoteSections() {
+    if (document.getElementById('rd-raised-done')) return;
+    var anchor = document.querySelector('.asr-answer') || document.querySelector('.quick-facts');
+    if (!anchor || !anchor.parentNode) return;
+    var pieces = [
+      document.querySelector('.asr-v2-letters'),
+      document.querySelector('.asr-v2-bearers'),
+      document.querySelector('.related-section')
+    ];
+    var after = anchor;
+    pieces.forEach(function (el) {
+      if (!el) return;
+      el.classList.add('rd-raised');
+      after.insertAdjacentElement('afterend', el);
+      after = el;
+    });
+    var mark = document.createElement('span');
+    mark.id = 'rd-raised-done';
+    mark.hidden = true;
+    anchor.parentNode.appendChild(mark);
   }
 
   function mobileBar() {
@@ -577,6 +629,7 @@
     injectNavHeart();
     if (isNamePage()) {
       var hero = document.querySelector('.asr-name-hero, article > .hero, main > .hero');
+      promoteSections();
       wirePlay(hero);
       luckyCard();
       wireFavButton();
