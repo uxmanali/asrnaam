@@ -855,6 +855,16 @@ def legacy_bios(html: str) -> str:
     return "".join(parts)
 
 
+QURAN_NOTE_MARKERS = (
+    "قرآن میں براہِ راست نام لے کر نہیں آیا",
+    "انگریزی ماخذ کے مطابق اس نام یا اس کے لفظ کا ذکر قرآن میں",
+)
+
+
+def is_quran_note(text: str) -> bool:
+    return any(marker in (text or "") for marker in QURAN_NOTE_MARKERS)
+
+
 def usable_paras(paras: list[str]) -> list[str]:
     kept = []
     for p in paras:
@@ -943,11 +953,17 @@ def build_faq(name, roman, meaning, origin, gender_word, pron, ipa, syllables, t
             f"علم الحروف میں {name} کا خوش نصیب عدد کیا ہے؟",
             f"انگریزی صفحے پر خوش نصیب عدد {ur_num(lucky)} درج ہے۔",
         ))
-    editorial = (
-        f"اَثَر نام کی ادارتی رائے میں جی ہاں (یہ فتویٰ نہیں): {name} مسلم روایت میں قدر والا نام ہے"
-        + (f"، مطلب: {short_meaning(meaning, 80)}" if meaning and meaning != UNESTABLISHED else "")
-        + "۔"
-    )
+    if meaning == UNESTABLISHED:
+        editorial = (
+            f"اَثَر نام کی ادارتی رائے میں (یہ فتویٰ نہیں): {name} کا لغوی مطلب طے نہیں ہوا، "
+            "اس لیے یہ سائٹ یہ نہیں کہہ سکتی کہ اس کا کوئی قائم شدہ اسلامی معنی ہے۔"
+        )
+    else:
+        editorial = (
+            f"اَثَر نام کی ادارتی رائے میں جی ہاں (یہ فتویٰ نہیں): {name} مسلم روایت میں قدر والا نام ہے"
+            + (f"، مطلب: {short_meaning(meaning, 80)}" if meaning else "")
+            + "۔"
+        )
     if hadith:
         editorial += " نبی ﷺ نے فرمایا: «تم قیامت کے دن اپنے ناموں سے پکارے جاؤ گے، پس اپنے نام اچھے رکھو» (ابو داؤد)۔"
     editorial += " حرفی قراءت غور کے لیے ہے، قائم شدہ حکم نہیں۔"
@@ -1069,6 +1085,16 @@ def update_head(html: str, slug: str, title: str, desc: str, faqs: list[dict], o
         html,
         count=1,
     )
+
+    def _touch_modified(m):
+        tag = m.group(0)
+        if "dateModified" not in tag:
+            return tag
+        if "datetime=" not in tag:
+            return tag
+        return re.sub(r'datetime="[^"]*"', f'datetime="{TODAY}T00:00:00+00:00"', tag, count=1)
+
+    html = re.sub(r"<time\b[^>]*>", _touch_modified, html)
     block = hreflang_links(slug)
     head, sep, tail = html.partition("</head>")
     if sep:
@@ -1197,9 +1223,17 @@ def render_main(ctx: dict) -> str:
     parts.append('<div class="asr-layout-v2">')
 
     # 1 root
-    root_paras = "".join(f"<p>{esc(p)}</p>" for p in ctx["root_paras"])
+    kept_root = [p for p in ctx["root_paras"] if not is_quran_note(p)]
+    if meaning == UNESTABLISHED:
+        kept_root = [p for p in kept_root if "جی ہاں" not in p and "قدر والا نام" not in p]
+    root_paras = "".join(f"<p>{esc(p)}</p>" for p in kept_root)
     if not root_paras:
-        if root:
+        if meaning == UNESTABLISHED:
+            root_paras = (
+                f"<p>{esc(name)} کا کوئی قائم شدہ لغوی مطلب ماخذ میں نہیں۔ "
+                "حروف اوپر دکھائی گئی املا کے مطابق پڑھے گئے ہیں۔</p>"
+            )
+        elif root:
             root_paras = f"<p>جذر <strong>{esc(root)}</strong> اس نام کی لغوی اصل ہے۔ مطلب: {esc(meaning)}</p>"
         else:
             root_paras = f"<p>{esc(name)} کا مطلب ہے: {esc(meaning)} اصل {esc(origin)} ہے۔</p>"
@@ -1209,12 +1243,22 @@ def render_main(ctx: dict) -> str:
         + (f'<div class="asr-v2-root-glyph" lang="ar" dir="rtl">{esc(root)}</div>' if root else "")
         + f'<div class="prose">{root_paras}</div>'
     )
+    if meaning == UNESTABLISHED:
+        mq = (
+            f"یہ کوئی دینی فتویٰ نہیں۔ {esc(name)} کا لغوی مطلب ماخذ میں طے نہیں ہوا، "
+            "اس لیے یہ سائٹ یہ نہیں کہہ سکتی کہ اس کا کوئی قائم شدہ اسلامی معنی ہے۔ "
+            f"اصل {esc(origin)} درج ہے، مگر یہ قائم شدہ لغوی مطلب نہیں۔"
+        )
+    else:
+        mq = (
+            f"سائٹ کی ادارتی رائے میں جی ہاں (یہ کوئی دینی فتویٰ نہیں)، {esc(name)} "
+            f"مسلمانوں میں رائج نام ہے، اصل {esc(origin)} ہے۔ "
+            f"رائج مطلب: {esc(short_meaning(meaning, 110))}۔ "
+            "اسلامی روایت نام میں اچھا معنی چاہتی ہے، اور یہ کہ وہ اللہ کے مخصوص ناموں میں سے نہ ہو۔"
+        )
     parts.append(
         f'<div class="asr-mq"><span class="asr-mq-q">کیا {esc(name)} اسلامی نام ہے؟</span>'
-        f'<p class="asr-mq-a">سائٹ کی ادارتی رائے میں جی ہاں (یہ کوئی دینی فتویٰ نہیں)، {esc(name)} '
-        f'مسلمانوں میں رائج نام ہے، اصل {esc(origin)} ہے۔ '
-        f'رائج مطلب: {esc(short_meaning(meaning, 110))}۔ '
-        f'اسلامی روایت نام میں اچھا معنی چاہتی ہے، اور یہ کہ وہ اللہ کے مخصوص ناموں میں سے نہ ہو۔</p></div>'
+        f'<p class="asr-mq-a">{mq}</p></div>'
     )
     parts.append("</section>")
     parts.append(DIV)
@@ -1242,12 +1286,20 @@ def render_main(ctx: dict) -> str:
 
     # 4 common meaning
     dict_bits = [f"<p>{esc(name)} کا عام مطلب ہے: {esc(meaning)}</p>"]
+    seen_paras = set()
     for p in ctx["dict_paras"]:
+        if is_quran_note(p):
+            continue
         if meaning[:24] and meaning[:24] in p:
             continue
+        key = re.sub(r"\s+", " ", p).strip()
+        if key in seen_paras:
+            continue
+        seen_paras.add(key)
         dict_bits.append(f"<p>{esc(p)}</p>")
-    if ctx["quran"]:
-        dict_bits.append(f"<p>{esc(ctx['quran'])}</p>")
+    quran = ctx["quran"]
+    if quran and not any(quran in unescape(bit) or is_quran_note(unescape(bit)) for bit in dict_bits):
+        dict_bits.append(f"<p>{esc(quran)}</p>")
     parts.append(
         '<section class="asr-v2 asr-v2-dict"><p class="asr-v2-kicker">حصہ ۴ · عام معنی</p>'
         '<h2 class="asr-v2-title">اس نام کا عام معنی</h2>'
