@@ -611,10 +611,15 @@
         if (n.closest && n.closest('.asr-ad')) return;
         n.remove();
       });
+      document.querySelectorAll('iframe').forEach(function (n) {
+        var src = n.getAttribute('src') || '';
+        if (src.indexOf('googlesyndication') === -1 && src.indexOf('doubleclick') === -1) return;
+        if (n.closest && n.closest('.asr-ad')) return;
+        n.remove();
+      });
       document.querySelectorAll('ins.adsbygoogle').forEach(function (n) {
         if (n.closest && n.closest('.asr-ad')) return;
-        var slot = n.getAttribute('data-ad-slot');
-        if (!slot) n.remove();
+        if (!n.getAttribute('data-ad-slot')) n.remove();
       });
     }
     sweep();

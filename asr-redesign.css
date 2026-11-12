@@ -515,7 +515,7 @@ html body .asr-name-hero .asr-fav,
 html body .hero .asr-fav,
 html body .asr-name-hero .rd-btn.asr-fav {
   background: #fff !important;
-  color: var(--girl) !important;
+  color: #8A3058 !important;
   border: 0 !important;
   border-radius: 999px !important;
   text-transform: none !important;
@@ -540,7 +540,7 @@ html body .asr-name-hero .rd-share {
   height: 46px;
 }
 html body .asr-name-hero .asr-fav svg,
-html body .hero .asr-fav svg { color: var(--girl) !important; }
+html body .hero .asr-fav svg { color: #8A3058 !important; }
 html body .asr-name-hero .asr-share svg,
 html body .hero .asr-share svg { color: #fff !important; }
 html body .hero .name-badge { color: #D7E7E2 !important; }
@@ -899,7 +899,13 @@ html[data-theme="dark"] {
   html:not([data-theme="light"]) body .related-card,
   html:not([data-theme="light"]) body .asr-answer-islamic,
   html:not([data-theme="light"]) body .quick-facts .qf-row,
-  html:not([data-theme="light"]) body .asr-answer-rows .r { color: #E7F3EF !important; }
+  html:not([data-theme="light"]) body .asr-answer-rows .r,
+  html:not([data-theme="light"]) body .rd-raised {
+    background: #17312C !important;
+    background-color: #17312C !important;
+    color: #E7F3EF !important;
+    border-color: #2E514A !important;
+  }
   html:not([data-theme="light"]) body .asr-answer-rows dd,
   html:not([data-theme="light"]) body .asr-v2-title,
   html:not([data-theme="light"]) body h2.asr-v2-title,
@@ -944,7 +950,16 @@ html[data-theme="dark"] body .related-card,
 html[data-theme="dark"] body .asr-answer-islamic,
 html[data-theme="dark"] body .quick-facts .qf-row,
 html[data-theme="dark"] body .asr-answer-rows .r,
-html[data-theme="dark"] body .asr-answer-rows dd,
+html[data-theme="dark"] body .rd-raised {
+  background: #17312C !important;
+  background-color: #17312C !important;
+  color: #E7F3EF !important;
+  border-color: #2E514A !important;
+}
+html[data-theme="dark"] body .asr-answer-rows dd { color: #E7F3EF !important; background: transparent !important; }
+html[data-theme="dark"] body .qf-value { color: #E7F3EF !important; }
+html[data-theme="dark"] body .qf-label,
+html[data-theme="dark"] body .asr-answer-rows dt { color: #E7CF97 !important; }
 html body .rd-hero .rd-search-box input[type="search"] {
   background: #fff !important;
   background-color: #fff !important;
@@ -967,3 +982,106 @@ html[data-theme="dark"] body .rd-list.m h2,
 html[data-theme="dark"] body .rd-ilm,
 html[data-theme="dark"] body .rd-ilm h2,
 html[data-theme="dark"] body .rd-filters { color: #E7F3EF !important; }
+
+/* Emerald (#0E4D45) disappears on the dark green surfaces. Use cream and gold. */
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) body .asr-site-header .nav-brand span[lang="ar"],
+  html:not([data-theme="light"]) body nav.asr-nav .nav-brand,
+  html:not([data-theme="light"]) body .rd-notd .rd-ar,
+  html:not([data-theme="light"]) body .rd-pop .ar,
+  html:not([data-theme="light"]) body .rd-ncard .ar,
+  html:not([data-theme="light"]) body .rd-ac .ar,
+  html:not([data-theme="light"]) body .rd-fav .sc .ar,
+  html:not([data-theme="light"]) body .rd-lt .ar,
+  html:not([data-theme="light"]) body .asr-v2-letter-arabic,
+  html:not([data-theme="light"]) body .rd-num,
+  html:not([data-theme="light"]) body .rd-nav-heart { color: #F3E6C4 !important; }
+  html:not([data-theme="light"]) body .rd-num { border-color: #E7CF97 !important; background: #17312C !important; }
+  html:not([data-theme="light"]) body .asr-site-header .nav-links a.nav-cta,
+  html:not([data-theme="light"]) body .asr-site-header .nav-cta {
+    background: #E7CF97 !important;
+    color: #0C1C19 !important;
+    border-color: #E7CF97 !important;
+  }
+  html:not([data-theme="light"]) body .asr-site-header .nav-hamburger span { background: #E7CF97 !important; }
+  html:not([data-theme="light"]) body .rd-list.m .rd-pill {
+    background: #17312C !important;
+    color: #E7F3EF !important;
+    border-color: #2E514A !important;
+  }
+  html:not([data-theme="light"]) body .rd-list.m .go,
+  html:not([data-theme="light"]) body .rd-chips i { color: #E7CF97 !important; }
+  html:not([data-theme="light"]) body .pill-water { color: #B7D9F5 !important; border-color: #B7D9F5 !important; }
+  html:not([data-theme="light"]) body .pill-fire { color: #F6C2A8 !important; border-color: #F6C2A8 !important; }
+  html:not([data-theme="light"]) body .pill-earth { color: #E8D0A0 !important; border-color: #E8D0A0 !important; }
+  html:not([data-theme="light"]) body .pill-air { color: #C5E0E4 !important; border-color: #C5E0E4 !important; }
+  html:not([data-theme="light"]) body .qf-value,
+  html:not([data-theme="light"]) body .asr-answer-rows dd { color: #E7F3EF !important; }
+  html:not([data-theme="light"]) body .qf-label,
+  html:not([data-theme="light"]) body .asr-answer-rows dt { color: #E7CF97 !important; }
+}
+html[data-theme="dark"] body .asr-site-header .nav-brand span[lang="ar"],
+html[data-theme="dark"] body nav.asr-nav .nav-brand,
+html[data-theme="dark"] body .rd-notd .rd-ar,
+html[data-theme="dark"] body .rd-pop .ar,
+html[data-theme="dark"] body .rd-ncard .ar,
+html[data-theme="dark"] body .rd-ac .ar,
+html[data-theme="dark"] body .rd-fav .sc .ar,
+html[data-theme="dark"] body .rd-lt .ar,
+html[data-theme="dark"] body .asr-v2-letter-arabic,
+html[data-theme="dark"] body .rd-num,
+html[data-theme="dark"] body .rd-nav-heart { color: #F3E6C4 !important; }
+html[data-theme="dark"] body .rd-num { border-color: #E7CF97 !important; background: #17312C !important; }
+html[data-theme="dark"] body .asr-site-header .nav-links a.nav-cta,
+html[data-theme="dark"] body .asr-site-header .nav-cta {
+  background: #E7CF97 !important;
+  color: #0C1C19 !important;
+  border-color: #E7CF97 !important;
+}
+html[data-theme="dark"] body .asr-site-header .nav-hamburger span { background: #E7CF97 !important; }
+html[data-theme="dark"] body .rd-list.m .rd-pill {
+  background: #17312C !important;
+  color: #E7F3EF !important;
+  border-color: #2E514A !important;
+}
+html[data-theme="dark"] body .rd-list.m .go,
+html[data-theme="dark"] body .rd-chips i { color: #E7CF97 !important; }
+html[data-theme="dark"] body .pill-water,
+html[data-theme="dark"] body .asr-v2-letter[data-element="water"] .asr-v2-letter-pill { color: #B7D9F5 !important; border-color: #B7D9F5 !important; }
+html[data-theme="dark"] body .pill-fire,
+html[data-theme="dark"] body .asr-v2-letter[data-element="fire"] .asr-v2-letter-pill { color: #F6C2A8 !important; border-color: #F6C2A8 !important; }
+html[data-theme="dark"] body .pill-earth,
+html[data-theme="dark"] body .asr-v2-letter[data-element="earth"] .asr-v2-letter-pill { color: #E8D0A0 !important; border-color: #E8D0A0 !important; }
+html[data-theme="dark"] body .pill-air,
+html[data-theme="dark"] body .asr-v2-letter[data-element="air"] .asr-v2-letter-pill { color: #C5E0E4 !important; border-color: #C5E0E4 !important; }
+/* Page styles paint html[data-theme=dark] body as #1a1a1a. Match the dark green page. */
+html[data-theme="dark"],
+html[data-theme="dark"] body {
+  background: #0C1C19 !important;
+  color: #E7F3EF !important;
+}
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]),
+  html:not([data-theme="light"]) body {
+    background: #0C1C19 !important;
+    color: #E7F3EF !important;
+  }
+}
+
+/* Auto ads and anchor units paint a white bar. Defined slots inside .asr-ad stay. */
+html body .asr-ad.is-unfilled {
+  background: transparent !important;
+  min-height: 0 !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  border: 0 !important;
+}
+body > iframe[id^="google_ads"],
+body > div[id^="google_ads"],
+body > ins.adsbygoogle,
+#google-anno-sa,
+.google-auto-placed {
+  display: none !important;
+}
