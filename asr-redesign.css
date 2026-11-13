@@ -1199,3 +1199,15 @@ html body nav.asr-nav .nav-links a { color: var(--emerald); }
 }
 /* 10. Older page styles underline every link, including the 551 swapped-in headers. */
 html body .asr-site-header a:not(.nav-cta) { text-decoration: none !important; border-bottom: 0 !important; }
+/* 11. Urdu and Arabic name heroes: the script adds the play button under the
+      title and the Save/Share bar at the end after the page has painted, which
+      shifted the page 0.07-0.11 on desktop (Google's limit is 0.1). Hold their
+      space until they arrive. Same conditions the script uses (isNamePage). */
+html body:is(:has(.asr-v2-letters), :has(#asr-namecard)) article > .hero:has(.arabic-name):not(:has(.rd-play)) > h1 { margin-bottom: 85px !important; }
+html body:is(:has(.asr-v2-letters), :has(#asr-namecard)) article > .hero:has(.arabic-name):not(:has(.asr-action-bar))::after { content: ""; display: block; height: 62px; }
+/* 12. Urdu and Arabic A-Z name lists: asr-ads.js adds the first ad slot after the
+      summary box once the (very long) page has painted, pushing the A-Z bar
+      down 344px (desktop shift 0.10-0.23). Hold the slot's space until it is
+      inserted: 32px + 280px + 32px, matching .asr-ad. If ads are ever switched
+      off in ads-config.js, delete this rule. */
+html body.asr-hub-list:not(:has(aside.asr-ad)) .asr-pa { margin-bottom: 344px !important; }
