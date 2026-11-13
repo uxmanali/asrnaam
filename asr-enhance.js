@@ -840,7 +840,7 @@
       (main || document.body).appendChild(wrap);
     }
 
-    // Pick once at pageload, deterministic for this view but varies per load.
+    // The pick happens on click (see below), so no index download on load.
     var cta = wrap.querySelector('#asrReadAnother');
     var label = wrap.querySelector('.ra-cta-label');
     var pickedHref = null;
@@ -849,20 +849,8 @@
       cta.setAttribute('href', pickedHref);
       label.textContent = 'Read ' + pick.n + ' →';
     }
-    fetchCorpus().then(function(arr){
-      if(!arr || !arr.length) return;
-      // Filter out the current slug.
-      var pool = arr;
-      if(arr[0] && arr[0].s !== undefined){
-        pool = arr.filter(function(e){ return e.s !== ctx.slug; });
-      } else {
-        pool = arr.filter(function(e){ return (e.h||'').indexOf('/names/'+ctx.slug+'/')<0; });
-      }
-      if(!pool.length) return;
-      var pick = pool[Math.floor(Math.random()*pool.length)];
-      // Normalise — fetchCorpus output has .s and .n
-      if(pick.s && pick.n){ setPicked(pick); }
-    });
+    // Perf (audit P-01): the 368 KB names index is no longer fetched on page
+    // load just to personalise this label; it is fetched on click instead.
     // If clicked before the index resolves, fall back to the random homepage flow.
     cta.addEventListener('click', function(e){
       if(!pickedHref){
@@ -914,12 +902,7 @@
         }
       });
     }
-    fetchCorpus().then(function(arr){
-      if(!arr || !arr.length) return;
-      var pool = arr.filter(function(e){ return e.s !== ctx.slug; });
-      if(!pool.length) return;
-      apply(pool[Math.floor(Math.random()*pool.length)]);
-    });
+    // Perf (audit P-01): pick on click only; see injectReadAnother.
     anchors.forEach(function(a){
       a.addEventListener('click', function(e){
         if(picked) return;

@@ -15,8 +15,6 @@ Disallow: /cdn-cgi/
 
 # Moderation queue. Signed-in staff only, and nothing to index.
 Disallow: /moderate/
-Disallow: /audit/
-Disallow: /db/
 
 # /pins/ is Pinterest image assets plus the bulk-upload sheet, not a content
 # section. There is no HTML page in that folder, and it is omitted from every

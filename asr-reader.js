@@ -75,10 +75,10 @@ function elementMix(letters){
 
 // ── PERSONALITY OBSERVATION composer ──────────────────────────────
 const ELEMENT_VOICE = {
-  Fire:  'rises and decides — a temperament that warms whatever it stands close to and burns through what blocks it',
-  Earth: 'stays and holds — a temperament that gathers what others scatter and gives weight to what others would let pass',
-  Air:   'moves and connects — a temperament that carries word and intent across distance, rarely staying long in one shape',
-  Water: 'feels and shapes — a temperament that takes the form of what it meets, then re-emerges with the meeting changed'
+  Fire:  'rises and decides: a temperament that warms whatever it stands close to and burns through what blocks it',
+  Earth: 'stays and holds: a temperament that gathers what others scatter and gives weight to what others would let pass',
+  Air:   'moves and connects: a temperament that carries word and intent across distance, rarely staying long in one shape',
+  Water: 'feels and shapes: a temperament that takes the form of what it meets, then re-emerges with the meeting changed'
 };
 
 function personalityObservation(name, letters){
@@ -91,14 +91,14 @@ function personalityObservation(name, letters){
   const dom = pickDominant(letters);
 
   let out = '';
-  out += '<p>' + esc(name) + ' is a name whose outward face is set by <strong>' + fl.name + '</strong> — ' + (fl.core || '') + '</p>';
+  out += '<p>' + esc(name) + ' is a name whose outward face is set by <strong>' + fl.name + '</strong>: ' + (fl.core || '') + '</p>';
   out += '<p>The wider element of the name is <em>' + mix.dominant + '</em>: this is a constitution that ' + ELEMENT_VOICE[mix.dominant] + '.</p>';
   if(dom && dom.count >= 2 && dom.heaviest !== first){
     const hl = L[dom.heaviest];
-    out += '<p>One letter recurs — <strong>' + hl.name + '</strong>, ' + dom.count + ' times. ' + (hl.in_name || hl.character || '').replace(/^[A-Z][a-z]+ /, '') + '</p>';
+    out += '<p>One letter recurs: <strong>' + hl.name + '</strong>, ' + dom.count + ' times. ' + (hl.in_name || hl.character || '').replace(/^[A-Z][a-z]+ /, '') + '</p>';
   }
   if(ll && ll !== fl){
-    out += '<p>The name resolves on <strong>' + ll.name + '</strong> — ' + (ll.in_name || ll.character || '') + '</p>';
+    out += '<p>The name resolves on <strong>' + ll.name + '</strong>: ' + (ll.in_name || ll.character || '') + '</p>';
   }
   return out;
 }
@@ -134,10 +134,10 @@ function titleCase(s){
 function composeReading(rawName){
   const name = sanitizeName(rawName);
   if(!name) {
-    return '<div class="reader-empty"><h2>Type a name to read it</h2><p>Enter any name above — Arabic, English transliteration, or a Muslim/Arabic-derived name. The tool will read it letter by letter through Ilm ul Huroof.</p></div>';
+    return '<div class="reader-empty"><h2>Type a name to read it</h2><p>Enter any name above: Arabic, English transliteration, or a Muslim/Arabic-derived name. The tool will read it letter by letter through Ilm ul Huroof.</p></div>';
   }
   if(name.replace(/[\s\-]/g,'').length < 2){
-    return '<div class="reader-empty"><h2>That name is a little short</h2><p>Try a name with at least 2 letters. A single letter is not enough for a reading — Ilm ul Huroof reads letters in relation to each other.</p></div>';
+    return '<div class="reader-empty"><h2>That name is a little short</h2><p>Try a name with at least 2 letters. A single letter is not enough for a reading; Ilm ul Huroof reads letters in relation to each other.</p></div>';
   }
 
   const display = titleCase(name);
@@ -166,7 +166,7 @@ function composeReading(rawName){
   if(parseForm.toLowerCase() !== name.toLowerCase()){
     html += '<p class="hero-subtitle" id="reader-tr-note">Turkish letters were read as: ' + esc(titleCase(parseForm)) + ' (ç as ch, ş as sh, ğ as gh, ı as i, ö as o, ü as u). If another spelling is intended, type it above.</p>';
   }
-  html += '<p class="hero-subtitle">' + esc(display) + ' read through its letters — composed on the fly using the same letter-analysis the static library uses.</p>';
+  html += '<p class="hero-subtitle">' + esc(display) + ' read through its letters, composed on the fly using the same letter-analysis the static library uses.</p>';
   html += '</div>';
 
   // Quick facts
@@ -200,7 +200,7 @@ function composeReading(rawName){
 
   // Per-letter readings (unique letters, in order)
   html += '<div class="section-label">Each Letter Read</div>';
-  html += '<p class="letters-intro">Every letter of a name carries its own meaning and contributes to the person who bears it. The reading begins with each letter individually — what it means, what it carries — before the whole is synthesised.</p>';
+  html += '<p class="letters-intro">Every letter of a name carries its own meaning and contributes to the person who bears it. The reading begins with each letter individually (what it means, what it carries) before the whole is synthesised.</p>';
   const seen = Object.create(null);
   letters.forEach(function(k, i){
     if(seen[k]) return; seen[k] = 1;
@@ -209,10 +209,10 @@ function composeReading(rawName){
     const isLast  = i === letters.length - 1 && letters.length > 1;
     const role = isFirst ? 'first' : isLast ? 'last' : 'interior';
     const roleLabel = role === 'first'
-      ? 'First letter — the outward nature, how the world sees this person'
+      ? 'First letter: the outward nature, how the world sees this person'
       : role === 'last'
-      ? 'Final letter — how the name resolves, what this person leaves behind'
-      : 'Interior letter — the hidden character, what runs beneath the surface';
+      ? 'Final letter: how the name resolves, what this person leaves behind'
+      : 'Interior letter: the hidden character, what runs beneath the surface';
     const isDark = l.nature === 'DARK';
     html += '<div class="letter-reading-block' + (isDark ? ' dark' : '') + '">';
     html += '<div class="lrb-head"><span class="lrb-arabic" lang="ar" dir="rtl">' + esc(l.arabic) + '</span><div><strong class="lrb-name">' + esc(l.name) + (isDark ? ' <span class="lrb-dark">dark letter</span>' : '') + '</strong><br><span class="lrb-role">' + roleLabel + '</span></div></div>';
@@ -242,7 +242,7 @@ function composeReading(rawName){
   html += '</div>';
 
   // Trust line
-  html += '<p class="reader-trust">Reading grounded in Ilm ul Huroof — the Science of Letters — in the lineage of Muhyiddin Ibn Arabi. A framework for reflection, not prediction.</p>';
+  html += '<p class="reader-trust">Reading grounded in Ilm ul Huroof, the Science of Letters, in the lineage of Muhyiddin Ibn Arabi. A framework for reflection, not prediction.</p>';
 
   html += '</div>'; // .content
 
@@ -299,9 +299,9 @@ function updateUrl(name){
 
 function updateMeta(name){
   const display = titleCase(name);
-  document.title = display + ' — Dynamic Ilm ul Huroof Reading | AsrNaam';
+  document.title = display + ': Dynamic Ilm ul Huroof Reading | AsrNaam';
   const md = document.querySelector('meta[name="description"]');
-  if(md) md.setAttribute('content', display + ' — a generated Ilm ul Huroof reading composed letter by letter, using the same letter-analysis the AsrNaam library uses.');
+  if(md) md.setAttribute('content', display + ': a generated Ilm ul Huroof reading composed letter by letter, using the same letter-analysis the AsrNaam library uses.');
 }
 
 function bindCtas(el, name){
@@ -312,7 +312,7 @@ function bindCtas(el, name){
   });
   if(share) share.addEventListener('click', async function(){
     const url = window.location.origin + '/reader/?name=' + encodeURIComponent(name);
-    const title = titleCase(name) + ' — Reading on AsrNaam';
+    const title = titleCase(name) + ': Reading on AsrNaam';
     if(navigator.share){
       try { await navigator.share({title: title, url: url}); } catch(e){}
     } else if(navigator.clipboard){

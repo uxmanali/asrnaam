@@ -1218,3 +1218,35 @@ html body.asr-hub-list:not(:has(aside.asr-ad)) .asr-pa { margin-bottom: 344px !i
   html body .asr-site-header .nav-links a.rd-nav-heart { padding: 0 !important; width: 42px; height: 42px; display: inline-grid !important; place-items: center; }
   html body .asr-site-header .nav-links a.nav-cta { display: block; box-sizing: border-box; width: auto !important; max-width: calc(100% - 32px); margin: 8px 16px !important; text-align: center; }
 }
+/* 14. Audit fixes, 13 Nov.
+   a) The lucky-number card is now a dt/dd group inside the answer list (valid
+      list markup). Keep its own look against the generic dt/dd rules. */
+html body .asr-answer-rows .rd-lucky > dt.rd-kicker { font-family: inherit !important; font-size: 12px; font-weight: 700; letter-spacing: .14em !important; margin: 0; }
+html body .asr-answer-rows .rd-lucky > dd { margin: 0; }
+html body .asr-answer-rows .rd-lucky > dd.n { margin: 8px auto; font-family: 'Cormorant Garamond', Georgia, serif !important; font-size: 56px !important; color: var(--gold-ink) !important; background: #fff !important; }
+html body .asr-answer-rows .rd-lucky > dd.work { font-family: inherit !important; font-size: 13px !important; color: var(--muted) !important; }
+html[data-theme="dark"] body .asr-answer-rows .rd-lucky > dd.n { background: #0C1C19 !important; color: #E7CF97 !important; }
+html[data-theme="dark"] body .asr-answer-rows .rd-lucky > dd.work { color: #C9D8D3 !important; }
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) body .asr-answer-rows .rd-lucky > dd.n { background: #0C1C19 !important; color: #E7CF97 !important; }
+  html:not([data-theme="light"]) body .asr-answer-rows .rd-lucky > dd.work { color: #C9D8D3 !important; }
+}
+/* b) Rows that ran off the right edge on phones: the A-Z bar on by-letter pages,
+      footer link rows on older pages, and the letter strip on the home page. */
+html body nav.l2-az { flex-wrap: wrap !important; justify-content: center !important; }
+html body footer nav { flex-wrap: wrap !important; background: transparent !important; border: 0 !important; padding: .3rem 0 !important; }
+@media (max-width: 480px) { html body .rd-lts { flex-wrap: wrap; justify-content: center; } }
+/* c) Text that failed contrast (WCAG AA 4.5:1) in light mode. */
+html:not([data-theme="dark"]) body .divider { color: #76643A !important; opacity: 1 !important; }
+html:not([data-theme="dark"]) body .divider-label { color: #7D6C3E !important; }
+html:not([data-theme="dark"]) body .ibn-dates { color: #5F5F5F !important; }
+html body .nav-count { background: #82672C !important; color: #fff !important; }
+html body .rd-wa { background: #1B7A49 !important; }
+html[data-theme="dark"] body .divider { color: #A89C6A !important; opacity: 1 !important; }
+html[data-theme="dark"] body #notdCta, html[data-theme="dark"] body a.rd-btn-primary[href="/reader/"] { color: #E6C070 !important; }
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) body .divider { color: #A89C6A !important; opacity: 1 !important; }
+  html:not([data-theme="light"]) body #notdCta, html:not([data-theme="light"]) body a.rd-btn-primary[href="/reader/"] { color: #E6C070 !important; }
+}
+/* d) In-text links in short footers must not rely on colour alone. */
+html body footer > a { text-decoration: underline; text-underline-offset: 2px; }

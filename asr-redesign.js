@@ -251,13 +251,16 @@
       show = pubNum;
       note = 'The page records ' + pubNum + '. The letters shown add to ' + calc.sum + ', which reduces to ' + calc.red.root + '.';
     }
+    var rows = document.querySelector('.asr-answer-rows');
+    // Inside a <dl> the card must be a dt/dd group, or screen readers lose the list.
+    var inDl = !!(rows && rows.tagName === 'DL');
+    var T1 = inDl ? 'dt' : 'span', T2 = inDl ? 'dd' : 'div';
     var card = document.createElement('div');
     card.className = 'rd-lucky';
-    card.innerHTML = '<span class="rd-kicker">Abjad lucky number</span><div class="n">' + show +
-      '</div><div class="work"><div class="rd-chips">' +
+    card.innerHTML = '<' + T1 + ' class="rd-kicker">Abjad lucky number</' + T1 + '><' + T2 + ' class="n">' + show +
+      '</' + T2 + '><' + T2 + ' class="work"><div class="rd-chips">' +
       calc.parts.map(function (p) { return '<span><i>' + p.g + '</i>' + p.v + '</span>'; }).join('') +
-      '</div>' + esc(equation) + (note ? '<div>' + esc(note) + '</div>' : '') + '</div>';
-    var rows = document.querySelector('.asr-answer-rows');
+      '</div>' + esc(equation) + (note ? '<div>' + esc(note) + '</div>' : '') + '</' + T2 + '>';
     if (rows) rows.appendChild(card);
     else {
       var qf = document.querySelector('.quick-facts');
@@ -432,10 +435,41 @@
       form.classList.add('is-open');
       if (rows[0]) input.setAttribute('aria-activedescendant', 'rd-opt-0');
     }
+    // Names come from the shared matcher (spelling-tolerant, Arabic and Urdu
+    // script without harakat); meanings fill the remaining rows.
+    var MT = null;
+    function matcherHits(arr, q) {
+      var M = window.ASR_MATCHER;
+      if (!M || !M.runSearch || !M.buildTokenIndex) return null;
+      try {
+        if (!MT) {
+          var C = arr.map(function (e) { return { n: e.n, s: e.s, a: e.a || '', u: e.u || '', v: e.v || [], row: e }; });
+          MT = { C: C, T: M.buildTokenIndex(C) };
+        }
+        var r = M.runSearch(MT.C, MT.T, q, { max: 6, singleCharCap: 6 });
+        return (r && r.mode === 'list') ? r.results.map(function (x) { return { row: x.e.row, tier: x.tier }; }) : [];
+      } catch (e) { return null; }
+    }
     function search(arr, q) {
       q = q.trim();
       if (!q) return [];
       var ql = q.toLowerCase();
+      var found = matcherHits(arr, q);
+      if (found) {
+        // Order: exact and prefix name matches, then names whose meaning has
+        // the word, then looser spelling matches.
+        var out = [], seen = {};
+        var add = function (rw) { if (rw && !seen[rw.s] && out.length < 6) { out.push(rw); seen[rw.s] = 1; } };
+        found.forEach(function (h) { if (h.tier <= 1) add(h.row); });
+        if (ql.length >= 3 && /^[a-z ]+$/.test(ql)) {
+          var wre = new RegExp('(^|[^a-z])' + ql.replace(/[^a-z0-9 ]/g, ''), 'i');
+          for (var k = 0; k < arr.length && out.length < 6; k++) {
+            if (wre.test(arr[k].m || '')) add(arr[k]);
+          }
+        }
+        found.forEach(function (h) { if (h.tier > 1) add(h.row); });
+        return out;
+      }
       var starts = [], contains = [];
       for (var i = 0; i < arr.length; i++) {
         var row = arr[i];

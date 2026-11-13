@@ -27,14 +27,12 @@ _quality_scripts/
 *.tar.gz
 *.bundle
 
-# Audit tooling and its findings. The suite is useful; its output is a list of
-# this site's own weakest pages and unresolved errors, and publishing that on a
-# site whose claim is scholarly accuracy does more damage than the defects do.
+# Tooling and working files are kept out of the published site.
 audit/
+db/
+docs/
+outputs/
+tests/
 scan-report.json
 mobile_final2.json
-
-# Database runbook: holds an audience metric and an open privacy note. The
-# schema and RLS files stay for now because the community layer is dormant and
-# has no project behind it; move db/ out of the deploy before that changes.
-db/SETUP.md
+data/hi-names*.json
