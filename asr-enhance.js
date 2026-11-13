@@ -168,7 +168,7 @@
       }
     });
     var links = nav.querySelector('.nav-links');
-    if(links) links.appendChild(btn); else nav.appendChild(btn);
+    if(links){ if(links.tagName==='UL'){ var li=document.createElement('li'); li.appendChild(btn); links.appendChild(li); } else links.appendChild(btn); } else nav.appendChild(btn);
   }
 
   // ---- Cmd-K trigger button (subtle, in nav) ----
@@ -181,7 +181,8 @@
     btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg><kbd>⌘K</kbd>';
     btn.addEventListener('click', openCmdk);
     var toggle = nav.querySelector('.asr-theme-toggle');
-    if(toggle) toggle.parentNode.insertBefore(btn, toggle);
+    if(toggle && toggle.parentNode.tagName==='LI') toggle.parentNode.parentNode.insertBefore((function(){ var li=document.createElement('li'); li.appendChild(btn); return li; })(), toggle.parentNode);
+    else if(toggle) toggle.parentNode.insertBefore(btn, toggle);
     else nav.appendChild(btn);
   }
 

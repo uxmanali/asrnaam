@@ -162,7 +162,8 @@
     a.href = '/favourites/';
     a.setAttribute('aria-label', 'Favourites');
     a.innerHTML = heartSVG(false) + '<span class="rd-badge" hidden>0</span>';
-    if (nav.classList.contains('nav-links')) nav.appendChild(a);
+    // a <ul> may only hold <li> children (screen readers announce the list)
+    if (nav.tagName === 'UL') { var li = document.createElement('li'); li.appendChild(a); nav.appendChild(li); }
     else nav.appendChild(a);
     updateBadges();
   }

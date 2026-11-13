@@ -84,7 +84,7 @@
       }
     });
     var links=nav.querySelector('.nav-links');
-    if(links) links.appendChild(btn); else nav.appendChild(btn);
+    if(links){ if(links.tagName==='UL'){ var li=document.createElement('li'); li.appendChild(btn); links.appendChild(li); } else links.appendChild(btn); } else nav.appendChild(btn);
   }
   init();
   function late(){ init(); injectToggle(); setTimeout(init,800); }
