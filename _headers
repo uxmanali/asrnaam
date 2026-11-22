@@ -1,0 +1,56 @@
+# Response headers for asrnaam.com (Cloudflare Workers static assets).
+# Cloudflare reads this file at deploy time; it is not served as a page.
+#
+# Default for every file: "public, max-age=0, must-revalidate" (the browser
+# asks Cloudflare whether the file changed before every reuse).
+#
+# The files below are always linked with a version (?v=...), so a returning
+# visitor's browser may reuse them for one day without asking. RULE: whenever
+# one of these files changes, bump its ?v= value in the pages that load it,
+# or visitors can see the old copy for up to a day.
+
+/asr-redesign.css
+  Cache-Control: public, max-age=86400
+/asr-redesign.js
+  Cache-Control: public, max-age=86400
+/asr-mobile.css
+  Cache-Control: public, max-age=86400
+/asr-enhance.css
+  Cache-Control: public, max-age=86400
+/asr-enhance.js
+  Cache-Control: public, max-age=86400
+/asr-geometry.css
+  Cache-Control: public, max-age=86400
+/asr-matcher.js
+  Cache-Control: public, max-age=86400
+/asr-geo-lang.js
+  Cache-Control: public, max-age=86400
+/asr-theme.js
+  Cache-Control: public, max-age=86400
+/ads-config.js
+  Cache-Control: public, max-age=86400
+/asr-ads.js
+  Cache-Control: public, max-age=86400
+
+# Font files never change under the same name: 30 days.
+# fonts.css is linked without a version, so it stays at one day.
+/fonts/*
+  Cache-Control: public, max-age=2592000
+/fonts/fonts.css
+  ! Cache-Control
+  Cache-Control: public, max-age=86400
+
+# Icons: 7 days.
+/favicon.ico
+  Cache-Control: public, max-age=604800
+/favicon.svg
+  Cache-Control: public, max-age=604800
+/favicon-32.png
+  Cache-Control: public, max-age=604800
+/apple-touch-icon.png
+  Cache-Control: public, max-age=604800
+
+# Keep the Cloudflare test address out of search results
+# (asrnaam.com is the only address that should be indexed).
+https://asrnaam.uxmanali.workers.dev/*
+  X-Robots-Tag: noindex
