@@ -36,3 +36,6 @@ tests/
 scan-report.json
 mobile_final2.json
 data/hi-names*.json
+
+# Cloudflare local tooling
+.wrangler/

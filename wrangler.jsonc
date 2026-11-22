@@ -1,0 +1,13 @@
+// Cloudflare hosting for asrnaam.com.
+// Serves the repository exactly as GitHub Pages does: same files, same URLs.
+// Folder pages keep their trailing slash (/names/ayra/), and unknown paths
+// return 404.html with a real 404 status.
+{
+  "name": "asrnaam",
+  "compatibility_date": "2026-11-22",
+  "assets": {
+    "directory": "./",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page"
+  }
+}
