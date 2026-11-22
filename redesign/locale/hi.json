@@ -1,0 +1,84 @@
+{
+ "lang": "hi",
+ "_about": "Labels and page-shape rules for the Hindi name pages (redesign/np_build_hitr.py). 'source' says where each label's wording already exists on the site; labels with source 'new' are listed in hi-new-labels.md for review.",
+ "qf": {
+  "मतलब": "meaning",
+  "लिंग": "gender",
+  "शुभ अंक": "lucky",
+  "अरबी": "arabic",
+  "उर्दू": "urdu",
+  "देवनागरी": "native",
+  "अंग्रेज़ी": "latin",
+  "अरबी अक्षर": "count"
+ },
+ "cards": [
+  "meaning",
+  "gender",
+  "arabic",
+  "urdu"
+ ],
+ "script": {
+  "arabic": "ar",
+  "urdu": "ur"
+ },
+ "gender": {
+  "लड़कों का नाम": "boy",
+  "लड़कियों का नाम": "girl"
+ },
+ "elements": {
+  "अग्नि": "fire",
+  "पृथ्वी": "earth",
+  "जल": "water",
+  "वायु": "air"
+ },
+ "h2": {
+  "meaning": "^.+ नाम का मतलब$",
+  "lucky": "^शुभ अंक: इल्म-उल-हुरूफ़ की गणना$",
+  "letters": "^.+ के अक्षर, एक-एक करके$",
+  "elements": "^.+ में तत्वों का संतुलन$",
+  "divine": "^.+ और अल्लाह के नाम$",
+  "reading": "^यह पढ़ाई .+ के बारे में क्या कहती है$",
+  "root": "^.+ का अरबी मूल \\(जड़\\)$",
+  "pron": "^.+ का उच्चारण$",
+  "more": "^इसी अक्षर से शुरू होने वाले नाम$",
+  "faq": "^अक्सर पूछे जाने वाले सवाल$"
+ },
+ "kicker": {
+  "reading": "इल्म-उल-हुरूफ़",
+  "origin": "अरबी मूल",
+  "story": "मतलब"
+ },
+ "jump": {
+  "reading": "अक्षर",
+  "origin": "अरबी मूल",
+  "story": "मतलब",
+  "faq": "सवाल",
+  "more": "और नाम"
+ },
+ "aria": {
+  "jump": "इस पेज पर",
+  "breadcrumb": "आप यहाँ हैं"
+ },
+ "js": {
+  "save": "सहेजें",
+  "saved": "सहेजा गया",
+  "share": "साझा करें",
+  "play": "उच्चारण सुनें"
+ },
+ "source": {
+  "kicker.reading": "page text (इल्म-उल-हुरूफ़)",
+  "kicker.origin": "page heading (… का अरबी मूल)",
+  "kicker.story": "fact label (मतलब)",
+  "jump.reading": "fact label (अरबी अक्षर)",
+  "jump.origin": "page heading",
+  "jump.story": "fact label",
+  "jump.faq": "page heading (अक्सर पूछे जाने वाले सवाल)",
+  "jump.more": "page text (… से शुरू होने वाले और नाम)",
+  "aria.jump": "hi/names/ index (इस पेज पर क्या है?)",
+  "aria.breadcrumb": "new",
+  "js.save": "new",
+  "js.saved": "new",
+  "js.share": "new",
+  "js.play": "new"
+ }
+}

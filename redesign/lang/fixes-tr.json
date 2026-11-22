@@ -1,0 +1,162 @@
+[
+ {
+  "file": "tr/names/yusuf/index.html",
+  "old": "anlamı güzeldir: allah artırır",
+  "new": "anlamı güzeldir: Allah artırır",
+  "count": 1,
+  "where": "body (İslami bir isim mi block)",
+  "reason": "The template lowercases the first letter of the meaning when it places it mid-sentence, which lowercases a proper noun or the abbreviation Hz. The page's own Anlamı field has it capitalised (Allah artırır; Hz. Yusuf).",
+  "class": "spelling",
+  "scope": "systematic"
+ },
+ {
+  "file": "tr/names/ismail/index.html",
+  "old": "anlamı güzeldir: allah işitir",
+  "new": "anlamı güzeldir: Allah işitir",
+  "count": 1,
+  "where": "body (İslami bir isim mi block)",
+  "reason": "The template lowercases the first letter of the meaning when it places it mid-sentence, which lowercases a proper noun or the abbreviation Hz. The page's own Anlamı field has it capitalised (Allah işitir; Hz. İsmail).",
+  "class": "spelling",
+  "scope": "systematic"
+ },
+ {
+  "file": "tr/names/melek/index.html",
+  "old": "anlamı güzeldir: allah'ın elçisi",
+  "new": "anlamı güzeldir: Allah'ın elçisi",
+  "count": 1,
+  "where": "body (İslami bir isim mi block)",
+  "reason": "The template lowercases the first letter of the meaning when it places it mid-sentence, which lowercases a proper noun or the abbreviation Hz. The page's own Anlamı field has it capitalised (Allah'ın elçisi olan, nurdan yaratılmış varlık).",
+  "class": "spelling",
+  "scope": "systematic"
+ },
+ {
+  "file": "tr/names/elif/index.html",
+  "old": "anlamı güzeldir: arap alfabesinin",
+  "new": "anlamı güzeldir: Arap alfabesinin",
+  "count": 1,
+  "where": "body (İslami bir isim mi block)",
+  "reason": "The template lowercases the first letter of the meaning when it places it mid-sentence, which lowercases a proper noun or the abbreviation Hz. The page's own Anlamı field has it capitalised (Arap alfabesinin ilk harfi).",
+  "class": "spelling",
+  "scope": "systematic"
+ },
+ {
+  "file": "tr/names/araz/index.html",
+  "old": "anlamı güzeldir: aras Nehri",
+  "new": "anlamı güzeldir: Aras Nehri",
+  "count": 1,
+  "where": "body (İslami bir isim mi block)",
+  "reason": "The template lowercases the first letter of the meaning when it places it mid-sentence, which lowercases a proper noun or the abbreviation Hz. The page's own Anlamı field has it capitalised (Aras Nehri).",
+  "class": "spelling",
+  "scope": "systematic"
+ },
+ {
+  "file": "tr/names/asya/index.html",
+  "old": "anlamı güzeldir: asya kıtası",
+  "new": "anlamı güzeldir: Asya kıtası",
+  "count": 1,
+  "where": "body (İslami bir isim mi block)",
+  "reason": "The template lowercases the first letter of the meaning when it places it mid-sentence, which lowercases a proper noun or the abbreviation Hz. The page's own Anlamı field has it capitalised (Asya kıtası; Hz. Âsiye'yi çağrıştırır).",
+  "class": "spelling",
+  "scope": "systematic"
+ },
+ {
+  "file": "tr/names/meryem/index.html",
+  "old": "anlamı güzeldir: hz.",
+  "new": "anlamı güzeldir: Hz.",
+  "count": 1,
+  "where": "body (İslami bir isim mi block)",
+  "reason": "The template lowercases the first letter of the meaning when it places it mid-sentence, which lowercases a proper noun or the abbreviation Hz. The page's own Anlamı field has it capitalised (Hz. İsa'nın annesi Hz. Meryem).",
+  "class": "spelling",
+  "scope": "systematic"
+ },
+ {
+  "file": "tr/names/yunus/index.html",
+  "old": "anlamı güzeldir: hz.",
+  "new": "anlamı güzeldir: Hz.",
+  "count": 1,
+  "where": "body (İslami bir isim mi block)",
+  "reason": "The template lowercases the first letter of the meaning when it places it mid-sentence, which lowercases a proper noun or the abbreviation Hz. The page's own Anlamı field has it capitalised (Hz. Yunus (a.s.)).",
+  "class": "spelling",
+  "scope": "systematic"
+ },
+ {
+  "file": "tr/names/zeynep/index.html",
+  "old": "anlamı güzeldir: hz.",
+  "new": "anlamı güzeldir: Hz.",
+  "count": 1,
+  "where": "body (İslami bir isim mi block)",
+  "reason": "The template lowercases the first letter of the meaning when it places it mid-sentence, which lowercases a proper noun or the abbreviation Hz. The page's own Anlamı field has it capitalised (Hz. Peygamber'in kızının adı).",
+  "class": "spelling",
+  "scope": "systematic"
+ },
+ {
+  "file": "tr/names/zuleyha/index.html",
+  "old": "anlamı güzeldir: hz.",
+  "new": "anlamı güzeldir: Hz.",
+  "count": 1,
+  "where": "body (İslami bir isim mi block)",
+  "reason": "The template lowercases the first letter of the meaning when it places it mid-sentence, which lowercases a proper noun or the abbreviation Hz. The page's own Anlamı field has it capitalised (Hz. Yusuf kıssasındaki kadın).",
+  "class": "spelling",
+  "scope": "systematic"
+ },
+ {
+  "file": "tr/names/irem/index.html",
+  "old": "anlamı güzeldir: irem bağı",
+  "new": "anlamı güzeldir: İrem bağı",
+  "count": 1,
+  "where": "body (İslami bir isim mi block)",
+  "reason": "The template lowercases the first letter of the meaning when it places it mid-sentence, which lowercases a proper noun or the abbreviation Hz. The page's own Anlamı field has it capitalised (İrem bağı, cennet gibi bahçe).",
+  "class": "spelling",
+  "scope": "systematic"
+ },
+ {
+  "file": "tr/names/kenan/index.html",
+  "old": "anlamı güzeldir: kenan diyarı",
+  "new": "anlamı güzeldir: Kenan diyarı",
+  "count": 1,
+  "where": "body (İslami bir isim mi block)",
+  "reason": "The template lowercases the first letter of the meaning when it places it mid-sentence, which lowercases a proper noun or the abbreviation Hz. The page's own Anlamı field has it capitalised (Kenan diyarı; Hz. Nuh'un oğlunun adı).",
+  "class": "spelling",
+  "scope": "systematic"
+ },
+ {
+  "file": "tr/names/merve/index.html",
+  "old": "anlamı güzeldir: merve tepesi",
+  "new": "anlamı güzeldir: Merve tepesi",
+  "count": 1,
+  "where": "body (İslami bir isim mi block)",
+  "reason": "The template lowercases the first letter of the meaning when it places it mid-sentence, which lowercases a proper noun or the abbreviation Hz. The page's own Anlamı field has it capitalised (Merve tepesi; parlak beyaz taş).",
+  "class": "spelling",
+  "scope": "systematic"
+ },
+ {
+  "file": "tr/names/belkis/index.html",
+  "old": "anlamı güzeldir: sebe Melikesi",
+  "new": "anlamı güzeldir: Sebe Melikesi",
+  "count": 1,
+  "where": "body (İslami bir isim mi block)",
+  "reason": "The template lowercases the first letter of the meaning when it places it mid-sentence, which lowercases a proper noun or the abbreviation Hz. The page's own Anlamı field has it capitalised (Sebe Melikesi'nin adı).",
+  "class": "spelling",
+  "scope": "systematic"
+ },
+ {
+  "file": "tr/names/veysel/index.html",
+  "old": "anlamı güzeldir: üveys adının",
+  "new": "anlamı güzeldir: Üveys adının",
+  "count": 1,
+  "where": "body (İslami bir isim mi block)",
+  "reason": "The template lowercases the first letter of the meaning when it places it mid-sentence, which lowercases a proper noun or the abbreviation Hz. The page's own Anlamı field has it capitalised (Üveys adının Türkçe söylenişi).",
+  "class": "spelling",
+  "scope": "systematic"
+ },
+ {
+  "file": "tr/names/zeynab/index.html",
+  "old": "anlamı güzeldir: zeynep adının",
+  "new": "anlamı güzeldir: Zeynep adının",
+  "count": 1,
+  "where": "body (İslami bir isim mi block)",
+  "reason": "The template lowercases the first letter of the meaning when it places it mid-sentence, which lowercases a proper noun or the abbreviation Hz. The page's own Anlamı field has it capitalised (Zeynep adının Azerbaycan yazımı).",
+  "class": "spelling",
+  "scope": "systematic"
+ }
+]

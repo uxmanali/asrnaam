@@ -27,7 +27,7 @@ for _f in (os.listdir('redesign/pilot') if os.path.isdir('redesign/pilot') else 
         PILOT[_f[:-5]] = json.load(open('redesign/pilot/' + _f, encoding='utf8'))
 FINAL = '--final' in sys.argv   # production build: no review tags
 DRAFT = '' if FINAL else '<span class="np-draft">New, for your review</span>'
-VER = '20261122u'   # version tag for asr-redesign.css and asr-redesign.js on migrated pages
+VER = '20261122v'   # version tag for asr-redesign.css and asr-redesign.js on migrated pages
 
 
 def div_end(s, i):

@@ -1,0 +1,92 @@
+{
+ "_note": "Urdu content for the redesigned Urdu page. Same keys and meaning as redesign/pilot/<slug>.json (read by redesign/np_build.py). Every fact is already on the English page; names in Urdu script carry their source. Keys starting with _ and the keys gaps, needs_review, left_out are for people, not for the builder. Draft for Usman's review, 22 Nov 2026.",
+ "_base": "origin/main:ur/names/bayezid/index.html",
+ "dyk": "۱۴۹۲ میں سلطان بایزید ثانی نے ہسپانیہ سے نکالے گئے یہودیوں کو پناہ دی اور انہیں بحفاظت لانے کے لیے عثمانی بحری جہاز بھیجے۔",
+ "_dyk_en": "In 1492 Sultan Bayezid II took in the Jews expelled from Spain and sent Ottoman ships to carry them to safety.",
+ "dyk_source": "انسائیکلوپیڈیا بریٹانیکا، مضمون «Ottoman Empire»؛ انگریزی ویکیپیڈیا، مضمون «Bayezid II»؛ ۲۲ نومبر ۲۰۲۶ کو دیکھا گیا",
+ "fixes": [
+  {
+   "old": "</ul><ul class=\"bearers-list\" style=\"list-style:none;padding:0;margin:1rem 0 .5rem;\"><li style=\"padding:.85rem 0;border-bottom:1px solid var(--border);list-style:none;\"><strong>Bayezid Bistami</strong><div class=\"life-note\">(وفات: ۸۷۴ عیسوی · بسطام، فارس)</div></li><li style=\"padding:.85rem 0;border-bottom:1px solid var(--border);list-style:none;\"><strong>Bayezid II</strong><div class=\"life-note\">(۱۴۴۷–۱۵۱۲ عیسوی · قسطنطنیہ)</div></li></ul></section>",
+   "new": "</ul></section>",
+   "count": 1,
+   "reason": "the second bearer list holds names in Latin script (and repeats people already listed in Urdu above it); every person in it is kept or re-added in Urdu through `add`",
+   "_removed_text": "Bayezid Bistami (وفات: ۸۷۴ عیسوی · بسطام، فارس) Bayezid II (۱۴۴۷–۱۵۱۲ عیسوی · قسطنطنیہ)"
+  },
+  {
+   "old": "<span dir=\"ltr\" lang=\"en\">ba-ye-ZEED</span>، ۲ ہجے۔",
+   "new": "<span dir=\"ltr\" lang=\"en\">ba-ye-ZEED</span>، ۳ ہجے۔",
+   "count": 1,
+   "reason": "the pronunciation section still says 2 syllables; the FAQ on the same page and the English page say 3 (English page_fix of 22 Nov 2026)",
+   "_en": "3 syllables"
+  }
+ ],
+ "add": [
+  {
+   "name": "بایزید بسطامی",
+   "meta": "وفات: ۸۷۴ عیسوی · بسطام، فارس",
+   "note": "ابتدائی دور کے عظیم صوفی بزرگوں میں سے ایک۔",
+   "_en": "Bayezid Bistami (d. 874 CE · Bistam, Persia). One of the great early Sufi masters; the Tayfuriya tariqa traces its name to him.",
+   "source": "بایزید بسطامی: «بایزید بسطامی» https://ur.wikipedia.org/wiki/بایزید_بسطامی; بسطام: «بسطام» https://ur.wikipedia.org/wiki/بسطام",
+   "_verified_names": [
+    "بایزید بسطامی",
+    "بسطام"
+   ]
+  },
+  {
+   "name": "بایزید ثانی",
+   "meta": "۱۴۴۷–۱۵۱۲ عیسوی · قسطنطنیہ",
+   "note": "آٹھویں عثمانی سلطان؛ محمد فاتح کی فتوحات کو مستحکم کیا۔",
+   "_en": "Bayezid II (1447–1512 CE · Constantinople). Eighth Ottoman sultan; consolidator of Mehmed II's conquests.",
+   "source": "بایزید ثانی: «بایزید ثانی» https://ur.wikipedia.org/wiki/بایزید_ثانی; محمد فاتح: «محمد فاتح» https://ur.wikipedia.org/wiki/محمد_فاتح",
+   "_verified_names": [
+    "بایزید ثانی",
+    "محمد فاتح"
+   ]
+  }
+ ],
+ "_carried_from_english": [
+  "Syllable count 2 → 3 in the pronunciation section (the FAQ was already corrected)."
+ ],
+ "left_out": [
+  "Bayezid Bistami: the clause \"the Tayfuriya tariqa traces its name to him\". No Urdu-script source for the spelling of Tayfuriya was found today (the Urdu Wikipedia article could not be fetched)."
+ ],
+ "needs_review": [],
+ "gaps": [
+  {
+   "section": "Parent kit",
+   "english_ref": "section #kit, \"Parent kit: naming a baby Bayezid\"",
+   "english_words": 83,
+   "urdu_words": 0,
+   "status": "missing in Urdu"
+  },
+  {
+   "section": "Story",
+   "english_ref": "section #story, \"The story of the name Bayezid\"",
+   "english_words": 135,
+   "urdu_words": 109,
+   "status": "partly covered by حصہ ۴ · عام معنی; missing: the line on where the name is used (Turkish, Persian and Central Asian Muslim worlds); the rest is covered"
+  },
+  {
+   "section": "Questions",
+   "english_ref": "section #faq: What does the name Bayezid mean? | Is Bayezid an Islamic name? | What does Bayezid mean in Urdu? | Is Bayezid a boy or girl name? | What is the spiritual meaning of Bayezid in Ilm ul Huroof?",
+   "english_words": 165,
+   "urdu_words": 232,
+   "status": "Urdu has 8 template questions; Urdu answers are one-line template sentences, English answers are written for the name"
+  },
+  {
+   "section": "Letter reading and portrait",
+   "english_ref": "section #reading, \"Bayezid: letter-by-letter reading\"",
+   "english_words": 255,
+   "urdu_words": 161,
+   "status": "present in Urdu (حصہ ۲ and حصہ ۳) but shorter"
+  },
+  {
+   "section": "Origin and spellings",
+   "english_ref": "section #origin, \"Bayezid: origin and history\"",
+   "english_words": 83,
+   "urdu_words": 91,
+   "status": "root note present (حصہ ۱); the English list of Latin spellings and variants has no usable Urdu counterpart (no spellings section at all)"
+  }
+ ],
+ "_gap_words_to_translate": 203
+}

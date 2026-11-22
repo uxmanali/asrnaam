@@ -1,0 +1,55 @@
+{
+ "lang": "ar",
+ "_note": "Interface labels for the redesigned Arabic name pages. 'qf' maps the page's own quick-fact labels (unchanged, already on the pages) to the builder's slots. 'labels' marked in ar-new-labels.md are new wording for review.",
+ "kit": true,
+ "digits": "0123456789",
+ "abjad_digits": "٠١٢٣٤٥٦٧٨٩",
+ "kicker_number": "^القسم [0-9٠-٩]+ · ",
+ "abjad_in_faq": "هو ([0-9٠-٩]+)، ورقمه المختزل ([0-9٠-٩]+)",
+ "qf": {
+  "meaning": "المعنى المعجمي",
+  "origin": "الأصل",
+  "gender": "الجنس",
+  "root": "الجذر العربي",
+  "urdu": "الرسم الأردي",
+  "arabic": "الرسم العربي",
+  "pron": "الرسم اللاتيني",
+  "count": "عدد الحروف",
+  "letters": "تفصيل الحروف",
+  "iuh": "علم الحروف"
+ },
+ "female": [
+  "أنثى"
+ ],
+ "male": [
+  "ذكر"
+ ],
+ "labels": {
+  "bearers_kicker": "الحاملون",
+  "bearers_title": "من حمل هذا الاسم",
+  "abjad": "القيمة العددية",
+  "draft": "جديد، للمراجعة",
+  "dyk": "هل تعلم؟",
+  "source": "المصدر:",
+  "jump_aria": "في هذه الصفحة",
+  "mode_aria": "لمن تقرأ",
+  "mode_me": "هذا اسمي",
+  "mode_baby": "أختار اسمًا لمولود",
+  "kit_kicker": "للوالدين",
+  "kit_h2": "إذا اخترتم اسم {name} لمولودكم",
+  "kit_teaser": "تختارون اسمًا لمولود؟ افتحوا قسم الوالدين: النطق، وتجربة الاسم مع اسم العائلة، وأسماء ذات صلة.",
+  "kit_open": "افتح قسم الوالدين",
+  "surname_h": "جرّب الاسم مع اسم العائلة",
+  "surname_label": "اكتب اسم العائلة",
+  "surname_note": "ما تكتبه يبقى في هذه الصفحة ولا يُرسَل إلى أي مكان.",
+  "play": "استمع إلى النطق",
+  "save": "حفظ",
+  "saved": "تم الحفظ",
+  "share": "مشاركة",
+  "search": "ابحث عن اسم آخر"
+ },
+ "name_row": "arabic",
+ "qf_alt": {
+  "النطق اللاتيني": "pron"
+ }
+}

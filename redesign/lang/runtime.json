@@ -1,0 +1,51 @@
+{
+ "ur/names/zayd/index.html": [
+  "\"Save\" (span)",
+  "\"Share\" (span)",
+  "\"Abjad lucky number\" (span.rd-kicker)",
+  "\"Advertisement\" (span.asr-ad-label)",
+  "\"Search another name\" (label.rd-sr)",
+  "\"Toggle theme\" (@aria-label button.asr-theme-toggle)",
+  "\"Favourites\" (@aria-label a.rd-nav-heart)",
+  "\"Play pronunciation\" (@aria-label button.rd-play)",
+  "\"peace be upon him\" (@aria-label span.saw)",
+  "\"Advertisement\" (@aria-label aside.asr-ad)",
+  "\"Search another name\" (@placeholder input#rd-m-q)",
+  "\"Save to favourites\" (@aria-label button.h)",
+  "\"Share\" (@aria-label button.s)"
+ ],
+ "ar/names/zayd/index.html": [
+  "\"Save\" (span)",
+  "\"Share\" (span)",
+  "\"Abjad lucky number\" (span.rd-kicker)",
+  "\"Advertisement\" (span.asr-ad-label)",
+  "\"Search another name\" (label.rd-sr)",
+  "\"Toggle theme\" (@aria-label button.asr-theme-toggle)",
+  "\"Favourites\" (@aria-label a.rd-nav-heart)",
+  "\"Play pronunciation\" (@aria-label button.rd-play)",
+  "\"peace be upon him\" (@aria-label span.saw)",
+  "\"Advertisement\" (@aria-label aside.asr-ad)",
+  "\"Search another name\" (@placeholder input#rd-m-q)",
+  "\"Save to favourites\" (@aria-label button.h)",
+  "\"Share\" (@aria-label button.s)"
+ ],
+ "hi/names/ali/index.html": [
+  "\"Toggle theme\" (@aria-label button.asr-theme-toggle)",
+  "\"Favourites\" (@aria-label a.rd-nav-heart)"
+ ],
+ "tr/names/osman/index.html": [
+  "\"Toggle theme\" (@aria-label button.asr-theme-toggle)",
+  "\"Favourites\" (@aria-label a.rd-nav-heart)"
+ ],
+ "ur/index.html": [
+  "\"Advertisement\" (span.asr-ad-label)",
+  "\"Toggle theme\" (@aria-label button.asr-theme-toggle)",
+  "\"Advertisement\" (@aria-label aside.asr-ad)"
+ ],
+ "ur/names/index.html": [
+  "\"Advertisement\" (span.asr-ad-label)",
+  "\"Toggle theme\" (@aria-label button.asr-theme-toggle)",
+  "\"Favourites\" (@aria-label a.rd-nav-heart)",
+  "\"Advertisement\" (@aria-label aside.asr-ad)"
+ ]
+}

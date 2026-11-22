@@ -1,0 +1,86 @@
+{
+ "lang": "tr",
+ "_about": "Labels and page-shape rules for the Turkish name pages (redesign/np_build_hitr.py). 'source' says where each label's wording already exists on the site; labels with source 'new' are listed in tr-new-labels.md for review.",
+ "qf": {
+  "Anlamı": "meaning",
+  "Cinsiyet": "gender",
+  "Köken": "origin",
+  "Arapça yazılış": "arabic",
+  "Urduca yazılış": "urdu",
+  "Ebced değeri": "abjad",
+  "Ebced rakamı": "lucky",
+  "Harf sayısı": "count",
+  "İngilizce yazılış": "latin",
+  "Aksansız yazılış": "plain"
+ },
+ "cards": [
+  "meaning",
+  "origin",
+  "gender",
+  "arabic"
+ ],
+ "script": {
+  "arabic": "ar",
+  "urdu": "ur"
+ },
+ "gender": {
+  "Erkek ismi": "boy",
+  "Kız ismi": "girl"
+ },
+ "elements": {
+  "Ateş": "fire",
+  "Toprak": "earth",
+  "Su": "water",
+  "Hava": "air"
+ },
+ "h2": {
+  "meaning": "^.+ isminin anlamı$",
+  "origin": "^Kökeni$",
+  "quran": "^.+ Kur'an'da geçiyor mu\\?$",
+  "lucky": "^Ebced değeri$",
+  "letters": "^Harf harf okuma$",
+  "elements": "^Unsurların dengesi$",
+  "divine": "^Harflerin ardındaki ilahi isimler$",
+  "reading": "^Bu okuma .+ hakkında ne söylüyor$",
+  "more": "^Benzer isimler$",
+  "faq": "^Sık sorulan sorular$"
+ },
+ "kicker": {
+  "reading": "Huruf ilmi",
+  "origin": "Köken",
+  "story": "Anlamı"
+ },
+ "jump": {
+  "reading": "Harf harf okuma",
+  "origin": "Kökeni",
+  "story": "Anlamı",
+  "faq": "Sık sorulan sorular",
+  "more": "Benzer isimler"
+ },
+ "aria": {
+  "jump": "Bu sayfada",
+  "breadcrumb": "Sayfa yolu"
+ },
+ "js": {
+  "save": "Kaydet",
+  "saved": "Kaydedildi",
+  "share": "Paylaş",
+  "play": "Telaffuzu dinle"
+ },
+ "source": {
+  "kicker.reading": "page text (Huruf ilmi)",
+  "kicker.origin": "fact label (Köken)",
+  "kicker.story": "fact label (Anlamı)",
+  "jump.reading": "page heading",
+  "jump.origin": "page heading",
+  "jump.story": "fact label",
+  "jump.faq": "page heading",
+  "jump.more": "page heading",
+  "aria.jump": "tr/names/ index (Bu sayfada …)",
+  "aria.breadcrumb": "new",
+  "js.save": "new",
+  "js.saved": "new",
+  "js.share": "new",
+  "js.play": "new"
+ }
+}

@@ -1,0 +1,105 @@
+{
+ "_note": "Urdu content for the redesigned Urdu page. Same keys and meaning as redesign/pilot/<slug>.json (read by redesign/np_build.py). Every fact is already on the English page; names in Urdu script carry their source. Keys starting with _ and the keys gaps, needs_review, left_out are for people, not for the builder. Draft for Usman's review, 22 Nov 2026.",
+ "_base": "origin/main:ur/names/ghada/index.html",
+ "dyk": "شام کا واحد اولمپک طلائی تمغا ایک غادہ نے جیتا: ایتھلیٹ غادہ شعاع نے ۱۹۹۶ کے اٹلانٹا اولمپکس میں ہیپٹاتھلون کے مقابلے میں۔",
+ "_dyk_en": "Syria's only Olympic gold medal was won by a Ghada: heptathlete Ghada Shouaa, at Atlanta in 1996.",
+ "dyk_source": "ورلڈ ایتھلیٹکس، مضمون «Ghada Shouaa: The only Olympic gold medallist for Syria»، ۱۵ ستمبر ۲۰۲۱",
+ "fixes": [
+  {
+   "old": "<ul class=\"bearers-list\" style=\"list-style:none;padding:0;margin:1rem 0 .5rem;\"><li style=\"padding:.85rem 0;border-bottom:1px solid var(--border);list-style:none;\"><strong>Ghada Abdel Razek</strong><div class=\"life-note\">بیسویں تا اکیسویں صدی · مصر</div></li><li style=\"padding:.85rem 0;border-bottom:1px solid var(--border);list-style:none;\"><strong>Ghada al-Samman</strong><div class=\"life-note\">b. ۱۹۴۲ · شام</div></li></ul><ul class=\"bearers-list\" style=\"list-style:none;padding:0;margin:1rem 0 .5rem;\"><li style=\"padding:.85rem 0;border-bottom:1px solid var(--border);list-style:none;\"><strong>Ghada Abdel Razek</strong><div class=\"life-note\">بیسویں تا اکیسویں صدی · مصر</div></li></ul></section>",
+   "new": "<ul class=\"bearers-list\" style=\"list-style:none;padding:0;margin:1rem 0 .5rem;\"></ul></section>",
+   "count": 1,
+   "reason": "the bearer list holds names in Latin script only, with no description; every person is re-added in Urdu with a description through `add`",
+   "_removed_text": "Ghada Abdel Razek بیسویں تا اکیسویں صدی · مصر Ghada al-Samman b. ۱۹۴۲ · شام Ghada Abdel Razek بیسویں تا اکیسویں صدی · مصر"
+  }
+ ],
+ "add": [
+  {
+   "name": "غادہ عبد الرزاق",
+   "meta": "بیسویں تا اکیسویں صدی · مصر",
+   "note": "اداکارہ۔",
+   "_en": "Ghada Abdel Razek · 20th-21st century · Egypt · Actress",
+   "source": "غادہ عبد الرزاق: «غادہ عبد الرزاق» https://ur.wikipedia.org/wiki/غادہ_عبد_الرزاق",
+   "_verified_names": [
+    "غادہ عبد الرزاق"
+   ]
+  },
+  {
+   "name": "غادہ سمّان",
+   "meta": "پیدائش: ۱۹۴۲ · شام",
+   "note": "ناول نگار اور شاعرہ، عرب نسائی ادب کی نمایاں آواز؛ ان کا ناول «بیروت ۷۵» بعد از جنگ بلادِ شام کے افسانوی ادب کا سنگِ میل مانا جاتا ہے۔",
+   "_en": "Ghada al-Samman · b. 1942 · Syria · Novelist and poet of Arab feminist literature; Beirut '75 remains a landmark of postwar Levantine fiction.",
+   "source": "غادہ سمّان: «غادة السمان» https://ar.wikipedia.org/wiki/غادة_السمان (Urdu form «غادہ سمّان» is the one already used in the Urdu page text; Arabic original verified); بیروت ۷۵: «بيروت 75 (رواية)» https://ar.wikipedia.org/wiki/بيروت_75_(رواية)",
+   "_verified_names": [
+    "غادہ سمّان",
+    "بیروت ۷۵"
+   ]
+  },
+  {
+   "name": "غادہ شعاع",
+   "meta": "شام",
+   "note": "ایتھلیٹ (ہیپٹاتھلون)؛ ۱۹۹۵ کی عالمی چیمپئن، اور ۱۹۹۶ کے اٹلانٹا اولمپکس میں شام کا پہلا اولمپک طلائی تمغا جیتا۔",
+   "_en": "Ghada Shouaa · Syria · Heptathlete; world champion in 1995 and winner of Syria's first Olympic gold medal, at Atlanta 1996.",
+   "source": "غادہ شعاع: «غادة شعاع» https://ar.wikipedia.org/wiki/غادة_شعاع (Arabic original; written with Urdu ہ as the page writes غادہ); اٹلانٹا: «اٹلانٹا، جارجیا» https://ur.wikipedia.org/wiki/زمرہ:اٹلانٹا،_جارجیا_میں_کھیل_مقامات",
+   "_verified_names": [
+    "غادہ شعاع",
+    "اٹلانٹا"
+   ]
+  }
+ ],
+ "_carried_from_english": [
+  "Ghada Abdel Razek was listed twice on the Urdu page; one entry remains.",
+  "Ghada Shouaa added, as on the English page."
+ ],
+ "left_out": [],
+ "needs_review": [
+  "«ہیپٹاتھلون» is a transliteration of heptathlon; no Urdu Wikipedia article exists to check it against. Confirm or replace with a description («سات مقابلوں کا کھیل»).",
+  "«تمغا» follows Urdu Wikipedia usage; one existing Urdu page on the site writes «تمغہ».",
+  "The Urdu page text names «مصری لکھاری غادہ عبد العال» as a famous bearer; the English story names the Lebanese journalist Ghada Eid instead, and the bearer list has the actress Ghada Abdel Razek. Three different people: not changed, your call."
+ ],
+ "gaps": [
+  {
+   "section": "Parent kit",
+   "english_ref": "section #kit, \"Parent kit: naming a baby Ghada\"",
+   "english_words": 57,
+   "urdu_words": 0,
+   "status": "missing in Urdu"
+  },
+  {
+   "section": "Name card",
+   "english_ref": "section #share, \"Keep your Ghada name card\"",
+   "english_words": 40,
+   "urdu_words": 0,
+   "status": "missing in Urdu (interface text, labels only)"
+  },
+  {
+   "section": "Story",
+   "english_ref": "section #story, \"The story of the name Ghada\"",
+   "english_words": 161,
+   "urdu_words": 118,
+   "status": "partly covered by حصہ ۴ · عام معنی; missing: the related word ghadāʾ, the regions where the name is used, and the spelling variants"
+  },
+  {
+   "section": "Questions",
+   "english_ref": "section #faq: What does the name Ghada mean? | Is Ghada mentioned in the Quran? | What does Ghada mean in Urdu? | Is Ghada a good Islamic name? | Is Ghada a girl or boy name? | What is the spiritual meaning of Ghada in Ilm ul Huroof? | What names go perfectly with Ghada as a sibling name? | Is Ghada a rare or common Muslim name?",
+   "english_words": 485,
+   "urdu_words": 273,
+   "status": "Urdu has 9 template questions; no Urdu counterpart for \"Is Ghada a rare or common Muslim name?\"; Urdu answers are one-line template sentences, English answers are written for the name"
+  },
+  {
+   "section": "Letter reading and portrait",
+   "english_ref": "section #reading, \"Ghada: letter-by-letter reading\"",
+   "english_words": 226,
+   "urdu_words": 148,
+   "status": "present in Urdu (حصہ ۲ and حصہ ۳) but shorter"
+  },
+  {
+   "section": "Origin and spellings",
+   "english_ref": "section #origin, \"Ghada: origin and history\"",
+   "english_words": 86,
+   "urdu_words": 97,
+   "status": "root note present (حصہ ۱); the English list of Latin spellings and variants has no usable Urdu counterpart (no spellings section at all)"
+  }
+ ],
+ "_gap_words_to_translate": 390
+}
