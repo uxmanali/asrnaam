@@ -11,3 +11,4 @@ node_modules
 .wrangler
 pins/pins.csv
 pins/boards.md
+redesign

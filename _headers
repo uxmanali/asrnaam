@@ -13,6 +13,8 @@
   Cache-Control: public, max-age=86400
 /asr-redesign.js
   Cache-Control: public, max-age=86400
+/asr-np.css
+  Cache-Control: public, max-age=86400
 /asr-mobile.css
   Cache-Control: public, max-age=86400
 /asr-enhance.css
@@ -53,4 +55,8 @@
 # Keep the Cloudflare test address out of search results
 # (asrnaam.com is the only address that should be indexed).
 https://asrnaam.uxmanali.workers.dev/*
+  X-Robots-Tag: noindex
+
+# Preview and version URLs on workers.dev are never indexed (Cloudflare also adds this itself).
+https://:version.:subdomain.workers.dev/*
   X-Robots-Tag: noindex

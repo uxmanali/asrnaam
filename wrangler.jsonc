@@ -5,6 +5,8 @@
 {
   "name": "asrnaam",
   "compatibility_date": "2026-11-22",
+  // Branch previews (Workers Builds runs `wrangler preview` on non-main branches; workers.dev previews are noindex)
+  "previews": {},
   "assets": {
     "directory": "./",
     "html_handling": "auto-trailing-slash",
