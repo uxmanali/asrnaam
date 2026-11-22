@@ -54,12 +54,16 @@ def check_pair(old, new, slug=None):
             m = re.search(r'<li\b(?:(?!</li>).)*?' + re.escape(d['match']), old, re.S)
             allowed += nodes('<body>' + m.group(0)) if m else []
             notes.append('removed: ' + d['reason'])
-    ver = lambda x: re.sub(r'(asr-redesign\.(?:css|js)\?v=)[0-9a-z]+', r'\1V', x)
+    # allowed to differ: the version tag of the two changed files, and the modified dates (brief, rule 4 of "never change")
+    def ver(x):
+        x = re.sub(r'(asr-redesign\.(?:css|js)\?v=)[0-9a-z]+', r'\1V', x)
+        x = re.sub(r'(<meta property="article:modified_time" content=")[^"]*"', r'\1D"', x)
+        return re.sub(r'("dateModified": ")[^"]*"', r'\1D"', x)
     if ver(old[:old.index('</head>')]) != ver(new[:new.index('</head>')]):
         errs.append('head differs')
     jo = re.findall(r'<script type="application/(?:ld\+)?json"[^>]*>(.*?)</script>', old, re.S)
     jn = re.findall(r'<script type="application/(?:ld\+)?json"[^>]*>(.*?)</script>', new, re.S)
-    if jo != jn:
+    if [ver(x) for x in jo] != [ver(x) for x in jn]:
         errs.append('JSON blocks differ')
     for f in ['meaning-dict', 'origin', 'gender', 'urdu', 'urdu-meaning', 'pronunciation', 'lucky', 'meaning-iuh']:
         a, b = old.count(f'data-asr-field="{f}"'), new.count(f'data-asr-field="{f}"')
