@@ -384,7 +384,7 @@
   var INDEX = null;
   function loadIndex() {
     if (INDEX) return Promise.resolve(INDEX);
-    return fetch('/names/names-index.json', { cache: 'force-cache' }).then(function (r) {
+    return fetch('/names/names-index.json', { cache: 'no-cache' }).then(function (r) {
       if (!r.ok) throw new Error('index');
       return r.json();
     }).then(function (arr) { INDEX = arr; return arr; });

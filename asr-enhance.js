@@ -532,7 +532,7 @@
   function asrLoadCats(){
     if(ASR_CATS || ASR_CATS_TRIED) return Promise.resolve(ASR_CATS || []);
     ASR_CATS_TRIED = true;
-    return fetch('/names/categories.json', {cache:'force-cache'})
+    return fetch('/names/categories.json', {cache:'no-cache'})
       .then(function(r){ return r.ok ? r.json() : []; })
       .then(function(a){
         ASR_CATS = a.map(function(c){
@@ -552,15 +552,26 @@
   //   search-token (canonical name or variant spelling) and i is its index into
   //   CMDK_CORPUS — enabling binary-search prefix lookups across all spellings.
   var CMDK_TOKENS = null;
+  // A search result's link: category entries carry their own page (h);
+  // name entries link to /names/<slug>/.
+  function hrefOf(e){
+    if(!e) return '/names/';
+    if(e.h) return e.h;
+    return e.s ? '/names/' + e.s + '/' : '/names/';
+  }
+
   function fetchCorpus(){
     if(CMDK_CORPUS) return Promise.resolve(CMDK_CORPUS);
-    asrLoadCats();
     if(CMDK_LOADING) return new Promise(function(res){ var t=setInterval(function(){ if(CMDK_CORPUS || !CMDK_LOADING){ clearInterval(t); res(CMDK_CORPUS || []); } }, 30); });
     CMDK_LOADING = true;
-    return fetch('/names/names-index.json?v=20261112', {cache:'force-cache'}).then(function(r){
+    // 'no-cache' = reuse the browser's copy only after Cloudflare confirms it
+    // is current, so names added since the last visit appear in search.
+    var idxP = fetch('/names/names-index.json', {cache:'no-cache'}).then(function(r){
       if(!r.ok) throw new Error('idx http '+r.status);
       return r.json();
-    }).then(function(arr){
+    });
+    return Promise.all([idxP, asrLoadCats()]).then(function(both){
+      var arr = both[0];
       var out = [];
       for(var i=0;i<arr.length;i++){
         var e = arr[i];
@@ -572,12 +583,14 @@
           s: e.s, nl: (e.n||'').toLowerCase(), sl: e.s.toLowerCase()
         });
       }
-      // Token index now built by the shared matcher (script-aware: Latin +
-      // normalized Arabic/Urdu spellings). See /asr-matcher.js → buildTokenIndex.
+      // Categories first, then names. The token index MUST be built from this
+      // final array: each token stores a position in the corpus, so building
+      // it before adding the categories pointed every result at the wrong
+      // entry (the bug fixed on 22 Nov 2026).
+      out = (both[1] || ASR_CATS || []).concat(out);
       CMDK_TOKENS = (window.ASR_MATCHER && window.ASR_MATCHER.buildTokenIndex)
         ? window.ASR_MATCHER.buildTokenIndex(out)
         : [];
-      out = (ASR_CATS || []).concat(out);
       CMDK_CORPUS = out;
       CMDK_LOADING = false;
       return CMDK_CORPUS;
@@ -717,8 +730,9 @@
         if(rb) rb.addEventListener('click', function(){
           fetchCorpus().then(function(arr){
             if(!arr || !arr.length) return;
-            var pick = arr[Math.floor(Math.random()*arr.length)];
-            location.href = (pick.h || ('/names/'+pick.s+'/'));
+            var names = arr.filter(function(en){ return en.s && !en.__cat; });
+            var pick = names[Math.floor(Math.random()*names.length)];
+            location.href = hrefOf(pick);
           });
         });
         lastResults=[]; input.removeAttribute('aria-activedescendant'); return;
@@ -729,7 +743,7 @@
         var items = full.results.map(function(r){
           var e = r.e;
           // Build the lightweight entry the legacy renderer expects.
-          return {h: '/names/'+e.s+'/', n: e.n, m: e.m||'', s: e.s, __cluster: !!r.isCluster};
+          return {h: hrefOf(e), n: e.n, m: e.m||'', s: e.s, __cluster: !!r.isCluster};
         });
         lastResults = items;
         active = 0;
@@ -858,7 +872,7 @@
         label.textContent = 'Picking…';
         fetchCorpus().then(function(arr){
           if(!arr || !arr.length) return;
-          var pool = arr.filter(function(en){ return en.s !== ctx.slug; });
+          var pool = arr.filter(function(en){ return en.s && !en.__cat && en.s !== ctx.slug; });
           var pick = pool[Math.floor(Math.random()*pool.length)];
           location.href = '/names/' + pick.s + '/';
         });
@@ -909,7 +923,7 @@
         e.preventDefault();
         fetchCorpus().then(function(arr){
           if(!arr || !arr.length){ location.href = '/names/'; return; }
-          var pool = arr.filter(function(en){ return en.s !== ctx.slug; });
+          var pool = arr.filter(function(en){ return en.s && !en.__cat && en.s !== ctx.slug; });
           var pick = pool[Math.floor(Math.random()*pool.length)];
           location.href = '/names/' + pick.s + '/';
         });
@@ -1058,7 +1072,7 @@
         var meaning = shortMeaning(e.m, e.n);
         var meanHtml = meaning ? '<span class="ahero-meaning">' + esc(meaning) + '</span>' : '';
         var clusterBadge = (r && r.isCluster) ? '<span class="ahero-badge" style="display:inline-block;margin-left:.45rem;padding:.05rem .45rem;border:1px solid rgba(139,105,20,0.3);border-radius:8px;font-size:.65rem;letter-spacing:.08em;text-transform:uppercase;color:#8B6914;font-style:normal;vertical-align:middle;">also spelt</span>' : '';
-        return '<a class="ahero-item" id="ahero-o' + i + '" role="option" aria-selected="false" href="/names/' + encodeURIComponent(e.s) + '/" data-i="' + i + '">' +
+        return '<a class="ahero-item" id="ahero-o' + i + '" role="option" aria-selected="false" href="' + esc(hrefOf(e)) + '" data-i="' + i + '">' +
           '<span class="ahero-name">' + esc(label) + '</span>' + arabic + clusterBadge + meanHtml +
         '</a>';
       }).join('');
@@ -1179,7 +1193,7 @@
           //    routing — fall to /reader/.
           var res = tieredSearchFull(v, 5);
           if(res.mode === 'list' && res.results.length){
-            window.location.href = '/names/' + res.results[0].e.s + '/';
+            window.location.href = hrefOf(res.results[0].e);
             return;
           }
         }

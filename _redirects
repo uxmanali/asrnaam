@@ -1,0 +1,20 @@
+# Permanent (301) redirects served by Cloudflare before any file.
+# One rule per line: <old path> <new path> 301
+# Added 22 Nov 2026 for URLs Google Search Console reports as Not found (404):
+# old duplicate pages merged during the 30 Oct dedupe, and two wrong paths.
+
+/names/rahaf-2/ /names/rahaf/ 301
+/names/rahaf-3/ /names/rahaf/ 301
+/names/saniya-b20/ /names/saniya/ 301
+/names/younes-2/ /names/younes/ 301
+/names/shahd-2/ /names/shahd/ 301
+/names/shahd-3/ /names/shahd/ 301
+/names/shahd-b20/ /names/shahd/ 301
+/names/hamid-2/ /names/hamid/ 301
+/names/hamid-3/ /names/hamid/ 301
+/names/hamid-5/ /names/hamid/ 301
+/names/zahra-ir/ /names/zahra/ 301
+/names/fajr-name/ /names/fajr/ 301
+/names/undefined/ /names/ 301
+/letters/ilm-ul-huroof/ /ilm-ul-huroof/ 301
+/ur/names/aathaar/ /aathaar/ 301

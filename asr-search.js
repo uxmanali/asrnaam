@@ -20,7 +20,7 @@
   function asrLoadCats(){
     if(ASR_CATS || ASR_CATS_TRIED) return Promise.resolve(ASR_CATS || []);
     ASR_CATS_TRIED = true;
-    return fetch('/names/categories.json', {cache:'force-cache'})
+    return fetch('/names/categories.json', {cache:'no-cache'})
       .then(function(r){ return r.ok ? r.json() : []; })
       .then(function(a){
         ASR_CATS = a.map(function(c){
@@ -36,7 +36,7 @@
       if(CORPUS) return Promise.resolve(CORPUS);
       if(LOADING) return new Promise(function(res){ var t = setInterval(function(){ if(CORPUS || !LOADING){ clearInterval(t); res(CORPUS || []); } }, 30); });
       LOADING = true;
-      return fetch('/names/names-index.json?v=20261112', {cache:'force-cache'}).then(function(r){
+      return fetch('/names/names-index.json', {cache:'no-cache'}).then(function(r){
         if(!r.ok) throw new Error('idx '+r.status);
         return r.json();
       }).then(function(arr){
@@ -144,7 +144,8 @@
         var meaning = shortMeaning(e.m);
         var meanHtml = meaning ? '<span class="asr-sd-meaning">'+escapeHtml(meaning)+'</span>' : '';
         var clusterBadge = r.isCluster ? '<span class="asr-sd-badge">also spelt</span>' : '';
-        html += '<a href="/names/'+encodeURIComponent(e.s)+'/" class="asr-sd-item" id="asr-sd-o'+i+'" role="option" aria-selected="false" data-idx="'+i+'"><span class="asr-sd-name">'+escapeHtml(label)+'</span>'+arabic+clusterBadge+meanHtml+'</a>';
+        var href = e.h ? e.h : '/names/'+encodeURIComponent(e.s)+'/';
+        html += '<a href="'+escapeHtml(href)+'" class="asr-sd-item" id="asr-sd-o'+i+'" role="option" aria-selected="false" data-idx="'+i+'"><span class="asr-sd-name">'+escapeHtml(label)+'</span>'+arabic+clusterBadge+meanHtml+'</a>';
       }
       dd.innerHTML = html;
       dd.style.display = 'block';
