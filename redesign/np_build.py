@@ -20,6 +20,35 @@ class Skip(Exception):
     pass
 
 
+import os
+PILOT = {}
+for _f in (os.listdir('redesign/pilot') if os.path.isdir('redesign/pilot') else []):
+    if _f.endswith('.json'):
+        PILOT[_f[:-5]] = json.load(open('redesign/pilot/' + _f, encoding='utf8'))
+DRAFT = '<span class="np-draft">Draft for your approval</span>'
+
+
+def div_end(s, i):
+    """index just past the </div> that closes the <div ...> starting at index i (nested divs counted)"""
+    depth = 0
+    for m in re.finditer(r'<div\b|</div>', s[i:]):
+        depth += 1 if m.group(0) != '</div>' else -1
+        if depth == 0:
+            return i + m.end()
+    raise Skip('unbalanced div')
+
+
+def cut_div(s, i):
+    """cut the <div ...>...</div> that starts at index i; returns (block, s_without_block)"""
+    j = div_end(s, i)
+    return s[i:j], s[:i] + s[j:]
+
+
+def nostyle(x):
+    """drop inline style attributes from a moved block: the np- rules style it, and it saves bytes"""
+    return re.sub(r' style="[^"]*"', '', x)
+
+
 def cut(s, start, end, required=True):
     """return (block, s_without_block) for the first start..end span"""
     i = s.find(start)
@@ -98,7 +127,8 @@ def build(h, slug):
     a1 = a0 + len('<article class="asr-name-article">')
     a2 = h.index('</article>', a1)
     pre, body, post = h[:a1], h[a1:a2], h[a2:]
-    pre = pre.replace('<article class="asr-name-article">', '<article class="asr-name-article asr-np" data-np-mode="me">')
+    ART = '<article class="asr-name-article asr-np" data-np-mode="me">'
+    pre = pre.replace('<article class="asr-name-article">', ART)
     # ---- hero
     old_hero = False
     hero, body = cut(body, '<header class="asr-name-hero"', '</header>', required=False)
@@ -144,31 +174,46 @@ def build(h, slug):
     community, body = marker(body, 'ASR:COMMUNITY')
     for nm in ['ASRLINK', 'ASRMORE', 'OBS-CALLOUT', 'INLINE-RA', 'LETTERCLUSTER', 'VARIATIONS', 'HERO-RA', 'RELATED', 'SHARED', 'QURANIC', 'TRUST']:
         blocks[nm], body = marker(body, nm)
-    # FAQ and the call to action
-    faq = ''
-    i = body.find('<div class="faq-list">')
-    if i < 0:
-        raise Skip('no faq-list')
-    k = body.rfind('<p class="section-label">', 0, i)
-    k = body.rfind('<!-- WEAPON 2', 0, i) if body.rfind('<!-- WEAPON 2', 0, i) >= 0 else k
-    j = body.find('<div class="cta-box">', i)
-    if j < 0:
-        j = body.find('</div>\n</div>', i)
-    faq_end = body.rfind('</div>', i, j) + len('</div>')
-    faq, body = body[k:faq_end], body[:k] + body[faq_end:]
-    cta, body = cut(body, '<div class="cta-box">', '</div>', required=False)
-    # what is left inside <div class="content"> is the spelling chips and variants block(s)
+    # FAQ (two generations of markup) and the call to action
+    if body.count('<div class="faq-list">') != 1:
+        raise Skip('faq-list count is not 1')
+    faq_h2 = True
+    if '<div class="faq-section">' in body:
+        faq, body = cut_div(body, body.index('<div class="faq-section">'))
+        faq_h2 = bool(re.search(r'<h2\b', faq))
+    else:
+        m = re.search(r'(?:<!-- WEAPON 2[^>]*-->\s*)?<p class="section-label[^"]*"[^>]*>(?:(?!</p>).)*</p>\s*(?:<h2[^>]*>(?:(?!</h2>).)*</h2>\s*)?(?=<div class="faq-list">)', body, re.S)
+        k = m.start() if m else body.index('<div class="faq-list">')
+        faq_h2 = bool(m and '<h2' in m.group(0))
+        faq_end = div_end(body, body.index('<div class="faq-list">'))
+        faq, body = body[k:faq_end], body[:k] + body[faq_end:]
+    cta = ''
+    if '<div class="cta-box">' in body:
+        cta, body = cut_div(body, body.index('<div class="cta-box">'))
+    # what is left inside <div class="content">: loose related-names blocks, style blocks, and the spelling chips and variants
     rest = body.strip()
     if rest.startswith('<div class="content">'):
         rest = rest[len('<div class="content">'):]
     if rest.rstrip().endswith('</div>'):
         rest = rest.rstrip()[:-len('</div>')]
     rest = rest.replace('<span id="reading"></span>', '')
+    loose_related = ''
+    while '<div class="related-section"' in rest:
+        blk, rest = cut_div(rest, rest.index('<div class="related-section"'))
+        loose_related += blk
+    loose_styles = ''.join(re.findall(r'<style\b.*?</style>', rest, re.S))
+    rest = re.sub(r'<style\b.*?</style>', '', rest, flags=re.S)
     spell = ''
     if text_of(re.sub(r'<!--.*?-->', '', rest, flags=re.S)):
-        if not re.search(r'spelling|variant|asr-xlink', rest):
-            raise Skip('unplaced content: ' + text_of(rest)[:80])
-        spell = rest.strip()
+        probe = re.sub(r'<!--.*?-->', '', rest, flags=re.S)
+        while '<div class="spellings-section' in probe:
+            _, probe = cut_div(probe, probe.index('<div class="spellings-section'))
+        probe = re.sub(r'<p class="(?:section-label|spellings-intro|spellings-hook)"[^>]*>.*?</p>', '', probe, flags=re.S)
+        while '<div class="spellings-grid' in probe:
+            _, probe = cut_div(probe, probe.index('<div class="spellings-grid'))
+        if text_of(probe):
+            raise Skip('unplaced content: ' + text_of(probe)[:80])
+        spell = nostyle(rest.strip())
     # ---- pieces of sections
     rk, rt, rbody = strip_section(root)
     lk, lt, lbody = strip_section(letters)
@@ -188,21 +233,26 @@ def build(h, slug):
     if m:
         iuh_row = m.group(0)
         pron = pron.replace(iuh_row, '')
+        iuh_row = nostyle(iuh_row)
     pron_h = re.search(r'<h2 class="pron-h2"[^>]*>(.*?)</h2>', pron, re.S)
     pron_title = pron_h.group(1) if pron_h else f'How to Pronounce {name}'
     pron_box = re.search(r'<div class="asr-pronunciation".*</div>', pron, re.S)
     pron_box = pron_box.group(0) if pron_box else ''
-    pron_box = re.sub(r' style="[^"]*"', '', pron_box)  # restyled by the np- rules; saves bytes
+    pron_box = nostyle(pron_box)  # restyled by the np- rules; saves bytes
+    pilot = PILOT.get(slug)
     nb = len(re.findall(r'<li>', bbody))
+    if pilot:
+        nb = sum(len(gp['people']) for gp in pilot['groups'])
     rail = nb >= 3
     gender_cls = 'girl' if x['g'] == 'Female' else 'boy'
+    NM = H.escape(name)
     def card(field, label, cls=''):
         dtx, dd = fields[field]
         return f'<div class="r np-card{cls}"><dt>{dtx}</dt>{dd}</div>'
     gender_dd = fields['gender'][1].replace('data-asr-field="gender"', f'class="rd-tag {gender_cls}" data-asr-field="gender"', 1)
     out = []
     out.append(hero)
-    out.append(f'<div class="asr-answer np-answer" aria-label="Quick answer about {H.escape(name)}">'
+    out.append(f'<div class="asr-answer np-answer" aria-label="Quick answer about {NM}">'
                f'<dl class="asr-answer-rows np-cards">'
                f'{card("meaning-dict", "Meaning")}{card("origin", "Origin")}'
                f'<div class="r np-card"><dt>{fields["gender"][0]}</dt>{gender_dd}</div>'
@@ -212,67 +262,137 @@ def build(h, slug):
                f'<dl class="np-pron-dl"><div class="r"><dt>{fields["pronunciation"][0]}</dt>{fields["pronunciation"][1]}</div></dl>'
                f'{pron_box}</section>'
                f'{islamic}</div>')
-    jumps = ['<a href="#reading">Letter reading</a>', '<a href="#origin">Origin</a>', '<a href="#story">Story</a>']
+    if pilot and pilot.get('dyk'):
+        out.append(f'<a class="np-dyk" href="#origin"><span class="np-dyk-k">Did you know</span><span class="np-dyk-t">{H.escape(pilot["dyk"])}</span>'
+                   f'<span class="np-dyk-go">See how &darr;</span>{DRAFT}</a>')
+    jumps = ['<a href="#reading">Letter reading</a>', '<a href="#origin">How it was formed</a>', '<a href="#story">Story</a>']
     if rail:
-        jumps.append(f'<a href="#famous">Famous {H.escape(name)}s</a>')
-    jumps += ['<a href="#kit" class="np-baby-only">Parent kit</a>', '<a href="#faq">Questions</a>']
-    out.append(f'<nav class="np-jump" aria-label="On this page"><span class="rd-kicker">On this page</span>{"".join(jumps)}'
-               f'<a class="np-jump-reading" href="#reading">{jump_text}</a></nav>')
+        jumps.append(f'<a href="#famous">Famous {NM}s</a>')
+    jumps += ['<a href="#kit">Parent kit</a>', '<a href="#faq">Questions</a>']
+    # a div with the navigation role, not <nav>: the pages' older inline styles make every bare <nav> a sticky header bar
+    out.append(f'<div class="np-jump" role="navigation" aria-label="On this page"><div class="np-jump-in">{"".join(jumps)}'
+               f'<a class="np-jump-reading" href="#reading">{jump_text}</a></div></div>')
     g = []
     # 01 letters
+    edge = (f'<div class="np-edge"><p class="rd-kicker">Growth edge {DRAFT}</p><p>{H.escape(pilot["edge"])}</p></div>'
+            if pilot and pilot.get('edge') else '')
     g.append(f'<section id="reading" class="np-sec np-letters"><p class="rd-kicker">01 · {lk}</p>'
-             f'<h2 class="rd-h2">{H.escape(name)}: letter-by-letter reading</h2><h3 class="np-h3">{lt}</h3>{lbody}'
+             f'<h2 class="rd-h2">{NM}: letter-by-letter reading</h2><h3 class="np-h3">{lt}</h3>{lbody}'
              f'<div class="np-portrait-row"><div class="np-portrait"><p class="rd-kicker"><span class="np-my">Your portrait</span><span class="np-baby">Your child\'s portrait</span> · {sk}</p>'
-             f'<h3 class="np-h3">{st}</h3>{sbody}</div>{lucky_card(gl, lucky_pub)}</div>'
-             f'{iuh_row}</section>')
-    # 02 origin and history
+             f'<h3 class="np-h3">{st}</h3>{sbody}{edge}{iuh_row}</div>{lucky_card(gl, lucky_pub)}</div></section>')
+    # 02 origin and history: numbered stops, each only with content
     src = re.search(r'asr-source-line', rbody)
-    has_q = bool(re.search(r'\b\d{1,3}:\d{1,3}\b', text_of(quranic)))
-    stops = [f'<li class="np-stop"><p class="np-stop-k">Formed{" <span class=\"np-conf\">Established</span>" if src else ""}</p>'
-             f'<p class="rd-kicker">{rk}</p><h3 class="np-h3">{rt}</h3>{rbody}</li>']
+    qrefs = []
+    for r_ in re.findall(r'\b(\d{1,3}:\d{1,3})\b', text_of(quranic)):
+        if r_ not in qrefs:
+            qrefs.append(r_)
+    def foot(conf, source):
+        if not conf and not source:
+            return ''
+        return (f'<p class="np-stop-f">{"<span class=\"np-conf\">" + conf + "</span>" if conf else ""}'
+                f'{"<span class=\"np-src\">Source: " + H.escape(source) + "</span>" if source else ""}</p>')
+    def stop(title, sub, inner):
+        return (f'<li class="np-stop"><div class="np-stop-h"><span class="np-stop-t">{title}</span>'
+                f'{"<span class=\"np-stop-sub\">" + sub + "</span>" if sub else ""}</div>{inner}</li>')
+    stops = []
+    if pilot and pilot.get('born'):
+        bn = pilot['born']
+        stops.append(stop('Born', H.escape(bn['sub']), f'<p class="np-stop-p">{H.escape(bn["text"])}</p>{foot("Established", bn["source"])}{DRAFT}'))
+    fv = ''
+    if pilot and pilot.get('formed_verse'):
+        fv = (f'<div class="np-verse-mini"><span lang="ar" dir="rtl">{pilot["formed_verse"]["ar"]}</span>'
+              f'<p>{pilot["formed_verse"]["html"]}</p>{DRAFT}</div>')
+    stops.append(stop('Formed', rk, f'<h3 class="np-h3">{rt}</h3>{rbody}{fv}{foot("Established" if src else "", "")}'))
     if text_of(quranic):
-        stops.append(f'<li class="np-stop"><p class="np-stop-k">Blessed{" <span class=\"np-conf\">Established</span>" if has_q else ""}</p>{quranic}</li>')
-    trav = spell + blocks['VARIATIONS'] + blocks['ASRLINK']
+        stops.append(stop('Blessed', 'Quran', f'{quranic}{foot("Established" if qrefs else "", ("Quran " + ", ".join(qrefs[:4])) if qrefs else "")}'))
+    trav = spell + nostyle(blocks['VARIATIONS'] + blocks['ASRLINK'])
     if text_of(trav):
-        stops.append(f'<li class="np-stop"><p class="np-stop-k">Travelled</p>{trav}</li>')
+        th = ''
+        if pilot and pilot.get('travelled'):
+            tv = pilot['travelled']
+            th = f'<p class="np-stop-p">{H.escape(tv["text"])}</p>{foot("Established", tv["source"])}{DRAFT}'
+        stops.append(stop('Travelled', 'Spellings and variants', th + trav))
     g.append(f'<section id="origin" class="np-sec np-journey"><p class="rd-kicker">02 · How the name was formed</p>'
-             f'<h2 class="rd-h2">{H.escape(name)}: origin and history</h2><ol class="np-stops">{"".join(stops)}</ol></section>')
+             f'<h2 class="rd-h2">{NM}: origin and history</h2><ol class="np-stops">{"".join(stops)}</ol></section>')
     # rail (3 or more bearers) placed by CSS; otherwise the bearers stay inside the story
     if rail:
-        g.append(f'<aside id="famous" class="np-rail" aria-labelledby="np-famous-h"><p class="rd-kicker">{bk}</p>'
-                 f'<h2 id="np-famous-h" class="rd-h2">Famous {H.escape(name)}s</h2><h3 class="np-h3">{bt}</h3>{bbody}'
+        if pilot:
+            grp = ''
+            for gp in pilot['groups']:
+                lis = ''
+                for pp in gp['people']:
+                    if isinstance(pp, dict):
+                        mm = re.search(r'<li>(?:(?!</li>).)*' + re.escape(pp['existing']) + r'.*?</li>', bbody, re.S)
+                        if not mm:
+                            raise Skip('pilot bearer not on page: ' + pp['existing'])
+                        lis += mm.group(0)
+                    else:
+                        lis += f'<li><strong>{H.escape(pp[0])}</strong> <span class="bearer-meta">({H.escape(pp[1])})</span>. {H.escape(pp[2])}</li>'
+                grp += f'<div class="np-rail-g"><h3 class="np-rail-gh">{H.escape(gp["label"])}</h3><ul class="bearers-list">{lis}</ul></div>'
+            used = text_of(grp)
+            for li in re.findall(r'<li>.*?</li>', bbody, re.S):
+                if text_of(li) not in used:
+                    raise Skip('existing bearer missing from pilot rail: ' + text_of(li)[:40])
+            rail_body = f'<p class="np-rail-intro">{H.escape(pilot["rail_intro"])} {DRAFT}</p><div class="np-rail-groups">{grp}</div>'
+        else:
+            rail_body = f'<div class="np-rail-groups"><div class="np-rail-g">{bbody}</div></div>'
+        g.append(f'<aside id="famous" class="np-rail" aria-labelledby="np-famous-h"><p class="rd-kicker">{bk or "Who carried it"}</p>'
+                 f'<h2 id="np-famous-h" class="rd-h2">Famous {NM}s</h2>{"<h3 class=\"np-h3\">" + bt + "</h3>" if bt else ""}{rail_body}'
                  f'<p class="np-rail-note">Only people with a verifiable source are listed.</p></aside>')
     story_bearers = '' if rail or not bbody else f'<div class="np-bearers"><p class="rd-kicker">{bk}</p><h3 class="np-h3">{bt}</h3>{bbody}</div>'
     g.append(f'<section id="story" class="np-sec np-story"><p class="rd-kicker">03 · {dk}</p>'
-             f'<h2 class="rd-h2">The story of the name {H.escape(name)}</h2><h3 class="np-h3">{dt}</h3>{dbody}{story_bearers}</section>')
-    # 04 parent kit (baby mode)
-    sib = re.findall(r'<a href="(/names/[a-z0-9-]+/)" class="related-card"[^>]*>.*?</a>', blocks['RELATED'], re.S)[:8]
+             f'<h2 class="rd-h2">The story of the name {NM}</h2><h3 class="np-h3">{dt}</h3>{dbody}{story_bearers}</section>')
+    # 04 parent kit: a short invitation in "my name" mode, the kit itself in baby mode
+    # sibling chips come from the "parents who searched this name also found" row (the small cards)
+    sib = re.findall(r'<a href="(/names/[a-z0-9-]+/)" class="related-card[^"]* sm"', blocks['RELATED'])[:8]
     sib_links = ''
     for href in sib:
         s2 = href.split('/')[2]
         if s2 in IDX:
             t = 'girl' if IDX[s2]['g'] == 'Female' else 'boy'
             sib_links += f'<a class="np-sib rd-tag {t}" href="{href}">{H.escape(IDX[s2]["n"])}</a>'
-    g.append(f'<section id="kit" class="np-sec np-kit np-baby" aria-labelledby="np-kit-h"><p class="rd-kicker">04 · Parent kit</p>'
-             f'<h2 id="np-kit-h" class="rd-h2">Naming a baby {H.escape(name)}</h2>'
-             f'<div class="np-kit-grid"><div class="np-kit-box"><h3 class="np-h3">Try it with your surname</h3>'
-             f'<label class="np-kit-label" for="np-surname">Surname</label><input id="np-surname" class="np-input" type="text" autocomplete="off" maxlength="40" placeholder="Your surname">'
-             f'<p class="np-kit-out" aria-live="polite" data-np-first="{H.escape(name)}"><span class="np-full">{H.escape(name)}</span> <span class="np-initials"></span></p>'
-             f'<p class="np-kit-note">Nothing you type leaves this page.</p></div>'
-             + (f'<div class="np-kit-box"><h3 class="np-h3">Pairs well for siblings</h3><p class="np-sibs">{sib_links}</p></div>' if sib_links else '')
-             + '</div></section>')
-    # 05 share
+    pron_txt = text_of(fields['pronunciation'][1])
+    variants = re.findall(r'<a href="(/names/[a-z0-9-]+/)" class="spelling-chip" data-variant>([^<]+)</a>', spell)
+    kit = [f'<div class="np-kit-box"><h3 class="np-h3">Say it right</h3><p class="np-say">{H.escape(pron_txt)}</p>'
+           f'<p class="np-kit-note">Stress and vowel length are in the pronunciation guide above.</p></div>',
+           f'<div class="np-kit-box"><h3 class="np-h3">Try it with your surname</h3>'
+           f'<label class="np-kit-label" for="np-surname">Your surname</label><input id="np-surname" class="np-input" type="text" autocomplete="off" maxlength="40" placeholder="e.g. Ali">'
+           f'<p class="np-kit-out" aria-live="polite" data-np-first="{NM}"><span class="np-full">{NM}</span> <span class="np-initials"></span></p>'
+           f'<p class="np-kit-note">Nothing you type leaves this page.</p></div>']
+    if sib_links:
+        kit.append(f'<div class="np-kit-box"><h3 class="np-h3">Pairs well for siblings</h3><p class="np-kit-note">Parents who looked at {NM} also looked at</p><p class="np-sibs">{sib_links}</p></div>')
+    if variants:
+        vl = ', '.join(f'<a href="{hf}">{H.escape(vn)}</a>' for hf, vn in variants)
+        kit.append(f'<div class="np-kit-box"><h3 class="np-h3">Choosing the spelling</h3><p class="np-kit-p"><strong>{NM}</strong> is the spelling on this page. '
+                   f'Other spellings with their own reading: {vl}.</p></div>')
+    g.append(f'<section id="kit" class="np-sec np-kit" aria-labelledby="np-kit-h"><p class="rd-kicker">04 · For parents</p>'
+             f'<h2 id="np-kit-h" class="rd-h2">Parent kit: naming a baby {NM}</h2>'
+             f'<div class="np-kit-teaser np-my"><p>Naming a baby? Switch to the parent view for pronunciation, a surname test and sibling names.</p>'
+             f'<button type="button" class="np-go" data-np-go="baby">Open parent view</button></div>'
+             f'<div class="np-kit-grid np-baby">{"".join(kit)}</div></section>')
+    # 05 share: a preview of the card beside the existing share block (same markup and IDs)
     if share:
-        g.append(f'<section id="share" class="np-sec np-keep"><p class="rd-kicker">05 · Keep it</p>{share}</section>')
+        ar_name = re.search(r'<div class="asr-name-hero-arabic"[^>]*>(.*?)</div>', hero, re.S)
+        sub_t = re.search(r'<div class="asr-name-hero-sub">(.*?)</div>', hero, re.S)
+        mock = (f'<div class="np-cardmock" aria-hidden="true"><span class="np-cm-k">AsrNaam · Ilm ul Huroof</span>'
+                f'<span class="np-cm-ar" lang="ar" dir="rtl">{ar_name.group(1) if ar_name else ""}</span><span class="np-cm-n">{NM}</span>'
+                f'<span class="np-cm-s">{text_of(sub_t.group(1)) if sub_t else ""}</span><span class="np-cm-f">asrnaam.com</span></div>')
+        g.append(f'<section id="share" class="np-sec np-keep" aria-labelledby="np-keep-h">{mock}<div class="np-keep-b">'
+                 f'<h2 id="np-keep-h" class="rd-h2">Keep your {NM} name card</h2>{share}</div></section>')
+    if pilot and pilot.get('dua'):
+        g.append(f'<section class="np-dua" aria-labelledby="np-dua-h"><svg aria-hidden="true" width="32" height="32" viewBox="0 0 72 72" fill="none" stroke="currentColor" stroke-width="2.4">'
+                 f'<rect x="18" y="18" width="36" height="36"/><rect x="18" y="18" width="36" height="36" transform="rotate(45 36 36)"/><circle cx="36" cy="36" r="7"/></svg>'
+                 f'<h2 id="np-dua-h">A dua for every {NM}</h2><p>{H.escape(pilot["dua"])}</p>{DRAFT}</section>')
     # next-name box
-    nxt = blocks['OBS-CALLOUT'] + blocks['INLINE-RA'] + blocks['HERO-RA'] + cta
+    nxt = nostyle(blocks['OBS-CALLOUT'] + blocks['INLINE-RA'] + blocks['HERO-RA']) + cta
     if text_of(nxt):
         g.append(f'<div class="np-next">{nxt}</div>')
-    # 06 FAQ
-    g.append(f'<section id="faq" class="np-sec np-faq"><p class="rd-kicker">06 · Questions</p>{faq}</section>')
+    # 06 FAQ (its own label and heading stay; the number is added by CSS)
+    faq_head = '' if faq_h2 else f'<p class="rd-kicker">06 · Frequently Asked Questions</p><h2 class="rd-h2">About the name {NM}</h2>'
+    g.append(f'<section id="faq" class="np-sec np-faq{"" if faq_h2 else " np-faq-b"}">{faq_head}{faq}{loose_styles}</section>')
     # more names like X
-    more = blocks['RELATED'] + blocks['SHARED'] + blocks['ASRMORE'] + blocks['LETTERCLUSTER']
-    g.append(f'<section class="np-sec np-more"><h2 class="rd-h2">More names like {H.escape(name)}</h2>{more}</section>')
+    more = nostyle(loose_related) + blocks['RELATED'] + blocks['SHARED'] + blocks['ASRMORE'] + blocks['LETTERCLUSTER']
+    g.append(f'<section class="np-sec np-more"><h2 class="rd-h2">More names like {NM}</h2>{more}</section>')
     g.append(blocks['TRUST'])
     if community:
         g.append(community)
@@ -280,13 +400,16 @@ def build(h, slug):
     if blocks['QURANIC'] and text_of(blocks['QURANIC']):
         raise Skip('second QURANIC block has text')
     new_body = '\n' + '\n'.join(out) + '\n'
+    if not rail:
+        pre = pre.replace(ART, ART.replace('asr-np"', 'asr-np np-solo"'))
     page = pre + new_body + post
     # mode switch in the breadcrumb row
-    switch = ('<div class="np-mode" role="group" aria-label="Reading mode">'
+    switch = ('<div class="np-mode" role="group" aria-label="Who are you reading for">'
               '<button type="button" class="np-mode-b" data-np-mode="me" aria-pressed="true">This is my name</button>'
               '<button type="button" class="np-mode-b" data-np-mode="baby" aria-pressed="false">I\'m naming a baby</button></div>')
-    page = page.replace('<!-- ASR:BREADCRUMB:END -->', '<!-- ASR:BREADCRUMB:END -->\n' + switch, 1)
-    return page, dict(old_hero=old_hero, rail=rail, bearers=nb, letters=len(gl))
+    page = page.replace('<!-- ASR:BREADCRUMB:START -->', '<div class="np-crumbrow"><!-- ASR:BREADCRUMB:START -->', 1)
+    page = page.replace('<!-- ASR:BREADCRUMB:END -->', '<!-- ASR:BREADCRUMB:END -->' + switch + '</div>', 1)
+    return page, dict(old_hero=old_hero, rail=rail, bearers=nb, letters=len(gl), pilot=bool(pilot))
 
 
 def convert_old_hero(hero, slug):

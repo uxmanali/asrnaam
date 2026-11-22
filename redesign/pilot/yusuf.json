@@ -1,0 +1,24 @@
+{
+  "_note": "Phase 1a DRAFT content for the Yusuf preview, from the brief's appendix B. Not approved. Rendered with a Draft label on the branch preview only.",
+  "dyk": "The Quran's own grammar marks Yusuf as a name from outside Arabic.",
+  "born": {"sub": "Hebrew", "text": "Yosef, from the verb meaning “to add.” In Genesis his mother names him as a prayer for another son: he will add.", "source": "Genesis 30:24"},
+  "formed_verse": {"ar": "فِي يُوسُفَ", "html": "12:7 reads <strong>fī Yūsufa</strong>. A native Arabic name in the same place ends in -in, as in fī Khālidin."},
+  "travelled": {"text": "Persian poets made Yusuf the emblem of beauty; Jami's Yusuf and Zulaikha (1483) is the best known retelling. The name spread with Muslim communities from Morocco to Indonesia, changing its spelling at every border.", "source": "Jami, Haft Awrang (1483)"},
+  "edge": "Keeping warmth and steadiness in balance. Under pressure one tends to swallow the other.",
+  "dua": "May every Yusuf be given patience in trial, beauty in character, and the strength to forgive.",
+  "rail_intro": "From the prophet to today, grouped by what they are remembered for.",
+  "groups": [
+    {"label": "The first Yusuf", "people": [["Prophet Yusuf, peace be upon him", "Quran, Surah 12", "Son of Prophet Yaqub. His whole life is told in one surah."]]},
+    {"label": "Rulers and builders", "people": [
+      ["Salah ad-Din Yusuf ibn Ayyub", "1137-1193", "Sultan of Egypt and Syria, known in the West as Saladin. Retook Jerusalem in 1187."],
+      ["Yusuf ibn Tashfin", "d. 1106", "Almoravid ruler who united Morocco and al-Andalus."],
+      ["Yusuf I of Granada", "1318-1354", "Nasrid sultan who built the Alhambra's Gate of Justice and Comares Tower."]]},
+    {"label": "Scholars and poets", "people": [
+      ["Yusuf Khass Hajib Balasaguni", "c. 1019-1077", "Wrote Kutadgu Bilig (1069-70), a founding work of Turkic literature."],
+      {"existing": "Yusuf al-Qaradawi"}]},
+    {"label": "In our time", "people": [
+      ["Yusuf Islam", "b. 1948", "Singer-songwriter, formerly known as Cat Stevens."],
+      ["Mohammad Yousuf", "b. 1974", "Pakistan batter. Most Test runs in a calendar year: 1,788 in 2006."],
+      ["Yusuf Dikeç", "b. 1973", "Turkish sport shooter. Olympic silver medallist, Paris 2024."]]}
+  ]
+}

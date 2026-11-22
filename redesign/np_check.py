@@ -55,6 +55,14 @@ def check(base, slug):
     lost = [s for s in nodes(old) if s not in tv and not any(a in s for a in ALLOWED_GONE) and SECTION_LABEL.sub('', s) not in tv]
     if lost:
         errs.append(f'{len(lost)} sentence(s) lost: ' + ' | '.join(x[:70] for x in lost[:3]))
+    from collections import Counter
+    # the share-card preview repeats the hero line on purpose (decorative, aria-hidden)
+    co, cn = Counter(nodes(old)), Counter(nodes(re.sub(r'<div class="np-cardmock".*?</div>', ' ', new, flags=re.S)))
+    dup = [t for t in cn if len(t) > 60 and cn[t] > max(1, co.get(t, 0))]
+    if dup:
+        errs.append(f'{len(dup)} text block(s) duplicated: ' + dup[0][:60])
+    if old.count('<details') != new.count('<details') or new.count('class="faq-list"') != 1:
+        errs.append(f'FAQ items {old.count("<details")} -> {new.count("<details")}')
     lo = len(re.findall(r'href="(?:https://asrnaam\.com)?/names/[a-z0-9-]+/"', old))
     ln = len(re.findall(r'href="(?:https://asrnaam\.com)?/names/[a-z0-9-]+/"', new))
     if ln < lo:

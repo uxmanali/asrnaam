@@ -688,6 +688,7 @@
     try { saved = localStorage.getItem('asr-np-mode'); } catch (e) {}
     if (saved === 'baby' || saved === 'me') set(saved, false);
     btns.forEach(function (b) { b.addEventListener('click', function () { set(b.getAttribute('data-np-mode'), true); }); });
+    document.querySelectorAll('[data-np-go]').forEach(function (b) { b.addEventListener('click', function () { set(b.getAttribute('data-np-go'), true); var k = document.getElementById('kit'); if (k) k.scrollIntoView({ block: 'start' }); }); });
     var inp = document.getElementById('np-surname');
     var out = document.querySelector('.np-kit-out');
     if (inp && out) {
@@ -696,7 +697,7 @@
       inp.addEventListener('input', function () {
         var sur = inp.value.replace(/\s+/g, ' ').trim();
         full.textContent = sur ? first + ' ' + sur : first;
-        ini.textContent = sur ? '(' + (first.charAt(0) + '.' + sur.charAt(0) + '.').toUpperCase() + ')' : '';
+        ini.textContent = sur ? 'Initials: ' + (first.charAt(0) + '. ' + sur.charAt(0) + '.').toUpperCase() : '';
       });
     }
   }
