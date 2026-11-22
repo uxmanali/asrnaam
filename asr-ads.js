@@ -60,6 +60,10 @@
   function loadLibrary() {
     if (LOADED) return;
     LOADED = true;
+    // Pages whose head carries the delayed loader (window.asrLoadAdsLib)
+    // fetch the library on the first scroll, tap or key press, or 3 s after
+    // the page has loaded, so it does not compete with the page itself.
+    if (typeof window.asrLoadAdsLib === 'function') { window.asrLoadAdsLib(); return; }
     if (document.querySelector('script[src*="adsbygoogle.js"]')) return;
     var s = document.createElement('script');
     s.async = true;
