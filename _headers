@@ -54,7 +54,3 @@
 # (asrnaam.com is the only address that should be indexed).
 https://asrnaam.uxmanali.workers.dev/*
   X-Robots-Tag: noindex
-
-# Speed test copies, never indexed.
-/lab/*
-  X-Robots-Tag: noindex
