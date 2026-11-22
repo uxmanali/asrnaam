@@ -121,6 +121,11 @@ def lucky_card(gl, published):
 def build(h, slug):
     x = IDX[slug]
     name = x['n']
+    # corrections that apply to the whole page, head included (each is listed in the pilot file and reported by the check)
+    for fx in (PILOT.get(slug) or {}).get('page_fixes', []):
+        if fx['old'] not in h:
+            raise Skip('page fix not found: ' + fx['old'][:40])
+        h = h.replace(fx['old'], fx['new'])
     if '<article class="asr-name-article">' not in h:
         raise Skip('no plain article tag')
     if 'asr-np' in h:

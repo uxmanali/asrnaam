@@ -7,5 +7,45 @@
    "new": "and by two Ottoman sultans.",
    "reason": "the sentence was cut off mid-way"
   }
+ ],
+ "page_fixes": [
+  {
+   "old": "Pronounced BAYEZID",
+   "new": "Pronounced ba-ye-ZEED",
+   "reason": "the pronunciation was the name in capitals, not a pronunciation; this also corrects the meta description"
+  },
+  {
+   "old": ">BAYEZID<",
+   "new": ">ba-ye-ZEED<",
+   "reason": "same"
+  },
+  {
+   "old": ">2 syllables<",
+   "new": ">3 syllables<",
+   "reason": "Ba-ye-zid has three syllables"
+  }
+ ],
+ "locale_fixes": [
+  {
+   "file": "ur/names/bayezid/index.html",
+   "old": "BAYEZID لکھا جاتا ہے، ۲ ہجے",
+   "new": "ba-ye-ZEED لکھا جاتا ہے، ۳ ہجے",
+   "count": 2,
+   "reason": "Urdu FAQ and its JSON-LD: pronunciation and syllable count"
+  },
+  {
+   "file": "ur/names/bayezid/index.html",
+   "old": "BAYEZID",
+   "new": "ba-ye-ZEED",
+   "count": 6,
+   "reason": "remaining pronunciation mentions on the Urdu page"
+  },
+  {
+   "file": "hi/names/bayezid/index.html",
+   "old": "BAYEZID",
+   "new": "ba-ye-ZEED",
+   "count": 1,
+   "reason": "Hindi page"
+  }
  ]
 }

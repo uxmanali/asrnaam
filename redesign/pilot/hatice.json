@@ -6,5 +6,26 @@
    "reason": "she was Suleiman's sister, not his daughter",
    "source": "Wikipedia: Hatice Sultan (daughter of Selim I); encyclopedia.com: Hatice (fl. 1500-1536), read 22 Nov 2026"
   }
+ ],
+ "page_fixes": [
+  {
+   "old": "ha-TI-ce",
+   "new": "ha-tee-JEH",
+   "reason": "Turkish c is the English j sound and the stress falls on the last syllable; the old respelling read as ha-TEE-see"
+  },
+  {
+   "old": "ha·ti·ce",
+   "new": "ha·tee·jeh",
+   "reason": "syllable line follows the corrected respelling"
+  }
+ ],
+ "locale_fixes": [
+  {
+   "file": "ur/names/hatice/index.html",
+   "old": "ha-TI-ce",
+   "new": "ha-tee-JEH",
+   "count": 8,
+   "reason": "same pronunciation correction on the Urdu page (meta, quick facts, FAQ and its JSON-LD)"
+  }
  ]
 }

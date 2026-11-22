@@ -1,0 +1,32 @@
+{
+ "drop": [
+  {
+   "match": "whose 2007 case became a major Pakistani legal and human-rights story</li>",
+   "reason": "the only bearer listed was a crime victim who was a minor at the time; replaced with a public figure known for her own work (Usman, 22 Nov 2026: find better bearers)"
+  }
+ ],
+ "fixes": [
+  {
+   "old": "It was carried by Kainat Soomro.",
+   "new": "It was carried by Kainat Imtiaz.",
+   "reason": "follows the bearer change"
+  }
+ ],
+ "add": [
+  {
+   "name": "Kainat Imtiaz",
+   "meta": "b. 1992 · Karachi, Pakistan",
+   "note": "Pakistan international cricketer, an all-rounder for the national women's team.",
+   "source": "ESPNcricinfo player page; Wikipedia: Kainat Imtiaz, read 22 Nov 2026"
+  }
+ ],
+ "locale_fixes": [
+  {
+   "file": "ur/names/kainat/index.html",
+   "old": "<strong>Kainat Soomro</strong>",
+   "new": "<strong>Kainat Imtiaz</strong>",
+   "count": 1,
+   "reason": "same bearer change on the Urdu page (name is in Latin script there; dates and country are the same)"
+  }
+ ]
+}

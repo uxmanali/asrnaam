@@ -43,6 +43,10 @@ def check_pair(old, new, slug=None):
     pf = f'redesign/pilot/{slug}.json' if slug else ''
     if pf and os.path.exists(pf):
         pj = json.load(open(pf, encoding='utf8'))
+        for fx in pj.get('page_fixes', []):
+            n_head = old[:old.index('</head>')].count(fx['old'])
+            old = old.replace(fx['old'], fx['new'])   # compared as corrected: nothing else in the head or the JSON may differ
+            notes.append('corrected page-wide' + (f' (head x{n_head})' if n_head else '') + ': ' + fx['reason'])
         for fx in pj.get('fixes', []):
             allowed += nodes('<body>' + fx['old']) or [fx['old']]
             notes.append('fixed: ' + fx['reason'])
