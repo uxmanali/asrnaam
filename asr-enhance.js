@@ -683,7 +683,7 @@
     }
     if(!items.length){ listEl.innerHTML = ''; return; }
     listEl.innerHTML = items.slice(0, 10).map(function(e, i){
-      var clusterBadge = e.__cluster ? '<span class="asr-cmdk-badge" style="display:inline-block;margin-left:.45rem;padding:.05rem .45rem;border:1px solid rgba(139,105,20,0.3);border-radius:8px;font-size:.65rem;letter-spacing:.08em;text-transform:uppercase;color:#8B6914;">also spelt</span>' : '';
+      var clusterBadge = e.__cluster ? '<span class="asr-cmdk-badge" style="display:inline-block;align-self:flex-start;margin-left:0;padding:.05rem .45rem;border:1px solid rgba(139,105,20,0.3);border-radius:8px;font-size:.65rem;letter-spacing:.08em;text-transform:uppercase;color:#8B6914;">also spelt</span>' : '';
       return '<a class="asr-cmdk-item'+(i===0?' active':'')+'" id="asr-cmdk-o'+i+'" role="option" aria-selected="'+(i===0?'true':'false')+'" href="'+e.h+'" data-i="'+i+'">'+
         '<span class="asr-cmdk-name">'+esc(e.n)+'</span>'+clusterBadge+
         (e.m?'<span class="asr-cmdk-meaning">'+esc(e.m)+'</span>':'')+
