@@ -138,44 +138,44 @@
 
     // Sage-green vertical gradient
     var bg = ctx.createLinearGradient(0, 0, 0, H);
-    bg.addColorStop(0,    '#3F4E3F');
-    bg.addColorStop(0.55, '#4A5944');
-    bg.addColorStop(1,    '#2C3829');
+    bg.addColorStop(0,    '#16695E');
+    bg.addColorStop(0.55, '#0E4D45');
+    bg.addColorStop(1,    '#0A3A34');
     ctx.fillStyle = bg;
     ctx.fillRect(0, 0, W, H);
 
     // Subtle paper grain
     ctx.globalAlpha = 0.045;
-    ctx.fillStyle = '#F5ECD7';
+    ctx.fillStyle = '#FFFFFF';
     for(var i=0;i<220;i++){
       ctx.fillRect(Math.random()*W, Math.random()*H, 1.3, 1.3);
     }
     ctx.globalAlpha = 1;
 
     // Gold accent border
-    ctx.strokeStyle = '#C9930A';
+    ctx.strokeStyle = '#E7CF97';
     ctx.lineWidth = 6;
     ctx.strokeRect(30, 30, W - 60, H - 60);
-    ctx.strokeStyle = 'rgba(212,160,23,0.38)';
+    ctx.strokeStyle = 'rgba(231,207,151,0.38)';
     ctx.lineWidth = 1;
     ctx.strokeRect(48, 48, W - 96, H - 96);
 
     // Top eyebrow
-    ctx.fillStyle = 'rgba(245,236,215,0.78)';
+    ctx.fillStyle = 'rgba(255,255,255,0.78)';
     ctx.font = '600 22px Cinzel, Georgia, serif';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'top';
     ctx.fillText('A S R   ·   N A A M', W / 2, 92);
 
-    ctx.fillStyle = '#C9930A';
+    ctx.fillStyle = '#E7CF97';
     ctx.fillRect(W / 2 - 36, 130, 72, 1.4);
 
-    ctx.fillStyle = 'rgba(245,236,215,0.55)';
+    ctx.fillStyle = 'rgba(255,255,255,0.55)';
     ctx.font = '500 13px Cinzel, Georgia, serif';
     ctx.fillText('I L M   U L   H U R O O F   ·   T H E   R E A D I N G', W / 2, 148);
 
     // English name (Cinzel-ish)
-    ctx.fillStyle = '#F5ECD7';
+    ctx.fillStyle = '#FFFFFF';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
     var nameSize = 120;
@@ -189,13 +189,13 @@
 
     // Divider
     var dy = nameY + nameSize / 2 + 38;
-    ctx.fillStyle = '#C9930A';
+    ctx.fillStyle = '#E7CF97';
     ctx.fillRect(W / 2 - 70, dy, 140, 2);
 
     // Arabic
     var arY = dy + 92;
     if(data.arabic){
-      ctx.fillStyle = '#F5ECD7';
+      ctx.fillStyle = '#FFFFFF';
       ctx.font = '500 80px "Noto Naskh Arabic", "Amiri", "Scheherazade New", serif';
       ctx.textBaseline = 'middle';
       ctx.fillText(data.arabic, W / 2, arY);
@@ -204,7 +204,7 @@
     // Urdu
     var urY = arY + 100;
     if(data.urdu && data.urdu !== data.arabic){
-      ctx.fillStyle = 'rgba(245,236,215,0.88)';
+      ctx.fillStyle = 'rgba(255,255,255,0.88)';
       ctx.font = '500 60px "Noto Nastaliq Urdu", "Noto Naskh Arabic", "Amiri", serif';
       ctx.fillText(data.urdu, W / 2, urY);
     } else {
@@ -213,13 +213,13 @@
 
     // Mid divider
     var dy2 = urY + 78;
-    ctx.fillStyle = 'rgba(212,160,23,0.55)';
+    ctx.fillStyle = 'rgba(231,207,151,0.55)';
     ctx.fillRect(W / 2 - 36, dy2, 72, 1);
 
     // Meaning (2–3 lines)
     var quote = (data.meaning || '').trim();
     if(quote){
-      ctx.fillStyle = 'rgba(245,236,215,0.94)';
+      ctx.fillStyle = 'rgba(255,255,255,0.94)';
       ctx.font = 'italic 600 36px Georgia, "Cormorant Garamond", serif';
       ctx.textBaseline = 'top';
       wrapText(ctx, '"' + quote + '"', W / 2, dy2 + 44, W - 220, 50, 3);
@@ -253,13 +253,13 @@
       }catch(e){ /* ignore QR errors */ }
     }
 
-    ctx.fillStyle = '#C9930A';
+    ctx.fillStyle = '#E7CF97';
     ctx.font = '600 26px Cinzel, Georgia, serif';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'top';
     ctx.fillText('asrnaam.com', W / 2, qrY + qrSize + 34);
 
-    ctx.fillStyle = 'rgba(245,236,215,0.5)';
+    ctx.fillStyle = 'rgba(255,255,255,0.5)';
     ctx.font = '500 14px Cinzel, Georgia, serif';
     ctx.fillText('S C A N   T O   R E A D   T H E   L E T T E R S', W / 2, qrY + qrSize + 70);
 

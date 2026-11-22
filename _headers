@@ -54,3 +54,7 @@
 # (asrnaam.com is the only address that should be indexed).
 https://asrnaam.uxmanali.workers.dev/*
   X-Robots-Tag: noindex
+
+# Preview and version URLs on workers.dev are never indexed (Cloudflare also adds this itself).
+https://:version.:subdomain.workers.dev/*
+  X-Robots-Tag: noindex

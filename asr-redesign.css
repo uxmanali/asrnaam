@@ -1250,3 +1250,117 @@ html[data-theme="dark"] body #notdCta, html[data-theme="dark"] body a.rd-btn-pri
 }
 /* d) In-text links in short footers must not rely on colour alone. */
 html body footer > a { text-decoration: underline; text-underline-offset: 2px; }
+
+/* ==== Name page redesign (asr-np), 22 Nov 2026. Scoped to migrated pages only; old pages keep their look. ==== */
+.np-mode { display: none; }
+html body:has(.asr-np) .np-mode {
+  display: flex; gap: 6px; justify-content: flex-end; flex-wrap: wrap;
+  max-width: 1160px; margin: -6px auto 10px; padding: 0 28px;
+}
+html body .np-mode-b {
+  font: 600 13px/1 'Inter', system-ui, sans-serif; min-height: 44px; padding: 0 16px; border-radius: 999px;
+  border: 1px solid var(--line); background: var(--card); color: var(--ink); cursor: pointer;
+}
+html body .np-mode-b[aria-pressed="true"] { background: var(--emerald); border-color: var(--emerald); color: #fff; }
+html body .asr-np .np-baby, html body .asr-np .np-baby-only { display: none; }
+html body .asr-np[data-np-mode="baby"] .np-baby { display: block; }
+html body .asr-np[data-np-mode="baby"] .np-baby-only, html body .asr-np[data-np-mode="baby"] span.np-baby { display: inline; }
+html body .asr-np[data-np-mode="baby"] .np-my { display: none; }
+html body .asr-np .np-answer { padding-bottom: 0 !important; }
+html body .asr-np .np-cards { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+html body .asr-np .np-card-ur dd + dd { font-size: 1.05rem !important; }
+html body .asr-np .np-pron, html body .asr-np .np-jump, html body .asr-np .np-sec, html body .asr-np .np-next, html body .asr-np .np-rail {
+  background: var(--card); border: 1px solid var(--line); border-radius: 16px;
+}
+html body .asr-np .np-pron { margin-top: 12px; padding: 14px 18px; }
+html body .asr-np .np-h2-small { font: 700 12px/1.3 'Inter', system-ui, sans-serif; letter-spacing: .14em; text-transform: uppercase; color: var(--gold-ink); margin: 0 0 6px; }
+html body .asr-np .np-pron-dl { margin: 0; }
+html body .asr-np .np-pron-dl .r { display: flex; gap: 10px; align-items: baseline; }
+html body .asr-np .np-pron-dl dt { font: 600 12px 'Inter', system-ui, sans-serif; color: var(--muted); }
+html body .asr-np .np-pron-dl dd { margin: 0; font-size: 1.15rem; color: var(--ink); }
+html body .asr-np .np-pron .asr-pronunciation { margin: 8px 0 0 !important; background: transparent !important; border-left: 0 !important; padding: 0 !important; }
+html body .asr-np .np-jump {
+  max-width: 1104px; margin: 14px auto 0; padding: 10px 16px; display: flex; flex-wrap: wrap; gap: 6px 16px; align-items: center;
+}
+html body .asr-np .np-jump a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; min-height: 44px; display: inline-flex; align-items: center; }
+html body .asr-np .np-jump .np-jump-reading { margin-left: auto; color: var(--gold-ink); }
+html body .asr-np .np-grid { max-width: 1104px; margin: 16px auto 0; padding: 0 0 8px; display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; }
+html body .asr-np .np-grid > * { min-width: 0; }
+html body .asr-np .np-sec { padding: 22px 22px 18px; }
+html body .asr-np .np-sec > .rd-kicker { margin: 0 0 6px; }
+html body .asr-np .np-sec .rd-h2 { font-size: clamp(26px, 3.4vw, 34px); margin: 0 0 6px; color: var(--ink); }
+html body .asr-np .np-h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 1.3rem; margin: 6px 0 8px; color: var(--ink); }
+html body .asr-np .np-letters .asr-v2-letter-grid { margin: 8px 0 14px; }
+html body .asr-np .np-portrait-row { display: grid; grid-template-columns: minmax(0, 1fr) 280px; gap: 14px; align-items: start; margin-top: 10px; }
+html body .asr-np .np-portrait { background: var(--cream-2); border-radius: 16px; padding: 16px 18px; }
+html body .asr-np .np-lucky { margin: 0 !important; }
+html body .asr-np .np-lucky-dl { margin: 2px 0 6px; }
+html body .asr-np .np-lucky-dl .r { display: block; }
+html body .asr-np .np-lucky-dl dt { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+html body .asr-np .np-lucky-dl dd { margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 3rem; line-height: 1; color: var(--gold); }
+html body .asr-np .np-letters .qf-row { display: block; margin-top: 12px; font-size: .95rem; color: var(--muted); }
+html body .asr-np .np-letters .qf-label { font: 700 12px 'Inter', system-ui, sans-serif; letter-spacing: .14em; text-transform: uppercase; color: var(--gold-ink); margin-right: 8px; }
+html body .asr-np .np-stops { list-style: none; margin: 10px 0 0; padding: 0 0 0 22px; border-left: 2px solid var(--line); }
+html body .asr-np .np-stop { position: relative; padding: 0 0 18px 6px; }
+html body .asr-np .np-stop::before { content: ""; position: absolute; left: -31px; top: 4px; width: 14px; height: 14px; border-radius: 50%; background: var(--emerald); border: 3px solid var(--card); }
+html body .asr-np .np-stop-k { font: 700 12px 'Inter', system-ui, sans-serif; letter-spacing: .14em; text-transform: uppercase; color: var(--gold-ink); margin: 0 0 4px; }
+html body .asr-np .np-conf { display: inline-block; margin-left: 8px; padding: 2px 8px; border-radius: 999px; font-size: 11px; letter-spacing: .06em; background: var(--emerald); color: #fff; }
+html body .asr-np .np-stop .asr-v2-root-glyph { font-size: 1.6rem; }
+html body .asr-np .np-story .np-bearers { margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--line); }
+html body .asr-np .np-kit-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin-top: 8px; }
+html body .asr-np .np-kit-box { background: var(--cream-2); border-radius: 16px; padding: 14px 16px; }
+html body .asr-np .np-kit-label { display: block; font-size: 13px; color: var(--muted); margin-bottom: 4px; }
+html body .asr-np .np-input { width: 100%; min-height: 44px; padding: 0 12px; font: inherit; font-size: 16px; color: var(--ink); background: var(--card); border: 1px solid var(--line); border-radius: 12px; }
+html body .asr-np .np-kit-out { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.5rem; margin: 10px 0 2px; color: var(--ink); }
+html body .asr-np .np-initials { font: 600 13px 'Inter', system-ui, sans-serif; color: var(--gold-ink); }
+html body .asr-np .np-kit-note { font-size: 13px; color: var(--muted); margin: 0; }
+html body .asr-np .np-sibs { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; }
+html body .asr-np .np-sib { text-decoration: none; min-height: 32px; }
+html body .asr-np .np-next { padding: 18px 20px; }
+html body .asr-np .np-next aside, html body .asr-np .np-next .asr-ra-hero, html body .asr-np .np-next .cta-box { margin: 0 0 12px !important; max-width: none !important; }
+html body .asr-np .np-faq .section-label { margin-top: 0; }
+html body .asr-np .np-more .related-section { margin: 12px 0 0; max-width: none; padding: 0; }
+html body .asr-np .np-grid > .asr-trust { max-width: none !important; padding: 0 4px !important; margin: 0 !important; }
+html body .asr-np .np-rail { padding: 18px; }
+html body .asr-np .np-rail .rd-h2 { font-size: 26px; }
+html body .asr-np .np-rail-note { font-size: 13px; color: var(--muted); margin: 10px 0 0; }
+@media (min-width: 1100px) {
+  html body .asr-np .np-grid.has-rail { grid-template-columns: minmax(0, 1fr) 300px; }
+  html body .asr-np .np-grid.has-rail > * { grid-column: 1; }
+  html body .asr-np .np-grid.has-rail > .np-rail { grid-column: 2; grid-row: 1 / span 12; position: sticky; top: 84px; align-self: start; }
+}
+@media (max-width: 1099px) {
+  html body .asr-np .np-grid > .np-letters { order: 1; }
+  html body .asr-np .np-grid > .np-journey { order: 2; }
+  html body .asr-np .np-grid > .np-rail { order: 3; }
+  html body .asr-np .np-grid > * { order: 4; }
+  html body .asr-np .np-rail ul { display: flex; overflow-x: auto; gap: 12px; padding-bottom: 6px; scroll-snap-type: x mandatory; }
+  html body .asr-np .np-rail li { flex: 0 0 78%; scroll-snap-align: start; }
+}
+@media (max-width: 760px) {
+  html body .asr-np .np-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  html body .asr-np .np-portrait-row { grid-template-columns: minmax(0, 1fr); }
+  html body .asr-np .np-sec { padding: 18px 16px 14px; }
+  html body .asr-np .np-grid, html body .asr-np .np-jump { margin-left: 12px; margin-right: 12px; }
+  html body .asr-np .np-jump .np-jump-reading { margin-left: 0; }
+  html body:has(.asr-np) .np-mode { padding: 0 12px; justify-content: flex-start; }
+}
+[dir="rtl"] .asr-np .np-stops { padding: 0 22px 0 0; border-left: 0; border-right: 2px solid var(--line); }
+[dir="rtl"] .asr-np .np-stop::before { left: auto; right: -31px; }
+@media (min-width: 1100px) { [dir="rtl"] .asr-np .np-grid.has-rail { grid-template-columns: 300px minmax(0, 1fr); } [dir="rtl"] .asr-np .np-grid.has-rail > * { grid-column: 2; } [dir="rtl"] .asr-np .np-grid.has-rail > .np-rail { grid-column: 1; } }
+/* dark: emerald does not switch, so swap it on new components (both triggers, house pattern) */
+html[data-theme="dark"] body .np-mode-b[aria-pressed="true"],
+html[data-theme="dark"] body .asr-np .np-conf { background: #E7CF97; border-color: #E7CF97; color: #0C1C19; }
+html[data-theme="dark"] body .asr-np .np-stop::before { background: #F3E6C4; }
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) body .np-mode-b[aria-pressed="true"],
+  html:not([data-theme="light"]) body .asr-np .np-conf { background: #E7CF97; border-color: #E7CF97; color: #0C1C19; }
+  html:not([data-theme="light"]) body .asr-np .np-stop::before { background: #F3E6C4; }
+}
+html body .asr-np .np-pron .asr-pronunciation > span:first-child { display: none; }
+html body .asr-np .np-pron .asr-pronunciation strong { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.2rem; color: var(--ink); }
+html body .asr-np .np-pron .asr-pronunciation div, html body .asr-np .np-pron .asr-pronunciation span span { font-size: .92rem; color: var(--muted); }
+html body .asr-np .np-pron code { background: transparent; color: var(--ink); }
+html body .asr-np .np-sec .prose, html body .asr-np .np-sec .prose p, html body .asr-np .np-sec .faq-a p, html body .asr-np .np-sec .spellings-intro { max-width: 72ch !important; margin-left: 0 !important; margin-right: 0 !important; }
+html body .asr-np .np-sec .asr-v2-synthesis-prose { max-width: none !important; }
+html body .asr-np h2.np-h2-small { font: 600 22px/1.2 'Cormorant Garamond', Georgia, serif !important; letter-spacing: 0 !important; text-transform: none !important; color: var(--ink) !important; margin: 0 0 6px !important; padding: 0 !important; max-width: none !important; }

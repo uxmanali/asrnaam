@@ -318,6 +318,7 @@
   }
 
   function promoteSections() {
+    if (document.querySelector('.asr-np')) return; // migrated pages render their sections in place (no layout shift)
     if (document.getElementById('rd-raised-done')) return;
     var anchor = document.querySelector('.asr-answer') || document.querySelector('.quick-facts');
     if (!anchor || !anchor.parentNode) return;
@@ -673,8 +674,36 @@
     }
   }
 
+  /* Name page redesign: reading mode (my name / naming a baby) and the surname test. */
+  function npMode() {
+    var art = document.querySelector('.asr-np');
+    if (!art) return;
+    var btns = document.querySelectorAll('.np-mode-b');
+    function set(m, save) {
+      art.setAttribute('data-np-mode', m);
+      btns.forEach(function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-np-mode') === m ? 'true' : 'false'); });
+      if (save) { try { localStorage.setItem('asr-np-mode', m); } catch (e) {} }
+    }
+    var saved = null;
+    try { saved = localStorage.getItem('asr-np-mode'); } catch (e) {}
+    if (saved === 'baby' || saved === 'me') set(saved, false);
+    btns.forEach(function (b) { b.addEventListener('click', function () { set(b.getAttribute('data-np-mode'), true); }); });
+    var inp = document.getElementById('np-surname');
+    var out = document.querySelector('.np-kit-out');
+    if (inp && out) {
+      var first = out.getAttribute('data-np-first') || '';
+      var full = out.querySelector('.np-full'), ini = out.querySelector('.np-initials');
+      inp.addEventListener('input', function () {
+        var sur = inp.value.replace(/\s+/g, ' ').trim();
+        full.textContent = sur ? first + ' ' + sur : first;
+        ini.textContent = sur ? '(' + (first.charAt(0) + '.' + sur.charAt(0) + '.').toUpperCase() + ')' : '';
+      });
+    }
+  }
+
   ready(function () {
     wrapSaw(document.body);
+    npMode();
     injectNavHeart();
     if (isNamePage()) {
       var hero = document.querySelector('.asr-name-hero, article > .hero, main > .hero');
