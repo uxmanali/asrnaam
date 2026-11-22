@@ -54,9 +54,3 @@
 # (asrnaam.com is the only address that should be indexed).
 https://asrnaam.uxmanali.workers.dev/*
   X-Robots-Tag: noindex
-
-# Temporary: lets the Cloudflare dashboard import the Bulk Redirects CSV.
-# Remove together with /_cf/ once the import is done.
-/_cf/*
-  Access-Control-Allow-Origin: https://dash.cloudflare.com
-  X-Robots-Tag: noindex
