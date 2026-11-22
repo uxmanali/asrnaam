@@ -1,0 +1,53 @@
+{
+ "dyk": "The word manṣūr itself appears in the Quran, at 17:33: “he is surely helped.”",
+ "dyk_source": "Quran 17:33",
+ "drop": [
+  {
+   "match": "Second Abbasid caliph, founder of Baghdad</li>",
+   "reason": "the same caliph was listed twice (Abu Ja'far al-Mansur and Al-Mansur, both 714-775)"
+  }
+ ],
+ "fixes": [
+  {
+   "old": "<strong>Al-Mansur</strong>",
+   "new": "<strong>Abu Jaʿfar al-Mansur</strong>",
+   "reason": "full name kept on the single remaining entry for the Abbasid caliph"
+  },
+  {
+   "old": "Third Almohad caliph; builder of the Koutoubia and the Giralda.",
+   "new": "Third Almohad caliph; he completed the Giralda in Seville and commissioned the Hassan Tower in Rabat.",
+   "reason": "the Koutoubia was begun by Abd al-Mu'min and the Giralda's mosque by his father in 1171; his own commission was the Hassan Tower (1191-1199)",
+   "source": "Wikipedia: Yaqub al-Mansur; Almohad architecture; Hassan Tower, read 22 Nov 2026"
+  }
+ ],
+ "groups": [
+  {
+   "label": "Caliphs and sultans",
+   "people": [
+    {
+     "existing": "Abu Jaʿfar al-Mansur"
+    },
+    {
+     "existing": "Yaʿqub al-Mansur"
+    },
+    {
+     "existing": "Al-Mansur Billah"
+    },
+    {
+     "name": "Ahmad al-Mansur",
+     "meta": "c. 1549–1603 CE · Morocco",
+     "note": "Saadi sultan of Morocco from 1578; builder of the El Badi Palace in Marrakesh.",
+     "source": "Encyclopaedia Britannica: Ahmad al-Mansur; Wikipedia: El Badi Palace, read 22 Nov 2026"
+    }
+   ]
+  },
+  {
+   "label": "Mystics",
+   "people": [
+    {
+     "existing": "Mansur al-Hallaj"
+    }
+   ]
+  }
+ ]
+}

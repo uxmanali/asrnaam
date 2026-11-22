@@ -25,7 +25,9 @@ PILOT = {}
 for _f in (os.listdir('redesign/pilot') if os.path.isdir('redesign/pilot') else []):
     if _f.endswith('.json'):
         PILOT[_f[:-5]] = json.load(open('redesign/pilot/' + _f, encoding='utf8'))
-DRAFT = '<span class="np-draft">Draft for your approval</span>'
+FINAL = '--final' in sys.argv   # production build: no review tags
+DRAFT = '' if FINAL else '<span class="np-draft">New, for your review</span>'
+VER = '20261122t'   # version tag for asr-redesign.css and asr-redesign.js on migrated pages
 
 
 def div_end(s, i):
@@ -127,6 +129,16 @@ def build(h, slug):
     a1 = a0 + len('<article class="asr-name-article">')
     a2 = h.index('</article>', a1)
     pre, body, post = h[:a1], h[a1:a2], h[a2:]
+    pilot0 = PILOT.get(slug) or {}
+    for d in pilot0.get('drop', []):
+        m = re.search(r'<li\b(?:(?!</li>).)*?' + re.escape(d['match']), body, re.S)
+        if not m or body.count(d['match']) != 1:
+            raise Skip('pilot drop not found once: ' + d['match'][:40])
+        body = body[:m.start()] + body[m.end():]
+    for fx in pilot0.get('fixes', []):
+        if fx['old'] not in body:
+            raise Skip('pilot fix not found: ' + fx['old'][:40])
+        body = body.replace(fx['old'], fx['new'])
     ART = '<article class="asr-name-article asr-np" data-np-mode="me">'
     pre = pre.replace('<article class="asr-name-article">', ART)
     # ---- hero
@@ -146,10 +158,17 @@ def build(h, slug):
     fields = {}
     for m in re.finditer(r'<div class="r"><dt>([^<]*)</dt>(<dd [^>]*data-asr-field="([^"]+)"[^>]*>.*?</dd>)</div>', answer, re.S):
         fields[m.group(3)] = (m.group(1), m.group(2))
-    need = ['meaning-dict', 'origin', 'gender', 'urdu', 'urdu-meaning', 'pronunciation', 'lucky']
+    extra_rows = [m.group(0) for m in re.finditer(r'<div class="r"><dt>[^<]*</dt><dd(?![^>]*data-asr-field)[^>]*>.*?</dd></div>', answer, re.S)]
+    n_rows = len(re.findall(r'<div class="r">', answer))
+    if n_rows != len(fields) + len(extra_rows):
+        raise Skip('answer rows not all understood')
+    need = ['meaning-dict', 'gender', 'urdu', 'urdu-meaning', 'lucky']
     miss = [f for f in need if f not in fields]
     if miss:
         raise Skip('answer lacks ' + ','.join(miss))
+    # the hidden script line is read by the sound-match scan: it stays, unchanged
+    ans_script = re.search(r'<(div|p) class="asr-answer-script">.*?</\1>', answer, re.S)
+    ans_script = ans_script.group(0) if ans_script else ''
     islamic = re.search(r'<p class="asr-answer-islamic">.*?</p>', answer, re.S)
     islamic = islamic.group(0) if islamic else ''
     jump_text = re.search(r'<a class="asr-answer-jump"[^>]*>(.*?)</a>', answer, re.S)
@@ -172,7 +191,7 @@ def build(h, slug):
     share, body = marker(body, 'SHARE-HERO')
     blocks = {}
     community, body = marker(body, 'ASR:COMMUNITY')
-    for nm in ['ASRLINK', 'ASRMORE', 'OBS-CALLOUT', 'INLINE-RA', 'LETTERCLUSTER', 'VARIATIONS', 'HERO-RA', 'RELATED', 'SHARED', 'QURANIC', 'TRUST']:
+    for nm in ['ASRLINK', 'ASRMORE', 'OBS-CALLOUT', 'INLINE-RA', 'LETTERCLUSTER', 'VARIATIONS', 'HERO-RA', 'RELATED', 'SHARED', 'QURANIC', 'TRUST', 'THEMES']:
         blocks[nm], body = marker(body, nm)
     # FAQ (two generations of markup) and the call to action
     if body.count('<div class="faq-list">') != 1:
@@ -240,9 +259,24 @@ def build(h, slug):
     pron_box = pron_box.group(0) if pron_box else ''
     pron_box = nostyle(pron_box)  # restyled by the np- rules; saves bytes
     pilot = PILOT.get(slug)
-    nb = len(re.findall(r'<li>', bbody))
+    bbody = nostyle(bbody)
+    def person_li(pp):
+        if isinstance(pp, (list, tuple)):
+            pp = dict(name=pp[0], meta=pp[1], note=pp[2])
+        tag = (' ' + DRAFT) if DRAFT else ''
+        if '<li><strong>' in bbody and 'bearer-meta' not in bbody and '<div>' in bbody:
+            parts = [x.strip() for x in pp['meta'].split('·')]
+            meta = '<span>·</span>'.join(f'<span>{H.escape(x)}</span>' for x in parts)
+            return f'<li><strong>{H.escape(pp["name"])}</strong><div>{meta}</div><div>{H.escape(pp["note"])}{tag}</div></li>'
+        return f'<li><strong>{H.escape(pp["name"])}</strong> <span class="bearer-meta">({H.escape(pp["meta"])})</span>. {H.escape(pp["note"])}{tag}</li>'
+    if pilot0.get('add'):
+        if '</ul>' not in bbody:
+            raise Skip('no bearer list to add to')
+        k = bbody.rindex('</ul>')
+        bbody = bbody[:k] + ''.join(person_li(pp) for pp in pilot0['add']) + bbody[k:]
+    nb = len(re.findall(r'<li\b', bbody))
     if pilot:
-        nb = sum(len(gp['people']) for gp in pilot['groups'])
+        nb = sum(len(gp['people']) for gp in pilot.get('groups', [])) or nb
     rail = nb >= 3
     gender_cls = 'girl' if x['g'] == 'Female' else 'boy'
     NM = H.escape(name)
@@ -253,18 +287,20 @@ def build(h, slug):
     out = []
     out.append(hero)
     out.append(f'<div class="asr-answer np-answer" aria-label="Quick answer about {NM}">'
-               f'<dl class="asr-answer-rows np-cards">'
-               f'{card("meaning-dict", "Meaning")}{card("origin", "Origin")}'
+               f'{ans_script}<dl class="asr-answer-rows np-cards">'
+               f'{card("meaning-dict", "Meaning")}{card("origin", "Origin") if "origin" in fields else ""}'
                f'<div class="r np-card"><dt>{fields["gender"][0]}</dt>{gender_dd}</div>'
                f'<div class="r np-card np-card-ur"><dt>{fields["urdu-meaning"][0]}</dt>{fields["urdu"][1]}{fields["urdu-meaning"][1]}</div>'
                f'</dl>'
-               f'<section class="np-pron" aria-labelledby="np-pron-h"><h2 id="np-pron-h" class="np-h2-small">{pron_title}</h2>'
-               f'<dl class="np-pron-dl"><div class="r"><dt>{fields["pronunciation"][0]}</dt>{fields["pronunciation"][1]}</div></dl>'
-               f'{pron_box}</section>'
-               f'{islamic}</div>')
+               + (f'<section class="np-pron" aria-labelledby="np-pron-h"><h2 id="np-pron-h" class="np-h2-small">{pron_title}</h2>'
+                  f'<dl class="np-pron-dl"><div class="r"><dt>{fields["pronunciation"][0]}</dt>{fields["pronunciation"][1]}</div>{"".join(extra_rows)}</dl>'
+                  f'{pron_box}</section>' if 'pronunciation' in fields else
+                  (f'<section class="np-pron">{"<h2 class=\"np-h2-small\">" + pron_title + "</h2>" if pron_h else ""}<dl class="np-pron-dl">{"".join(extra_rows)}</dl>{pron_box}</section>' if extra_rows or pron_box or pron_h else ''))
+               + f'{islamic}</div>')
     if pilot and pilot.get('dyk'):
         out.append(f'<a class="np-dyk" href="#origin"><span class="np-dyk-k">Did you know</span><span class="np-dyk-t">{H.escape(pilot["dyk"])}</span>'
-                   f'<span class="np-dyk-go">See how &darr;</span>{DRAFT}</a>')
+                   f'<span class="np-dyk-go">Origin and history &darr;</span>'
+                   + (f'<span class="np-dyk-src">Source: {H.escape(pilot["dyk_source"])}{" " + DRAFT if DRAFT else ""}</span>' if pilot.get('dyk_source') else '') + '</a>')
     jumps = ['<a href="#reading">Letter reading</a>', '<a href="#origin">How it was formed</a>', '<a href="#story">Story</a>']
     if rail:
         jumps.append(f'<a href="#famous">Famous {NM}s</a>')
@@ -314,31 +350,33 @@ def build(h, slug):
         stops.append(stop('Travelled', 'Spellings and variants', th + trav))
     g.append(f'<section id="origin" class="np-sec np-journey"><p class="rd-kicker">02 · How the name was formed</p>'
              f'<h2 class="rd-h2">{NM}: origin and history</h2><ol class="np-stops">{"".join(stops)}</ol></section>')
-    # rail (3 or more bearers) placed by CSS; otherwise the bearers stay inside the story
+    # famous bearers: a section in the page flow when there are 3 or more; otherwise they stay inside the story
     if rail:
-        if pilot:
+        if pilot and pilot.get('groups'):
             grp = ''
             for gp in pilot['groups']:
                 lis = ''
                 for pp in gp['people']:
-                    if isinstance(pp, dict):
-                        mm = re.search(r'<li>(?:(?!</li>).)*' + re.escape(pp['existing']) + r'.*?</li>', bbody, re.S)
+                    if isinstance(pp, dict) and 'existing' in pp:
+                        mm = re.search(r'<li\b[^>]*>(?:(?!</li>).)*' + re.escape(pp['existing']) + r'.*?</li>', bbody, re.S)
                         if not mm:
                             raise Skip('pilot bearer not on page: ' + pp['existing'])
                         lis += mm.group(0)
                     else:
-                        lis += f'<li><strong>{H.escape(pp[0])}</strong> <span class="bearer-meta">({H.escape(pp[1])})</span>. {H.escape(pp[2])}</li>'
-                grp += f'<div class="np-rail-g"><h3 class="np-rail-gh">{H.escape(gp["label"])}</h3><ul class="bearers-list">{lis}</ul></div>'
+                        lis += person_li(pp)
+                grp += f'<div class="np-pg"><h3 class="np-pg-h">{H.escape(gp["label"])}</h3><ul class="bearers-list">{lis}</ul></div>'
             used = text_of(grp)
-            for li in re.findall(r'<li>.*?</li>', bbody, re.S):
+            for li in re.findall(r'<li\b.*?</li>', bbody, re.S):
                 if text_of(li) not in used:
-                    raise Skip('existing bearer missing from pilot rail: ' + text_of(li)[:40])
-            rail_body = f'<p class="np-rail-intro">{H.escape(pilot["rail_intro"])} {DRAFT}</p><div class="np-rail-groups">{grp}</div>'
+                    raise Skip('existing bearer missing from pilot list: ' + text_of(li)[:40])
+            people = grp
         else:
-            rail_body = f'<div class="np-rail-groups"><div class="np-rail-g">{bbody}</div></div>'
-        g.append(f'<aside id="famous" class="np-rail" aria-labelledby="np-famous-h"><p class="rd-kicker">{bk or "Who carried it"}</p>'
-                 f'<h2 id="np-famous-h" class="rd-h2">Famous {NM}s</h2>{"<h3 class=\"np-h3\">" + bt + "</h3>" if bt else ""}{rail_body}'
-                 f'<p class="np-rail-note">Only people with a verifiable source are listed.</p></aside>')
+            people = f'<div class="np-pg">{bbody}</div>'
+        g.append(f'<section id="famous" class="np-sec np-famous" aria-labelledby="np-famous-h"><p class="rd-kicker">{bk or "Bearers"}</p>'
+                 f'<h2 id="np-famous-h" class="rd-h2">Famous {NM}s</h2>{"<h3 class=\"np-h3\">" + bt + "</h3>" if bt else ""}'
+                 f'<div class="np-people">{people}</div>'
+                 + (f'<p class="np-people-note">Only people with a verifiable source are listed. {DRAFT}</p>' if pilot and pilot.get("groups") else '')
+                 + '</section>')
     story_bearers = '' if rail or not bbody else f'<div class="np-bearers"><p class="rd-kicker">{bk}</p><h3 class="np-h3">{bt}</h3>{bbody}</div>'
     g.append(f'<section id="story" class="np-sec np-story"><p class="rd-kicker">03 · {dk}</p>'
              f'<h2 class="rd-h2">The story of the name {NM}</h2><h3 class="np-h3">{dt}</h3>{dbody}{story_bearers}</section>')
@@ -351,10 +389,10 @@ def build(h, slug):
         if s2 in IDX:
             t = 'girl' if IDX[s2]['g'] == 'Female' else 'boy'
             sib_links += f'<a class="np-sib rd-tag {t}" href="{href}">{H.escape(IDX[s2]["n"])}</a>'
-    pron_txt = text_of(fields['pronunciation'][1])
+    pron_txt = text_of(fields['pronunciation'][1]) if 'pronunciation' in fields else ''
     variants = re.findall(r'<a href="(/names/[a-z0-9-]+/)" class="spelling-chip" data-variant>([^<]+)</a>', spell)
-    kit = [f'<div class="np-kit-box"><h3 class="np-h3">Say it right</h3><p class="np-say">{H.escape(pron_txt)}</p>'
-           f'<p class="np-kit-note">Stress and vowel length are in the pronunciation guide above.</p></div>',
+    kit = ([f'<div class="np-kit-box"><h3 class="np-h3">Say it right</h3><p class="np-say">{H.escape(pron_txt)}</p>'
+           f'<p class="np-kit-note">Stress and vowel length are in the pronunciation guide above.</p></div>'] if pron_txt else []) + [
            f'<div class="np-kit-box"><h3 class="np-h3">Try it with your surname</h3>'
            f'<label class="np-kit-label" for="np-surname">Your surname</label><input id="np-surname" class="np-input" type="text" autocomplete="off" maxlength="40" placeholder="e.g. Ali">'
            f'<p class="np-kit-out" aria-live="polite" data-np-first="{NM}"><span class="np-full">{NM}</span> <span class="np-initials"></span></p>'
@@ -391,17 +429,18 @@ def build(h, slug):
     faq_head = '' if faq_h2 else f'<p class="rd-kicker">06 · Frequently Asked Questions</p><h2 class="rd-h2">About the name {NM}</h2>'
     g.append(f'<section id="faq" class="np-sec np-faq{"" if faq_h2 else " np-faq-b"}">{faq_head}{faq}{loose_styles}</section>')
     # more names like X
-    more = nostyle(loose_related) + blocks['RELATED'] + blocks['SHARED'] + blocks['ASRMORE'] + blocks['LETTERCLUSTER']
+    more = nostyle(loose_related) + blocks['RELATED'] + blocks['SHARED'] + blocks['ASRMORE'] + blocks['THEMES'] + blocks['LETTERCLUSTER']
     g.append(f'<section class="np-sec np-more"><h2 class="rd-h2">More names like {NM}</h2>{more}</section>')
     g.append(blocks['TRUST'])
     if community:
         g.append(community)
-    out.append(f'<div class="np-grid{" has-rail" if rail else ""}">{"".join(g)}</div>')
+    out.append(f'<div class="np-grid">{"".join(g)}</div>')
     if blocks['QURANIC'] and text_of(blocks['QURANIC']):
         raise Skip('second QURANIC block has text')
     new_body = '\n' + '\n'.join(out) + '\n'
-    if not rail:
-        pre = pre.replace(ART, ART.replace('asr-np"', 'asr-np np-solo"'))
+    # version the two changed files on this page, so a stored copy of the old stylesheet can never be used with the new markup
+    pre = re.sub(r'(asr-redesign\.(?:css|js)\?v=)[0-9a-z]+', r'\g<1>' + VER, pre)
+    post = re.sub(r'(asr-redesign\.(?:css|js)\?v=)[0-9a-z]+', r'\g<1>' + VER, post)
     page = pre + new_body + post
     # mode switch in the breadcrumb row
     switch = ('<div class="np-mode" role="group" aria-label="Who are you reading for">'

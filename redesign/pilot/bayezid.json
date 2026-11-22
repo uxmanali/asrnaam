@@ -1,0 +1,11 @@
+{
+ "dyk": "In 1492 Sultan Bayezid II took in the Jews expelled from Spain and sent Ottoman ships to carry them to safety.",
+ "dyk_source": "Encyclopaedia Britannica, “Ottoman Empire”; Wikipedia, “Bayezid II”, read 22 Nov 2026",
+ "fixes": [
+  {
+   "old": "and by two Ottoman sultans, including.",
+   "new": "and by two Ottoman sultans.",
+   "reason": "the sentence was cut off mid-way"
+  }
+ ]
+}

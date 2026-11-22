@@ -3,7 +3,7 @@ usage: python3 redesign/np_check.py <base-ref> slug [slug ...]   (run from the r
 Checks: head byte-identical, every JSON block identical, each data-asr-field exactly once, namecard and
 community once, one H1 with the same text, no visible sentence lost (allowed removals: the cross-language
 bar), links to name pages not fewer, visible word count not lower, ads anchors present, bytes reported."""
-import re, sys, subprocess, html as H
+import re, sys, os, json, subprocess, html as H
 
 ALLOWED_GONE = ['This name in other languages']
 SECTION_LABEL = re.compile(r'^Section \d+ · ')
@@ -33,8 +33,25 @@ def check(base, slug):
     p = f'names/{slug}/index.html'
     old = subprocess.check_output(['git', 'show', f'{base}:{p}']).decode('utf8')
     new = open(p, encoding='utf8').read()
+    return check_pair(old, new, slug)
+
+
+def check_pair(old, new, slug=None):
     errs, notes = [], []
-    if old[:old.index('</head>')] != new[:new.index('</head>')]:
+    # content changes recorded in the pilot file are the only text allowed to differ, and each is reported
+    allowed = list(ALLOWED_GONE)
+    pf = f'redesign/pilot/{slug}.json' if slug else ''
+    if pf and os.path.exists(pf):
+        pj = json.load(open(pf, encoding='utf8'))
+        for fx in pj.get('fixes', []):
+            allowed += nodes('<body>' + fx['old']) or [fx['old']]
+            notes.append('fixed: ' + fx['reason'])
+        for d in pj.get('drop', []):
+            m = re.search(r'<li\b(?:(?!</li>).)*?' + re.escape(d['match']), old, re.S)
+            allowed += nodes('<body>' + m.group(0)) if m else []
+            notes.append('removed: ' + d['reason'])
+    ver = lambda x: re.sub(r'(asr-redesign\.(?:css|js)\?v=)[0-9a-z]+', r'\1V', x)
+    if ver(old[:old.index('</head>')]) != ver(new[:new.index('</head>')]):
         errs.append('head differs')
     jo = re.findall(r'<script type="application/(?:ld\+)?json"[^>]*>(.*?)</script>', old, re.S)
     jn = re.findall(r'<script type="application/(?:ld\+)?json"[^>]*>(.*?)</script>', new, re.S)
@@ -52,7 +69,7 @@ def check(base, slug):
     if len(h1n) != 1 or re.sub('<[^>]+>', '', h1o[0]) != re.sub('<[^>]+>', '', h1n[0]):
         errs.append('H1 changed')
     tv = vis(new)
-    lost = [s for s in nodes(old) if s not in tv and not any(a in s for a in ALLOWED_GONE) and SECTION_LABEL.sub('', s) not in tv]
+    lost = [s for s in nodes(old) if s not in tv and not any(a in s or s in a for a in allowed) and SECTION_LABEL.sub('', s) not in tv]
     if lost:
         errs.append(f'{len(lost)} sentence(s) lost: ' + ' | '.join(x[:70] for x in lost[:3]))
     from collections import Counter

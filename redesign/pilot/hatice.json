@@ -1,0 +1,10 @@
+{
+ "fixes": [
+  {
+   "old": "Hatice Sultan was the beloved daughter of Suleiman the Magnificent.",
+   "new": "Hatice Sultan was a daughter of Sultan Selim I and a sister of Suleiman the Magnificent.",
+   "reason": "she was Suleiman's sister, not his daughter",
+   "source": "Wikipedia: Hatice Sultan (daughter of Selim I); encyclopedia.com: Hatice (fl. 1500-1536), read 22 Nov 2026"
+  }
+ ]
+}
