@@ -1,0 +1,93 @@
+{
+ "_note": "Urdu content for the redesigned Urdu page. Same keys and meaning as redesign/pilot/<slug>.json (read by redesign/np_build.py). Every fact is already on the English page; names in Urdu script carry their source. Keys starting with _ and the keys gaps, needs_review, left_out are for people, not for the builder. Draft for Usman's review, 22 Nov 2026.",
+ "_base": "origin/main:ur/names/khansa/index.html",
+ "fixes": [
+  {
+   "old": "<ul class=\"bearers-list\" style=\"list-style:none;padding:0;margin:1rem 0 .5rem;\"><li style=\"padding:.85rem 0;border-bottom:1px solid var(--border);list-style:none;\"><strong>Al-Khansa (Tumadir bint Amr)</strong><div class=\"life-note\">(تقریباً ۵۷۵–۶۴۵ عیسوی · جزیرہ عرب)</div></li></ul></section>",
+   "new": "<ul class=\"bearers-list\" style=\"list-style:none;padding:0;margin:1rem 0 .5rem;\"></ul></section>",
+   "count": 1,
+   "reason": "the bearer list holds names in Latin script only, with no description; every person is re-added in Urdu with a description through `add`",
+   "_removed_text": "Al-Khansa (Tumadir bint Amr) (تقریباً ۵۷۵–۶۴۵ عیسوی · جزیرہ عرب)"
+  }
+ ],
+ "add": [
+  {
+   "name": "حضرت خنساء رضی اللہ عنہا (تماضر بنت عمرو)",
+   "meta": "تقریباً ۵۷۵–۶۴۵ عیسوی · جزیرہ عرب",
+   "note": "زمانۂ جاہلیت کی عرب شاعرہ اور عربی روایت کی سب سے بڑی خاتون شاعرہ، جو اپنے مرثیوں کے لیے مشہور ہیں؛ اسلام قبول کیا اور نبی کریم ﷺ سے ملاقات کی۔",
+   "_en": "Al-Khansa (Tumadir bint Amr) (c. 575–645 CE · Arabian Peninsula). Pre-Islamic Arab poet, the greatest woman poet of the Arabic tradition, famed for her elegies (rithāʾ); embraced Islam and met the Prophet ﷺ",
+   "source": "خنساء: «خنساء یا تماضر بنت عمرو السلميہ» https://ur.wikipedia.org/wiki/خنساء (first sentence of the Urdu Wikipedia article, fetched 22 Nov 2026)",
+   "_verified_names": [
+    "خنساء"
+   ]
+  }
+ ],
+ "_carried_from_english": [
+  "Khansa bint Khidam added, as on the English page."
+ ],
+ "left_out": [],
+ "needs_review": [
+  "Khansa bint Khidam: sources spell the father's name both «خدام» and «خذام». «خدام» is used because the English page says Khidam. Confirm.",
+  "Honorifics «حضرت … رضی اللہ عنہا» are added for both women as Companions, following how the site writes Zayd and Khadijah. The existing Urdu page writes al-Khansa without them («خنساء بنت عمرو: شاعرۂ اسلام»)."
+ ],
+ "gaps": [
+  {
+   "section": "Parent kit",
+   "english_ref": "section #kit, \"Parent kit: naming a baby Khansa\"",
+   "english_words": 57,
+   "urdu_words": 0,
+   "status": "missing in Urdu"
+  },
+  {
+   "section": "Name card",
+   "english_ref": "section #share, \"Keep your Khansa name card\"",
+   "english_words": 43,
+   "urdu_words": 0,
+   "status": "missing in Urdu (interface text, labels only)"
+  },
+  {
+   "section": "Story",
+   "english_ref": "section #story, \"The story of the name Khansa\"",
+   "english_words": 141,
+   "urdu_words": 49,
+   "status": "partly covered by حصہ ۴ · عام معنی; missing: her four sons at al-Qādisiyya and her words on their martyrdom; the Prophet ﷺ praising her poetry; the meaning of the word itself (the Urdu meaning field holds a person's name, not a meaning)"
+  },
+  {
+   "section": "Questions",
+   "english_ref": "section #faq: What does the name Khansa mean? | Is Khansa mentioned in the Quran? | What does Khansa mean in Urdu? | Is Khansa a good Islamic name? | Is Khansa a girl or boy name? | What is the spiritual meaning of Khansa in Ilm ul Huroof? | What names go perfectly with Khansa as a sibling name? | Is Khansa a rare or common Muslim name?",
+   "english_words": 528,
+   "urdu_words": 283,
+   "status": "Urdu has 9 template questions; no Urdu counterpart for \"Is Khansa a rare or common Muslim name?\"; Urdu answers are one-line template sentences, English answers are written for the name"
+  },
+  {
+   "section": "Letter reading and portrait",
+   "english_ref": "section #reading, \"Khansa: letter-by-letter reading\"",
+   "english_words": 232,
+   "urdu_words": 168,
+   "status": "present in Urdu (حصہ ۲ and حصہ ۳) but shorter"
+  },
+  {
+   "section": "Origin and spellings",
+   "english_ref": "section #origin, \"Khansa: origin and history\"",
+   "english_words": 108,
+   "urdu_words": 76,
+   "status": "root note present (حصہ ۱); the English list of Latin spellings and variants has no usable Urdu counterpart (no spellings section at all)"
+  }
+ ],
+ "_gap_words_to_translate": 490,
+ "_held": [
+  {
+   "entry": {
+    "name": "حضرت خنساء بنت خدام انصاریہ رضی اللہ عنہا",
+    "meta": "ساتویں صدی عیسوی · مدینہ",
+    "note": "صحابیہ، جن کے والد نے ان کی مرضی کے خلاف ان کا نکاح کر دیا؛ وہ نبی کریم ﷺ کی خدمت میں حاضر ہوئیں تو آپ ﷺ نے وہ نکاح رد فرما دیا (صحیح بخاری ۵۱۳۸)۔",
+    "_en": "Khansa bint Khidam al-Ansariyya (7th century CE · Madinah). Companion whose father married her off against her wish; she went to the Prophet ﷺ, and he annulled the marriage (Sahih al-Bukhari 5138).",
+    "source": "خنساء بنت خدام: «خنساء بنت خدام الأنصارية» https://surahquran.com/Hadith-46251.html (page title of the hadith entry. Other sources write the father's name with ذ: «خنساء بنت خذام» (hadithtransmitters.hawramani.com). The English page says Khidam, so the د form is used; Usman to confirm)",
+    "_verified_names": [
+     "خنساء بنت خدام"
+    ]
+   },
+   "why": "Sources split on the father's name: خدام and خذام (the Bukhari 5138 narrator line uses خذام). Not published until Usman confirms the spelling."
+  }
+ ]
+}

@@ -1,0 +1,70 @@
+{
+ "_note": "Urdu content for the redesigned Urdu page. Same keys and meaning as redesign/pilot/<slug>.json (read by redesign/np_build.py). Every fact is already on the English page; names in Urdu script carry their source. Keys starting with _ and the keys gaps, needs_review, left_out are for people, not for the builder. Draft for Usman's review, 22 Nov 2026.",
+ "_base": "origin/main:ur/names/osman/index.html",
+ "add": [
+  {
+   "name": "عثمان حمدی بیگ",
+   "meta": "۱۸۴۲–۱۹۱۰ عیسوی · استنبول",
+   "note": "عثمانی مصور اور ماہرِ آثارِ قدیمہ؛ استنبول آثاریات عجائب گھر کے بانی۔",
+   "_en": "Osman Hamdi Bey (1842–1910 CE · Istanbul). Ottoman painter and archaeologist; founder of the Istanbul Archaeology Museums.",
+   "source": "عثمان حمدی بیگ: «عثمان حمدی بیگ» https://ur.wikipedia.org/wiki/عثمان_حمدی_بیگ (Urdu Wikipedia writes the Turkish title Bey as «بیگ»); استنبول: «استنبول» https://ur.wikipedia.org/wiki/استنبول; استنبول آثاریات عجائب گھر: «استنبول آثاریات عجائب گھر» https://ur.wikipedia.org/wiki/استنبول_آثاریات_عجائب_گھر",
+   "_verified_names": [
+    "عثمان حمدی بیگ",
+    "استنبول",
+    "استنبول آثاریات عجائب گھر"
+   ]
+  }
+ ],
+ "_carried_from_english": [
+  "Osman Hamdi Bey added, as on the English page."
+ ],
+ "left_out": [],
+ "needs_review": [
+  "«بیگ» for Bey follows Urdu Wikipedia; «بے» is also common in Urdu. Confirm."
+ ],
+ "gaps": [
+  {
+   "section": "Parent kit",
+   "english_ref": "section #kit, \"Parent kit: naming a baby Osman\"",
+   "english_words": 89,
+   "urdu_words": 0,
+   "status": "missing in Urdu"
+  },
+  {
+   "section": "Name card",
+   "english_ref": "section #share, \"Keep your Osman name card\"",
+   "english_words": 40,
+   "urdu_words": 0,
+   "status": "missing in Urdu (interface text, labels only)"
+  },
+  {
+   "section": "Story",
+   "english_ref": "section #story, \"The story of the name Osman\"",
+   "english_words": 110,
+   "urdu_words": 107,
+   "status": "partly covered by حصہ ۴ · عام معنی; missing: the link to ʿUthmān ibn ʿAffān (third caliph, Dhū al-Nūrayn) and where the name is used (Turkey and the Balkans)"
+  },
+  {
+   "section": "Questions",
+   "english_ref": "section #faq: What does the name Osman mean? | Is Osman mentioned in the Quran? | What does Osman mean in Urdu? | Is Osman a good Islamic name? | Is Osman a boy or girl name? | What is the spiritual meaning of Osman in Ilm ul Huroof? | What names go perfectly with Osman as a sibling name? | Is Osman a rare or common Muslim name?",
+   "english_words": 503,
+   "urdu_words": 260,
+   "status": "Urdu has 9 template questions; no Urdu counterpart for \"Is Osman a rare or common Muslim name?\"; Urdu answers are one-line template sentences, English answers are written for the name"
+  },
+  {
+   "section": "Letter reading and portrait",
+   "english_ref": "section #reading, \"Osman: letter-by-letter reading\"",
+   "english_words": 190,
+   "urdu_words": 160,
+   "status": "present in Urdu (حصہ ۲ and حصہ ۳) but shorter"
+  },
+  {
+   "section": "Origin and spellings",
+   "english_ref": "section #origin, \"Osman: origin and history\"",
+   "english_words": 139,
+   "urdu_words": 75,
+   "status": "root note present (حصہ ۱); the English list of Latin spellings and variants has no usable Urdu counterpart"
+  }
+ ],
+ "_gap_words_to_translate": 429
+}

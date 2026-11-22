@@ -1,0 +1,93 @@
+{
+ "_note": "Urdu content for the redesigned Urdu page. Same keys and meaning as redesign/pilot/<slug>.json (read by redesign/np_build.py). Every fact is already on the English page; names in Urdu script carry their source. Keys starting with _ and the keys gaps, needs_review, left_out are for people, not for the builder. Draft for Usman's review, 22 Nov 2026.",
+ "_base": "origin/main:ur/names/zayd/index.html",
+ "dyk": "حضرت زید رضی اللہ عنہ نبی کریم ﷺ کے واحد صحابی ہیں جن کا نام قرآن میں لیا گیا ہے۔",
+ "_dyk_en": "Zayd is the only Companion of the Prophet ﷺ whom the Quran mentions by name.",
+ "dyk_source": "قرآن ۳۳:۳۷",
+ "fixes": [
+  {
+   "old": "</ul><ul class=\"bearers-list\" style=\"list-style:none;padding:0;margin:1rem 0 .5rem;\"><li style=\"padding:.85rem 0;border-bottom:1px solid var(--border);list-style:none;\"><strong>Zayd ibn Thābit</strong><div class=\"life-note\">c.۶۱۱–۶۶۵ عیسوی · جزیرہ عرب</div></li></ul></section>",
+   "new": "</ul></section>",
+   "count": 1,
+   "reason": "the second bearer list holds names in Latin script (and repeats people already listed in Urdu above it); every person in it is kept or re-added in Urdu through `add`",
+   "_removed_text": "Zayd ibn Thābit c.۶۱۱–۶۶۵ عیسوی · جزیرہ عرب"
+  }
+ ],
+ "add": [
+  {
+   "name": "حضرت زید بن ثابت رضی اللہ عنہ",
+   "meta": "تقریباً ۶۱۱–۶۶۵ عیسوی · جزیرہ عرب",
+   "note": "صحابی جنہوں نے قرآن کو مصحف کی صورت میں جمع کیا۔",
+   "_en": "Zayd ibn Thābit · c.611–665 CE · Arabia · Companion who compiled the canonical Quran",
+   "source": "زید بن ثابت: «زید بن ثابت» https://ur.wikipedia.org/wiki/زید_بن_ثابت",
+   "_verified_names": [
+    "زید بن ثابت"
+   ]
+  },
+  {
+   "name": "زید بن علی",
+   "meta": "تقریباً ۶۹۵–۷۴۰ عیسوی · مدینہ اور کوفہ",
+   "note": "حضرت علی بن ابی طالب رضی اللہ عنہ کے پڑپوتے؛ ۷۴۰ عیسوی میں کوفہ میں اموی حکومت کے خلاف خروج کی قیادت کی۔ زیدیہ مکتبِ فکر انہی کے نام سے منسوب ہے۔",
+   "_en": "Zayd ibn ʿAlī · c. 695–740 CE · Medina and Kufa · Great-grandson of ʿAlī ibn Abī Ṭālib; led the revolt of 740 in Kufa against Umayyad rule. The Zaydi school is named after him.",
+   "source": "زید بن علی: «زید بن علی» https://ur.wikipedia.org/wiki/زید_بن_علی; کوفہ: «کوفہ» https://ur.wikipedia.org/wiki/کوفہ; علی بن ابی طالب: «علی بن ابی طالب» https://ur.wikipedia.org/wiki/علی_ابن_ابی_طالب; زیدیہ: «زیدیہ» https://ur.wikipedia.org/wiki/زیدیہ",
+   "_verified_names": [
+    "زید بن علی",
+    "کوفہ",
+    "علی بن ابی طالب",
+    "زیدیہ"
+   ]
+  }
+ ],
+ "_carried_from_english": [
+  "Zayd ibn ʿAlī added, as on the English page."
+ ],
+ "left_out": [],
+ "needs_review": [
+  "«خروج» is used for \"revolt\" (the classical term). If you prefer plain «بغاوت», say so."
+ ],
+ "gaps": [
+  {
+   "section": "Parent kit",
+   "english_ref": "section #kit, \"Parent kit: naming a baby Zayd\"",
+   "english_words": 75,
+   "urdu_words": 0,
+   "status": "missing in Urdu"
+  },
+  {
+   "section": "Name card",
+   "english_ref": "section #share, \"Keep your Zayd name card\"",
+   "english_words": 41,
+   "urdu_words": 0,
+   "status": "missing in Urdu (interface text, labels only)"
+  },
+  {
+   "section": "Story",
+   "english_ref": "section #story, \"The story of the name Zayd\"",
+   "english_words": 200,
+   "urdu_words": 113,
+   "status": "partly covered by حصہ ۴ · عام معنی; missing: his capture as a boy from Banū Kalb, being given to Khadīja, choosing to stay with the Prophet ﷺ, and his death as commander at Muʾta in 629 CE"
+  },
+  {
+   "section": "Questions",
+   "english_ref": "section #faq: What does the name Zayd mean? | Is Zayd mentioned in the Quran? | What does Zayd mean in Urdu? | Is Zayd a good Islamic name? | Is Zayd a boy or girl name? | What is the spiritual meaning of Zayd in Ilm ul Huroof?",
+   "english_words": 232,
+   "urdu_words": 277,
+   "status": "Urdu has 9 template questions; Urdu answers are one-line template sentences, English answers are written for the name"
+  },
+  {
+   "section": "Letter reading and portrait",
+   "english_ref": "section #reading, \"Zayd: letter-by-letter reading\"",
+   "english_words": 173,
+   "urdu_words": 142,
+   "status": "present in Urdu (حصہ ۲ and حصہ ۳) but shorter"
+  },
+  {
+   "section": "Origin and spellings",
+   "english_ref": "section #origin, \"Zayd: origin and history\"",
+   "english_words": 58,
+   "urdu_words": 80,
+   "status": "root note present (حصہ ۱); the English list of Latin spellings and variants has no usable Urdu counterpart"
+  }
+ ],
+ "_gap_words_to_translate": 193
+}

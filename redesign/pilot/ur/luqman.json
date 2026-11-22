@@ -1,0 +1,75 @@
+{
+ "_note": "Urdu content for the redesigned Urdu page. Same keys and meaning as redesign/pilot/<slug>.json (read by redesign/np_build.py). Every fact is already on the English page; names in Urdu script carry their source. Keys starting with _ and the keys gaps, needs_review, left_out are for people, not for the builder. Draft for Usman's review, 22 Nov 2026.",
+ "_base": "origin/main:ur/names/luqman/index.html",
+ "fixes": [
+  {
+   "old": "<ul class=\"bearers-list\" style=\"list-style:none;padding:0;margin:1rem 0 .5rem;\"><li style=\"padding:.85rem 0;border-bottom:1px solid var(--border);list-style:none;\"><strong>Luqman al-Hakim</strong><div class=\"life-note\">(قبل از اسلام · جزیرہ عرب / سوڈان)</div></li></ul></section>",
+   "new": "<ul class=\"bearers-list\" style=\"list-style:none;padding:0;margin:1rem 0 .5rem;\"></ul></section>",
+   "count": 1,
+   "reason": "the bearer list holds names in Latin script only, with no description; every person is re-added in Urdu with a description through `add`",
+   "_removed_text": "Luqman al-Hakim (قبل از اسلام · جزیرہ عرب / سوڈان)"
+  }
+ ],
+ "add": [
+  {
+   "name": "حکیم لقمان",
+   "meta": "قبل از اسلام · جزیرہ عرب / سوڈان",
+   "note": "قرآن میں مذکور دانا بزرگ، جن کے نام پر سورۂ لقمان ہے؛ قدیم مفسرین نے انہیں قبل از اسلام کے مختلف حکماء سے جوڑا ہے۔ اپنے بیٹے کو ان کی نصیحتیں اسلامی ادبِ حکمت کی بنیاد ہیں۔",
+   "_en": "Luqman al-Hakim (pre-Islamic · Arabian Peninsula / Sudan). Quranic wise man named in Surah Luqmān, identified by classical exegetes with various pre-Islamic sages; his counsel to his son is foundational Islamic wisdom literature",
+   "source": "حکیم لقمان: «حکیم لقمان» https://ur.wikipedia.org/wiki/حکیم_لقمان; سورۂ لقمان: «سورہ لقمان» https://ur.wikipedia.org/wiki/سورہ_لقمان",
+   "_verified_names": [
+    "حکیم لقمان",
+    "سورۂ لقمان"
+   ]
+  }
+ ],
+ "left_out": [],
+ "needs_review": [
+  "The existing Urdu page writes Luqman without «حضرت»; «حکیم لقمان» (the Urdu Wikipedia title) is used the same way."
+ ],
+ "gaps": [
+  {
+   "section": "Parent kit",
+   "english_ref": "section #kit, \"Parent kit: naming a baby Luqman\"",
+   "english_words": 57,
+   "urdu_words": 0,
+   "status": "missing in Urdu"
+  },
+  {
+   "section": "Name card",
+   "english_ref": "section #share, \"Keep your Luqman name card\"",
+   "english_words": 42,
+   "urdu_words": 0,
+   "status": "missing in Urdu (interface text, labels only)"
+  },
+  {
+   "section": "Story",
+   "english_ref": "section #story, \"The story of the name Luqman\"",
+   "english_words": 155,
+   "urdu_words": 111,
+   "status": "partly covered by حصہ ۴ · عام معنی; missing: the statement that Luqman was a man of wisdom, not a prophet, and the list of his counsels"
+  },
+  {
+   "section": "Questions",
+   "english_ref": "section #faq: What does the name Luqman mean? | Is Luqman mentioned in the Quran? | What does Luqman mean in Urdu? | Is Luqman a good Islamic name? | Is Luqman a boy or girl name? | What is the spiritual meaning of Luqman in Ilm ul Huroof? | What names go perfectly with Luqman as a sibling name? | Is Luqman a rare or common Muslim name?",
+   "english_words": 520,
+   "urdu_words": 290,
+   "status": "Urdu has 9 template questions; no Urdu counterpart for \"Is Luqman a rare or common Muslim name?\"; Urdu answers are one-line template sentences, English answers are written for the name"
+  },
+  {
+   "section": "Letter reading and portrait",
+   "english_ref": "section #reading, \"Luqman: letter-by-letter reading\"",
+   "english_words": 213,
+   "urdu_words": 169,
+   "status": "present in Urdu (حصہ ۲ and حصہ ۳) but shorter"
+  },
+  {
+   "section": "Origin and spellings",
+   "english_ref": "section #origin, \"Luqman: origin and history\"",
+   "english_words": 242,
+   "urdu_words": 98,
+   "status": "root note present (حصہ ۱); the English list of Latin spellings and variants has no usable Urdu counterpart (no spellings section at all)"
+  }
+ ],
+ "_gap_words_to_translate": 519
+}

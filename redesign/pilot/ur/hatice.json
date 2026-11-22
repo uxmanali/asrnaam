@@ -1,0 +1,65 @@
+{
+ "_note": "Urdu content for the redesigned Urdu page. Same keys and meaning as redesign/pilot/<slug>.json (read by redesign/np_build.py). Every fact is already on the English page; names in Urdu script carry their source. Keys starting with _ and the keys gaps, needs_review, left_out are for people, not for the builder. Draft for Usman's review, 22 Nov 2026.",
+ "_base": "origin/main:ur/names/hatice/index.html",
+ "fixes": [
+  {
+   "old": "</ul><ul class=\"bearers-list\" style=\"list-style:none;padding:0;margin:1rem 0 .5rem;\"><li style=\"padding:.85rem 0;border-bottom:1px solid var(--border);list-style:none;\"><strong>Khadijah bint Khuwaylid</strong><div class=\"life-note\">چھٹی تا ساتویں صدی · جزیرہ عرب (مکہ)</div></li></ul></section>",
+   "new": "</ul></section>",
+   "count": 1,
+   "reason": "the second bearer list holds names in Latin script (and repeats people already listed in Urdu above it); every person in it is kept or re-added in Urdu through `add`",
+   "_removed_text": "Khadijah bint Khuwaylid چھٹی تا ساتویں صدی · جزیرہ عرب (مکہ)"
+  }
+ ],
+ "_carried_from_english": [
+  "Duplicate entry for Khadijah bint Khuwaylid (second copy, in Latin script) removed; the Urdu entry stays."
+ ],
+ "left_out": [],
+ "needs_review": [
+  "Nothing new is written for this page. Hatice Sultan is NOT added as a bearer in Urdu because the English page names her only in the story text, not in the bearer list."
+ ],
+ "gaps": [
+  {
+   "section": "Parent kit",
+   "english_ref": "section #kit, \"Parent kit: naming a baby Hatice\"",
+   "english_words": 87,
+   "urdu_words": 0,
+   "status": "missing in Urdu"
+  },
+  {
+   "section": "Name card",
+   "english_ref": "section #share, \"Keep your Hatice name card\"",
+   "english_words": 43,
+   "urdu_words": 0,
+   "status": "missing in Urdu (interface text, labels only)"
+  },
+  {
+   "section": "Story",
+   "english_ref": "section #story, \"The story of the name Hatice\"",
+   "english_words": 77,
+   "urdu_words": 53,
+   "status": "partly covered by حصہ ۴ · عام معنی; missing: that Hatice is the Turkish form of Khadijah; the quoted saying of the Prophet ﷺ about her; Hatice Sultan (daughter of Selim I, sister of Suleiman), which the English page corrected on 22 Nov 2026"
+  },
+  {
+   "section": "Questions",
+   "english_ref": "section #faq: What does the name Hatice mean? | Is Hatice mentioned in the Quran? | What does Hatice mean in Urdu? | Is Hatice a good Islamic name? | Is Hatice a girl or boy name? | What is the spiritual meaning of Hatice in Ilm ul Huroof? | What names go perfectly with Hatice as a sibling name? | Is Hatice a rare or common Muslim name?",
+   "english_words": 532,
+   "urdu_words": 291,
+   "status": "Urdu has 9 template questions; no Urdu counterpart for \"Is Hatice a rare or common Muslim name?\"; Urdu answers are one-line template sentences, English answers are written for the name"
+  },
+  {
+   "section": "Letter reading and portrait",
+   "english_ref": "section #reading, \"Hatice: letter-by-letter reading\"",
+   "english_words": 254,
+   "urdu_words": 162,
+   "status": "present in Urdu (حصہ ۲ and حصہ ۳) but shorter"
+  },
+  {
+   "section": "Origin and spellings",
+   "english_ref": "section #origin, \"Hatice: origin and history\"",
+   "english_words": 148,
+   "urdu_words": 86,
+   "status": "root note present (حصہ ۱); the English list of Latin spellings and variants has no usable Urdu counterpart"
+  }
+ ],
+ "_gap_words_to_translate": 506
+}

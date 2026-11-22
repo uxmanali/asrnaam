@@ -1,0 +1,74 @@
+{
+ "_note": "Urdu content for the redesigned Urdu page. Same keys and meaning as redesign/pilot/<slug>.json (read by redesign/np_build.py). Every fact is already on the English page; names in Urdu script carry their source. Keys starting with _ and the keys gaps, needs_review, left_out are for people, not for the builder. Draft for Usman's review, 22 Nov 2026.",
+ "_base": "origin/main:ur/names/fadwa/index.html",
+ "fixes": [
+  {
+   "old": "<ul class=\"bearers-list\" style=\"list-style:none;padding:0;margin:1rem 0 .5rem;\"><li style=\"padding:.85rem 0;border-bottom:1px solid var(--border);list-style:none;\"><strong>Fadwa Tuqan</strong><div class=\"life-note\">(۱۹۱۷–۲۰۰۳ · فلسطین)</div></li></ul></section>",
+   "new": "<ul class=\"bearers-list\" style=\"list-style:none;padding:0;margin:1rem 0 .5rem;\"></ul></section>",
+   "count": 1,
+   "reason": "the bearer list holds names in Latin script only, with no description; every person is re-added in Urdu with a description through `add`",
+   "_removed_text": "Fadwa Tuqan (۱۹۱۷–۲۰۰۳ · فلسطین)"
+  }
+ ],
+ "add": [
+  {
+   "name": "فدویٰ طوقان",
+   "meta": "۱۹۱۷–۲۰۰۳ · فلسطین",
+   "note": "فلسطینی شاعرہ، جدید عربی نسائی شاعری کی بنیادی آوازوں میں سے ایک، جو «شاعرۂ فلسطین» کے لقب سے معروف ہیں۔",
+   "_en": "Fadwa Tuqan (1917–2003 · Palestine). Palestinian poet, one of the foundational voices of modern Arabic women's poetry, known as 'the poet of Palestine'",
+   "source": "فدویٰ طوقان: «ابراہیم طوقان» https://ur.wikipedia.org/wiki/ابراہیم_طوقان (family name «طوقان» verified on her brother's article; the Urdu page itself already writes «فَدوى طوقان» in its text. Urdu Wikipedia titles her own article «فدوا توقان», which was NOT followed)",
+   "_verified_names": [
+    "فدویٰ طوقان"
+   ]
+  }
+ ],
+ "left_out": [],
+ "needs_review": [
+  "«فدویٰ طوقان» combines the page's own Urdu spelling of the name («فدویٰ») with the family name as the page text and Urdu Wikipedia (her brother's article) write it. Urdu Wikipedia titles her article «فدوا توقان»; that spelling looked wrong and was not used."
+ ],
+ "gaps": [
+  {
+   "section": "Parent kit",
+   "english_ref": "section #kit, \"Parent kit: naming a baby Fadwa\"",
+   "english_words": 57,
+   "urdu_words": 0,
+   "status": "missing in Urdu"
+  },
+  {
+   "section": "Name card",
+   "english_ref": "section #share, \"Keep your Fadwa name card\"",
+   "english_words": 41,
+   "urdu_words": 0,
+   "status": "missing in Urdu (interface text, labels only)"
+  },
+  {
+   "section": "Story",
+   "english_ref": "section #story, \"The story of the name Fadwa\"",
+   "english_words": 203,
+   "urdu_words": 98,
+   "status": "partly covered by حصہ ۴ · عام معنی; missing: little: the English story adds the classical phrase fidāka rūḥī and more on her poetry"
+  },
+  {
+   "section": "Questions",
+   "english_ref": "section #faq: What does the name Fadwa mean? | Is Fadwa mentioned in the Quran? | What does Fadwa mean in Urdu? | Is Fadwa a good Islamic name? | Is Fadwa a girl or boy name? | What is the spiritual meaning of Fadwa in Ilm ul Huroof? | What names go perfectly with Fadwa as a sibling name? | Is Fadwa a rare or common Muslim name?",
+   "english_words": 502,
+   "urdu_words": 280,
+   "status": "Urdu has 9 template questions; no Urdu counterpart for \"Is Fadwa a rare or common Muslim name?\"; Urdu answers are one-line template sentences, English answers are written for the name"
+  },
+  {
+   "section": "Letter reading and portrait",
+   "english_ref": "section #reading, \"Fadwa: letter-by-letter reading\"",
+   "english_words": 203,
+   "urdu_words": 185,
+   "status": "present in Urdu (حصہ ۲ and حصہ ۳) but shorter"
+  },
+  {
+   "section": "Origin and spellings",
+   "english_ref": "section #origin, \"Fadwa: origin and history\"",
+   "english_words": 85,
+   "urdu_words": 93,
+   "status": "root note present (حصہ ۱); the English list of Latin spellings and variants has no usable Urdu counterpart (no spellings section at all)"
+  }
+ ],
+ "_gap_words_to_translate": 402
+}

@@ -1,0 +1,53 @@
+{
+ "lang": "ur",
+ "_note": "Interface labels for the redesigned Urdu name pages. 'qf' maps the page's own quick-fact labels (unchanged, already on the pages) to the builder's slots. 'labels' marked in ur-new-labels.md are new wording for review.",
+ "kit": true,
+ "digits": "۰۱۲۳۴۵۶۷۸۹",
+ "abjad_digits": "۰۱۲۳۴۵۶۷۸۹",
+ "kicker_number": "^حصہ [۰-۹0-9]+ · ",
+ "qf": {
+  "meaning": "لغوی معنی",
+  "origin": "اصل",
+  "gender": "صنف",
+  "root": "عربی جذر",
+  "urdu": "اردو املا",
+  "arabic": "عربی املا",
+  "pron": "تلفظ",
+  "count": "حروف کی تعداد",
+  "letters": "حروف",
+  "abjad": "ابجد / خوش نصیب عدد"
+ },
+ "female": [
+  "مؤنث"
+ ],
+ "male": [
+  "مذکر"
+ ],
+ "labels": {
+  "bearers_kicker": "حاملین",
+  "bearers_title": "یہ نام کس نے اٹھایا",
+  "draft": "نیا، آپ کے جائزے کے لیے",
+  "dyk": "کیا آپ جانتے ہیں؟",
+  "source": "ماخذ:",
+  "jump_aria": "اس صفحے پر",
+  "mode_aria": "آپ کس کے لیے پڑھ رہے ہیں",
+  "mode_me": "یہ میرا نام ہے",
+  "mode_baby": "بچے کا نام رکھنا ہے",
+  "kit_kicker": "والدین کے لیے",
+  "kit_h2": "بچے کا نام {name} رکھنا ہو تو",
+  "kit_teaser": "بچے کا نام رکھ رہے ہیں؟ والدین کا حصہ کھولیں: تلفظ، خاندانی نام کے ساتھ آزمائش اور متعلقہ نام۔",
+  "kit_open": "والدین کا حصہ کھولیں",
+  "surname_h": "خاندانی نام کے ساتھ دیکھیں",
+  "surname_label": "اپنا خاندانی نام لکھیں",
+  "surname_note": "آپ جو کچھ لکھتے ہیں وہ اسی صفحے پر رہتا ہے۔",
+  "play": "تلفظ سنیں",
+  "save": "محفوظ کریں",
+  "saved": "محفوظ ہے",
+  "share": "شیئر کریں",
+  "search": "کوئی اور نام تلاش کریں"
+ },
+ "preload_fonts": [
+  "/fonts/noto-nastaliq-urdu-400.woff2"
+ ],
+ "name_row": "urdu"
+}

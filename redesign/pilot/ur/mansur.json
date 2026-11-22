@@ -1,0 +1,145 @@
+{
+ "_note": "Urdu content for the redesigned Urdu page. Same keys and meaning as redesign/pilot/<slug>.json (read by redesign/np_build.py). Every fact is already on the English page; names in Urdu script carry their source. Keys starting with _ and the keys gaps, needs_review, left_out are for people, not for the builder. Draft for Usman's review, 22 Nov 2026.",
+ "_base": "origin/main:ur/names/mansur/index.html",
+ "dyk": "لفظ «منصور» خود قرآن میں موجود ہے، آیت ۱۷:۳۳ میں، جہاں اس کا مفہوم ہے: «بے شک اس کی مدد کی جائے گی»۔",
+ "_dyk_en": "The word manṣūr itself appears in the Quran, at 17:33: “he is surely helped.”",
+ "dyk_source": "قرآن ۱۷:۳۳",
+ "fixes": [
+  {
+   "old": "<ul class=\"bearers-list\" style=\"list-style:none;padding:0;margin:1rem 0 .5rem;\"><li style=\"padding:.85rem 0;border-bottom:1px solid var(--border);list-style:none;\"><strong>Mansur al-Hallaj</strong><div class=\"life-note\">(۸۵۸–۹۲۲ عیسوی · فارس)</div></li><li style=\"padding:.85rem 0;border-bottom:1px solid var(--border);list-style:none;\"><strong>Abu Ja&#x27;far al-Mansur</strong><div class=\"life-note\">(۷۱۴–۷۷۵ عیسوی)</div></li><li style=\"padding:.85rem 0;border-bottom:1px solid var(--border);list-style:none;\"><strong>Al-Mansur</strong><div class=\"life-note\">(۷۱۴–۷۷۵ عیسوی · بغداد)</div></li><li style=\"padding:.85rem 0;border-bottom:1px solid var(--border);list-style:none;\"><strong>Yaʿqub al-Mansur</strong><div class=\"life-note\">(۱۱۶۰–۱۱۹۹ عیسوی · مراکش شہر)</div></li><li style=\"padding:.85rem 0;border-bottom:1px solid var(--border);list-style:none;\"><strong>Al-Mansur Billah</strong><div class=\"life-note\">(۹۱۴–۹۵۳ عیسوی · افریقیہ)</div></li></ul></section>",
+   "new": "<ul class=\"bearers-list\" style=\"list-style:none;padding:0;margin:1rem 0 .5rem;\"></ul></section>",
+   "count": 1,
+   "reason": "the bearer list holds names in Latin script only, with no description; every person is re-added in Urdu with a description through `groups`",
+   "_removed_text": "Mansur al-Hallaj (۸۵۸–۹۲۲ عیسوی · فارس) Abu Ja'far al-Mansur (۷۱۴–۷۷۵ عیسوی) Al-Mansur (۷۱۴–۷۷۵ عیسوی · بغداد) Yaʿqub al-Mansur (۱۱۶۰–۱۱۹۹ عیسوی · مراکش شہر) Al-Mansur Billah (۹۱۴–۹۵۳ عیسوی · افریقیہ)"
+  }
+ ],
+ "groups": [
+  {
+   "label": "خلفاء اور سلاطین",
+   "_en": "Caliphs and sultans",
+   "people": [
+    {
+     "name": "ابو جعفر المنصور",
+     "meta": "۷۱۴–۷۷۵ عیسوی · بغداد",
+     "note": "دوسرے عباسی خلیفہ؛ ۷۶۲ عیسوی میں بغداد کو دار الخلافہ کے طور پر بسایا۔",
+     "_en": "Abu Jaʿfar al-Mansur (714–775 CE · Baghdad). Second Abbasid caliph; founder of Baghdad as the imperial capital in 762 CE.",
+     "source": "ابو جعفر المنصور: «ابو جعفر المنصور» https://ur.wikipedia.org/wiki/ابو_جعفر_المنصور",
+     "_verified_names": [
+      "ابو جعفر المنصور"
+     ]
+    },
+    {
+     "name": "ابو یوسف یعقوب المنصور",
+     "meta": "۱۱۶۰–۱۱۹۹ عیسوی · مراکش شہر",
+     "note": "تیسرے موحد خلیفہ؛ اشبیلیہ میں گیرالڈا مینار مکمل کرایا اور رباط میں ٹاور حسان کی تعمیر کا حکم دیا۔",
+     "_en": "Yaʿqub al-Mansur (1160–1199 CE · Marrakesh). Third Almohad caliph; he completed the Giralda in Seville and commissioned the Hassan Tower in Rabat.",
+     "source": "ابو یوسف یعقوب المنصور: «ابو یوسف یعقوب المنصور» https://ur.wikipedia.org/wiki/ابو_یوسف_یعقوب_المنصور; موحد: «دولت موحدین» https://ur.wikipedia.org/wiki/دولت_موحدین; اشبیلیہ: «اشبیلیہ» https://ur.wikipedia.org/wiki/اشبیلیہ; گیرالڈا: «گیرالڈا» https://ur.wikipedia.org/wiki/گیرالڈا; رباط: «رباط (شہر)» https://ur.wikipedia.org/wiki/رباط_(شہر); ٹاور حسان: «ٹاور حسان» https://ur.wikipedia.org/wiki/ٹاور_حسان; مراکش شہر: «مراکش (شہر)» https://ur.wikipedia.org/wiki/مراکش_(شہر) («مراکش شہر» is already on the Urdu page)",
+     "_verified_names": [
+      "ابو یوسف یعقوب المنصور",
+      "موحد",
+      "اشبیلیہ",
+      "گیرالڈا",
+      "رباط",
+      "ٹاور حسان",
+      "مراکش شہر"
+     ]
+    },
+    {
+     "name": "المنصور باللہ",
+     "meta": "۹۱۴–۹۵۳ عیسوی · افریقیہ",
+     "note": "تیسرے فاطمی خلیفہ۔",
+     "_en": "Al-Mansur Billah (914–953 CE · Ifriqiya). Third Fatimid caliph.",
+     "source": "المنصور باللہ: «المنصور باللہ» https://ur.wikipedia.org/wiki/المنصور_باللہ; فاطمی: «دولت فاطمیہ» https://ur.wikipedia.org/wiki/سلطنت_فاطمیہ",
+     "_verified_names": [
+      "المنصور باللہ",
+      "فاطمی"
+     ]
+    },
+    {
+     "name": "احمد المنصور",
+     "meta": "تقریباً ۱۵۴۹–۱۶۰۳ عیسوی · المغرب",
+     "note": "۱۵۷۸ سے المغرب کے سعدی سلطان؛ مراکش شہر میں قصر البدیع تعمیر کرایا۔",
+     "_en": "Ahmad al-Mansur (c. 1549–1603 CE · Morocco). Saadi sultan of Morocco from 1578; builder of the El Badi Palace in Marrakesh.",
+     "source": "احمد المنصور: «احمد المنصور» https://ur.wikipedia.org/wiki/احمد_المنصور; سعدی: «سعدی خاندان» https://ur.wikipedia.org/wiki/سعدی_خاندان; المغرب: «المغرب» https://ur.wikipedia.org/wiki/المغرب; قصر البدیع: «قصر البدیع» https://ur.wikipedia.org/wiki/قصر_البدیع; مراکش شہر: «مراکش (شہر)» https://ur.wikipedia.org/wiki/مراکش_(شہر) («مراکش شہر» is already on the Urdu page)",
+     "_verified_names": [
+      "احمد المنصور",
+      "سعدی",
+      "المغرب",
+      "قصر البدیع",
+      "مراکش شہر"
+     ]
+    }
+   ]
+  },
+  {
+   "label": "صوفیاء",
+   "_en": "Mystics",
+   "people": [
+    {
+     "name": "منصور حلاج",
+     "meta": "۸۵۸–۹۲۲ عیسوی · فارس",
+     "note": "فارسی صوفی، جنہیں «انا الحق» کہنے پر بغداد میں سزائے موت دی گئی۔",
+     "_en": "Mansur al-Hallaj (858–922 CE · Persia). Persian Sufi mystic executed in Baghdad for the utterance 'ana al-Haqq'",
+     "source": "منصور حلاج: «حسین بن منصور حلاج» https://ur.wikipedia.org/wiki/حسین_بن_منصور_حلاج (the short form «منصور حلاج» is the last two words of the article title)",
+     "_verified_names": [
+      "منصور حلاج"
+     ]
+    }
+   ]
+  }
+ ],
+ "_carried_from_english": [
+  "Duplicate Abbasid caliph (Abu Jaʿfar al-Mansur and Al-Mansur, both 714–775) reduced to one entry, as on the English page.",
+  "Yaʿqub al-Mansur note uses the corrected buildings (Giralda completed, Hassan Tower commissioned), not the old Koutoubia claim.",
+  "Ahmad al-Mansur added, as on the English page."
+ ],
+ "left_out": [],
+ "needs_review": [
+  "«المغرب» is used for the country Morocco and «مراکش شہر» for Marrakesh, following Urdu Wikipedia and the existing page. Many Urdu readers call the country «مراکش»: confirm which you want."
+ ],
+ "gaps": [
+  {
+   "section": "Parent kit",
+   "english_ref": "section #kit, \"Parent kit: naming a baby Mansur\"",
+   "english_words": 75,
+   "urdu_words": 0,
+   "status": "missing in Urdu"
+  },
+  {
+   "section": "Name card",
+   "english_ref": "section #share, \"Keep your Mansur name card\"",
+   "english_words": 43,
+   "urdu_words": 0,
+   "status": "missing in Urdu (interface text, labels only)"
+  },
+  {
+   "section": "Story",
+   "english_ref": "section #story, \"The story of the name Mansur\"",
+   "english_words": 74,
+   "urdu_words": 52,
+   "status": "partly covered by حصہ ۴ · عام معنی; missing: the sentence on the Abbasid caliph al-Mansur founding Baghdad"
+  },
+  {
+   "section": "Questions",
+   "english_ref": "section #faq: What does the name Mansur mean? | Is Mansur a good Islamic name? | Is Mansur mentioned in the Quran? | What is the spiritual meaning of the name Mansur? | What does Mansur mean in Urdu? | Is Mansur a boy or girl name?",
+   "english_words": 232,
+   "urdu_words": 253,
+   "status": "Urdu has 9 template questions; Urdu answers are one-line template sentences, English answers are written for the name"
+  },
+  {
+   "section": "Letter reading and portrait",
+   "english_ref": "section #reading, \"Mansur: letter-by-letter reading\"",
+   "english_words": 192,
+   "urdu_words": 148,
+   "status": "present in Urdu (حصہ ۲ and حصہ ۳) but shorter"
+  },
+  {
+   "section": "Origin and spellings",
+   "english_ref": "section #origin, \"Mansur: origin and history\"",
+   "english_words": 76,
+   "urdu_words": 77,
+   "status": "root note present (حصہ ۱); the English list of Latin spellings and variants has no usable Urdu counterpart"
+  }
+ ],
+ "_gap_words_to_translate": 141
+}

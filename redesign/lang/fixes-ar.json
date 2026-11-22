@@ -1,0 +1,794 @@
+[
+ {
+  "file": "ar/names/mansur/index.html",
+  "old": "ثلاث قراءات, معنى الاسم",
+  "new": "ثلاث قراءات: معنى الاسم",
+  "count": 1,
+  "reason": "Latin comma (,) used in Arabic text where a list is introduced; Arabic needs a colon here, as the site's own Zayd and Osman pages already have.",
+  "class": "grammar",
+  "scope": "template"
+ },
+ {
+  "file": "ar/names/bayezid/index.html",
+  "old": "ثلاث قراءات, معنى الاسم",
+  "new": "ثلاث قراءات: معنى الاسم",
+  "count": 1,
+  "reason": "Latin comma (,) used in Arabic text where a list is introduced; Arabic needs a colon here, as the site's own Zayd and Osman pages already have.",
+  "class": "grammar",
+  "scope": "template"
+ },
+ {
+  "file": "ar/names/khansa/index.html",
+  "old": "ثلاث قراءات, معنى الاسم",
+  "new": "ثلاث قراءات: معنى الاسم",
+  "count": 1,
+  "reason": "Latin comma (,) used in Arabic text where a list is introduced; Arabic needs a colon here, as the site's own Zayd and Osman pages already have.",
+  "class": "grammar",
+  "scope": "template"
+ },
+ {
+  "file": "ar/names/hatice/index.html",
+  "old": "ثلاث قراءات, معنى الاسم",
+  "new": "ثلاث قراءات: معنى الاسم",
+  "count": 1,
+  "reason": "Latin comma (,) used in Arabic text where a list is introduced; Arabic needs a colon here, as the site's own Zayd and Osman pages already have.",
+  "class": "grammar",
+  "scope": "template"
+ },
+ {
+  "file": "ar/names/fadwa/index.html",
+  "old": "ثلاث قراءات, معنى الاسم",
+  "new": "ثلاث قراءات: معنى الاسم",
+  "count": 1,
+  "reason": "Latin comma (,) used in Arabic text where a list is introduced; Arabic needs a colon here, as the site's own Zayd and Osman pages already have.",
+  "class": "grammar",
+  "scope": "template"
+ },
+ {
+  "file": "ar/names/ghada/index.html",
+  "old": "ثلاث قراءات, معنى الاسم",
+  "new": "ثلاث قراءات: معنى الاسم",
+  "count": 1,
+  "reason": "Latin comma (,) used in Arabic text where a list is introduced; Arabic needs a colon here, as the site's own Zayd and Osman pages already have.",
+  "class": "grammar",
+  "scope": "template"
+ },
+ {
+  "file": "ar/names/luqman/index.html",
+  "old": "ثلاث قراءات, معنى الاسم",
+  "new": "ثلاث قراءات: معنى الاسم",
+  "count": 1,
+  "reason": "Latin comma (,) used in Arabic text where a list is introduced; Arabic needs a colon here, as the site's own Zayd and Osman pages already have.",
+  "class": "grammar",
+  "scope": "template"
+ },
+ {
+  "file": "ar/names/ahlam/index.html",
+  "old": "ثلاث قراءات, معنى الاسم",
+  "new": "ثلاث قراءات: معنى الاسم",
+  "count": 1,
+  "reason": "Latin comma (,) used in Arabic text where a list is introduced; Arabic needs a colon here, as the site's own Zayd and Osman pages already have.",
+  "class": "grammar",
+  "scope": "template"
+ },
+ {
+  "file": "ar/names/kainat/index.html",
+  "old": "ثلاث قراءات, معنى الاسم",
+  "new": "ثلاث قراءات: معنى الاسم",
+  "count": 1,
+  "reason": "Latin comma (,) used in Arabic text where a list is introduced; Arabic needs a colon here, as the site's own Zayd and Osman pages already have.",
+  "class": "grammar",
+  "scope": "template"
+ },
+ {
+  "file": "ar/names/ayyub/index.html",
+  "old": "ثلاث قراءات, معنى الاسم",
+  "new": "ثلاث قراءات: معنى الاسم",
+  "count": 1,
+  "reason": "Latin comma (,) used in Arabic text where a list is introduced; Arabic needs a colon here, as the site's own Zayd and Osman pages already have.",
+  "class": "grammar",
+  "scope": "template"
+ },
+ {
+  "file": "ar/names/mansur/index.html",
+  "old": " ، رسمه العربي",
+  "new": "، رسمه العربي",
+  "count": 1,
+  "reason": "Space before the Arabic comma in the JSON-LD Article headline (head). The comma attaches to the word before it.",
+  "class": "spelling",
+  "scope": "template"
+ },
+ {
+  "file": "ar/names/bayezid/index.html",
+  "old": " ، رسمه العربي",
+  "new": "، رسمه العربي",
+  "count": 1,
+  "reason": "Space before the Arabic comma in the JSON-LD Article headline (head). The comma attaches to the word before it.",
+  "class": "spelling",
+  "scope": "template"
+ },
+ {
+  "file": "ar/names/zayd/index.html",
+  "old": " ، رسمه العربي",
+  "new": "، رسمه العربي",
+  "count": 1,
+  "reason": "Space before the Arabic comma in the JSON-LD Article headline (head). The comma attaches to the word before it.",
+  "class": "spelling",
+  "scope": "template"
+ },
+ {
+  "file": "ar/names/fadwa/index.html",
+  "old": " ، رسمه العربي",
+  "new": "، رسمه العربي",
+  "count": 1,
+  "reason": "Space before the Arabic comma in the JSON-LD Article headline (head). The comma attaches to the word before it.",
+  "class": "spelling",
+  "scope": "template"
+ },
+ {
+  "file": "ar/names/ghada/index.html",
+  "old": " ، رسمه العربي",
+  "new": "، رسمه العربي",
+  "count": 1,
+  "reason": "Space before the Arabic comma in the JSON-LD Article headline (head). The comma attaches to the word before it.",
+  "class": "spelling",
+  "scope": "template"
+ },
+ {
+  "file": "ar/names/luqman/index.html",
+  "old": " ، رسمه العربي",
+  "new": "، رسمه العربي",
+  "count": 1,
+  "reason": "Space before the Arabic comma in the JSON-LD Article headline (head). The comma attaches to the word before it.",
+  "class": "spelling",
+  "scope": "template"
+ },
+ {
+  "file": "ar/names/ahlam/index.html",
+  "old": " ، رسمه العربي",
+  "new": "، رسمه العربي",
+  "count": 1,
+  "reason": "Space before the Arabic comma in the JSON-LD Article headline (head). The comma attaches to the word before it.",
+  "class": "spelling",
+  "scope": "template"
+ },
+ {
+  "file": "ar/names/ayyub/index.html",
+  "old": " ، رسمه العربي",
+  "new": "، رسمه العربي",
+  "count": 1,
+  "reason": "Space before the Arabic comma in the JSON-LD Article headline (head). The comma attaches to the word before it.",
+  "class": "spelling",
+  "scope": "template"
+ },
+ {
+  "file": "ar/names/bayezid/index.html",
+  "old": ">الف<",
+  "new": ">ألف<",
+  "count": 1,
+  "reason": "Name of the letter alif written without its hamza. The standard spelling is ألف.",
+  "class": "spelling",
+  "scope": "template"
+ },
+ {
+  "file": "ar/names/osman/index.html",
+  "old": ">الف<",
+  "new": ">ألف<",
+  "count": 1,
+  "reason": "Name of the letter alif written without its hamza. The standard spelling is ألف.",
+  "class": "spelling",
+  "scope": "template"
+ },
+ {
+  "file": "ar/names/khansa/index.html",
+  "old": ">الف<",
+  "new": ">ألف<",
+  "count": 2,
+  "reason": "Name of the letter alif written without its hamza. The standard spelling is ألف.",
+  "class": "spelling",
+  "scope": "template"
+ },
+ {
+  "file": "ar/names/ghada/index.html",
+  "old": ">الف<",
+  "new": ">ألف<",
+  "count": 1,
+  "reason": "Name of the letter alif written without its hamza. The standard spelling is ألف.",
+  "class": "spelling",
+  "scope": "template"
+ },
+ {
+  "file": "ar/names/luqman/index.html",
+  "old": ">الف<",
+  "new": ">ألف<",
+  "count": 1,
+  "reason": "Name of the letter alif written without its hamza. The standard spelling is ألف.",
+  "class": "spelling",
+  "scope": "template"
+ },
+ {
+  "file": "ar/names/ahlam/index.html",
+  "old": ">الف<",
+  "new": ">ألف<",
+  "count": 2,
+  "reason": "Name of the letter alif written without its hamza. The standard spelling is ألف.",
+  "class": "spelling",
+  "scope": "template"
+ },
+ {
+  "file": "ar/names/kainat/index.html",
+  "old": ">الف<",
+  "new": ">ألف<",
+  "count": 2,
+  "reason": "Name of the letter alif written without its hamza. The standard spelling is ألف.",
+  "class": "spelling",
+  "scope": "template"
+ },
+ {
+  "file": "ar/names/ayyub/index.html",
+  "old": ">الف<",
+  "new": ">ألف<",
+  "count": 1,
+  "reason": "Name of the letter alif written without its hamza. The standard spelling is ألف.",
+  "class": "spelling",
+  "scope": "template"
+ },
+ {
+  "file": "ar/names/mansur/index.html",
+  "old": "النطق اللاتيني",
+  "new": "الرسم اللاتيني",
+  "count": 1,
+  "reason": "Label says 'Latin pronunciation' but the value is the Latin spelling. Matches the sibling labels الرسم العربي and الرسم الأردي. UI label: may be handled by the label file instead.",
+  "class": "mistranslation",
+  "scope": "template-label"
+ },
+ {
+  "file": "ar/names/mansur/index.html",
+  "old": "aria-label=\"Breadcrumb\"",
+  "new": "aria-label=\"مسار التنقل\"",
+  "count": 1,
+  "reason": "English accessibility label on an Arabic page (read aloud by screen readers).",
+  "class": "untranslated",
+  "scope": "template-label"
+ },
+ {
+  "file": "ar/names/bayezid/index.html",
+  "old": "النطق اللاتيني",
+  "new": "الرسم اللاتيني",
+  "count": 1,
+  "reason": "Label says 'Latin pronunciation' but the value is the Latin spelling. Matches the sibling labels الرسم العربي and الرسم الأردي. UI label: may be handled by the label file instead.",
+  "class": "mistranslation",
+  "scope": "template-label"
+ },
+ {
+  "file": "ar/names/bayezid/index.html",
+  "old": "aria-label=\"Breadcrumb\"",
+  "new": "aria-label=\"مسار التنقل\"",
+  "count": 1,
+  "reason": "English accessibility label on an Arabic page (read aloud by screen readers).",
+  "class": "untranslated",
+  "scope": "template-label"
+ },
+ {
+  "file": "ar/names/zayd/index.html",
+  "old": "النطق اللاتيني",
+  "new": "الرسم اللاتيني",
+  "count": 1,
+  "reason": "Label says 'Latin pronunciation' but the value is the Latin spelling. Matches the sibling labels الرسم العربي and الرسم الأردي. UI label: may be handled by the label file instead.",
+  "class": "mistranslation",
+  "scope": "template-label"
+ },
+ {
+  "file": "ar/names/zayd/index.html",
+  "old": "aria-label=\"Breadcrumb\"",
+  "new": "aria-label=\"مسار التنقل\"",
+  "count": 1,
+  "reason": "English accessibility label on an Arabic page (read aloud by screen readers).",
+  "class": "untranslated",
+  "scope": "template-label"
+ },
+ {
+  "file": "ar/names/osman/index.html",
+  "old": "النطق اللاتيني",
+  "new": "الرسم اللاتيني",
+  "count": 1,
+  "reason": "Label says 'Latin pronunciation' but the value is the Latin spelling. Matches the sibling labels الرسم العربي and الرسم الأردي. UI label: may be handled by the label file instead.",
+  "class": "mistranslation",
+  "scope": "template-label"
+ },
+ {
+  "file": "ar/names/osman/index.html",
+  "old": "aria-label=\"Breadcrumb\"",
+  "new": "aria-label=\"مسار التنقل\"",
+  "count": 1,
+  "reason": "English accessibility label on an Arabic page (read aloud by screen readers).",
+  "class": "untranslated",
+  "scope": "template-label"
+ },
+ {
+  "file": "ar/names/khansa/index.html",
+  "old": "النطق اللاتيني",
+  "new": "الرسم اللاتيني",
+  "count": 1,
+  "reason": "Label says 'Latin pronunciation' but the value is the Latin spelling. Matches the sibling labels الرسم العربي and الرسم الأردي. UI label: may be handled by the label file instead.",
+  "class": "mistranslation",
+  "scope": "template-label"
+ },
+ {
+  "file": "ar/names/khansa/index.html",
+  "old": "aria-label=\"Breadcrumb\"",
+  "new": "aria-label=\"مسار التنقل\"",
+  "count": 1,
+  "reason": "English accessibility label on an Arabic page (read aloud by screen readers).",
+  "class": "untranslated",
+  "scope": "template-label"
+ },
+ {
+  "file": "ar/names/hatice/index.html",
+  "old": "النطق اللاتيني",
+  "new": "الرسم اللاتيني",
+  "count": 1,
+  "reason": "Label says 'Latin pronunciation' but the value is the Latin spelling. Matches the sibling labels الرسم العربي and الرسم الأردي. UI label: may be handled by the label file instead.",
+  "class": "mistranslation",
+  "scope": "template-label"
+ },
+ {
+  "file": "ar/names/hatice/index.html",
+  "old": "aria-label=\"Breadcrumb\"",
+  "new": "aria-label=\"مسار التنقل\"",
+  "count": 1,
+  "reason": "English accessibility label on an Arabic page (read aloud by screen readers).",
+  "class": "untranslated",
+  "scope": "template-label"
+ },
+ {
+  "file": "ar/names/fadwa/index.html",
+  "old": "النطق اللاتيني",
+  "new": "الرسم اللاتيني",
+  "count": 1,
+  "reason": "Label says 'Latin pronunciation' but the value is the Latin spelling. Matches the sibling labels الرسم العربي and الرسم الأردي. UI label: may be handled by the label file instead.",
+  "class": "mistranslation",
+  "scope": "template-label"
+ },
+ {
+  "file": "ar/names/fadwa/index.html",
+  "old": "aria-label=\"Breadcrumb\"",
+  "new": "aria-label=\"مسار التنقل\"",
+  "count": 1,
+  "reason": "English accessibility label on an Arabic page (read aloud by screen readers).",
+  "class": "untranslated",
+  "scope": "template-label"
+ },
+ {
+  "file": "ar/names/ghada/index.html",
+  "old": "النطق اللاتيني",
+  "new": "الرسم اللاتيني",
+  "count": 1,
+  "reason": "Label says 'Latin pronunciation' but the value is the Latin spelling. Matches the sibling labels الرسم العربي and الرسم الأردي. UI label: may be handled by the label file instead.",
+  "class": "mistranslation",
+  "scope": "template-label"
+ },
+ {
+  "file": "ar/names/ghada/index.html",
+  "old": "aria-label=\"Breadcrumb\"",
+  "new": "aria-label=\"مسار التنقل\"",
+  "count": 1,
+  "reason": "English accessibility label on an Arabic page (read aloud by screen readers).",
+  "class": "untranslated",
+  "scope": "template-label"
+ },
+ {
+  "file": "ar/names/luqman/index.html",
+  "old": "النطق اللاتيني",
+  "new": "الرسم اللاتيني",
+  "count": 1,
+  "reason": "Label says 'Latin pronunciation' but the value is the Latin spelling. Matches the sibling labels الرسم العربي and الرسم الأردي. UI label: may be handled by the label file instead.",
+  "class": "mistranslation",
+  "scope": "template-label"
+ },
+ {
+  "file": "ar/names/luqman/index.html",
+  "old": "aria-label=\"Breadcrumb\"",
+  "new": "aria-label=\"مسار التنقل\"",
+  "count": 1,
+  "reason": "English accessibility label on an Arabic page (read aloud by screen readers).",
+  "class": "untranslated",
+  "scope": "template-label"
+ },
+ {
+  "file": "ar/names/ahlam/index.html",
+  "old": "النطق اللاتيني",
+  "new": "الرسم اللاتيني",
+  "count": 1,
+  "reason": "Label says 'Latin pronunciation' but the value is the Latin spelling. Matches the sibling labels الرسم العربي and الرسم الأردي. UI label: may be handled by the label file instead.",
+  "class": "mistranslation",
+  "scope": "template-label"
+ },
+ {
+  "file": "ar/names/ahlam/index.html",
+  "old": "aria-label=\"Breadcrumb\"",
+  "new": "aria-label=\"مسار التنقل\"",
+  "count": 1,
+  "reason": "English accessibility label on an Arabic page (read aloud by screen readers).",
+  "class": "untranslated",
+  "scope": "template-label"
+ },
+ {
+  "file": "ar/names/kainat/index.html",
+  "old": "النطق اللاتيني",
+  "new": "الرسم اللاتيني",
+  "count": 1,
+  "reason": "Label says 'Latin pronunciation' but the value is the Latin spelling. Matches the sibling labels الرسم العربي and الرسم الأردي. UI label: may be handled by the label file instead.",
+  "class": "mistranslation",
+  "scope": "template-label"
+ },
+ {
+  "file": "ar/names/kainat/index.html",
+  "old": "aria-label=\"Breadcrumb\"",
+  "new": "aria-label=\"مسار التنقل\"",
+  "count": 1,
+  "reason": "English accessibility label on an Arabic page (read aloud by screen readers).",
+  "class": "untranslated",
+  "scope": "template-label"
+ },
+ {
+  "file": "ar/names/ayyub/index.html",
+  "old": "النطق اللاتيني",
+  "new": "الرسم اللاتيني",
+  "count": 1,
+  "reason": "Label says 'Latin pronunciation' but the value is the Latin spelling. Matches the sibling labels الرسم العربي and الرسم الأردي. UI label: may be handled by the label file instead.",
+  "class": "mistranslation",
+  "scope": "template-label"
+ },
+ {
+  "file": "ar/names/ayyub/index.html",
+  "old": "aria-label=\"Breadcrumb\"",
+  "new": "aria-label=\"مسار التنقل\"",
+  "count": 1,
+  "reason": "English accessibility label on an Arabic page (read aloud by screen readers).",
+  "class": "untranslated",
+  "scope": "template-label"
+ },
+ {
+  "file": "ar/names/mansur/index.html",
+  "old": "</em>, المنصور",
+  "new": "</em>: المنصور",
+  "count": 1,
+  "reason": "H1 punctuation only: Latin comma after the name replaced by a colon (name: meaning). The name inside <em> is untouched.",
+  "class": "grammar",
+  "scope": "page"
+ },
+ {
+  "file": "ar/names/mansur/index.html",
+  "old": ", مُؤيَّدٌ من اللّه",
+  "new": "، مُؤيَّدٌ من اللّه",
+  "count": 9,
+  "reason": "Latin comma inside the meaning text, everywhere it is repeated (3 head descriptions, JSON-LD FAQ answer, H1, fact row, two paragraphs, visible FAQ).",
+  "class": "grammar",
+  "scope": "page"
+ },
+ {
+  "file": "ar/names/bayezid/index.html",
+  "old": "</em>, صورة فارسيّة لـ «أبي يَزِيد», لقَب سلطانَين عُثمانيَّين، أَشهرهم",
+  "new": "</em>: صورة فارسيّة لـ «أبي يَزِيد»، اسمُ سلطانَين عُثمانيَّين، أَشهرهما",
+  "count": 1,
+  "reason": "H1: two Latin commas; 'laqab' (title or nickname) is the wrong word because Bayezid is the sultans' given name; and the pronoun must be dual (two sultans): أشهرهما, not the plural أشهرهم.",
+  "class": "grammar",
+  "scope": "page"
+ },
+ {
+  "file": "ar/names/bayezid/index.html",
+  "old": "بايَزِيد, صورة",
+  "new": "بايَزِيد: صورة",
+  "count": 7,
+  "reason": "Latin comma in the meaning text, all repeats (head descriptions, JSON-LD, fact row, paragraph, FAQ).",
+  "class": "grammar",
+  "scope": "page"
+ },
+ {
+  "file": "ar/names/bayezid/index.html",
+  "old": "لقَب سلاطين عُثمانيّين",
+  "new": "اسمُ سلطانَين عُثمانيَّين",
+  "count": 7,
+  "reason": "'Title of Ottoman sultans' is wrong twice: Bayezid is a given name, not a title, and there were two sultans of that name (the page's own H1 and body say two), so the dual is needed, not the plural.",
+  "class": "mistranslation",
+  "scope": "page"
+ },
+ {
+  "file": "ar/names/bayezid/index.html",
+  "old": "فارسيّ معرَّب من كنية «أبو يَزِيد»",
+  "new": "صيغة فارسيّة للكنية العربيّة «أبو يَزِيد»",
+  "count": 1,
+  "reason": "معرَّب means 'Arabized' (a foreign word taken into Arabic). The direction is the opposite: an Arabic kunya given a Persian form, which is what the English page says.",
+  "class": "mistranslation",
+  "scope": "page"
+ },
+ {
+  "file": "ar/names/zayd/index.html",
+  "old": "ومنه «المَزِيد» (الزيادة)، و«الزّاد» (ما يَمتدّ به العمر).",
+  "new": "ومنه «المَزِيد» (الزيادة).",
+  "count": 1,
+  "reason": "Lexical error: الزاد (provisions) belongs to the root ز-و-د, not ز-ي-د (Lisan al-Arab lists it under زود). The English page does not make this claim.",
+  "class": "fact",
+  "scope": "page"
+ },
+ {
+  "file": "ar/names/osman/index.html",
+  "old": "عثمان، الصيغة التركية للاسم، مؤسس الدولة العثمانية. قراءة كل حرف على أثر نام مع الجذر العربي والرسم الأردي.",
+  "new": "الصورة التركيّة لاسم «عُثْمَان» العربيّ، وأشهر من حمله عُثمان غازي، مؤسّس الدولة العُثمانيّة.",
+  "count": 2,
+  "reason": "The answer to 'What does the name mean?' is a pasted page description that ends in a promotional sentence about the site. Replaced with the page's own meaning line (JSON-LD and visible FAQ kept identical).",
+  "class": "mistranslation",
+  "scope": "page"
+ },
+ {
+  "file": "ar/names/osman/index.html",
+  "old": "قبيلة قَيِي التركيّة",
+  "new": "قبيلة قايي التركيّة",
+  "count": 1,
+  "reason": "Misspelt tribe name. Arabic sources write قايي (Al Jazeera encyclopedia: https://www.aljazeera.net/encyclopedia/2022/11/1/الدولة-العثمانية-كيف-حول-عثمان-ابن, read 22 Nov 2026).",
+  "class": "spelling",
+  "scope": "page"
+ },
+ {
+  "file": "ar/names/osman/index.html",
+  "old": "والاسم العربيّ من معاني فَرخ الحبارى أو الحيّة الكبيرة في كلام العرب القدماء، رَمز القوّة الهادئة.",
+  "new": "ومن معاني الاسم العربيّ في كلام العرب القدماء: فَرخ الحُبارى، أو فَرخ الحيّة، رَمز القوّة الهادئة.",
+  "count": 1,
+  "reason": "Broken construction ('the Arabic name is from the meanings of...') and a fact that disagrees with the English page: English says 'the young serpent', Arabic said 'the big snake'. The classical dictionaries give فرخ الحبارى and فرخ الثعبان.",
+  "class": "fact",
+  "scope": "page"
+ },
+ {
+  "file": "ar/names/khansa/index.html",
+  "old": "</em>, الخنساء بنت",
+  "new": "</em>: الخنساء بنت",
+  "count": 1,
+  "reason": "H1 punctuation only: Latin comma after the name replaced by a colon.",
+  "class": "grammar",
+  "scope": "page"
+ },
+ {
+  "file": "ar/names/khansa/index.html",
+  "old": "عمرو, شاعرة",
+  "new": "عمرو، شاعرة",
+  "count": 10,
+  "reason": "Latin comma in the meaning text, all repeats.",
+  "class": "grammar",
+  "scope": "page"
+ },
+ {
+  "file": "ar/names/hatice/index.html",
+  "old": "</em>, السيدة",
+  "new": "</em>: السيدة",
+  "count": 1,
+  "reason": "H1 punctuation only: Latin comma after the name replaced by a colon.",
+  "class": "grammar",
+  "scope": "page"
+ },
+ {
+  "file": "ar/names/hatice/index.html",
+  "old": "عنها, أم",
+  "new": "عنها، أم",
+  "count": 8,
+  "reason": "Latin comma in the meaning text, all repeats.",
+  "class": "grammar",
+  "scope": "page"
+ },
+ {
+  "file": "ar/names/hatice/index.html",
+  "old": "رضي الله عنها.",
+  "new": "رضي الله عنها، أم المؤمنين.",
+  "count": 2,
+  "reason": "FAQ answer is a cut-off copy of the page's own meaning line (it drops 'Mother of the Believers'). Restored in JSON-LD and visible FAQ.",
+  "class": "untranslated",
+  "scope": "page"
+ },
+ {
+  "file": "ar/names/hatice/index.html",
+  "old": "<strong>خديجة بنت خويلد</strong>",
+  "new": "<strong>خديجة بنت خويلد رضي الله عنها</strong>",
+  "count": 1,
+  "reason": "Honorific missing in the bearers list although the same page uses it for her elsewhere, and the Zayd page uses it in its bearers list.",
+  "class": "register",
+  "scope": "page"
+ },
+ {
+  "file": "ar/names/fadwa/index.html",
+  "old": "</em>, فِدْوى",
+  "new": "</em>",
+  "count": 1,
+  "reason": "H1 stutter: the name is printed twice in a row ('Fadwa, Fidwa, ...'). Second copy removed. The name inside <em> is untouched.",
+  "class": "grammar",
+  "scope": "page"
+ },
+ {
+  "file": "ar/names/fadwa/index.html",
+  "old": ", الفِداء، التَّضحيَة",
+  "new": ": الفِداء، التَّضحيَة",
+  "count": 8,
+  "reason": "Latin comma in the meaning text, all repeats; a colon separates the word from its gloss.",
+  "class": "grammar",
+  "scope": "page"
+ },
+ {
+  "file": "ar/names/fadwa/index.html",
+  "old": "الجذر: عربي: ف-د-ي (الفِداء). وقراءة",
+  "new": "الجذر: ف-د-ي (الفِداء). وقراءة",
+  "count": 3,
+  "reason": "Doubled label in the three head descriptions ('root: Arabic: f-d-y').",
+  "class": "grammar",
+  "scope": "page"
+ },
+ {
+  "file": "ar/names/fadwa/index.html",
+  "old": "qf-value\">عربي: ف-د-ي (الفِداء).</span>",
+  "new": "qf-value\">ف-د-ي (الفِداء)</span>",
+  "count": 1,
+  "reason": "Same doubled label in the root row (the row is already titled 'Arabic root'), plus a stray full stop.",
+  "class": "grammar",
+  "scope": "page"
+ },
+ {
+  "file": "ar/names/fadwa/index.html",
+  "old": "أُختُ إِبراهيم طوقان وَ زَوجَة الحَركَة الوَطَنيَّة الفِلَسطينيَّة، صاحِبَة",
+  "new": "أُختُ إِبراهيم طوقان، صاحِبَة",
+  "count": 1,
+  "reason": "Says Fadwa Tuqan was 'the wife of the Palestinian national movement'. That is not a fact and not on the English page; it reads as a machine-translation invention. (Sister of Ibrahim Tuqan is confirmed: https://www.ajnet.me/culture/2011/12/16/فدوى-طوقان-ورحلتها-الصعبة.)",
+  "class": "fact",
+  "scope": "page"
+ },
+ {
+  "file": "ar/names/fadwa/index.html",
+  "old": "». وفَدوى مالك، شاعِرَة سُوريَّة.</p>",
+  "new": "».</p>",
+  "count": 1,
+  "reason": "Lists 'Fadwa Malik, a Syrian poet'. Not on the English page and no source found on 22 Nov 2026. House rule: only people with a verifiable source are listed.",
+  "class": "fact",
+  "scope": "page"
+ },
+ {
+  "file": "ar/names/ghada/index.html",
+  "old": "</em>, غادَة",
+  "new": "</em>",
+  "count": 1,
+  "reason": "H1 stutter: the name is printed twice in a row. Second copy removed. The name inside <em> is untouched.",
+  "class": "grammar",
+  "scope": "page"
+ },
+ {
+  "file": "ar/names/ghada/index.html",
+  "old": ", المَرأَة الناعِمَة",
+  "new": ": المَرأَة الناعِمَة",
+  "count": 8,
+  "reason": "Latin comma in the meaning text, all repeats; a colon separates the word from its gloss.",
+  "class": "grammar",
+  "scope": "page"
+ },
+ {
+  "file": "ar/names/luqman/index.html",
+  "old": "</em>, لُقْمان, الحَكيمُ",
+  "new": "</em>: الحَكيمُ",
+  "count": 1,
+  "reason": "H1 stutter and two Latin commas ('Luqman, Luqman, the wise...').",
+  "class": "grammar",
+  "scope": "page"
+ },
+ {
+  "file": "ar/names/luqman/index.html",
+  "old": "لُقمان, رَجلٌ",
+  "new": "لُقمان: رَجلٌ",
+  "count": 7,
+  "reason": "Latin comma in the meaning text, all repeats.",
+  "class": "grammar",
+  "scope": "page"
+ },
+ {
+  "file": "ar/names/luqman/index.html",
+  "old": "الألفُ قائمةٌ، صِلةٌ</span>",
+  "new": "الألفُ قائمةٌ، صِلةٌ بين السماء والأرض، النونُ نُورٌ ورَأفة</span>",
+  "count": 1,
+  "reason": "The letters row is cut off in mid-phrase ('...a link'). Completed with the page's own full sentence from the letters section.",
+  "class": "untranslated",
+  "scope": "page"
+ },
+ {
+  "file": "ar/names/luqman/index.html",
+  "old": "يُعَدّ كَنَزٌ مِن كُنُوز",
+  "new": "تُعَدّ كَنْزاً مِن كُنُوز",
+  "count": 1,
+  "reason": "Three grammar errors in three words: the verb must be feminine (its subject is وصايا), كنز is vocalised wrongly (kanaz), and it must be accusative after تُعَدّ.",
+  "class": "grammar",
+  "scope": "page"
+ },
+ {
+  "file": "ar/names/ahlam/index.html",
+  "old": "</em>, أَحلام",
+  "new": "</em>",
+  "count": 1,
+  "reason": "H1 stutter: the name is printed twice in a row. Second copy removed. The name inside <em> is untouched.",
+  "class": "grammar",
+  "scope": "page"
+ },
+ {
+  "file": "ar/names/ahlam/index.html",
+  "old": ", جَمع حُلم",
+  "new": ": جَمع حُلم",
+  "count": 8,
+  "reason": "Latin comma in the meaning text, all repeats; a colon separates the word from its gloss.",
+  "class": "grammar",
+  "scope": "page"
+ },
+ {
+  "file": "ar/names/ahlam/index.html",
+  "old": "ولينَ الخُلق",
+  "new": "ولينُ الخُلق",
+  "count": 2,
+  "reason": "Wrong case ending: the word is joined to a nominative noun, so it takes damma, not fatha.",
+  "class": "grammar",
+  "scope": "page"
+ },
+ {
+  "file": "ar/names/ahlam/index.html",
+  "old": "ومن الاسم «أَحلام» الكاتبة الجزائريَّة المُعاصرة، رمز الحَنين",
+  "new": "وممّن حمل الاسم الكاتبة الجزائريَّة المُعاصرة أحلام مستغانمي، رمز الحَنين",
+  "count": 1,
+  "reason": "The sentence drops the writer's surname and reads 'from the name Ahlam is the Algerian writer'. The English page names Ahlam Mosteghanemi. Arabic spelling verified: https://www.ajnet.me/encyclopedia/2015/3/15/أحلام-مستغانمي (read 22 Nov 2026).",
+  "class": "untranslated",
+  "scope": "page"
+ },
+ {
+  "file": "ar/names/kainat/index.html",
+  "old": "</em>, الكون.",
+  "new": "</em>: الكون.",
+  "count": 1,
+  "reason": "H1 punctuation only: Latin comma after the name replaced by a colon.",
+  "class": "grammar",
+  "scope": "page"
+ },
+ {
+  "file": "ar/names/kainat/index.html",
+  "old": "كائنات. الكون، الخلق كله. من العشرة الأوائل في باكستان.",
+  "new": "الكون، الخلق كلّه. وهو من أكثر أسماء البنات شيوعاً في باكستان.",
+  "count": 2,
+  "reason": "FAQ answer claims the name is 'in the top ten in Pakistan'. No source, and the English page only says it is one of the most widely used Pakistani girls' names. Reworded to the English claim; the stray repeat of the name at the start is dropped.",
+  "class": "fact",
+  "scope": "page"
+ },
+ {
+  "file": "ar/names/ayyub/index.html",
+  "old": "</em>, نبيّ الصبر, الذي قال له ربّه",
+  "new": "</em>: نبيّ الصبر، الذي قال فيه ربّه",
+  "count": 1,
+  "reason": "H1: two Latin commas, and 'whose Lord said TO him' is wrong. The verse quoted speaks ABOUT him in the third person ('We found him patient'), so the preposition must be فيه.",
+  "class": "mistranslation",
+  "scope": "page"
+ },
+ {
+  "file": "ar/names/ayyub/index.html",
+  "old": "السلام, نبيّ",
+  "new": "السلام، نبيّ",
+  "count": 7,
+  "reason": "Latin comma in the meaning text, all repeats.",
+  "class": "grammar",
+  "scope": "page"
+ },
+ {
+  "file": "ar/names/ayyub/index.html",
+  "old": "في احتمال.",
+  "new": "في احتمال البلاء.",
+  "count": 2,
+  "reason": "FAQ answer is cut off before its last word ('...proverbial in bearing.'). Restored from the page's own meaning line, in JSON-LD and visible FAQ.",
+  "class": "untranslated",
+  "scope": "page"
+ },
+ {
+  "file": "ar/names/ayyub/index.html",
+  "old": "قَرَّبه بعض اللغة",
+  "new": "قَرَّبه بعض أهل اللغة",
+  "count": 1,
+  "reason": "Missing word: 'some of the language linked it' should be 'some linguists', as the same page writes further down.",
+  "class": "grammar",
+  "scope": "page"
+ }
+]
