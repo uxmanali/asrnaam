@@ -13,6 +13,8 @@
   Cache-Control: public, max-age=86400
 /asr-redesign.js
   Cache-Control: public, max-age=86400
+/asr-np.css
+  Cache-Control: public, max-age=86400
 /asr-mobile.css
   Cache-Control: public, max-age=86400
 /asr-enhance.css

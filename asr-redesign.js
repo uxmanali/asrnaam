@@ -189,7 +189,7 @@
 
   function wirePlay(host) {
     if (!host || host.querySelector('.rd-play')) return;
-    if (!speakable()) return;
+    if (!speakable()) { host.classList.add('rd-noplay'); return; } // releases the space new pages hold for this button
     var entry = nameEntryFromPage();
     var audio = document.querySelector('audio[src]');
     var btn = document.createElement('button');

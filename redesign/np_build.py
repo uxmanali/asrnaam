@@ -27,7 +27,7 @@ for _f in (os.listdir('redesign/pilot') if os.path.isdir('redesign/pilot') else 
         PILOT[_f[:-5]] = json.load(open('redesign/pilot/' + _f, encoding='utf8'))
 FINAL = '--final' in sys.argv   # production build: no review tags
 DRAFT = '' if FINAL else '<span class="np-draft">New, for your review</span>'
-VER = '20261122t'   # version tag for asr-redesign.css and asr-redesign.js on migrated pages
+VER = '20261122u'   # version tag for asr-redesign.css and asr-redesign.js on migrated pages
 
 
 def div_end(s, i):
@@ -438,6 +438,10 @@ def build(h, slug):
     if blocks['QURANIC'] and text_of(blocks['QURANIC']):
         raise Skip('second QURANIC block has text')
     new_body = '\n' + '\n'.join(out) + '\n'
+    # the np- rules style every moved block, so the old style blocks and inline styles inside the article are dead weight;
+    # a style that picks an Arabic or Urdu typeface stays
+    new_body = re.sub(r'<style\b.*?</style>', '', new_body, flags=re.S)
+    new_body = re.sub(r' style="([^"]*)"', lambda m: m.group(0) if re.search(r'Amiri|Naskh|Nastaliq', m.group(1)) else '', new_body)
     # version the two changed files on this page, so a stored copy of the old stylesheet can never be used with the new markup
     pre = re.sub(r'(asr-redesign\.(?:css|js)\?v=)[0-9a-z]+', r'\g<1>' + VER, pre)
     post = re.sub(r'(asr-redesign\.(?:css|js)\?v=)[0-9a-z]+', r'\g<1>' + VER, post)
@@ -446,7 +450,11 @@ def build(h, slug):
     switch = ('<div class="np-mode" role="group" aria-label="Who are you reading for">'
               '<button type="button" class="np-mode-b" data-np-mode="me" aria-pressed="true">This is my name</button>'
               '<button type="button" class="np-mode-b" data-np-mode="baby" aria-pressed="false">I\'m naming a baby</button></div>')
-    page = page.replace('<!-- ASR:BREADCRUMB:START -->', '<div class="np-crumbrow"><!-- ASR:BREADCRUMB:START -->', 1)
+    # the page's own stylesheet loads here, in the body after the site header: the header never waits for it,
+    # and pages that are not migrated never fetch it
+    if '<!-- ASR:BREADCRUMB:START -->' not in page:
+        raise Skip('no breadcrumb marker')
+    page = page.replace('<!-- ASR:BREADCRUMB:START -->', f'<link rel="stylesheet" href="/asr-np.css?v={VER}"><div class="np-crumbrow"><!-- ASR:BREADCRUMB:START -->', 1)
     page = page.replace('<!-- ASR:BREADCRUMB:END -->', '<!-- ASR:BREADCRUMB:END -->' + switch + '</div>', 1)
     return page, dict(old_hero=old_hero, rail=rail, bearers=nb, letters=len(gl), pilot=bool(pilot))
 
