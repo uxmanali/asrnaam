@@ -140,6 +140,13 @@ def check_pair(old, new, loc):
     own = re.search(r'<div class="dev-name">([^<]+)</div>', old)
     if dn and (not own or H.unescape(dn.group(1)) != H.unescape(own.group(1))):
         fails.append('data-l-name is not the page name')
+    # listed repairs: the old article did not balance its <div> tags (see repair_divs in the builder); the new one must
+    art = lambda s: s[s.index('<article'):s.index('</article>')] if '<article' in s and '</article>' in s else ''
+    bal = lambda s: len(re.findall(r'<div\b', s)) - s.count('</div>')
+    if bal(art(old)):
+        notes.append('fixed markup: the old article ' + ('never closed its language bar' if bal(art(old)) > 0 else 'had a stray closing tag after the letter grid') + '; the new page balances')
+    if bal(art(new)):
+        fails.append('the new article does not balance its div tags')
     st = len(re.findall(r' style="', ob)) - len(re.findall(r' style="', nb))
     if st:
         notes.append(f'inline styles dropped: {st}')

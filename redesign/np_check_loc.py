@@ -16,7 +16,7 @@ import re, sys, os, json, subprocess, html as H
 from collections import Counter
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from np_build import ABJAD
+from np_build import ABJAD, div_end
 
 VERBOSE = '-v' in sys.argv
 
@@ -138,13 +138,50 @@ def check_pair(old, new, L, pilot):
         pre = re.sub(r'<div class="np-mode".*?</div>', '', pre, flags=re.S)
         pre = pre.replace('<div class="np-crumbrow">', '')
         pre = re.sub(r'(<div class="breadcrumb".*?</div>)</div>', r'\1', pre, flags=re.S) if 'np-crumbrow' in h else pre
+        pre = re.sub(r'(<nav class="breadcrumb".*?</nav>)</div>', r'\1', pre, flags=re.S) if 'np-crumbrow' in h else pre
         return ver(re.sub(r'\s+', ' ', pre)).strip(), ver(re.sub(r'\s+', ' ', post)).strip()
-    if outside(old) != outside(new):
-        a, b = outside(old), outside(new)
+    # The older Arabic pages keep the language bar, and some the related names, after </article>. The builder moves them
+    # into the article. That is allowed only for exactly those two blocks, and only when the new page still carries their
+    # links and words (the text-lost and link-lost checks below see to that); it is reported as a listed repair.
+    old_cmp = old
+    a_end = old.find('</article>')
+    if a_end >= 0:
+        after = old[a_end + len('</article>'):]
+        moved = []
+        m = re.match(r'\s*<!-- AR-RELATED:START -->\s*(?=<div class="related-section")', after)
+        if m and 'class="related-section"' in new[new.index('<article'):new.index('</article>')]:
+            m2 = re.match(r'\s*<!-- AR-RELATED:END -->', after[div_end(after, m.end()):])
+            if m2:
+                after = after[div_end(after, m.end()) + m2.end():]
+                moved.append('related names')
+        m = re.match(r'\s*<section class="asr-v2 asr-crosslang">.*?</section>', after, re.S)
+        if m and 'class="asr-name-hero-langs"' in new:
+            after = after[m.end():]
+            moved.append('language bar')
+        if moved:
+            old_cmp = old[:a_end + len('</article>')] + after
+            notes.append('fixed markup: ' + ' and '.join(moved) + ' sat after </article> on the old page; now inside the article')
+    if outside(old_cmp) != outside(new):
+        a, b = outside(old_cmp), outside(new)
         k = 0 if a[0] != b[0] else 1
         i = next((i for i, (x, y) in enumerate(zip(a[k], b[k])) if x != y), min(len(a[k]), len(b[k])))
         errs.append(f'page outside the article differs ({"before" if k == 0 else "after"} it) near: {b[k][max(0, i - 40):i + 60]}')
 
+    # ---- an old section that holds a heading and nothing else is left out of the new page (hide, never fill)
+    for m in re.finditer(r'<section class="asr-v2 ([a-z0-9-]+)"[^>]*>(.*?)</section>', old, re.S):
+        inner = m.group(2)
+        k = re.search(r'<p class="asr-v2-kicker">(.*?)</p>', inner, re.S)
+        t = re.search(r'<h2 class="asr-v2-title">(.*?)</h2>', inner, re.S)
+        rest = inner
+        for x in (k, t):
+            if x:
+                rest = rest.replace(x.group(0), '', 1)
+        rest = re.sub(r'<div class="asr-mq">.*?</div>', '', rest, flags=re.S)      # the Islamic-name box is placed on its own
+        if t and not tx(strip(rest)):
+            gone_ok += [tx(t.group(1))] + ([tx(k.group(1))] if k else [])
+            notes.append('fixed markup: empty section left out (heading with no text under it): ' + tx(t.group(1)))
+    if re.search(r'<section class="asr-v2 asr-crosslang"><p class="prose">(?:(?!</p>).)*</section>', old, re.S):
+        notes.append('fixed markup: the language bar paragraph was never closed on the old page; closed')
     # ---- text lost
     tv = vis(new)
     knum = re.compile(L['kicker_number'])
@@ -167,15 +204,18 @@ def check_pair(old, new, L, pilot):
     sn = [tx(x) for x in re.findall(r'<summary[^>]*>(.*?)</summary>', new, re.S)]
     if so != sn or old.count('<details') != new.count('<details'):
         errs.append(f'FAQ items changed ({len(so)} -> {len(sn)})')
-    if new.count('class="faq-list"') != 1:
-        errs.append('faq-list count is not 1')
+    has_faq = '<details' in old
+    if new.count('class="faq-list"') != (1 if has_faq else 0):
+        errs.append('faq-list count is not ' + ('1' if has_faq else '0 (the old page has no FAQ)'))
+    if not has_faq:
+        notes.append('note: the old page has no FAQ, so the new page has none and no ad anchor after one')
     lo = Counter(re.findall(r'href="(/[^"]*)"', old[old.find('<body'):]))
     ln = Counter(re.findall(r'href="(/[^"]*)"', new[new.find('<body'):]))
     lo.pop('/asr-np.css', None)
     miss = [u for u in lo if u not in ln and not any(u in fx['old'] for fx in pilot.get('fixes', []))]
     if miss:
         errs.append('internal link lost: ' + ', '.join(miss[:4]))
-    for a in ['class="asr-answer', 'id="reading"', 'class="faq-list"']:
+    for a in ['class="asr-answer', 'id="reading"'] + (['class="faq-list"'] if has_faq else []):
         if a not in new:
             errs.append('ad anchor missing ' + a)
     if new.count('<article') != 1 or new.count('</article>') != 1:

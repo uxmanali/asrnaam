@@ -77,6 +77,29 @@ def qf_rows(qf):
         i = j
 
 
+XL_OPEN = re.compile(r'<div class="crosslang">[^<]*(?:<a [^>]*>[^<]*</a>[^<]*)+</div>$')
+
+
+def repair_divs(content):
+    """Two faults of the old markup, each repaired only in the exact shape seen on the pages and reported by the check.
+    1. The language bar lost its own closing tag (the pages that carry a Turkish link): the one </div> left closes the bar,
+       so the content wrapper is never closed. The missing tag is supplied.
+    2. One stray </div> directly after the letter grid. It is dropped.
+    Anything else that does not balance is left for the caller to refuse."""
+    repairs = []
+    diff = len(re.findall(r'<div\b', content)) - content.count('</div>')
+    if diff == 1 and XL_OPEN.search(content):
+        content += '</div>'
+        repairs.append('language bar had no closing tag: supplied')
+    elif diff == -1 and content.count('<div class="hi-letter-grid">') == 1:
+        g0 = content.index('<div class="hi-letter-grid">')
+        g1 = div_end(content, g0)
+        if content.startswith('</div>', g1):
+            content = content[:g1] + content[g1 + len('</div>'):]
+            repairs.append('stray closing tag after the letter grid: dropped')
+    return content, repairs
+
+
 def nostyle(x):
     """inline styles go (the np- rules style every moved block); one that picks an Arabic or Urdu typeface stays"""
     return re.sub(r' style="([^"]*)"', lambda m: m.group(0) if re.search(r'Amiri|Naskh|Nastaliq', m.group(1)) else '', x)
@@ -101,6 +124,7 @@ def build(h, loc, slug):
     if not m:
         raise Skip('hero or content wrapper not in the expected shape')
     ar_name, own_name, badge, h1, content = m.groups()
+    content, repairs = repair_divs(content)
     if div_end(content, 0) != len(content):
         raise Skip('content wrapper does not close where expected')
     ns = nodes(content[len('<div class="content">'):-len('</div>')])
@@ -288,7 +312,7 @@ def build(h, loc, slug):
     pre = pre.replace(bc.group(0), f'<link rel="stylesheet" href="/asr-np.css?v={VER}"><link rel="stylesheet" href="/asr-np-hitr.css?v={VER}"><div class="np-crumbrow">{crumb}</div>', 1)
     ver = lambda s: re.sub(r'(asr-redesign\.(?:css|js)\?v=)[0-9a-z]+', r'\g<1>' + VER, s)
     page = ver(pre) + art + new_body + ver(post)
-    info = dict(sections=[s for s in ('reading', 'origin', 'story', 'faq', 'more') if f'id="{s}"' in new_body], letters=len(gl),
+    info = dict(repairs=repairs, sections=[s for s in ('reading', 'origin', 'story', 'faq', 'more') if f'id="{s}"' in new_body], letters=len(gl),
                 lucky_work=bool(work), pron='pron' in B, faqs=len(B['faq'][2]), strip=[rows[r][0] for r in order if r not in L['cards'] and r != 'lucky'])
     return page, info
 

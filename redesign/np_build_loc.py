@@ -43,16 +43,43 @@ def to_int(s):
 
 
 def sections(layout):
-    """the <section class="asr-v2 ..."> blocks of the old layout, in page order, keyed by their second class"""
-    out, rest = {}, layout
+    """the <section class="asr-v2 ..."> blocks of the old layout, in page order, keyed by their second class.
+    Person pages carry several biography sections (asr-v2-bio), each with its own heading and text: those come back
+    as a list, in page order. Any other section may appear once."""
+    out, bios, rest = {}, [], layout
     for m in re.finditer(r'<section class="asr-v2 ([a-z0-9-]+)"[^>]*>.*?</section>', layout, re.S):
         if '<section' in m.group(0)[8:]:
             raise Skip('nested section in ' + m.group(1))
-        if m.group(1) in out:
+        if m.group(1) == 'asr-v2-bio':
+            if any(text_of(m.group(0)) == text_of(b) for b in bios):
+                raise Skip('biography section repeated with the same text')
+            bios.append(m.group(0))
+        elif m.group(1) in out:
             raise Skip('section twice: ' + m.group(1))
-        out[m.group(1)] = m.group(0)
+        else:
+            out[m.group(1)] = m.group(0)
         rest = rest.replace(m.group(0), '', 1)
-    return out, rest
+    return out, bios, rest
+
+
+LOOSE = re.compile(r'<p class="section-label"[^>]*>(.*?)</p>\s*<h2[^>]*>(.*?)</h2>\s*(?=<div class="prose">)', re.S)
+
+
+def loose_blocks(body, L):
+    """the older Arabic pages have no layout wrapper: their sections are a label, a heading and a text box in a row.
+    Returns [(role, label, heading, text box)] in page order and the body without them. A label that is not listed
+    in the locale file under "loose" is not guessed at."""
+    out = []
+    while True:
+        m = LOOSE.search(body)
+        if not m:
+            return out, body
+        box, _ = cut_div(body, m.end())
+        role = L.get('loose', {}).get(text_of(m.group(1)))
+        if not role:
+            raise Skip('loose section label not understood: ' + text_of(m.group(1))[:40])
+        out.append((role, m.group(1), m.group(2), box))
+        body = body[:m.start()] + body[m.end() + len(box):]
 
 
 def parts(sec, L):
@@ -125,7 +152,10 @@ def build(h, loc, slug):
 
     # ---- quick facts
     qf = re.search(r'<aside class="quick-facts"([^>]*)>(.*?)</aside>', body, re.S)
-    if not qf or body.count('<aside class="quick-facts"') != 1:
+    if not qf and body.count('<div class="quick-facts">') == 1:      # the Arabic person pages use a <div> for the same box
+        q0 = body.index('<div class="quick-facts">')
+        qf = re.compile(r'<div class="quick-facts"([^>]*)>(.*)</div>', re.S).fullmatch(body, q0, div_end(body, q0))
+    if not qf or body.count('class="quick-facts"') != 1:
         raise Skip('quick facts count')
     body = body.replace(qf.group(0), '', 1)
     qf_aria = re.search(r'aria-label="([^"]*)"', qf.group(1))
@@ -149,28 +179,92 @@ def build(h, loc, slug):
         name = text_of(rows[L['name_row']][1])
 
     # ---- old layout sections
-    if body.count('<div class="asr-layout-v2">') != 1:
+    repairs = []            # faults of the old markup that the new page does not carry over; the check reports each
+    mq_loose, tail, more_syn, bios = '', '', [], []
+    n_layout = body.count('<div class="asr-layout-v2">')
+    if n_layout == 1:
+        layout, body = cut_div(body, body.index('<div class="asr-layout-v2">'))
+        secs, bio_secs, lrest = sections(layout)
+        lrest = COMMENT.sub('', DIV.sub('', lrest))
+        if lrest.count('<div class="asr-mq">') == 1 and not any('<div class="asr-mq">' in x for x in secs.values()):
+            # the "is it an Islamic name" box sits between two sections on some Arabic pages, not inside the first one
+            mq_loose, lrest = cut_div(lrest, lrest.index('<div class="asr-mq">'))
+        if text_of(lrest):
+            raise Skip('unplaced layout content: ' + text_of(lrest)[:60])
+        unknown = set(secs) - {'asr-v2-root', 'asr-v2-letters', 'asr-v2-synthesis', 'asr-v2-dict', 'asr-v2-bearers', 'asr-v2-pron', 'asr-v2-variants', 'asr-faq', 'asr-crosslang'}
+        if unknown:
+            raise Skip('section not understood: ' + ', '.join(sorted(unknown)))
+        for need in ('asr-v2-letters', 'asr-faq'):
+            if need not in secs:
+                raise Skip('page lacks ' + need)
+        rk, rt, rbody = parts(secs.get('asr-v2-root'), L)
+        lk, lt, lbody = parts(secs.get('asr-v2-letters'), L)
+        sk, st, sbody = parts(secs.get('asr-v2-synthesis'), L)
+        dk, dt, dbody = parts(secs.get('asr-v2-dict'), L)
+        bk, bt, bbody = parts(secs.get('asr-v2-bearers'), L)
+        pk, pt, pbody = parts(secs.get('asr-v2-pron'), L)
+        vk, vt, vbody = parts(secs.get('asr-v2-variants'), L)
+        _, ft, fbody = parts(secs['asr-faq'], L)
+        _, _, cbody = parts(secs.get('asr-crosslang'), L)
+        for b in bio_secs:
+            k0, t0, b0 = parts(b, L)
+            if not t0 or not text_of(b0):
+                raise Skip('biography section without a heading or without text')
+            bios.append((k0, t0, b0))
+    elif n_layout == 0:
+        # the older Arabic pages: one letters section, the Islamic-name box, then label + heading + text box in a row,
+        # closing links, and the language bar after </article>. They carry no FAQ.
+        if body.count('<section class="asr-v2 asr-v2-letters">') != 1 or body.count('<section') != 1:
+            raise Skip('older page: letters section count')
+        m = re.search(r'<section class="asr-v2 asr-v2-letters">.*?</section>', body, re.S)
+        lk, lt, lbody = parts(m.group(0), L)
+        body = body.replace(m.group(0), '', 1)
+        if body.count('<div class="asr-mq">') != 1:
+            raise Skip('older page: Islamic-name box count')
+        mq_loose, body = cut_div(body, body.index('<div class="asr-mq">'))
+        if body.count('<div class="cta-row">') == 1:
+            tail, body = cut_div(body, body.index('<div class="cta-row">'))
+        else:
+            m = re.search(r'<aside\b[^>]*>\s*<p>(?:(?!</p>).)*</p>\s*</aside>', body, re.S)
+            if m and body.count('<aside') == 1:
+                tail, body = m.group(0), body.replace(m.group(0), '', 1)
+        if not re.search(r'<a [^>]*href=', tail):
+            raise Skip('older page: closing links not found')
+        blocks, body = loose_blocks(body, L)
+        by = {}
+        for role, lab, ttl, box in blocks:
+            by.setdefault(role, []).append((lab, ttl, box))
+        if any(len(by.get(r, [])) > 1 for r in ('dict', 'root')):
+            raise Skip('older page: a section appears twice')
+        dk, dt, dbody = by['dict'][0] if 'dict' in by else ('', '', '')
+        rk, rt, rbody = by['root'][0] if 'root' in by else ('', '', '')
+        syn = by.get('syn', [])
+        sk, st, sbody = syn[0] if syn else ('', '', '')
+        more_syn = syn[1:]
+        bios = by.get('bio', [])
+        bk = bt = bbody = pk = pt = pbody = vk = vt = vbody = ft = fbody = ''
+        # after </article>: on some pages the related names (between their markers), then the language bar
+        after = post[len('</article>'):]
+        k = len(after) - len(after.lstrip())
+        if after.startswith('<!-- AR-RELATED:START -->', k):
+            r0 = after.index('<div class="related-section"', k) if '<div class="related-section"' in after else -1
+            if r0 < 0 or after[k + len('<!-- AR-RELATED:START -->'):r0].strip():
+                raise Skip('older page: related names after the article not understood')
+            r1 = div_end(after, r0)
+            m = re.match(r'\s*<!-- AR-RELATED:END -->', after[r1:])
+            if not m:
+                raise Skip('older page: related names after the article not closed by their marker')
+            body += after[r0:r1]
+            after = after[:k] + after[r1 + m.end():]
+            repairs.append('related names moved from after the article into it')
+        m = re.match(r'\s*(<section class="asr-v2 asr-crosslang">(.*?)</section>)', after, re.S)
+        if not m:
+            raise Skip('older page: language bar not found right after the article')
+        cbody = m.group(2)
+        post = '</article>' + after[m.end():]
+        repairs.append('language bar moved from after the article into the hero')
+    else:
         raise Skip('layout count')
-    layout, body = cut_div(body, body.index('<div class="asr-layout-v2">'))
-    secs, lrest = sections(layout)
-    lrest = COMMENT.sub('', DIV.sub('', lrest))
-    if text_of(lrest):
-        raise Skip('unplaced layout content: ' + text_of(lrest)[:60])
-    unknown = set(secs) - {'asr-v2-root', 'asr-v2-letters', 'asr-v2-synthesis', 'asr-v2-dict', 'asr-v2-bearers', 'asr-v2-pron', 'asr-v2-variants', 'asr-faq', 'asr-crosslang'}
-    if unknown:
-        raise Skip('section not understood: ' + ', '.join(sorted(unknown)))
-    for need in ('asr-v2-letters', 'asr-faq'):
-        if need not in secs:
-            raise Skip('page lacks ' + need)
-    rk, rt, rbody = parts(secs.get('asr-v2-root'), L)
-    lk, lt, lbody = parts(secs.get('asr-v2-letters'), L)
-    sk, st, sbody = parts(secs.get('asr-v2-synthesis'), L)
-    dk, dt, dbody = parts(secs.get('asr-v2-dict'), L)
-    bk, bt, bbody = parts(secs.get('asr-v2-bearers'), L)
-    pk, pt, pbody = parts(secs.get('asr-v2-pron'), L)
-    vk, vt, vbody = parts(secs.get('asr-v2-variants'), L)
-    _, ft, fbody = parts(secs['asr-faq'], L)
-    _, _, cbody = parts(secs.get('asr-crosslang'), L)
 
     # ---- related names (wrapped on the Urdu pages, loose on the Arabic pages) and what is left
     rest = body
@@ -193,8 +287,10 @@ def build(h, loc, slug):
         raise Skip('unplaced content: ' + (text_of(rest) or rest.strip())[:60])
 
     # ---- pieces
-    mq = ''
+    mq = mq_loose
     if '<div class="asr-mq">' in rbody:
+        if mq:
+            raise Skip('two Islamic-name boxes')
         mq, rbody = cut_div(rbody, rbody.index('<div class="asr-mq">'))
     bbody = nostyle(bbody)
     def person_li(pp):
@@ -243,6 +339,10 @@ def build(h, loc, slug):
     out = []
     # hero: the same markup as the English hero, with the page's own texts
     cl = re.search(r'<p class="prose">(.*?)</p>', cbody, re.S)
+    if cbody and not cl:
+        cl = re.fullmatch(r'<p class="prose">([^<]*(?:<a [^>]*>[^<]*</a>[^<]*)+)', cbody.strip(), re.S)
+        if cl:
+            repairs.append('language bar paragraph had no closing tag: closed')
     out.append(f'<header class="asr-name-hero">'
                + (f'<p class="asr-name-hero-kicker">{badge.group(1).strip()}</p>' if badge else '')
                + f'<div class="asr-name-hero-arabic"{ar_attrs}>{ar.group(2)}</div><h1 class="asr-name-hero-roman">{h1.group(1)}</h1>'
@@ -265,11 +365,17 @@ def build(h, loc, slug):
         prow += f'<div class="r"><dt>{rows["pron"][0]}</dt><dd dir="ltr" lang="en">{rows["pron"][1]}</dd></div>'
     if 'root' in rows:
         prow += f'<div class="r"><dt>{rows["root"][0]}</dt><dd>{rows["root"][1]}</dd></div>'
+    for k2 in rows:
+        if k2.startswith('x_'):     # further facts of a person page (dates, region, field), in page order
+            prow += f'<div class="r"><dt>{rows[k2][0]}</dt><dd>{rows[k2][1]}</dd></div>'
     pron_box = ''
     if pbody:
-        if not pbody.startswith('<div class="asr-pron"') or div_end(pbody, 0) != len(pbody):
+        if re.fullmatch(r'<p>[^<]+</p>', pbody):
+            pron_box = f'<div class="np-pron-note">{pbody}</div>'      # a single plain sentence, kept as it is
+        elif not pbody.startswith('<div class="asr-pron"') or div_end(pbody, 0) != len(pbody):
             raise Skip('pronunciation block not understood')
-        pron_box = nostyle(pbody.replace('<div class="asr-pron"', '<div class="asr-pron asr-pronunciation"', 1))
+        else:
+            pron_box = nostyle(pbody.replace('<div class="asr-pron"', '<div class="asr-pron asr-pronunciation"', 1))
     pron = ''
     if prow or pron_box:
         pron = ('<section class="np-pron"' + (' aria-labelledby="np-pron-h"' if pt else '') + '>'
@@ -291,6 +397,7 @@ def build(h, loc, slug):
     if sbody or 'iuh' in rows:
         portrait = ('<div class="np-portrait">'
                     + (f'<p class="rd-kicker">{sk}</p>' if sk else '') + (f'<h3 class="np-h3">{st}</h3>' if st else '') + sbody
+                    + ''.join(f'<p class="rd-kicker">{k2}</p><h3 class="np-h3">{t2}</h3>{b2}' for k2, t2, b2 in more_syn)
                     + (f'<p class="rd-kicker">{rows["iuh"][0]}</p><div class="prose"><p>{rows["iuh"][1]}</p></div>' if 'iuh' in rows else '') + '</div>')
     lucky = lucky_card(gl, rows, fbody, L)
     g.append(f'<section id="reading" class="np-sec np-letters"><p class="rd-kicker">{n()} · {lk}</p><h2 class="rd-h2">{lt}</h2>{lbody}'
@@ -303,6 +410,8 @@ def build(h, loc, slug):
         return f'<li class="np-stop"><div class="np-stop-h"><span class="np-stop-t">{title}</span></div>{inner}</li>'
     if text_of(rbody):
         stops.append(stop(rk, rbody))
+    elif rt:
+        repairs.append('empty section left out (a heading with no text under it): ' + text_of(rt))
     if text_of(vbody):
         stops.append(stop(vk, (f'<h3 class="np-h3">{vt}</h3>' if vt else '') + nostyle(vbody)))
     if stops:
@@ -321,6 +430,11 @@ def build(h, loc, slug):
         g.append(f'<section id="story" class="np-sec np-story"><p class="rd-kicker">{n()} · {dk or bk}</p>'
                  f'<h2 class="rd-h2">{dt or bt}</h2>{dbody}{story_bearers}</section>')
         jumps.append(('story', dk or bk))
+    # person pages: the biography sections, each under its own heading, in page order
+    if bios:
+        g.append('<section id="bio" class="np-sec np-story np-bio">'
+                 + ''.join((f'<p class="rd-kicker">{k2}</p>' if k2 else '') + f'<h2 class="rd-h2">{t2}</h2>{b2}' for k2, t2, b2 in bios) + '</section>')
+        jumps.append(('bio', bios[0][0] or bios[0][1]))
     # parent kit: pronunciation, a surname test, related names (only the surname test is new)
     rel_links = re.findall(r'<a href="(/' + loc + r'/names/([a-z0-9-]+)/)" class="related-card">(?:<span class="related-name">)?([^<]+)', related)
     if kit_on:
@@ -345,14 +459,17 @@ def build(h, loc, slug):
                  f'<div class="np-kit-grid np-baby">{"".join(kit)}</div></section>')
         jumps.append(('kit', T['kit_kicker']))
     # questions: the page's own heading and items, in the bordered list the ad script anchors on
-    fleft = re.sub(r'<details class="asr-faq-item">.*?</details>', '', fbody, flags=re.S)
-    if text_of(fleft) or not ft:
-        raise Skip('FAQ block not understood')
-    items = ''.join(re.findall(r'<details class="asr-faq-item">.*?</details>', fbody, re.S))
-    g.append(f'<section id="faq" class="np-sec np-faq"><h2>{ft}</h2><div class="faq-list">{items}</div></section>')
-    jumps.append(('faq', ft))
+    if n_layout:
+        fleft = re.sub(r'<details class="asr-faq-item">.*?</details>', '', fbody, flags=re.S)
+        if text_of(fleft) or not ft:
+            raise Skip('FAQ block not understood')
+        items = ''.join(re.findall(r'<details class="asr-faq-item">.*?</details>', fbody, re.S))
+        g.append(f'<section id="faq" class="np-sec np-faq"><h2>{ft}</h2><div class="faq-list">{items}</div></section>')
+        jumps.append(('faq', ft))
     if related:
         g.append(f'<section class="np-sec np-more"><h2 class="rd-h2">{rel_label}</h2><div class="related-section">{related}</div></section>')
+    if tail:
+        g.append(f'<div class="np-sec np-tail">{tail}</div>')
     out.insert(len(out), f'<div class="np-jump" role="navigation" aria-label="{T["jump_aria"]}"><div class="np-jump-in">'
                + ''.join(f'<a href="#{i}">{t}</a>' for i, t in jumps) + '</div></div>')
     out.append(f'<div class="np-grid">{"".join(g)}</div>')
@@ -369,10 +486,14 @@ def build(h, loc, slug):
     if not closed:
         post = '</article>\n' + post
     # breadcrumb row with the mode switch; the page's own stylesheet loads here, after the site header
-    if pre.count('<div class="breadcrumb"') != 1:
+    if pre.count('<div class="breadcrumb"') == 1:
+        b0 = pre.index('<div class="breadcrumb"')
+        crumb = pre[b0:div_end(pre, b0)]
+    elif pre.count('<div class="breadcrumb"') == 0 and pre.count('<nav class="breadcrumb"') == 1:
+        b0 = pre.index('<nav class="breadcrumb"')       # the person pages mark the same row up as a <nav>
+        crumb = pre[b0:pre.index('</nav>', b0) + len('</nav>')]
+    else:
         raise Skip('breadcrumb count')
-    b0 = pre.index('<div class="breadcrumb"')
-    crumb = pre[b0:div_end(pre, b0)]
     switch = ''
     if kit_on:
         switch = (f'<div class="np-mode" role="group" aria-label="{T["mode_aria"]}">'
@@ -381,7 +502,7 @@ def build(h, loc, slug):
     preload = ''.join(f'<link rel="preload" href="{f}" as="font" type="font/woff2" crossorigin>' for f in L.get('preload_fonts', []))
     pre = pre.replace(crumb, f'{preload}<link rel="stylesheet" href="/asr-np.css?v={VER}"><link rel="stylesheet" href="/asr-np-rtl.css?v={VER}"><div class="np-crumbrow">{crumb}{switch}</div>', 1)
     page = pre + new_body + post
-    return page, dict(famous=famous, bearers=nb, letters=len(gl), lucky=bool(lucky), pilot=sorted(pilot), ignored_pilot_keys=ignored, article_closed_by_builder=not closed)
+    return page, dict(famous=famous, bearers=nb, letters=len(gl), lucky=bool(lucky), pilot=sorted(pilot), ignored_pilot_keys=ignored, article_closed_by_builder=not closed, repairs=repairs)
 
 
 def lucky_card(gl, rows, fbody, L):
